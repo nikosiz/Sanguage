@@ -4,10 +4,9 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
-    tools:context=".MainActivity"
     android:background="#83cee5"
-    >
+    android:orientation="vertical"
+    tools:context=".MainActivity">
 
     <TextView
         android:layout_width="match_parent"
@@ -38,8 +37,6 @@
         android:contentDescription="@string/mascot"
         android:padding="70dp"
         android:src="@drawable/ic_mascot" />
-
-
 
 
     <androidx.cardview.widget.CardView

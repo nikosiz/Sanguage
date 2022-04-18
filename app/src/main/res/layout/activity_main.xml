@@ -17,7 +17,7 @@
         android:fontFamily="@font/fredoka_one"
         android:gravity="center"
         android:text="@string/sanguage"
-        android:textColor="#546E7A"
+        android:textColor="@color/white"
         android:textSize="60sp"
         android:textStyle="bold" />
 
@@ -27,7 +27,7 @@
         android:fontFamily="@font/open_sans_bold"
         android:gravity="center"
         android:text="@string/with_all_the_basic_ingredients"
-        android:textColor="#5E35B1"
+        android:textColor="@color/white"
         android:textSize="12sp"
         android:textStyle="bold" />
 

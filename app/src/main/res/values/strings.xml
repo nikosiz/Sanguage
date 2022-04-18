@@ -1,0 +1,12 @@
+<resources>
+    <string name="app_name">SanguageLogIn</string>
+    <string name="sign_in_btn">SignInButton</string>
+    <string name="sign_up_btn">SignUpButton</string>
+    <string name="sign_in">Sign In</string>
+    <string name="sign_up">Sign Up</string>
+    <string name="skip_btn">skip</string>
+    <string name="mascot">mascot</string>
+    <string name="skip">skip</string>
+    <string name="sanguage">Sanguage</string>
+    <string name="create_an_account_to_make_sure_your_progress_nwon_t_be_lost">Create an account to make sure your progress \nwon\'t be lost!</string>
+</resources>

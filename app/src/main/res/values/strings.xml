@@ -9,4 +9,10 @@
     <string name="skip">skip</string>
     <string name="sanguage">Sanguage</string>
     <string name="create_an_account_to_make_sure_your_progress_nwon_t_be_lost">Create an account to make sure your progress \nwon\'t be lost!</string>
+    <string name="username">Username</string>
+    <string name="email_address">Email Address</string>
+    <string name="password">Password</string>
+    <string name="create_account">Create account</string>
+    <string name="mascot_img">Mascot image</string>
+    <string name="choose_your_target_language">Choose your target language:</string>
 </resources>

@@ -36,7 +36,6 @@
             android:background="@color/transparent" />
 
 
-
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -74,21 +73,20 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:orientation="vertical"
-                android:padding="40dp"
                 android:gravity="center"
-                >
+                android:orientation="vertical"
+                android:padding="40dp">
 
                 <RelativeLayout
                     android:layout_width="match_parent"
                     android:layout_height="100dp"
-                    android:layout_marginBottom="20dp"
-                    >
+                    android:layout_marginBottom="20dp">
 
                     <ImageView
                         android:layout_width="100dp"
                         android:layout_height="match_parent"
                         android:layout_centerInParent="true"
+                        android:contentDescription="@string/mascot_img"
                         android:src="@drawable/ic_mascot">
 
                     </ImageView>
@@ -99,47 +97,122 @@
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="Username"
+                    android:text="@string/username"
                     android:textColor="@color/colorAccent"
                     android:textSize="16sp"
-                    android:textStyle="bold"/>
+                    android:textStyle="bold"
+                    tools:ignore="TextContrastCheck" />
+
 
                 <EditText
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:textSize="16sp"
-                    />
+                    android:importantForAutofill="no"
+                    android:minHeight="48dp"
+                    android:textSize="16sp" />
 
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="Email Address"
+                    android:text="@string/email_address"
                     android:textColor="@color/colorAccent"
                     android:textSize="16sp"
-                    android:textStyle="bold"/>
+                    android:textStyle="bold"
+                    tools:ignore="TextContrastCheck" />
 
                 <EditText
+                    android:id="@+id/editTextTextEmailAddress"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:textSize="16sp"
-                    />
+                    android:ems="10"
+                    android:importantForAutofill="no"
+                    android:inputType="textEmailAddress"
+                    android:minHeight="48dp"
+                    android:textSize="16sp" />
 
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="Password"
+                    android:text="@string/password"
                     android:textColor="@color/colorAccent"
                     android:textSize="16sp"
-                    android:textStyle="bold"/>
+                    android:textStyle="bold"
+                    tools:ignore="TextContrastCheck" />
 
                 <EditText
+                    android:id="@+id/editTextTextPassword"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:textSize="16sp"
-                    />
+                    android:ems="10"
+                    android:importantForAutofill="no"
+                    android:inputType="textPassword"
+                    android:minHeight="48dp"
+                    android:outlineAmbientShadowColor="#FF0000"
+                    android:textSize="16sp" />
 
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/choose_your_target_language"
+                    android:textColor="@color/colorAccent"
+                    android:textStyle="bold">
+
+                </TextView>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:orientation="horizontal">
+
+                    <Button
+                        android:id="@+id/learn_english"
+                        style="?android:attr/buttonBarButtonStyle"
+                        android:layout_width="50dp"
+                        android:layout_height="50dp"
+                        android:layout_margin="5dp"
+                        android:width="50dp"
+                        android:background="@drawable/uk" />
+
+                    <Button
+                        android:id="@+id/learn_french"
+                        style="?android:attr/buttonBarButtonStyle"
+                        android:layout_width="50dp"
+                        android:layout_height="50dp"
+                        android:layout_margin="5dp"
+                        android:width="50dp"
+                        android:background="@drawable/france" />
+
+                    <Button
+                        android:id="@+id/learn_spanish"
+                        style="?android:attr/buttonBarButtonStyle"
+                        android:layout_width="50dp"
+                        android:layout_height="50dp"
+                        android:layout_margin="5dp"
+                        android:width="50dp"
+                        android:background="@drawable/spain" />
+
+                    <Button
+                        android:id="@+id/learn_german"
+                        style="?android:attr/buttonBarButtonStyle"
+                        android:layout_width="50dp"
+                        android:layout_height="50dp"
+                        android:layout_margin="5dp"
+                        android:width="50dp"
+                        android:background="@drawable/germany" />
+
+                    <Button
+                        android:id="@+id/learn_polish"
+                        style="?android:attr/buttonBarButtonStyle"
+                        android:layout_width="50dp"
+                        android:layout_height="50dp"
+                        android:layout_margin="5dp"
+                        android:width="50dp"
+                        android:background="@drawable/poland" />
+                </LinearLayout>
 
             </LinearLayout>
+
 
             <Button
                 android:layout_width="match_parent"
@@ -150,7 +223,7 @@
                 android:layout_marginRight="40dp"
                 android:layout_marginBottom="20dp"
                 android:background="@drawable/rounded_corner"
-                android:text="Create account"
+                android:text="@string/create_account"
                 android:textColor="@android:color/white"
                 android:textSize="16sp"
                 android:textStyle="bold"

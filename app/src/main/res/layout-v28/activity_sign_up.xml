@@ -116,10 +116,10 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:importantForAutofill="no"
-                    android:inputType="text"
                     android:minHeight="48dp"
                     android:textSize="16sp"
-                    tools:ignore="SpeakableTextPresentCheck" />
+                    tools:ignore="SpeakableTextPresentCheck"
+                    android:inputType="text" />
 
                 <TextView
                     android:layout_width="match_parent"
@@ -160,8 +160,7 @@
                     android:minHeight="48dp"
                     android:outlineAmbientShadowColor="#FF0000"
                     android:textSize="16sp"
-                    tools:ignore="SpeakableTextPresentCheck"
-                    tools:targetApi="p" />
+                    tools:ignore="SpeakableTextPresentCheck" />
 
                 <TextView
                     android:layout_width="match_parent"
@@ -188,7 +187,6 @@
                         android:width="50dp"
                         android:background="@drawable/en_button"
                         android:clickable="true"
-                        android:focusable="true"
                         tools:ignore="SpeakableTextPresentCheck" />
 
                     <Button
@@ -250,7 +248,6 @@
             android:layout_marginRight="20dp"
             android:layout_marginBottom="20dp"
             android:clickable="true"
-            android:focusable="true"
             android:foreground="?attr/selectableItemBackground"
             app:cardCornerRadius="20dp"
             app:cardElevation="10dp"

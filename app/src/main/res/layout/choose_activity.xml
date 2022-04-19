@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:background="#83cee5"
     android:orientation="vertical"
-    tools:context=".MainActivity">
+    tools:context=".ChooseActivity">
 
     <TextView
         android:layout_width="match_parent"
@@ -18,7 +18,8 @@
         android:text="@string/sanguage"
         android:textColor="@color/white"
         android:textSize="60sp"
-        android:textStyle="bold" />
+        android:textStyle="bold"
+        tools:ignore="TextContrastCheck" />
 
     <TextView
         android:layout_width="match_parent"
@@ -28,7 +29,8 @@
         android:text="@string/with_all_the_basic_ingredients"
         android:textColor="@color/white"
         android:textSize="12sp"
-        android:textStyle="bold" />
+        android:textStyle="bold"
+        tools:ignore="TextContrastCheck" />
 
     <ImageView
         android:layout_width="match_parent"
@@ -53,7 +55,8 @@
         android:foreground="?attr/selectableItemBackground"
         app:cardCornerRadius="20dp"
         app:cardElevation="10dp"
-        tools:ignore="DuplicateClickableBoundsCheck">
+        tools:ignore="DuplicateClickableBoundsCheck"
+        android:focusable="true">
 
         <com.balysv.materialripple.MaterialRippleLayout
             android:id="@+id/sign_up_mrl"
@@ -89,7 +92,8 @@
         android:foreground="?attr/selectableItemBackground"
         app:cardCornerRadius="20dp"
         app:cardElevation="10dp"
-        tools:ignore="DuplicateClickableBoundsCheck">
+        tools:ignore="DuplicateClickableBoundsCheck"
+        android:focusable="true">
 
         <com.balysv.materialripple.MaterialRippleLayout
             android:id="@+id/sign_in_mrl"
@@ -126,9 +130,11 @@
         android:foreground="?attr/selectableItemBackground"
         app:cardCornerRadius="20dp"
         app:cardElevation="0dp"
-        tools:ignore="DuplicateClickableBoundsCheck">
+        tools:ignore="DuplicateClickableBoundsCheck"
+        android:focusable="true">
 
         <com.balysv.materialripple.MaterialRippleLayout
+            android:id="@+id/skip_mrl"
             style="@style/RippleStyleGrey2"
             android:layout_width="match_parent"
             android:layout_height="match_parent">
@@ -146,7 +152,8 @@
                 android:textStyle="bold"
                 android:visibility="visible"
                 tools:ignore="TextContrastCheck"
-                tools:visibility="visible" />
+                tools:visibility="visible"
+                android:focusable="true" />
 
         </com.balysv.materialripple.MaterialRippleLayout>
 

@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <item
+        android:id="@+id/learn_vocabulary_tab"
+        android:icon="@drawable/learn_vocabulary_tab"
+        android:title="Learn"
+        app:cnb_backgroundColor="@color/white"
+        app:cnb_textColor="@color/black" />
+
+    <item
+        android:id="@+id/learned_vocabulary_tab"
+        android:icon="@drawable/learned_vocabulary_tab"
+        android:title="Your database"
+        app:cnb_backgroundColor="@color/white"
+        app:cnb_textColor="@color/black" />
+
+    <item
+        android:id="@+id/add_vocabulary_tab"
+        android:icon="@drawable/add_vocabulary_tab"
+        android:title="Add new"
+        app:cnb_backgroundColor="@color/white"
+        app:cnb_textColor="@color/black" />
+
+    <item
+        android:id="@+id/vocabulary_list_tab"
+        android:icon="@drawable/vocabulary_list_tab"
+        android:title="Whole database"
+        app:cnb_backgroundColor="@color/white"
+        app:cnb_textColor="@color/black" />
+
+    <item
+        android:id="@+id/profile_tab"
+        android:icon="@drawable/profile_tab"
+        android:title="Your profile"
+        app:cnb_backgroundColor="@color/white"
+        app:cnb_textColor="@color/black" />
+
+</menu>

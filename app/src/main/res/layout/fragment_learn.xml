@@ -45,7 +45,6 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:background="#FAFAFA"
                 android:gravity="center"
                 android:orientation="vertical"
                 android:paddingHorizontal="20dp">
@@ -57,11 +56,10 @@
                     android:layout_marginTop="20dp"
                     android:layout_marginBottom="20dp">
 
-
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="WORD"
+                        android:text="@string/word"
                         android:textColor="@color/colorAccent"
                         android:textSize="16sp"
                         android:textStyle="bold"
@@ -70,7 +68,7 @@
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="CATEGORY"
+                        android:text="@string/category"
 
                         android:textColor="@color/colorAccent"
                         android:textSize="16sp"
@@ -80,7 +78,7 @@
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="DEFINITION"
+                        android:text="@string/definition"
                         android:textColor="@color/colorAccent"
                         android:textSize="16sp"
                         android:textStyle="bold"
@@ -89,7 +87,7 @@
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="TRANSLATION"
+                        android:text="@string/translation"
                         android:textColor="@color/colorAccent"
                         android:textSize="16sp"
                         android:textStyle="bold"

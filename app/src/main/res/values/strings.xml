@@ -22,4 +22,8 @@
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="add_new">Add new</string>
     <string name="learn_tab">Learn tab</string>
+    <string name="category">CATEGORY</string>
+    <string name="translation">TRANSLATION</string>
+    <string name="definition">DEFINITION</string>
+    <string name="word">WORD</string>
 </resources>

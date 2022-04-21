@@ -3,8 +3,4 @@
 
     <solid android:color="@color/buttons"></solid>
 
-    <corners
-        android:topLeftRadius="20dp"
-        android:topRightRadius="20dp"></corners>
-
 </shape>

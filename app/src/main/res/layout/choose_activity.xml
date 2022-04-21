@@ -6,7 +6,9 @@
     android:layout_height="match_parent"
     android:background="#83cee5"
     android:orientation="vertical"
-    tools:context=".ChooseActivity">
+    tools:context=".ChooseActivity"
+    style="@style/AppTheme"
+    >
 
     <TextView
         android:layout_width="match_parent"

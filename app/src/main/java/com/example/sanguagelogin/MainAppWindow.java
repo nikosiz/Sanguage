@@ -8,7 +8,6 @@ import android.view.Menu;
 import android.view.MenuInflater;
 import android.widget.Toast;
 
-import com.google.android.material.chip.Chip;
 import com.ismaeldivita.chipnavigation.ChipNavigationBar;
 
 public class MainAppWindow extends AppCompatActivity implements ChipNavigationBar.OnItemSelectedListener {
@@ -18,7 +17,7 @@ public class MainAppWindow extends AppCompatActivity implements ChipNavigationBa
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main_app_window);
+        setContentView(R.layout.activity_app_window);
 
         loadFragment(new LearnFragment());
 

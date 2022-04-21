@@ -7,15 +7,15 @@
     tools:context=".MainAppWindow">
 
     <FrameLayout
+        android:id="@+id/fragment_container"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:id="@+id/fragment_container"/>
+        android:layout_height="match_parent" />
 
 
     <com.ismaeldivita.chipnavigation.ChipNavigationBar
         android:id="@+id/bottomNav"
         android:layout_width="match_parent"
-        android:layout_height="60dp"
+        android:layout_height="56dp"
         android:layout_alignParentBottom="true"
         android:background="@drawable/round_back"
         android:elevation="18dp"

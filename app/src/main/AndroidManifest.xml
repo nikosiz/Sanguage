@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.sanguagelogin">
-
+    <uses-permission android:name="android.permission.INTERNET" />
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -14,9 +14,6 @@
             android:exported="false" />
         <activity
             android:name=".SignInActivity"
-            android:exported="false" />
-        <activity
-            android:name=".SignInActivitiy"
             android:exported="false" />
         <activity
             android:name=".SignUpActivity"

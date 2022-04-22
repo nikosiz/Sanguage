@@ -180,47 +180,59 @@
                     android:gravity="center"
                     android:orientation="horizontal">
 
-                    <Button
-                        android:id="@+id/learn_english"
-                        style="?android:attr/buttonBarButtonStyle"
-                        android:layout_width="50dp"
-                        android:layout_height="50dp"
-                        android:layout_margin="5dp"
-                        android:width="50dp"
-                        android:background="@drawable/en_button"
-                        android:clickable="true"
-                        android:focusable="true"
-                        tools:ignore="SpeakableTextPresentCheck" />
+                    <RadioGroup
+                        android:id="@+id/radio_group"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        >
 
-                    <Button
-                        android:id="@+id/learn_french"
-                        style="?android:attr/buttonBarButtonStyle"
-                        android:layout_width="50dp"
-                        android:layout_height="50dp"
-                        android:layout_margin="5dp"
-                        android:width="50dp"
-                        android:background="@drawable/fr_button"
-                        tools:ignore="SpeakableTextPresentCheck" />
+                        <RadioButton
+                            android:id="@+id/learn_english"
+                            style="?android:attr/buttonBarButtonStyle"
+                            android:layout_width="50dp"
+                            android:layout_height="50dp"
+                            android:layout_margin="5dp"
+                            android:width="50dp"
+                            android:background="@drawable/en_button"
+                            android:clickable="true"
+                            android:focusable="true"
+                            tools:ignore="SpeakableTextPresentCheck"/>
 
-                    <Button
-                        android:id="@+id/learn_spanish"
-                        style="?android:attr/buttonBarButtonStyle"
-                        android:layout_width="50dp"
-                        android:layout_height="50dp"
-                        android:layout_margin="5dp"
-                        android:width="50dp"
-                        android:background="@drawable/es_button"
-                        tools:ignore="SpeakableTextPresentCheck" />
+                        <RadioButton
+                            android:id="@+id/learn_french"
+                            style="?android:attr/buttonBarButtonStyle"
+                            android:layout_width="50dp"
+                            android:layout_height="50dp"
+                            android:layout_margin="5dp"
+                            android:width="50dp"
+                            android:background="@drawable/fr_button"
+                            tools:ignore="SpeakableTextPresentCheck" />
 
-                    <Button
-                        android:id="@+id/learn_german"
-                        style="?android:attr/buttonBarButtonStyle"
-                        android:layout_width="50dp"
-                        android:layout_height="50dp"
-                        android:layout_margin="5dp"
-                        android:width="50dp"
-                        android:background="@drawable/de_button"
-                        tools:ignore="SpeakableTextPresentCheck" />
+                        <RadioButton
+                            android:id="@+id/learn_spanish"
+                            style="?android:attr/buttonBarButtonStyle"
+                            android:layout_width="50dp"
+                            android:layout_height="50dp"
+                            android:layout_margin="5dp"
+                            android:width="50dp"
+                            android:background="@drawable/es_button"
+                            tools:ignore="SpeakableTextPresentCheck" />
+
+                        <RadioButton
+                            android:id="@+id/learn_german"
+                            style="?android:attr/buttonBarButtonStyle"
+                            android:layout_width="50dp"
+                            android:layout_height="50dp"
+                            android:layout_margin="5dp"
+                            android:width="50dp"
+                            android:background="@drawable/de_button"
+                            tools:ignore="SpeakableTextPresentCheck" />
+
+
+                    </RadioGroup>
+
+
 
                 </LinearLayout>
 

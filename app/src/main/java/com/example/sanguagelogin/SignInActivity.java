@@ -68,7 +68,7 @@ public class SignInActivity extends AppCompatActivity {
                     });
                     queue.add(jsonObjectRequest);
                 } catch (JSONException jsonException) {
-                    Toast.makeText(getApplicationContext(), "please provide correctly data", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getApplicationContext(), "please provide correct data", Toast.LENGTH_SHORT).show();
                 }
             }}
         });

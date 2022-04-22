@@ -16,6 +16,7 @@ import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.Volley;
 import com.balysv.materialripple.MaterialRippleLayout;
 
+import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
@@ -46,9 +47,9 @@ public class SignInActivity extends AppCompatActivity {
                 }
                 else{
                 try {
-                    JSONObject loginJSON = createLoginJSON(username_email, password);
+                    JSONObject loginJSON = createLoginJSON(username_email.trim(), password);
                     RequestQueue queue = Volley.newRequestQueue(SignInActivity.this);
-                    JsonObjectRequest jsonObjectRequest=new JsonObjectRequest(Request.Method.GET, URL, loginJSON, new Response.Listener<JSONObject>() {
+                    JsonObjectRequest jsonObjectRequest=new JsonObjectRequest(Request.Method.POST, URL, loginJSON, new Response.Listener<JSONObject>() {
                         @Override
                         public void onResponse(JSONObject response) {
                             Intent intent = new Intent(getApplicationContext(), MainAppWindow.class);
@@ -57,7 +58,12 @@ public class SignInActivity extends AppCompatActivity {
                     }, new Response.ErrorListener() {
                         @Override
                         public void onErrorResponse(VolleyError error) {
-                            Toast.makeText(getApplicationContext(), error.getMessage(), Toast.LENGTH_SHORT).show();
+                            try {
+                                String message = RequestErrorParser.parseError(error);
+                                Toast.makeText(getApplicationContext(),message , Toast.LENGTH_SHORT).show();
+                            }catch (JSONException j){
+                                Toast.makeText(getApplicationContext(),"unidentified error" , Toast.LENGTH_SHORT).show();
+                            }
                         }
                     });
                     queue.add(jsonObjectRequest);

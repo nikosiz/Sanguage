@@ -44,33 +44,33 @@ public class SignInActivity extends AppCompatActivity {
                 String password = password_et.getText().toString();
                 if (username_email.isEmpty() || password.isEmpty()) {
                     Toast.makeText(getApplicationContext(), "please provide correctly data", Toast.LENGTH_SHORT).show();
-                }
-                else{
-                try {
-                    JSONObject loginJSON = createLoginJSON(username_email.trim(), password);
-                    RequestQueue queue = Volley.newRequestQueue(SignInActivity.this);
-                    JsonObjectRequest jsonObjectRequest=new JsonObjectRequest(Request.Method.POST, URL, loginJSON, new Response.Listener<JSONObject>() {
-                        @Override
-                        public void onResponse(JSONObject response) {
-                            Intent intent = new Intent(getApplicationContext(), MainAppWindow.class);
-                            startActivity(intent);
-                        }
-                    }, new Response.ErrorListener() {
-                        @Override
-                        public void onErrorResponse(VolleyError error) {
-                            try {
-                                String message = RequestErrorParser.parseError(error);
-                                Toast.makeText(getApplicationContext(),message , Toast.LENGTH_SHORT).show();
-                            }catch (JSONException j){
-                                Toast.makeText(getApplicationContext(),"unidentified error" , Toast.LENGTH_SHORT).show();
+                } else {
+                    try {
+                        JSONObject loginJSON = createLoginJSON(username_email.trim(), password);
+                        RequestQueue queue = Volley.newRequestQueue(SignInActivity.this);
+                        JsonObjectRequest jsonObjectRequest = new JsonObjectRequest(Request.Method.POST, URL, loginJSON, new Response.Listener<JSONObject>() {
+                            @Override
+                            public void onResponse(JSONObject response) {
+                                Intent intent = new Intent(getApplicationContext(), MainAppWindow.class);
+                                startActivity(intent);
                             }
-                        }
-                    });
-                    queue.add(jsonObjectRequest);
-                } catch (JSONException jsonException) {
-                    Toast.makeText(getApplicationContext(), "please provide correct data", Toast.LENGTH_SHORT).show();
+                        }, new Response.ErrorListener() {
+                            @Override
+                            public void onErrorResponse(VolleyError error) {
+                                try {
+                                    String message = RequestErrorParser.parseError(error);
+                                    Toast.makeText(getApplicationContext(), message, Toast.LENGTH_SHORT).show();
+                                } catch (JSONException j) {
+                                    Toast.makeText(getApplicationContext(), "unidentified error", Toast.LENGTH_SHORT).show();
+                                }
+                            }
+                        });
+                        queue.add(jsonObjectRequest);
+                    } catch (JSONException jsonException) {
+                        Toast.makeText(getApplicationContext(), "please provide correct data", Toast.LENGTH_SHORT).show();
+                    }
                 }
-            }}
+            }
         });
     }
 

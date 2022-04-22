@@ -1,12 +1,11 @@
 <resources>
-    <string name="app_name">SanguageLogIn</string>
+    <string name="app_name">Sanguage</string>
     <string name="sign_in_btn">SignInButton</string>
     <string name="sign_up_btn">SignUpButton</string>
     <string name="sign_in">Sign In</string>
     <string name="sign_up">Sign Up</string>
     <string name="mascot">mascot</string>
     <string name="skip">Skip</string>
-    <string name="sanguage">Sanguage</string>
     <string name="create_an_account_to_make_sure_your_progress_nwon_t_be_lost">Create an account to make sure your progress \nwon\'t be lost!</string>
     <string name="username">Username</string>
     <string name="email_address">Email Address</string>
@@ -18,8 +17,6 @@
     <string name="welcome_back">Welcome back!</string>
     <string name="username_or_email">Username or email</string>
     <string name="create_an_account_to_make_sure_your_progress_won_t_be_lost">Create an account to make sure your progress won\'t be lost!</string>
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="add_new">Add new</string>
     <string name="learn_tab">Learn tab</string>
     <string name="category">CATEGORY</string>

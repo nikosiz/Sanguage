@@ -5,39 +5,7 @@
     <item
         android:id="@+id/learn_tab"
         android:icon="@drawable/ic_learn_tab"
-        android:title="Learn"
-        app:cnb_backgroundColor="@color/transparent"
-        app:cnb_iconColor="@color/transparent"
-        app:cnb_textColor="@color/transparent" />
-
-    <item
-        android:id="@+id/your_database_tab"
-        android:icon="@drawable/ic_your_database_tab"
-        android:title="Your database"
-        app:cnb_backgroundColor="@color/transparent"
-        app:cnb_iconColor="@color/transparent"
-        app:cnb_textColor="@color/transparent" />
-
-    <item
-        android:id="@+id/add_new_tab"
-        android:icon="@drawable/ic_add_new_tab"
-        android:title="Add new"
-        app:cnb_backgroundColor="@color/transparent"
-        app:cnb_iconColor="@color/transparent"
-        app:cnb_textColor="@color/transparent" />
-
-    <item
-        android:id="@+id/search_tab"
-        android:icon="@drawable/ic_whole_database_file"
-        android:title="Search"
-        app:cnb_backgroundColor="@color/transparent"
-        app:cnb_iconColor="@color/transparent"
-        app:cnb_textColor="@color/transparent" />
-
-    <item
-        android:id="@+id/your_profile_tab"
-        android:icon="@drawable/ic_your_profile_tab"
-        android:title="Your profile"
+        android:title="fakeMenu"
         app:cnb_backgroundColor="@color/transparent"
         app:cnb_iconColor="@color/transparent"
         app:cnb_textColor="@color/transparent" />

@@ -17,7 +17,7 @@
         android:layout_marginBottom="5dp"
         android:fontFamily="@font/fredoka_one"
         android:gravity="center"
-        android:text="@string/sanguage"
+        android:text="@string/app_name"
         android:textColor="@color/white"
         android:textSize="60sp"
         android:textStyle="bold"

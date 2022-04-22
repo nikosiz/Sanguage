@@ -13,7 +13,7 @@
     <item
         android:id="@+id/your_database_tab"
         android:icon="@drawable/ic_your_database_tab"
-        android:title="Your database"
+        android:title="Database"
         app:cnb_backgroundColor="@color/white"
         app:cnb_iconColor="@color/buttons"
         app:cnb_textColor="@color/black" />
@@ -37,7 +37,7 @@
     <item
         android:id="@+id/your_profile_tab"
         android:icon="@drawable/ic_your_profile_tab"
-        android:title="Your profile"
+        android:title="Profile"
         app:cnb_backgroundColor="@color/white"
         app:cnb_iconColor="@color/buttons"
         app:cnb_textColor="@color/black" />

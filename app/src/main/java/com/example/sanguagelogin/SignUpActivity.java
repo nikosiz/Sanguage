@@ -1,10 +1,13 @@
 package com.example.sanguagelogin;
 
+import android.annotation.SuppressLint;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.view.animation.CycleInterpolator;
 import android.view.animation.TranslateAnimation;
 import android.widget.EditText;
+import android.widget.RadioGroup;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -21,6 +24,7 @@ import com.balysv.materialripple.MaterialRippleLayout;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.sql.SQLOutput;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -32,6 +36,8 @@ public class SignUpActivity extends AppCompatActivity {
     private TextView username_tv;
     private TextView email_tv;
     private TextView password_tv;
+    private TextView language_tv;
+    private RadioGroup language_rg;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -45,6 +51,8 @@ public class SignUpActivity extends AppCompatActivity {
         username_tv = findViewById(R.id.TextViewUsername);
         email_tv = findViewById(R.id.TextViewEmailAddress);
         password_tv = findViewById(R.id.TextViewPassword);
+        language_tv = findViewById(R.id.TextViewLanguage);
+        language_rg = findViewById(R.id.radio_group);
 
         password_et.setOnFocusChangeListener(new View.OnFocusChangeListener() {
             @Override
@@ -73,11 +81,13 @@ public class SignUpActivity extends AppCompatActivity {
                 String username = username_et.getText().toString();
                 String email = email_et.getText().toString();
                 String password = password_et.getText().toString();
+                int languageIndex = language_rg.getCheckedRadioButtonId();
                 //  TODO language String
                 String secondLanguage = "";
-                boolean validateAllData = validateAllData(username, email, password);
+                boolean validateAllData = validateAllData(username, email, password, languageIndex);
                 if (validateAllData) {
-                    signUpRequest(username, email, password, secondLanguage);
+                    System.out.println(mapLanguageIndexToName(languageIndex));
+                    signUpRequest(username, email, password, mapLanguageIndexToName(languageIndex));
                 }
             }
         });
@@ -91,7 +101,9 @@ public class SignUpActivity extends AppCompatActivity {
             JsonObjectRequest jsonObjectRequest = new JsonObjectRequest(Request.Method.POST, URL, signUpJSON, new Response.Listener<JSONObject>() {
                 @Override
                 public void onResponse(JSONObject response) {
-                    // next window
+                    //  TODO confirm token window
+                    Intent intent = new Intent(getApplicationContext(), MainAppWindow.class);
+                    startActivity(intent);
                 }
             }, new Response.ErrorListener() {
                 @Override
@@ -121,7 +133,7 @@ public class SignUpActivity extends AppCompatActivity {
 
     }
 
-    public boolean validateAllData(String username, String email, String password) {
+    public boolean validateAllData(String username, String email, String password, int languageIndex) {
         if (username.isEmpty()) {
             username_tv.startAnimation(shakeError());
         }
@@ -130,6 +142,9 @@ public class SignUpActivity extends AppCompatActivity {
         }
         if (password.isEmpty() || !validatePassword(password)) {
             password_tv.startAnimation(shakeError());
+        }
+        if (languageIndex == -1) {
+            language_tv.startAnimation(shakeError());
         }
         return !username.isEmpty() && validateEmail(email) && validatePassword(password);
     }
@@ -151,5 +166,20 @@ public class SignUpActivity extends AppCompatActivity {
         shake.setDuration(500);
         shake.setInterpolator(new CycleInterpolator(7));
         return shake;
+    }
+
+    @SuppressLint("NonConstantResourceId")
+    public String mapLanguageIndexToName(int index) {
+        switch (index) {
+            case R.id.learn_english:
+                return "English";
+            case R.id.learn_french:
+                return "French";
+            case R.id.learn_german:
+                return "German";
+            case R.id.learn_spanish:
+                return "Spanish";
+        }
+        return null;
     }
 }

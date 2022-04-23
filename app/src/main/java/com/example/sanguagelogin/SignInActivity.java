@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.Toast;
@@ -52,6 +53,15 @@ public class SignInActivity extends AppCompatActivity {
                             @Override
                             public void onResponse(JSONObject response) {
                                 Intent intent = new Intent(getApplicationContext(), MainAppWindow.class);
+                                try {
+                                    intent.putExtra("userID", response.getLong("userID"));
+                                    intent.putExtra("username", response.getString("username"));
+                                    intent.putExtra("email", response.getString("email"));
+                                    intent.putExtra("registrationDate", response.getString("registrationDate"));
+                                    intent.putExtra("userID", response.getLong("userID"));
+                                } catch (JSONException j) {
+                                    Log.e("SignInActivity - intent.putExtra()", j.getMessage());
+                                }
                                 startActivity(intent);
                             }
                         }, new Response.ErrorListener() {
@@ -61,13 +71,13 @@ public class SignInActivity extends AppCompatActivity {
                                     String message = RequestErrorParser.parseError(error);
                                     Toast.makeText(getApplicationContext(), message, Toast.LENGTH_SHORT).show();
                                 } catch (JSONException j) {
-                                    Toast.makeText(getApplicationContext(), "unidentified error", Toast.LENGTH_SHORT).show();
+                                    Log.e("SignInActivity - onErrorResponse()", j.getMessage());
                                 }
                             }
                         });
                         queue.add(jsonObjectRequest);
-                    } catch (JSONException jsonException) {
-                        Toast.makeText(getApplicationContext(), "please provide correct data", Toast.LENGTH_SHORT).show();
+                    } catch (JSONException j) {
+                        Log.e("SignInActivity - create account btn", j.getMessage());
                     }
                 }
             }

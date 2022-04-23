@@ -3,6 +3,7 @@ package com.example.sanguagelogin;
 import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.view.animation.CycleInterpolator;
 import android.view.animation.TranslateAnimation;
@@ -50,7 +51,7 @@ public class SignUpActivity extends AppCompatActivity {
         email_et = findViewById(R.id.editTextEmailAddress);
         password_et = findViewById(R.id.editTextPassword);
         signup_mrl = findViewById(R.id.sign_up_mrl);
-        signup_btn=findViewById(R.id.sign_up_btn);
+        signup_btn = findViewById(R.id.sign_up_btn);
         username_tv = findViewById(R.id.TextViewUsername);
         email_tv = findViewById(R.id.TextViewEmailAddress);
         password_tv = findViewById(R.id.TextViewPassword);
@@ -95,15 +96,17 @@ public class SignUpActivity extends AppCompatActivity {
     }
 
     @SuppressLint("ResourceAsColor")
-    public void disableSignupButton(){
+    public void disableSignupButton() {
         signup_btn.setEnabled(false);
         signup_btn.setBackgroundColor(R.color.colorAccent);
     }
+
     @SuppressLint("ResourceAsColor")
-    public void enableSignupButton(){
+    public void enableSignupButton() {
         signup_btn.setEnabled(true);
-        signup_btn.setBackgroundColor(R.color.lightPrimary);
+        signup_btn.setBackgroundColor(R.color.buttons);
     }
+
     public void signUpRequest(String username, String email, String password, String secondLanguage) {
         String URL = "https://sanguage.herokuapp.com/registration";
         try {
@@ -126,7 +129,7 @@ public class SignUpActivity extends AppCompatActivity {
                         String message = RequestErrorParser.parseError(error);
                         Toast.makeText(getApplicationContext(), message, Toast.LENGTH_SHORT).show();
                     } catch (JSONException j) {
-                        Toast.makeText(getApplicationContext(), "unidentified error", Toast.LENGTH_SHORT).show();
+                        Log.e("SignUp - onErrorResponse()", j.getMessage());
                     }
                     enableSignupButton();
                 }
@@ -134,7 +137,7 @@ public class SignUpActivity extends AppCompatActivity {
             );
             queue.add(jsonObjectRequest);
         } catch (JSONException j) {
-            ;
+            Log.e("SignUp - signUpRequest()", j.getMessage());
         }
     }
 

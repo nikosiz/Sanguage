@@ -1,10 +1,15 @@
 package com.example.sanguagelogin;
 
+import android.annotation.SuppressLint;
+import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.view.animation.CycleInterpolator;
 import android.view.animation.TranslateAnimation;
+import android.widget.Button;
 import android.widget.EditText;
+import android.widget.RadioGroup;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -21,6 +26,7 @@ import com.balysv.materialripple.MaterialRippleLayout;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.sql.SQLOutput;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -29,9 +35,12 @@ public class SignUpActivity extends AppCompatActivity {
     private EditText email_et;
     private EditText password_et;
     private MaterialRippleLayout signup_mrl;
+    private Button signup_btn;
     private TextView username_tv;
     private TextView email_tv;
     private TextView password_tv;
+    private TextView language_tv;
+    private RadioGroup language_rg;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -42,9 +51,12 @@ public class SignUpActivity extends AppCompatActivity {
         email_et = findViewById(R.id.editTextEmailAddress);
         password_et = findViewById(R.id.editTextPassword);
         signup_mrl = findViewById(R.id.sign_up_mrl);
+        signup_btn = findViewById(R.id.sign_up_btn);
         username_tv = findViewById(R.id.TextViewUsername);
         email_tv = findViewById(R.id.TextViewEmailAddress);
         password_tv = findViewById(R.id.TextViewPassword);
+        language_tv = findViewById(R.id.TextViewLanguage);
+        language_rg = findViewById(R.id.radio_group);
 
         password_et.setOnFocusChangeListener(new View.OnFocusChangeListener() {
             @Override
@@ -73,14 +85,26 @@ public class SignUpActivity extends AppCompatActivity {
                 String username = username_et.getText().toString();
                 String email = email_et.getText().toString();
                 String password = password_et.getText().toString();
-                //  TODO language String
-                String secondLanguage = "";
-                boolean validateAllData = validateAllData(username, email, password);
+                int languageIndex = language_rg.getCheckedRadioButtonId();
+                boolean validateAllData = validateAllData(username, email, password, languageIndex);
                 if (validateAllData) {
-                    signUpRequest(username, email, password, secondLanguage);
+                    disableSignupButton();
+                    signUpRequest(username, email, password, mapLanguageIndexToName(languageIndex));
                 }
             }
         });
+    }
+
+    @SuppressLint("ResourceAsColor")
+    public void disableSignupButton() {
+        signup_btn.setEnabled(false);
+        signup_btn.setBackgroundColor(R.color.colorAccent);
+    }
+
+    @SuppressLint("ResourceAsColor")
+    public void enableSignupButton() {
+        signup_btn.setEnabled(true);
+        signup_btn.setBackgroundColor(R.color.buttons);
     }
 
     public void signUpRequest(String username, String email, String password, String secondLanguage) {
@@ -91,7 +115,12 @@ public class SignUpActivity extends AppCompatActivity {
             JsonObjectRequest jsonObjectRequest = new JsonObjectRequest(Request.Method.POST, URL, signUpJSON, new Response.Listener<JSONObject>() {
                 @Override
                 public void onResponse(JSONObject response) {
-                    // next window
+                    //  TODO confirm token window
+                    Intent intent = new Intent(getApplicationContext(), MainAppWindow.class);
+                    intent.putExtra("username", username);
+                    intent.putExtra("email", email);
+                    intent.putExtra("secondLanguage", secondLanguage);
+                    startActivity(intent);
                 }
             }, new Response.ErrorListener() {
                 @Override
@@ -100,14 +129,15 @@ public class SignUpActivity extends AppCompatActivity {
                         String message = RequestErrorParser.parseError(error);
                         Toast.makeText(getApplicationContext(), message, Toast.LENGTH_SHORT).show();
                     } catch (JSONException j) {
-                        Toast.makeText(getApplicationContext(), "unidentified error", Toast.LENGTH_SHORT).show();
+                        Log.e("SignUp - onErrorResponse()", j.getMessage());
                     }
+                    enableSignupButton();
                 }
             }
             );
             queue.add(jsonObjectRequest);
         } catch (JSONException j) {
-            ;
+            Log.e("SignUp - signUpRequest()", j.getMessage());
         }
     }
 
@@ -121,7 +151,7 @@ public class SignUpActivity extends AppCompatActivity {
 
     }
 
-    public boolean validateAllData(String username, String email, String password) {
+    public boolean validateAllData(String username, String email, String password, int languageIndex) {
         if (username.isEmpty()) {
             username_tv.startAnimation(shakeError());
         }
@@ -130,6 +160,9 @@ public class SignUpActivity extends AppCompatActivity {
         }
         if (password.isEmpty() || !validatePassword(password)) {
             password_tv.startAnimation(shakeError());
+        }
+        if (languageIndex == -1) {
+            language_tv.startAnimation(shakeError());
         }
         return !username.isEmpty() && validateEmail(email) && validatePassword(password);
     }
@@ -151,5 +184,20 @@ public class SignUpActivity extends AppCompatActivity {
         shake.setDuration(500);
         shake.setInterpolator(new CycleInterpolator(7));
         return shake;
+    }
+
+    @SuppressLint("NonConstantResourceId")
+    public String mapLanguageIndexToName(int index) {
+        switch (index) {
+            case R.id.learn_english:
+                return "English";
+            case R.id.learn_french:
+                return "French";
+            case R.id.learn_german:
+                return "German";
+            case R.id.learn_spanish:
+                return "Spanish";
+        }
+        return null;
     }
 }

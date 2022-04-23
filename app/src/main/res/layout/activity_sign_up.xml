@@ -170,6 +170,7 @@
                     tools:targetApi="p" />
 
                 <TextView
+                    android:id="@+id/TextViewLanguage"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="@string/choose_your_target_language"
@@ -281,6 +282,7 @@
                 android:layout_height="match_parent">
 
                 <Button
+                    android:id="@+id/sign_up_btn"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"

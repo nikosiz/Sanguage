@@ -32,6 +32,7 @@
             android:textStyle="bold"
             tools:ignore="TextContrastCheck" />
 
+
         <androidx.cardview.widget.CardView
             android:layout_width="match_parent"
             android:background="@color/buttons"

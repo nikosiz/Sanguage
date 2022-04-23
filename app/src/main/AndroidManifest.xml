@@ -12,6 +12,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.SanguageLogIn">
         <activity
+            android:name=".LearnFragment"
+            android:exported="false" />
+        <activity
             android:name=".MainAppWindow"
             android:exported="false" />
         <activity

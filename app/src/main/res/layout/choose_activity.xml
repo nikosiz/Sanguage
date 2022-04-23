@@ -2,13 +2,12 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    style="@style/AppTheme"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#83cee5"
     android:orientation="vertical"
-    tools:context=".ChooseActivity"
-    style="@style/AppTheme"
-    >
+    tools:context=".ChooseActivity">
 
     <TextView
         android:layout_width="match_parent"
@@ -34,132 +33,141 @@
         android:textStyle="bold"
         tools:ignore="TextContrastCheck" />
 
-    <ImageView
+    <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="1"
-        android:contentDescription="@string/mascot"
-        android:padding="70dp"
-        android:src="@drawable/ic_mascot" />
+        android:layout_height="wrap_content">
 
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:contentDescription="@string/mascot"
+            android:padding="50dp"
+            android:src="@drawable/ic_mascot" />
+    </RelativeLayout>
 
-    <androidx.cardview.widget.CardView
-
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_rowWeight="1"
-        android:layout_columnWeight="1"
-        android:layout_marginLeft="40dp"
-        android:layout_marginTop="40dp"
-        android:layout_marginRight="40dp"
-        android:layout_marginBottom="10dp"
-        android:clickable="true"
-        android:foreground="?attr/selectableItemBackground"
-        app:cardCornerRadius="20dp"
-        app:cardElevation="10dp"
-        tools:ignore="DuplicateClickableBoundsCheck"
-        android:focusable="true">
+        android:orientation="vertical"
+        >
 
-        <com.balysv.materialripple.MaterialRippleLayout
-            android:id="@+id/sign_up_mrl"
-            style="@style/RippleStyleGrey"
+        <androidx.cardview.widget.CardView
+
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_height="wrap_content"
+            android:layout_rowWeight="1"
+            android:layout_columnWeight="1"
+            android:layout_marginLeft="40dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginRight="40dp"
+            android:layout_marginBottom="10dp"
+            android:clickable="true"
+            android:focusable="true"
+            android:foreground="?attr/selectableItemBackground"
+            app:cardCornerRadius="20dp"
+            app:cardElevation="10dp"
+            tools:ignore="DuplicateClickableBoundsCheck">
 
-            <Button
+            <com.balysv.materialripple.MaterialRippleLayout
+                android:id="@+id/sign_up_mrl"
+                style="@style/RippleStyleGrey"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:background="@color/buttons"
-                android:text="@string/sign_up"
-                android:textColor="@android:color/white"
-                android:textSize="16sp"
-                android:textStyle="bold"
-                tools:ignore="TextContrastCheck" />
+                android:layout_height="match_parent">
 
-        </com.balysv.materialripple.MaterialRippleLayout>
+                <Button
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@color/buttons"
+                    android:text="@string/sign_up"
+                    android:textColor="@android:color/white"
+                    android:textSize="16sp"
+                    android:textStyle="bold"
+                    tools:ignore="TextContrastCheck" />
 
-    </androidx.cardview.widget.CardView>
+            </com.balysv.materialripple.MaterialRippleLayout>
 
-    <androidx.cardview.widget.CardView
+        </androidx.cardview.widget.CardView>
 
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_rowWeight="1"
-        android:layout_columnWeight="1"
-        android:layout_marginLeft="40dp"
-        android:layout_marginTop="10dp"
-        android:layout_marginRight="40dp"
-        android:layout_marginBottom="10dp"
-        android:clickable="true"
-        android:foreground="?attr/selectableItemBackground"
-        app:cardCornerRadius="20dp"
-        app:cardElevation="10dp"
-        tools:ignore="DuplicateClickableBoundsCheck"
-        android:focusable="true">
+        <androidx.cardview.widget.CardView
 
-        <com.balysv.materialripple.MaterialRippleLayout
-            android:id="@+id/sign_in_mrl"
-            style="@style/RippleStyleGrey2"
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_height="wrap_content"
+            android:layout_rowWeight="1"
+            android:layout_columnWeight="1"
+            android:layout_marginLeft="40dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginRight="40dp"
+            android:layout_marginBottom="10dp"
+            android:clickable="true"
+            android:focusable="true"
+            android:foreground="?attr/selectableItemBackground"
+            app:cardCornerRadius="20dp"
+            app:cardElevation="10dp"
+            tools:ignore="DuplicateClickableBoundsCheck">
 
-            <Button
+            <com.balysv.materialripple.MaterialRippleLayout
+                android:id="@+id/sign_in_mrl"
+                style="@style/RippleStyleGrey2"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:background="@drawable/background"
-                android:text="@string/sign_in"
-                android:textColor="#00b5d8"
-                android:textSize="16sp"
-                android:textStyle="bold"
-                tools:ignore="TextContrastCheck" />
+                android:layout_height="match_parent">
 
-        </com.balysv.materialripple.MaterialRippleLayout>
+                <Button
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/background"
+                    android:text="@string/sign_in"
+                    android:textColor="#00b5d8"
+                    android:textSize="16sp"
+                    android:textStyle="bold"
+                    tools:ignore="TextContrastCheck" />
 
-    </androidx.cardview.widget.CardView>
+            </com.balysv.materialripple.MaterialRippleLayout>
 
+        </androidx.cardview.widget.CardView>
 
-    <androidx.cardview.widget.CardView
+        <androidx.cardview.widget.CardView
 
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_rowWeight="1"
-        android:layout_columnWeight="1"
-        android:layout_marginLeft="40dp"
-        android:layout_marginTop="5dp"
-        android:layout_marginRight="40dp"
-        android:layout_marginBottom="20dp"
-        android:clickable="true"
-        android:foreground="?attr/selectableItemBackground"
-        app:cardCornerRadius="20dp"
-        app:cardElevation="0dp"
-        tools:ignore="DuplicateClickableBoundsCheck"
-        android:focusable="true">
-
-        <com.balysv.materialripple.MaterialRippleLayout
-            android:id="@+id/skip_mrl"
-            style="@style/RippleStyleGrey2"
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_height="wrap_content"
+            android:layout_rowWeight="1"
+            android:layout_columnWeight="1"
+            android:layout_marginLeft="40dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginRight="40dp"
+            android:layout_marginBottom="20dp"
+            android:clickable="true"
+            android:focusable="true"
+            android:foreground="?attr/selectableItemBackground"
+            app:cardCornerRadius="20dp"
+            app:cardElevation="0dp"
+            tools:ignore="DuplicateClickableBoundsCheck">
 
-            <TextView
+            <com.balysv.materialripple.MaterialRippleLayout
+                android:id="@+id/skip_mrl"
+                style="@style/RippleStyleGrey2"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:background="#83cee5"
-                android:clickable="true"
-                android:gravity="center"
-                android:padding="15dp"
-                android:text="SKIP"
-                android:textColor="@color/white"
-                android:textSize="16sp"
-                android:textStyle="bold"
-                android:visibility="visible"
-                tools:ignore="TextContrastCheck"
-                tools:visibility="visible"
-                android:focusable="true" />
+                android:layout_height="match_parent">
 
-        </com.balysv.materialripple.MaterialRippleLayout>
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="#83cee5"
+                    android:clickable="true"
+                    android:focusable="true"
+                    android:gravity="center"
+                    android:padding="15dp"
+                    android:text="SKIP"
+                    android:textColor="@color/white"
+                    android:textSize="16sp"
+                    android:textStyle="bold"
+                    android:visibility="visible"
+                    tools:ignore="TextContrastCheck"
+                    tools:visibility="visible" />
 
-    </androidx.cardview.widget.CardView>
+            </com.balysv.materialripple.MaterialRippleLayout>
 
+        </androidx.cardview.widget.CardView>
+    </LinearLayout>
 
 </LinearLayout>

@@ -47,42 +47,51 @@
                 android:layout_height="match_parent"
                 android:gravity="center"
                 android:orientation="vertical"
+                android:padding="40dp"
                 android:paddingHorizontal="20dp">
 
                 <TextView
                     android:id="@+id/vocabulary"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_margin="20dp"
                     android:text="VOCABULARY"
-                    android:textSize="35dp"
-                    />
+                    android:textSize="35dp" />
 
                 <TextView
                     android:id="@+id/grammaticalCategory"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_margin="20dp"
                     android:text="GRAMMATICAL CATEGORY"
-                    android:textSize="15dp"
-                    />
+                    android:textSize="15dp" />
+
+                <com.codesgood.views.JustifiedTextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="20dp"
+                    android:text="DEFINITION DEFINITION DEFINITION DEFINITION"
+                    android:textSize="20dp" />
 
                 <TextView
-                    android:id="@+id/definition"
+                    android:id="@+id/title_collocations"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="DEFINITION"
-                    android:textSize="20dp"
-                    />
+                    android:layout_marginBottom="0dp"
+                    android:text="Exemplary collocations:" />
 
                 <TextView
                     android:id="@+id/collocations"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_margin="20dp"
                     android:text="COLLOCATIONS" />
 
                 <TextView
                     android:id="@+id/topic"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_margin="20dp"
                     android:text="TOPIC" />
 
             </LinearLayout>

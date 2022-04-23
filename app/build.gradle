@@ -4,7 +4,9 @@ plugins {
 
 android {
     compileSdk 32
-
+    packagingOptions {
+        exclude 'META-INF/LICENSE'
+    }
     defaultConfig {
         applicationId "com.example.sanguagelogin"
         minSdk 23
@@ -33,6 +35,9 @@ dependencies {
     implementation 'com.google.android.material:material:1.5.0'
     implementation 'androidx.constraintlayout:constraintlayout:2.1.3'
     implementation 'com.android.volley:volley:1.2.1'
+    implementation 'com.fasterxml.jackson.core:jackson-databind:2.8.5'
+    implementation 'com.fasterxml.jackson.core:jackson-core:2.8.5'
+    implementation 'com.fasterxml.jackson.core:jackson-annotations:2.8.5'
     implementation 'androidx.navigation:navigation-fragment:2.4.2'
     implementation 'androidx.navigation:navigation-ui:2.4.2'
     implementation 'androidx.legacy:legacy-support-v4:1.0.0'

@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.view.animation.CycleInterpolator;
 import android.view.animation.TranslateAnimation;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.RadioGroup;
 import android.widget.TextView;
@@ -33,6 +34,7 @@ public class SignUpActivity extends AppCompatActivity {
     private EditText email_et;
     private EditText password_et;
     private MaterialRippleLayout signup_mrl;
+    private Button signup_btn;
     private TextView username_tv;
     private TextView email_tv;
     private TextView password_tv;
@@ -48,6 +50,7 @@ public class SignUpActivity extends AppCompatActivity {
         email_et = findViewById(R.id.editTextEmailAddress);
         password_et = findViewById(R.id.editTextPassword);
         signup_mrl = findViewById(R.id.sign_up_mrl);
+        signup_btn=findViewById(R.id.sign_up_btn);
         username_tv = findViewById(R.id.TextViewUsername);
         email_tv = findViewById(R.id.TextViewEmailAddress);
         password_tv = findViewById(R.id.TextViewPassword);
@@ -82,17 +85,25 @@ public class SignUpActivity extends AppCompatActivity {
                 String email = email_et.getText().toString();
                 String password = password_et.getText().toString();
                 int languageIndex = language_rg.getCheckedRadioButtonId();
-                //  TODO language String
-                String secondLanguage = "";
                 boolean validateAllData = validateAllData(username, email, password, languageIndex);
                 if (validateAllData) {
-                    System.out.println(mapLanguageIndexToName(languageIndex));
+                    disableSignupButton();
                     signUpRequest(username, email, password, mapLanguageIndexToName(languageIndex));
                 }
             }
         });
     }
 
+    @SuppressLint("ResourceAsColor")
+    public void disableSignupButton(){
+        signup_btn.setEnabled(false);
+        signup_btn.setBackgroundColor(R.color.colorAccent);
+    }
+    @SuppressLint("ResourceAsColor")
+    public void enableSignupButton(){
+        signup_btn.setEnabled(true);
+        signup_btn.setBackgroundColor(R.color.lightPrimary);
+    }
     public void signUpRequest(String username, String email, String password, String secondLanguage) {
         String URL = "https://sanguage.herokuapp.com/registration";
         try {
@@ -103,6 +114,9 @@ public class SignUpActivity extends AppCompatActivity {
                 public void onResponse(JSONObject response) {
                     //  TODO confirm token window
                     Intent intent = new Intent(getApplicationContext(), MainAppWindow.class);
+                    intent.putExtra("username", username);
+                    intent.putExtra("email", email);
+                    intent.putExtra("secondLanguage", secondLanguage);
                     startActivity(intent);
                 }
             }, new Response.ErrorListener() {
@@ -114,6 +128,7 @@ public class SignUpActivity extends AppCompatActivity {
                     } catch (JSONException j) {
                         Toast.makeText(getApplicationContext(), "unidentified error", Toast.LENGTH_SHORT).show();
                     }
+                    enableSignupButton();
                 }
             }
             );

@@ -17,7 +17,7 @@
         android:layout_width="match_parent"
         android:layout_height="56dp"
         android:layout_alignParentBottom="true"
-        android:background="@drawable/round_back"
+        android:background="@drawable/bottom_bar_background"
         android:elevation="18dp"
         android:padding="8dp"
         app:cnb_menuResource="@menu/bottom_menu"

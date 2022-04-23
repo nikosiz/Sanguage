@@ -118,7 +118,7 @@
                 <Button
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:background="@drawable/background"
+                    android:background="@drawable/light_button_background"
                     android:text="@string/sign_in"
                     android:textColor="#00b5d8"
                     android:textSize="16sp"
@@ -160,7 +160,7 @@
                     android:focusable="true"
                     android:gravity="center"
                     android:padding="15dp"
-                    android:text="SKIP"
+                    android:text="@string/skip"
                     android:textColor="@color/white"
                     android:textSize="16sp"
                     android:textStyle="bold"

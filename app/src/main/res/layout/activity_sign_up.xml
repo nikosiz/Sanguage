@@ -159,8 +159,8 @@
                     android:id="@+id/editTextPassword"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:ems="10"
                     android:background="@drawable/edit_text_field"
+                    android:ems="10"
                     android:importantForAutofill="no"
                     android:inputType="textPassword"
                     android:minHeight="48dp"
@@ -203,8 +203,8 @@
                             android:button="@color/transparent"
                             android:clickable="true"
                             android:focusable="true"
-                            android:scaleX="0.75"
-                            android:scaleY="0.5"
+                            android:scaleX="0.9"
+                            android:scaleY="0.6"
                             tools:ignore="SpeakableTextPresentCheck" />
 
                         <RadioButton
@@ -216,8 +216,8 @@
                             android:width="50dp"
                             android:background="@drawable/fr_button"
                             android:button="@color/transparent"
-                            android:scaleX="0.75"
-                            android:scaleY="0.5"
+                            android:scaleX="0.9"
+                            android:scaleY="0.6"
                             tools:ignore="SpeakableTextPresentCheck" />
 
                         <RadioButton
@@ -231,8 +231,8 @@
                             android:button="@color/transparent"
                             android:clickable="true"
                             android:focusable="true"
-                            android:scaleX="0.75"
-                            android:scaleY="0.5"
+                            android:scaleX="0.9"
+                            android:scaleY="0.6"
                             tools:ignore="SpeakableTextPresentCheck" />
 
                         <RadioButton
@@ -244,8 +244,8 @@
                             android:width="50dp"
                             android:background="@drawable/de_button"
                             android:button="@color/transparent"
-                            android:scaleX="0.75"
-                            android:scaleY="0.5"
+                            android:scaleX="0.9"
+                            android:scaleY="0.6"
                             tools:ignore="SpeakableTextPresentCheck" />
 
 
@@ -284,7 +284,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
-                    android:background="@drawable/rounded_corner"
+                    android:background="@drawable/basic_button_backgruond"
                     android:text="@string/create_account"
                     android:textColor="@android:color/white"
                     android:textSize="16sp"

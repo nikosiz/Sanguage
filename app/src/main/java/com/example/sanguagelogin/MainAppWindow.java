@@ -6,11 +6,22 @@ import androidx.fragment.app.Fragment;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuInflater;
+import android.view.View;
+import android.widget.ArrayAdapter;
 import android.widget.Toast;
 
 import com.ismaeldivita.chipnavigation.ChipNavigationBar;
+import com.lorentzos.flingswipe.SwipeFlingAdapterView;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class MainAppWindow extends AppCompatActivity implements ChipNavigationBar.OnItemSelectedListener {
+
+    List vocabulary;
+    private ArrayAdapter<String> arrayAdapter;
+    SwipeFlingAdapterView flingContainer;
+
 
     ChipNavigationBar navBar;
 
@@ -21,8 +32,72 @@ public class MainAppWindow extends AppCompatActivity implements ChipNavigationBa
 
         loadFragment(new LearnFragment());
 
+        flingContainer = findViewById(R.id.frame_flashcard);
+
+        vocabulary = new ArrayList();
+        vocabulary.add("1");
+        vocabulary.add("2");
+        vocabulary.add("3");
+        vocabulary.add("4");
+
+        arrayAdapter = new ArrayAdapter<>(this, R.layout.flashcard, R.id.vocabulary_fc, vocabulary);
+
+        flingContainer.setAdapter(arrayAdapter);
+
+        flingContainer.setFlingListener(new SwipeFlingAdapterView.onFlingListener() {
+            @Override
+            public void removeFirstObjectInAdapter() {
+                vocabulary.remove(0);
+                arrayAdapter.notifyDataSetChanged();
+            }
+
+            @Override
+            public void onLeftCardExit(Object o) {
+                Toast.makeText(MainAppWindow.this, "Left", Toast.LENGTH_SHORT).show();
+
+            }
+
+            @Override
+            public void onRightCardExit(Object o) {
+                Toast.makeText(MainAppWindow.this, "Right", Toast.LENGTH_SHORT).show();
+
+            }
+
+            @Override
+            public void onAdapterAboutToEmpty(int i) {
+                vocabulary.add("XML".concat(String.valueOf(i)));
+                arrayAdapter.notifyDataSetChanged();
+                i++;
+
+            }
+
+            @Override
+            public void onScroll(float scrollProgressPercent) {
+                View view = flingContainer.getSelectedView();
+                view.findViewById(R.id.swipe_right_indicator).setAlpha(scrollProgressPercent < 0 ? -scrollProgressPercent : 0);
+                view.findViewById(R.id.swipe_left_indicator).setAlpha(scrollProgressPercent < 0 ? -scrollProgressPercent : 0);
+
+            }
+        });
+
+        flingContainer.setOnItemClickListener(new SwipeFlingAdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClicked(int itemPosition, Object dataObject) {
+                Toast.makeText(MainAppWindow.this, "ASDFASDF", Toast.LENGTH_SHORT).show();
+
+            }
+        });
+
         navBar = findViewById(R.id.bottomNav);
         navBar.setOnItemSelectedListener(this);
+    }
+
+    private void left(View v) {
+        flingContainer.getTopCardListener().selectLeft();
+    }
+
+    private void right(View v) {
+        flingContainer.getTopCardListener().selectRight();
     }
 
     private void loadFragment(Fragment fragment) {

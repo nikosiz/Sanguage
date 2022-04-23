@@ -35,18 +35,24 @@
         android:textStyle="bold"
         tools:ignore="TextContrastCheck" />
 
-
-    <ImageView
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:contentDescription="@string/mascot"
+        android:layout_height="wrap_content">
 
-        android:padding="20dp"
-        android:src="@drawable/ic_mascot" />
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:contentDescription="@string/mascot"
+            android:padding="20dp"
+            android:src="@drawable/ic_mascot" />
+    </LinearLayout>
+
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:gravity="center"
         android:orientation="vertical">
 
         <androidx.cardview.widget.CardView

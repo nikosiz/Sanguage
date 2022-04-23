@@ -33,7 +33,6 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
-
             android:layout_marginBottom="5dp"
             android:fontFamily="@font/fredoka_one"
             android:gravity="center"
@@ -86,13 +85,13 @@
 
                 <RelativeLayout
                     android:layout_width="match_parent"
-                    android:layout_height="80dp"
+                    android:layout_height="wrap_content"
                     android:layout_marginTop="20dp"
                     android:layout_marginBottom="20dp">
 
                     <ImageView
-                        android:layout_width="100dp"
-                        android:layout_height="match_parent"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
                         android:layout_centerInParent="true"
                         android:contentDescription="@string/mascot_img"
                         android:src="@drawable/ic_mascot">
@@ -182,23 +181,24 @@
 
                     <RadioGroup
                         android:id="@+id/radio_group"
-                        android:layout_width="wrap_content"
+                        android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:orientation="horizontal"
-                        >
+                        android:gravity="center"
+                        android:orientation="horizontal">
 
                         <RadioButton
-
                             android:id="@+id/learn_english"
                             style="?android:attr/buttonBarButtonStyle"
-
                             android:layout_width="50dp"
                             android:layout_height="50dp"
                             android:layout_margin="5dp"
                             android:width="50dp"
                             android:background="@drawable/en_button"
+                            android:button="@color/transparent"
                             android:clickable="true"
                             android:focusable="true"
+                            android:scaleX="0.75"
+                            android:scaleY="0.5"
                             tools:ignore="SpeakableTextPresentCheck" />
 
                         <RadioButton
@@ -209,6 +209,9 @@
                             android:layout_margin="5dp"
                             android:width="50dp"
                             android:background="@drawable/fr_button"
+                            android:button="@color/transparent"
+                            android:scaleX="0.75"
+                            android:scaleY="0.5"
                             tools:ignore="SpeakableTextPresentCheck" />
 
                         <RadioButton
@@ -219,6 +222,11 @@
                             android:layout_margin="5dp"
                             android:width="50dp"
                             android:background="@drawable/es_button"
+                            android:button="@color/transparent"
+                            android:clickable="true"
+                            android:focusable="true"
+                            android:scaleX="0.75"
+                            android:scaleY="0.5"
                             tools:ignore="SpeakableTextPresentCheck" />
 
                         <RadioButton
@@ -229,11 +237,13 @@
                             android:layout_margin="5dp"
                             android:width="50dp"
                             android:background="@drawable/de_button"
+                            android:button="@color/transparent"
+                            android:scaleX="0.75"
+                            android:scaleY="0.5"
                             tools:ignore="SpeakableTextPresentCheck" />
 
 
                     </RadioGroup>
-
 
                 </LinearLayout>
 

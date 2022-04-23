@@ -5,7 +5,7 @@
     style="@style/AppTheme"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#83cee5"
+    android:background="@color/lightPrimary"
     android:orientation="vertical"
     tools:context=".ChooseActivity">
 
@@ -155,7 +155,7 @@
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:background="#83cee5"
+                    android:background="@color/lightPrimary"
                     android:clickable="true"
                     android:focusable="true"
                     android:gravity="center"

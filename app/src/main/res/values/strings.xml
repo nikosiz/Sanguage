@@ -23,4 +23,5 @@
     <string name="translation">TRANSLATION</string>
     <string name="definition">DEFINITION</string>
     <string name="word">WORD</string>
+    <string name="forgot_password">DON\'T REMEMBER PASSWORD?</string>
 </resources>

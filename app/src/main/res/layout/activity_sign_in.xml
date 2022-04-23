@@ -95,11 +95,13 @@
                     android:textStyle="bold"
                     tools:ignore="TextContrastCheck" />
 
+
                 <EditText
                     android:id="@+id/username_email_et"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:autofillHints="username"
+                    android:background="@drawable/edit_text_field"
                     android:inputType="text"
                     android:minHeight="48dp"
                     android:textSize="16sp"
@@ -114,15 +116,37 @@
                     android:textStyle="bold"
                     tools:ignore="TextContrastCheck" />
 
+
                 <EditText
                     android:id="@+id/password_et"
+
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:autofillHints="password"
+                    android:background="@drawable/edit_text_field"
                     android:inputType="textPassword"
                     android:minHeight="48dp"
                     android:textSize="16sp"
                     tools:ignore="SpeakableTextPresentCheck" />
+
+
+                <TextView
+                    android:id="@+id/forgot_password"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@color/transparent"
+                    android:clickable="true"
+                    android:focusable="true"
+                    android:gravity="end"
+                    android:minHeight="48dp"
+                    android:padding="5dp"
+                    android:text="@string/forgot_password"
+                    android:textColor="@color/colorAccent"
+                    android:textSize="12sp"
+                    android:textStyle="bold"
+                    android:visibility="visible"
+                    tools:ignore="TextContrastCheck"
+                    tools:visibility="visible" />
 
 
             </LinearLayout>
@@ -137,8 +161,7 @@
             android:layout_rowWeight="1"
             android:layout_columnWeight="1"
             android:layout_gravity="bottom"
-            android:layout_marginLeft="20dp"
-            android:layout_marginRight="20dp"
+            android:layout_marginHorizontal="50dp"
             android:layout_marginBottom="20dp"
             android:clickable="true"
             android:focusable="true"
@@ -146,6 +169,7 @@
             app:cardCornerRadius="20dp"
             app:cardElevation="10dp"
             tools:ignore="DuplicateClickableBoundsCheck">
+
 
             <com.balysv.materialripple.MaterialRippleLayout
                 android:id="@+id/log_in_mrl"

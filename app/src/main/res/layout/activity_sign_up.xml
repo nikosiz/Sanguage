@@ -120,6 +120,7 @@
                     android:importantForAutofill="no"
                     android:inputType="text"
                     android:minHeight="48dp"
+                    android:padding="10dp"
                     android:textSize="16sp"
                     tools:ignore="SpeakableTextPresentCheck" />
 
@@ -142,6 +143,7 @@
                     android:importantForAutofill="no"
                     android:inputType="textEmailAddress"
                     android:minHeight="48dp"
+                    android:padding="10dp"
                     android:textSize="16sp"
                     tools:ignore="SpeakableTextPresentCheck" />
 
@@ -165,6 +167,7 @@
                     android:inputType="textPassword"
                     android:minHeight="48dp"
                     android:outlineAmbientShadowColor="#FF0000"
+                    android:padding="10dp"
                     android:textSize="16sp"
                     tools:ignore="SpeakableTextPresentCheck"
                     tools:targetApi="p" />

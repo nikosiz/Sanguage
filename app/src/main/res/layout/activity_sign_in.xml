@@ -33,7 +33,6 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
-
             android:layout_marginBottom="5dp"
             android:fontFamily="@font/fredoka_one"
             android:gravity="center"
@@ -104,6 +103,7 @@
                     android:background="@drawable/edit_text_field"
                     android:inputType="text"
                     android:minHeight="48dp"
+                    android:padding="10dp"
                     android:textSize="16sp"
                     tools:ignore="SpeakableTextPresentCheck" />
 
@@ -126,6 +126,7 @@
                     android:background="@drawable/edit_text_field"
                     android:inputType="textPassword"
                     android:minHeight="48dp"
+                    android:padding="10dp"
                     android:textSize="16sp"
                     tools:ignore="SpeakableTextPresentCheck" />
 

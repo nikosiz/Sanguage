@@ -81,7 +81,7 @@
                 android:background="#FAFAFA"
                 android:gravity="center"
                 android:orientation="vertical"
-                android:paddingHorizontal="20dp">
+                android:padding="40dp">
 
                 <RelativeLayout
                     android:layout_width="match_parent"
@@ -111,14 +111,16 @@
                     android:textStyle="bold"
                     tools:ignore="TextContrastCheck" />
 
-
                 <EditText
                     android:id="@+id/editTextUsername"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:autofillHints="username"
+                    android:background="@drawable/edit_text_field"
                     android:importantForAutofill="no"
                     android:inputType="text"
                     android:minHeight="48dp"
+                    android:padding="10dp"
                     android:textSize="16sp"
                     tools:ignore="SpeakableTextPresentCheck" />
 
@@ -136,10 +138,12 @@
                     android:id="@+id/editTextEmailAddress"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:background="@drawable/edit_text_field"
                     android:ems="10"
                     android:importantForAutofill="no"
                     android:inputType="textEmailAddress"
                     android:minHeight="48dp"
+                    android:padding="10dp"
                     android:textSize="16sp"
                     tools:ignore="SpeakableTextPresentCheck" />
 
@@ -157,11 +161,13 @@
                     android:id="@+id/editTextPassword"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:background="@drawable/edit_text_field"
                     android:ems="10"
                     android:importantForAutofill="no"
                     android:inputType="textPassword"
                     android:minHeight="48dp"
                     android:outlineAmbientShadowColor="#FF0000"
+                    android:padding="10dp"
                     android:textSize="16sp"
                     tools:ignore="SpeakableTextPresentCheck"
                     tools:targetApi="p" />
@@ -201,8 +207,8 @@
                             android:button="@color/transparent"
                             android:clickable="true"
                             android:focusable="true"
-                            android:scaleX="0.75"
-                            android:scaleY="0.5"
+                            android:scaleX="0.9"
+                            android:scaleY="0.6"
                             tools:ignore="SpeakableTextPresentCheck" />
 
                         <RadioButton
@@ -214,8 +220,8 @@
                             android:width="50dp"
                             android:background="@drawable/fr_button"
                             android:button="@color/transparent"
-                            android:scaleX="0.75"
-                            android:scaleY="0.5"
+                            android:scaleX="0.9"
+                            android:scaleY="0.6"
                             tools:ignore="SpeakableTextPresentCheck" />
 
                         <RadioButton
@@ -229,8 +235,8 @@
                             android:button="@color/transparent"
                             android:clickable="true"
                             android:focusable="true"
-                            android:scaleX="0.75"
-                            android:scaleY="0.5"
+                            android:scaleX="0.9"
+                            android:scaleY="0.6"
                             tools:ignore="SpeakableTextPresentCheck" />
 
                         <RadioButton
@@ -242,8 +248,8 @@
                             android:width="50dp"
                             android:background="@drawable/de_button"
                             android:button="@color/transparent"
-                            android:scaleX="0.75"
-                            android:scaleY="0.5"
+                            android:scaleX="0.9"
+                            android:scaleY="0.6"
                             tools:ignore="SpeakableTextPresentCheck" />
 
 

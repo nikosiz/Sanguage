@@ -103,7 +103,7 @@
                         <Button
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:background="@color/buttons"
+                            android:background="@color/colorPrimary1"
                             android:text="@string/sign_up"
                             android:textColor="@android:color/white"
                             android:textSize="16sp"

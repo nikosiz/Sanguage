@@ -3,7 +3,6 @@
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <item
-        android:id="@+id/learn_tab"
         android:icon="@drawable/ic_learn_tab"
         android:title="fakeMenu"
         app:cnb_backgroundColor="@color/transparent"

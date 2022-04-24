@@ -26,7 +26,6 @@ import com.balysv.materialripple.MaterialRippleLayout;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-import java.sql.SQLOutput;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -104,7 +103,7 @@ public class SignUpActivity extends AppCompatActivity {
     @SuppressLint("ResourceAsColor")
     public void enableSignupButton() {
         signup_btn.setEnabled(true);
-        signup_btn.setBackgroundColor(R.color.buttons);
+        signup_btn.setBackgroundColor(R.color.colorPrimary1);
     }
 
     public void signUpRequest(String username, String email, String password, String secondLanguage) {

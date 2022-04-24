@@ -22,6 +22,7 @@ import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.Volley;
 import com.balysv.materialripple.MaterialRippleLayout;
+import com.google.android.material.button.MaterialButton;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -33,8 +34,7 @@ public class SignUpActivity extends AppCompatActivity {
     private EditText username_et;
     private EditText email_et;
     private EditText password_et;
-    private MaterialRippleLayout signup_mrl;
-    private Button signup_btn;
+    private Button sign_up_btn;
     private TextView username_tv;
     private TextView email_tv;
     private TextView password_tv;
@@ -46,12 +46,11 @@ public class SignUpActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_sign_up);
 
-        username_et = findViewById(R.id.editTextUsername);
-        email_et = findViewById(R.id.editTextEmailAddress);
-        password_et = findViewById(R.id.editTextPassword);
-        signup_mrl = findViewById(R.id.sign_up_mrl);
-        signup_btn = findViewById(R.id.sign_up_btn);
-        username_tv = findViewById(R.id.TextViewUsername);
+        username_et = findViewById(R.id.usernameSignUp);
+        email_et = findViewById(R.id.emailSignUp);
+        password_et = findViewById(R.id.passwordSignUp);
+        sign_up_btn = findViewById(R.id.sign_up_btn);
+        username_tv = findViewById(R.id.usernameSignUp);
         email_tv = findViewById(R.id.TextViewEmailAddress);
         password_tv = findViewById(R.id.TextViewPassword);
         language_tv = findViewById(R.id.TextViewLanguage);
@@ -78,7 +77,8 @@ public class SignUpActivity extends AppCompatActivity {
                 }
             }
         });
-        signup_mrl.setOnClickListener(new View.OnClickListener() {
+
+        sign_up_btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 String username = username_et.getText().toString();
@@ -96,14 +96,14 @@ public class SignUpActivity extends AppCompatActivity {
 
     @SuppressLint("ResourceAsColor")
     public void disableSignupButton() {
-        signup_btn.setEnabled(false);
-        signup_btn.setBackgroundColor(R.color.colorAccent);
+        sign_up_btn.setEnabled(false);
+        sign_up_btn.setBackgroundColor(R.color.colorAccent);
     }
 
     @SuppressLint("ResourceAsColor")
     public void enableSignupButton() {
-        signup_btn.setEnabled(true);
-        signup_btn.setBackgroundColor(R.color.colorPrimary1);
+        sign_up_btn.setEnabled(true);
+        sign_up_btn.setBackgroundColor(R.color.colorPrimary1);
     }
 
     public void signUpRequest(String username, String email, String password, String secondLanguage) {

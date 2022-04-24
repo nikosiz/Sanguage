@@ -18,8 +18,9 @@
         android:gravity="center"
         android:text="@string/app_name"
         android:textColor="@color/white"
-        android:textSize="60dp"
-        android:transitionName="app_logo" />
+        android:textSize="60sp"
+        android:transitionName="app_logo"
+        tools:ignore="TextContrastCheck" />
 
     <ImageView
         android:id="@+id/mascot_log_in"
@@ -37,38 +38,34 @@
         android:id="@+id/app_name_log_in"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginHorizontal="20dp"
         android:fontFamily="@font/open_sans_bold"
-        android:text="Welcome back!"
-        android:textSize="30dp"
+        android:text="@string/welcome_back"
+        android:textSize="30sp"
         android:textStyle="bold"
         android:transitionName="app_slogan" />
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginHorizontal="20dp"
         android:fontFamily="@font/open_sans_bold"
-        android:text="Log in to continue"
-        android:textSize="18dp"
-        android:transitionName="app_slogan" />
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="20dp" />
+        android:text="@string/log_in_to_continue"
+        android:textSize="18sp"
+        android:transitionName="app_slogan"
+        tools:ignore="TextContrastCheck" />
 
     <com.google.android.material.textfield.TextInputLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Username">
+        android:hint="@string/username">
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/username_email_et"
             style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="@drawable/light_button_background">
+            android:background="@drawable/light_button_background"
+            android:textSize="20dp"
+            tools:ignore="TextContrastCheck">
 
         </com.google.android.material.textfield.TextInputEditText>
 
@@ -77,7 +74,7 @@
     <com.google.android.material.textfield.TextInputLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Password"
+        android:hint="@string/password"
         app:passwordToggleEnabled="true">
 
         <com.google.android.material.textfield.TextInputEditText
@@ -86,7 +83,9 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="@drawable/light_button_background"
-            android:inputType="textPassword">
+            android:inputType="textPassword"
+            android:textSize="20dp"
+            tools:ignore="TextContrastCheck">
 
         </com.google.android.material.textfield.TextInputEditText>
 
@@ -96,11 +95,12 @@
         android:id="@+id/forgot_password"
         android:layout_width="250dp"
         android:layout_height="wrap_content"
-        android:layout_gravity="right"
+        android:layout_gravity="center"
         android:background="@color/transparent"
         android:elevation="0dp"
-        android:text="Don't remember password?"
-        android:textColor="@color/colorPrimary2">
+        android:text="@string/don_t_remember_password"
+        android:textColor="@color/colorPrimary2"
+        tools:ignore="TextContrastCheck">
 
     </Button>
 
@@ -113,18 +113,22 @@
         android:layout_marginBottom="5dp"
         android:background="@drawable/basic_button_background"
         android:elevation="0dp"
-        android:text="Log in"
-        android:textColor="@color/white"></Button>
+        android:padding="15dp"
+        android:text="@string/log_in"
+        android:textColor="@color/white"
+        android:textSize="20dp"
+        tools:ignore="TextContrastCheck" />
 
     <Button
-        android:id="@+id/sign_up_btn"
+        android:id="@+id/choose_sign_up_btn"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:background="@color/transparent"
         android:elevation="0dp"
-        android:text="First time here? Sign Up!"
-        android:textColor="@color/colorPrimary2">
+        android:text="@string/first_time_here_sign_up"
+        android:textColor="@color/colorPrimary2"
+        tools:ignore="TextContrastCheck">
 
     </Button>
 

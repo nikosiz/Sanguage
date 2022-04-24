@@ -16,13 +16,12 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.Volley;
-import com.balysv.materialripple.MaterialRippleLayout;
 
 import org.json.JSONException;
 import org.json.JSONObject;
 
 
-public class SignInActivity extends AppCompatActivity {
+public class LogInActivity extends AppCompatActivity {
 
     private Button log_in_btn;
     private EditText username_email_et;
@@ -48,7 +47,7 @@ public class SignInActivity extends AppCompatActivity {
                 } else {
                     try {
                         JSONObject loginJSON = createLoginJSON(username_email.trim(), password);
-                        RequestQueue queue = Volley.newRequestQueue(SignInActivity.this);
+                        RequestQueue queue = Volley.newRequestQueue(LogInActivity.this);
                         JsonObjectRequest jsonObjectRequest = new JsonObjectRequest(Request.Method.POST, URL, loginJSON, new Response.Listener<JSONObject>() {
                             @Override
                             public void onResponse(JSONObject response) {
@@ -60,7 +59,7 @@ public class SignInActivity extends AppCompatActivity {
                                     intent.putExtra("registrationDate", response.getString("registrationDate"));
                                     intent.putExtra("userID", response.getLong("userID"));
                                 } catch (JSONException j) {
-                                    Log.e("SignInActivity - intent.putExtra()", j.getMessage());
+                                    Log.e("LogInActivity - intent.putExtra()", j.getMessage());
                                 }
                                 startActivity(intent);
                             }
@@ -71,13 +70,13 @@ public class SignInActivity extends AppCompatActivity {
                                     String message = RequestErrorParser.parseError(error);
                                     Toast.makeText(getApplicationContext(), message, Toast.LENGTH_SHORT).show();
                                 } catch (JSONException j) {
-                                    Log.e("SignInActivity - onErrorResponse()", j.getMessage());
+                                    Log.e("LogInActivity - onErrorResponse()", j.getMessage());
                                 }
                             }
                         });
                         queue.add(jsonObjectRequest);
                     } catch (JSONException j) {
-                        Log.e("SignInActivity - create account btn", j.getMessage());
+                        Log.e("LogInActivity - create account btn", j.getMessage());
                     }
                 }
             }

@@ -28,10 +28,10 @@
             android:name=".MainAppWindow"
             android:exported="false" />
         <activity
-            android:name=".SignInActivity"
+            android:name=".LogInActivity"
             android:exported="false" />
         <activity
-            android:name=".LogInActivity"
+            android:name=".SignUpActivity"
             android:exported="false" />
         <activity
             android:name=".ChooseActivity"

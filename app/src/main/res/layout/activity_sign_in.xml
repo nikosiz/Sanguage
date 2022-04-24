@@ -29,6 +29,7 @@
         android:layout_height="match_parent"
         android:orientation="vertical">
 
+
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -73,12 +74,13 @@
 
                 <RelativeLayout
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content">
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="20dp"
+                    android:layout_marginBottom="20dp">
 
                     <ImageView
                         android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginBottom="40dp"
+                        android:layout_height="150dp"
                         android:contentDescription="@string/mascot"
                         android:src="@drawable/ic_mascot">
 
@@ -100,7 +102,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:autofillHints="username"
-                    android:background="@drawable/edit_text_field"
+                    android:background="@drawable/edit_text_field_grey"
                     android:inputType="text"
                     android:minHeight="48dp"
                     android:padding="10dp"
@@ -123,7 +125,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:autofillHints="password"
-                    android:background="@drawable/edit_text_field"
+                    android:background="@drawable/edit_text_field_grey"
                     android:inputType="textPassword"
                     android:minHeight="48dp"
                     android:padding="10dp"

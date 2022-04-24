@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:background="@color/lightPrimary"
-    tools:context=".SignUpActivity">
+    tools:context=".ChooseActivity">
 
 
     <LinearLayout
@@ -95,7 +95,7 @@
                     tools:ignore="DuplicateClickableBoundsCheck">
 
                     <com.balysv.materialripple.MaterialRippleLayout
-                        android:id="@+id/sign_up_mrl"
+                        android:id="@+id/sign_up_btn"
                         style="@style/RippleStyleGrey"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent">

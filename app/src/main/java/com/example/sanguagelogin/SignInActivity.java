@@ -6,6 +6,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
@@ -17,27 +18,26 @@ import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.Volley;
 import com.balysv.materialripple.MaterialRippleLayout;
 
-import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
 
 public class SignInActivity extends AppCompatActivity {
 
-    private MaterialRippleLayout log_in_mrl;
+    private Button log_in_btn;
     private EditText username_email_et;
     private EditText password_et;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_sign_in);
+        setContentView(R.layout.activity_log_in);
 
-        log_in_mrl = findViewById(R.id.log_in_mrl);
+        log_in_btn = findViewById(R.id.log_in_btn);
         username_email_et = findViewById(R.id.username_email_et);
         password_et = findViewById(R.id.password_et);
 
-        log_in_mrl.setOnClickListener(new View.OnClickListener() {
+        log_in_btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 String URL = "https://sanguage.herokuapp.com/login";

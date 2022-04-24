@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".SignUpActivity">
+    tools:context=".LogInActivity">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -279,7 +279,7 @@
             tools:ignore="DuplicateClickableBoundsCheck">
 
             <com.balysv.materialripple.MaterialRippleLayout
-                android:id="@+id/sign_up_mrl"
+                android:id="@+id/sign_up_btn"
                 style="@style/RippleStyleGrey"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent">
@@ -289,7 +289,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
-                    android:background="@drawable/basic_button_backgruond"
+                    android:background="@drawable/basic_button_background"
                     android:text="@string/create_account"
                     android:textColor="@android:color/white"
                     android:textSize="16sp"

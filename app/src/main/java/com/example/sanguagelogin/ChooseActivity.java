@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.view.WindowManager;
 
 import com.balysv.materialripple.MaterialRippleLayout;
 
@@ -18,14 +19,15 @@ public class ChooseActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
         setContentView(R.layout.choose_activity);
 
-        sign_up_mrl = findViewById(R.id.sign_up_mrl);
+        /*sign_up_mrl = findViewById(R.id.sign_up_btn);
 
         sign_up_mrl.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(getApplicationContext(), SignUpActivity.class);
+                Intent intent = new Intent(getApplicationContext(), LogInActivity.class);
                 startActivity(intent);
             }
         });
@@ -48,7 +50,7 @@ public class ChooseActivity extends AppCompatActivity {
                 Intent intent = new Intent(getApplicationContext(), MainAppWindow.class);
                 startActivity(intent);
             }
-        });
+        });*/
 
 
     }

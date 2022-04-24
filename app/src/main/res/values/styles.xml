@@ -5,6 +5,7 @@
         <item name="colorPrimary">@color/colorPrimary2</item>
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
         <item name="colorAccent">@color/colorAccent</item>
+        <item name="android:windowContentTransitions">true</item>
     </style>
 
     <style name="RippleStyleGrey">
@@ -18,5 +19,7 @@
         <item name="mrl_rippleColor">#D6D6D6</item>
         <item name="mrl_rippleAlpha">0.2</item>
     </style>
+
+
 
 </resources>

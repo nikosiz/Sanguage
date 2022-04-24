@@ -21,8 +21,6 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.Volley;
-import com.balysv.materialripple.MaterialRippleLayout;
-import com.google.android.material.button.MaterialButton;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -46,15 +44,15 @@ public class SignUpActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_sign_up);
 
-        username_et = findViewById(R.id.usernameSignUp);
-        email_et = findViewById(R.id.emailSignUp);
-        password_et = findViewById(R.id.passwordSignUp);
-        sign_up_btn = findViewById(R.id.sign_up_btn);
-        username_tv = findViewById(R.id.usernameSignUp);
-        email_tv = findViewById(R.id.TextViewEmailAddress);
-        password_tv = findViewById(R.id.TextViewPassword);
-        language_tv = findViewById(R.id.TextViewLanguage);
-        language_rg = findViewById(R.id.radio_group);
+        username_et = findViewById(R.id.sign_up_username_et);
+        email_et = findViewById(R.id.sign_up_email_et);
+        password_et = findViewById(R.id.sign_up_password_et);
+        sign_up_btn = findViewById(R.id.sign_up_sign_up_btn);
+        username_tv = findViewById(R.id.sign_up_username_et);
+        email_tv = findViewById(R.id.sign_up_email_tv);
+        password_tv = findViewById(R.id.sign_up_password_tv);
+        language_tv = findViewById(R.id.sign_up_choose_language_tv);
+        language_rg = findViewById(R.id.sign_up_language_rg);
 
         password_et.setOnFocusChangeListener(new View.OnFocusChangeListener() {
             @Override

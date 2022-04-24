@@ -10,6 +10,7 @@
     tools:context=".LogInActivity">
 
     <TextView
+        android:id="@+id/log_in_app_logo_tv"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
@@ -23,7 +24,7 @@
         tools:ignore="TextContrastCheck" />
 
     <ImageView
-        android:id="@+id/mascot_log_in"
+        android:id="@+id/log_in_mascot_iv"
         android:layout_width="150dp"
         android:layout_height="150dp"
         android:layout_gravity="center"
@@ -35,7 +36,7 @@
 
 
     <TextView
-        android:id="@+id/app_name_log_in"
+        android:id="@+id/log_in_welcome_back_tv"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:fontFamily="@font/open_sans_bold"
@@ -45,6 +46,7 @@
         android:transitionName="app_slogan" />
 
     <TextView
+        android:id="@+id/log_in_log_in_to_continue"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:fontFamily="@font/open_sans_bold"
@@ -56,10 +58,10 @@
     <com.google.android.material.textfield.TextInputLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="@string/username">
+        android:hint="Username or email">
 
         <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/username_email_et"
+            android:id="@+id/log_in_username_or_email_et"
             style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -78,7 +80,7 @@
         app:passwordToggleEnabled="true">
 
         <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/password_et"
+            android:id="@+id/log_in_password_et"
             style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -92,7 +94,7 @@
     </com.google.android.material.textfield.TextInputLayout>
 
     <Button
-        android:id="@+id/forgot_password"
+        android:id="@+id/log_in_forgot_password_btn"
         android:layout_width="250dp"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
@@ -105,7 +107,7 @@
     </Button>
 
     <Button
-        android:id="@+id/log_in_btn"
+        android:id="@+id/log_in_log_in_btn"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_gravity="center"

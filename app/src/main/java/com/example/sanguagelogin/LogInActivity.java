@@ -32,9 +32,9 @@ public class LogInActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_log_in);
 
-        log_in_btn = findViewById(R.id.log_in_btn);
-        username_email_et = findViewById(R.id.username_email_et);
-        password_et = findViewById(R.id.password_et);
+        log_in_btn = findViewById(R.id.log_in_log_in_btn);
+        username_email_et = findViewById(R.id.log_in_username_or_email_et);
+        password_et = findViewById(R.id.log_in_password_et);
 
         log_in_btn.setOnClickListener(new View.OnClickListener() {
             @Override

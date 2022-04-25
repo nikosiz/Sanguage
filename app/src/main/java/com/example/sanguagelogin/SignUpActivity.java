@@ -2,7 +2,6 @@ package com.example.sanguagelogin;
 
 import android.annotation.SuppressLint;
 import android.content.Intent;
-import android.graphics.Color;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -48,16 +47,15 @@ public class SignUpActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_sign_up);
 
-        username_et = findViewById(R.id.editTextUsername);
-        email_et = findViewById(R.id.editTextEmailAddress);
-        password_et = findViewById(R.id.editTextPassword);
-        signup_mrl = findViewById(R.id.sign_up_mrl);
-        signup_btn = findViewById(R.id.sign_up_btn);
-        username_tv = findViewById(R.id.TextViewUsername);
-        email_tv = findViewById(R.id.TextViewEmailAddress);
-        password_tv = findViewById(R.id.TextViewPassword);
-        language_tv = findViewById(R.id.TextViewLanguage);
-        language_rg = findViewById(R.id.radio_group);
+        username_et = findViewById(R.id.sign_up_username_et);
+        email_et = findViewById(R.id.sign_up_email_et);
+        password_et = findViewById(R.id.sign_up_password_et);
+        sign_up_btn = findViewById(R.id.sign_up_sign_up_btn);
+        username_tv = findViewById(R.id.sign_up_username_et);
+        email_tv = findViewById(R.id.sign_up_email_tv);
+        password_tv = findViewById(R.id.sign_up_password_tv);
+        language_tv = findViewById(R.id.sign_up_choose_language_tv);
+        language_rg = findViewById(R.id.sign_up_language_rg);
 
         password_et.setOnFocusChangeListener(new View.OnFocusChangeListener() {
             @Override
@@ -105,7 +103,7 @@ public class SignUpActivity extends AppCompatActivity {
     @SuppressLint("ResourceAsColor")
     public void enableSignupButton() {
         signup_btn.setEnabled(true);
-        signup_btn.setBackgroundColor(getResources().getColor(R.color.buttons));
+        signup_btn.setBackgroundColor(getResources().getColor(R.color.colorPrimary1));
     }
 
     public void signUpRequest(String username, String email, String password, String secondLanguage) {
@@ -118,7 +116,6 @@ public class SignUpActivity extends AppCompatActivity {
                 public void onResponse(JSONObject response) {
                     //  TODO confirm token window
                     Intent intent = new Intent(getApplicationContext(), MainAppWindow.class);
-                    intent.putExtra("username", username);
                     startActivity(intent);
                 }
             }, new Response.ErrorListener() {

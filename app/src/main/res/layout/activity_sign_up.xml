@@ -116,10 +116,11 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:autofillHints="username"
-                    android:background="@drawable/edit_text_field"
+                    android:background="@drawable/edit_text_field_grey"
                     android:importantForAutofill="no"
                     android:inputType="text"
                     android:minHeight="48dp"
+                    android:padding="10dp"
                     android:textSize="16sp"
                     tools:ignore="SpeakableTextPresentCheck" />
 
@@ -137,11 +138,12 @@
                     android:id="@+id/editTextEmailAddress"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:background="@drawable/edit_text_field"
+                    android:background="@drawable/edit_text_field_grey"
                     android:ems="10"
                     android:importantForAutofill="no"
                     android:inputType="textEmailAddress"
                     android:minHeight="48dp"
+                    android:padding="10dp"
                     android:textSize="16sp"
                     tools:ignore="SpeakableTextPresentCheck" />
 
@@ -159,12 +161,13 @@
                     android:id="@+id/editTextPassword"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:background="@drawable/edit_text_field"
+                    android:background="@drawable/edit_text_field_grey"
                     android:ems="10"
                     android:importantForAutofill="no"
                     android:inputType="textPassword"
                     android:minHeight="48dp"
                     android:outlineAmbientShadowColor="#FF0000"
+                    android:padding="10dp"
                     android:textSize="16sp"
                     tools:ignore="SpeakableTextPresentCheck"
                     tools:targetApi="p" />

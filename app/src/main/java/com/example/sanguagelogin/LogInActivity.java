@@ -1,15 +1,11 @@
 package com.example.sanguagelogin;
 
-import androidx.annotation.ColorInt;
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.annotation.SuppressLint;
 import android.content.Intent;
-import android.graphics.Color;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
-import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
@@ -26,7 +22,7 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 
-public class SignInActivity extends AppCompatActivity {
+public class LogInActivity extends AppCompatActivity {
 
     private MaterialRippleLayout log_in_mrl;
     private Button log_in_btn;
@@ -36,7 +32,7 @@ public class SignInActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_sign_in);
+        setContentView(R.layout.activity_log_in);
 
         log_in_mrl = findViewById(R.id.log_in_mrl);
         log_in_btn = findViewById(R.id.log_in_btn);
@@ -52,11 +48,12 @@ public class SignInActivity extends AppCompatActivity {
                     Toast.makeText(getApplicationContext(), "please provide correct data", Toast.LENGTH_SHORT).show();
                 } else {
                     disableSignInButton();
-                    signInRequest(username_email, password);
+                    logInRequest(username_email, password);
                 }
             }
-        });
-    }
+        }
+    });
+}
 
     @SuppressLint("ResourceAsColor")
     public void disableSignInButton() {
@@ -70,7 +67,7 @@ public class SignInActivity extends AppCompatActivity {
         log_in_btn.setBackgroundColor(getResources().getColor(R.color.buttons));
     }
 
-    public void signInRequest(String username_email, String password) {
+    public void logInRequest(String username_email, String password) {
         String URL = "https://sanguage.herokuapp.com/login?usernameEmail=" + username_email + "&password=" + password;
         RequestQueue queue = Volley.newRequestQueue(SignInActivity.this);
         JsonObjectRequest jsonObjectRequest = new JsonObjectRequest(Request.Method.GET, URL, null, new Response.Listener<JSONObject>() {

@@ -2,6 +2,7 @@ package com.example.sanguagelogin;
 
 import android.annotation.SuppressLint;
 import android.content.Intent;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -98,13 +99,13 @@ public class SignUpActivity extends AppCompatActivity {
     @SuppressLint("ResourceAsColor")
     public void disableSignupButton() {
         signup_btn.setEnabled(false);
-        signup_btn.setBackgroundColor(R.color.colorAccent);
+        signup_btn.setBackgroundColor(getResources().getColor(R.color.colorAccent));
     }
 
     @SuppressLint("ResourceAsColor")
     public void enableSignupButton() {
         signup_btn.setEnabled(true);
-        signup_btn.setBackgroundColor(R.color.buttons);
+        signup_btn.setBackgroundColor(getResources().getColor(R.color.buttons));
     }
 
     public void signUpRequest(String username, String email, String password, String secondLanguage) {
@@ -118,8 +119,6 @@ public class SignUpActivity extends AppCompatActivity {
                     //  TODO confirm token window
                     Intent intent = new Intent(getApplicationContext(), MainAppWindow.class);
                     intent.putExtra("username", username);
-                    intent.putExtra("email", email);
-                    intent.putExtra("secondLanguage", secondLanguage);
                     startActivity(intent);
                 }
             }, new Response.ErrorListener() {
@@ -128,8 +127,8 @@ public class SignUpActivity extends AppCompatActivity {
                     try {
                         String message = RequestErrorParser.parseError(error);
                         Toast.makeText(getApplicationContext(), message, Toast.LENGTH_SHORT).show();
-                    } catch (JSONException j) {
-                        Log.e("SignUp - onErrorResponse()", j.getMessage());
+                    } catch (JSONException | NullPointerException e) {
+                        Log.e("SignUp - onErrorResponse()", e.getMessage());
                     }
                     enableSignupButton();
                 }

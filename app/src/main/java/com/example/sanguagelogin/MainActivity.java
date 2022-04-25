@@ -39,17 +39,6 @@ import java.util.regex.Pattern;
 
 public class MainActivity extends AppCompatActivity {
 
-    private EditText username_et;
-    private EditText email_et;
-    private EditText password_et;
-    private MaterialRippleLayout signup_mrl;
-    private Button signup_btn;
-    private TextView username_tv;
-    private TextView email_tv;
-    private TextView password_tv;
-    private TextView language_tv;
-    private RadioGroup language_rg;
-
     private static int SPLASH_SCREEN = 5000;
 
     Animation topAnim, bottomAnim;

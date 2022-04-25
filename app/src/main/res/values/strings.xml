@@ -6,7 +6,7 @@
     <string name="sign_up">Sign Up</string>
     <string name="mascot">mascot</string>
     <string name="skip">SKIP</string>
-    <string name="create_an_account_to_make_sure_your_progress_nwon_t_be_lost">Create an account to make sure your progress \nwon\'t be lost!</string>
+    <string name="create_an_account_to_make_sure_your_progress_won_t_be_lost">Create an account to make sure your progress \nwon\'t be lost!</string>
     <string name="username">Username</string>
     <string name="email_address">Email Address</string>
     <string name="password">Password</string>
@@ -37,4 +37,5 @@
     <string name="log_in">Log in</string>
     <string name="first_time_here_sign_up">First time here? Sign Up!</string>
     <string name="add">add</string>
+    <string name="with_all_the_basic_ingredients">with all the basic ingredients</string>
 </resources>

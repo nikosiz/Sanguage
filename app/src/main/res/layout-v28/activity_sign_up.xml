@@ -51,15 +51,6 @@
         android:layout_marginVertical="10dp"
         android:orientation="vertical">
 
-        <com.google.android.material.textview.MaterialTextView
-            android:id="@+id/sign_up_username_tv"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/username"
-            android:textColor="#3c5f69"
-            android:textSize="16sp"
-            android:textStyle="bold"
-            tools:ignore="TextContrastCheck" />
 
         <com.google.android.material.textfield.TextInputLayout
             android:layout_width="match_parent"
@@ -78,15 +69,7 @@
 
         </com.google.android.material.textfield.TextInputLayout>
 
-        <com.google.android.material.textview.MaterialTextView
-            android:id="@+id/sign_up_email_tv"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/email"
-            android:textColor="#3c5f69"
-            android:textSize="16sp"
-            android:textStyle="bold"
-            tools:ignore="TextContrastCheck" />
+
 
         <com.google.android.material.textfield.TextInputLayout
             android:layout_width="match_parent"
@@ -105,15 +88,7 @@
 
         </com.google.android.material.textfield.TextInputLayout>
 
-        <com.google.android.material.textview.MaterialTextView
-            android:id="@+id/sign_up_password_tv"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/password"
-            android:textColor="#3c5f69"
-            android:textSize="16sp"
-            android:textStyle="bold"
-            tools:ignore="TextContrastCheck" />
+
 
         <com.google.android.material.textfield.TextInputLayout
             android:layout_width="match_parent"
@@ -219,10 +194,12 @@
         android:orientation="vertical">
 
         <com.google.android.material.button.MaterialButton
-            android:id="@+id/sign_up_sign_up_btn"
+            android:id="@+id/sign_up_sign_up_mtn"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
+            android:theme="@style/FormButton"
+            android:textAppearance="@style/TextAppearance.MaterialComponents.Button"
             android:background="@drawable/basic_button_background"
             android:elevation="0dp"
             android:text="@string/sign_up"
@@ -230,10 +207,12 @@
             tools:ignore="TextContrastCheck" />
 
         <com.google.android.material.button.MaterialButton
-            android:id="@+id/choose_sign_in_btn"
+            android:id="@+id/sign_up_sign_in_mtn"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="@color/transparent"
+            android:theme="@style/FormButton"
+            android:textAppearance="@style/TextAppearance.MaterialComponents.Button"
             android:elevation="0dp"
             android:gravity="center|end"
             android:text="@string/already_registered_click_here_to_log_in"

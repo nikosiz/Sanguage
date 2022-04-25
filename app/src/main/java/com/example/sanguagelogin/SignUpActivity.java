@@ -22,6 +22,8 @@ import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.Volley;
 import com.balysv.materialripple.MaterialRippleLayout;
+import com.google.android.material.button.MaterialButton;
+import com.google.android.material.textfield.TextInputEditText;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -31,14 +33,10 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 public class SignUpActivity extends AppCompatActivity {
-    private EditText username_et;
-    private EditText email_et;
-    private EditText password_et;
-    private MaterialRippleLayout signup_mrl;
-    private Button signup_btn;
-    private TextView username_tv;
-    private TextView email_tv;
-    private TextView password_tv;
+    private TextInputEditText username_et;
+    private TextInputEditText email_et;
+    private TextInputEditText password_et;
+    private MaterialButton sign_up_mtn;
     private TextView language_tv;
     private RadioGroup language_rg;
 
@@ -50,10 +48,7 @@ public class SignUpActivity extends AppCompatActivity {
         username_et = findViewById(R.id.sign_up_username_et);
         email_et = findViewById(R.id.sign_up_email_et);
         password_et = findViewById(R.id.sign_up_password_et);
-        sign_up_btn = findViewById(R.id.sign_up_sign_up_btn);
-        username_tv = findViewById(R.id.sign_up_username_et);
-        email_tv = findViewById(R.id.sign_up_email_tv);
-        password_tv = findViewById(R.id.sign_up_password_tv);
+        sign_up_mtn = findViewById(R.id.sign_up_sign_up_mtn);
         language_tv = findViewById(R.id.sign_up_choose_language_tv);
         language_rg = findViewById(R.id.sign_up_language_rg);
 
@@ -78,7 +73,7 @@ public class SignUpActivity extends AppCompatActivity {
                 }
             }
         });
-        signup_mrl.setOnClickListener(new View.OnClickListener() {
+        sign_up_mtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 String username = username_et.getText().toString();
@@ -96,14 +91,14 @@ public class SignUpActivity extends AppCompatActivity {
 
     @SuppressLint("ResourceAsColor")
     public void disableSignupButton() {
-        signup_btn.setEnabled(false);
-        signup_btn.setBackgroundColor(getResources().getColor(R.color.colorAccent));
+        sign_up_mtn.setEnabled(false);
+        sign_up_mtn.setBackgroundColor(getResources().getColor(R.color.colorAccent));
     }
 
     @SuppressLint("ResourceAsColor")
     public void enableSignupButton() {
-        signup_btn.setEnabled(true);
-        signup_btn.setBackgroundColor(getResources().getColor(R.color.colorPrimary1));
+        sign_up_mtn.setEnabled(true);
+        sign_up_mtn.setBackgroundColor(getResources().getColor(R.color.colorPrimary1));
     }
 
     public void signUpRequest(String username, String email, String password, String secondLanguage) {
@@ -149,13 +144,13 @@ public class SignUpActivity extends AppCompatActivity {
 
     public boolean validateAllData(String username, String email, String password, int languageIndex) {
         if (username.isEmpty()) {
-            username_tv.startAnimation(shakeError());
+            username_et.startAnimation(shakeError());
         }
         if (email.isEmpty() || !validateEmail(email)) {
-            email_tv.startAnimation(shakeError());
+            email_et.startAnimation(shakeError());
         }
         if (password.isEmpty() || !validatePassword(password)) {
-            password_tv.startAnimation(shakeError());
+            password_et.startAnimation(shakeError());
         }
         if (languageIndex == -1) {
             language_tv.startAnimation(shakeError());

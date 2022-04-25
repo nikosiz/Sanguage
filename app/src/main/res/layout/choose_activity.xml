@@ -95,7 +95,7 @@
                     tools:ignore="DuplicateClickableBoundsCheck">
 
                     <com.balysv.materialripple.MaterialRippleLayout
-                        android:id="@+id/sign_up_btn"
+                        android:id="@+id/choose_sign_up_mrl"
                         style="@style/RippleStyleGrey"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent">
@@ -132,7 +132,7 @@
                     tools:ignore="DuplicateClickableBoundsCheck">
 
                     <com.balysv.materialripple.MaterialRippleLayout
-                        android:id="@+id/sign_in_mrl"
+                        android:id="@+id/choose_sign_in_mrl"
                         style="@style/RippleStyleGrey2"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent">
@@ -170,7 +170,7 @@
                     tools:ignore="DuplicateClickableBoundsCheck">
 
                     <com.balysv.materialripple.MaterialRippleLayout
-                        android:id="@+id/skip_mrl"
+                        android:id="@+id/choose_skip_mrl"
                         style="@style/RippleStyleGrey2"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent">

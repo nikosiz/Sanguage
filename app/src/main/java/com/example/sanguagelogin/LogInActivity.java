@@ -2,10 +2,12 @@ package com.example.sanguagelogin;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
@@ -24,7 +26,6 @@ import org.json.JSONObject;
 
 public class LogInActivity extends AppCompatActivity {
 
-    private MaterialRippleLayout log_in_mrl;
     private Button log_in_btn;
     private EditText username_email_et;
     private EditText password_et;
@@ -34,12 +35,11 @@ public class LogInActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_log_in);
 
-        log_in_mrl = findViewById(R.id.log_in_mrl);
-        log_in_btn = findViewById(R.id.log_in_btn);
-        username_email_et = findViewById(R.id.username_email_et);
-        password_et = findViewById(R.id.password_et);
+        log_in_btn = findViewById(R.id.log_in_log_in_btn);
+        username_email_et = findViewById(R.id.log_in_username_or_email_et);
+        password_et = findViewById(R.id.log_in_password_et);
 
-        log_in_mrl.setOnClickListener(new View.OnClickListener() {
+        log_in_btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 String username_email = username_email_et.getText().toString();
@@ -51,25 +51,22 @@ public class LogInActivity extends AppCompatActivity {
                     logInRequest(username_email, password);
                 }
             }
-        }
-    });
-}
+        });
+    }
 
-    @SuppressLint("ResourceAsColor")
     public void disableSignInButton() {
         log_in_btn.setEnabled(false);
         log_in_btn.setBackgroundColor(getResources().getColor(R.color.colorAccent));
     }
 
-    @SuppressLint("ResourceAsColor")
     public void enableSignInButton() {
         log_in_btn.setEnabled(true);
-        log_in_btn.setBackgroundColor(getResources().getColor(R.color.buttons));
+        log_in_btn.setBackgroundColor(getResources().getColor(R.color.colorPrimary1));
     }
 
     public void logInRequest(String username_email, String password) {
         String URL = "https://sanguage.herokuapp.com/login?usernameEmail=" + username_email + "&password=" + password;
-        RequestQueue queue = Volley.newRequestQueue(SignInActivity.this);
+        RequestQueue queue = Volley.newRequestQueue(LogInActivity.this);
         JsonObjectRequest jsonObjectRequest = new JsonObjectRequest(Request.Method.GET, URL, null, new Response.Listener<JSONObject>() {
             @Override
             public void onResponse(JSONObject response) {

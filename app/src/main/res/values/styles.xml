@@ -20,6 +20,11 @@
         <item name="mrl_rippleAlpha">0.2</item>
     </style>
 
+    <style name="FormButton" parent="Theme.MaterialComponents">
+        <item name="colorOnPrimary">@android:color/holo_red_light</item>
+        <item name="colorPrimary">@android:color/holo_orange_dark</item>
+        <item name="colorOnSurface">@android:color/holo_orange_light</item>
+    </style>
 
 
 </resources>

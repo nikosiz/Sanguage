@@ -46,7 +46,7 @@
                         android:layout_marginBottom="20dp"
                         android:fontFamily="@font/open_sans_bold"
                         android:gravity="center|bottom"
-                        android:text="@string/with_all_the_basic_ingredients"
+                        android:text="@string/app_slogan"
                         android:textColor="@color/white"
                         android:textSize="12sp"
                         android:textStyle="bold"

@@ -39,7 +39,7 @@ import java.util.regex.Pattern;
 
 public class MainActivity extends AppCompatActivity {
 
-    private static int SPLASH_SCREEN = 5000;
+    private static int SPLASH_SCREEN = 1000;
 
     Animation topAnim, bottomAnim;
     ImageView image;
@@ -51,32 +51,15 @@ public class MainActivity extends AppCompatActivity {
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
         setContentView(R.layout.activity_main);
 
-        //Animations
-        topAnim = AnimationUtils.loadAnimation(this, R.anim.top_animation);
-        bottomAnim = AnimationUtils.loadAnimation(this, R.anim.bottom_animation);
-
-        //Hooks
-        image = findViewById(R.id.mascot_splash_screen);
-        logo = findViewById(R.id.app_logo);
-        slogan = findViewById(R.id.app_slogan);
-
-        image.setAnimation(topAnim);
-        logo.setAnimation(bottomAnim);
-        slogan.setAnimation(bottomAnim);
-
         new Handler().postDelayed(new Runnable() {
             @Override
             public void run() {
                 Intent intent = new Intent(MainActivity.this, ChooseActivity.class);
 
                 Pair[] pairs = new Pair[2];
-                pairs[0] = new Pair<View, String>(image, "mascot_splash_screen");
-                pairs[1] = new Pair<View, String>(logo, "app_logo");
+                pairs[0] = new Pair<View, String>(logo, "app_logo");
 
-                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
-                    ActivityOptions options = ActivityOptions.makeSceneTransitionAnimation(MainActivity.this, pairs);
-                    startActivity(intent, options.toBundle());
-                }
+                    startActivity(intent);
             }
         }, SPLASH_SCREEN);
     }

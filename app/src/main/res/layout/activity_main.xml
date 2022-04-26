@@ -10,48 +10,36 @@
     android:orientation="vertical"
     tools:context=".MainActivity">
 
-    <ImageView
-        android:id="@+id/mascot_splash_screen"
-        android:layout_width="match_parent"
-        android:layout_height="350dp"
-        android:layout_marginStart="20dp"
-        android:layout_marginTop="100dp"
-        android:layout_marginEnd="20dp"
-        android:contentDescription="@string/mascot"
-        android:src="@drawable/ic_mascot"
-        android:transitionName="mascot_splash_screen"
-        app:layout_constraintBottom_toTopOf="@+id/app_logo"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
     <TextView
         android:id="@+id/app_logo"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginTop="329dp"
+        android:layout_marginBottom="5dp"
         android:fontFamily="@font/fredoka_one"
         android:gravity="center"
         android:text="@string/app_name"
         android:textColor="@color/white"
         android:textSize="60dp"
-        android:transitionName="app_logo"
+        app:layout_constraintBottom_toTopOf="@+id/app_slogan"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/mascot_splash_screen" />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/app_slogan"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="72dp"
+        android:layout_marginTop="5dp"
         android:fontFamily="@font/open_sans_bold"
         android:gravity="center"
-        android:text="@string/with_all_the_basic_ingredients"
+        android:text="@string/app_slogan"
         android:textColor="@color/white"
         android:textSize="12dp"
-        android:transitionName="app_slogan"
+        android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/mascot_splash_screen" />
+        app:layout_constraintTop_toBottomOf="@id/app_logo" />
 </androidx.constraintlayout.widget.ConstraintLayout>

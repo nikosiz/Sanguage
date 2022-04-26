@@ -3,8 +3,11 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Nikodem/AGH/S4/JPWP/Sanguage/app/src/main/res/layout-v28/activity_sign_up.xml" value="0.33106884057971014" />
         <entry key="..\:/Nikodem/AGH/S4/JPWP/Sanguage/app/src/main/res/layout/activity_log_in.xml" value="0.33" />
         <entry key="..\:/Nikodem/AGH/S4/JPWP/Sanguage/app/src/main/res/layout/activity_main.xml" value="0.33" />
+        <entry key="..\:/Nikodem/AGH/S4/JPWP/Sanguage/app/src/main/res/layout/activity_sign_up.xml" value="0.33106884057971014" />
+        <entry key="..\:/Nikodem/AGH/S4/JPWP/Sanguage/app/src/main/res/layout/choose_activity.xml" value="0.33106884057971014" />
         <entry key="..\:/Nikodem/AGH/S4/JPWP/Sanguage/app/src/main/res/layout/fragment_add_new.xml" value="0.371875" />
       </map>
     </option>

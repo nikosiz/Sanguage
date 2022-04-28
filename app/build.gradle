@@ -58,5 +58,4 @@ dependencies {
 
     implementation 'com.lorentzos.swipecards:library:1.0.9@aar'
 
-
 }

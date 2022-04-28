@@ -7,8 +7,6 @@ import android.util.Log;
 import android.view.View;
 import android.view.animation.CycleInterpolator;
 import android.view.animation.TranslateAnimation;
-import android.widget.Button;
-import android.widget.EditText;
 import android.widget.RadioGroup;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -21,51 +19,51 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.Volley;
-import com.balysv.materialripple.MaterialRippleLayout;
 import com.google.android.material.button.MaterialButton;
 import com.google.android.material.textfield.TextInputEditText;
 
 import org.json.JSONException;
 import org.json.JSONObject;
 
-import java.sql.SQLOutput;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 public class SignUpActivity extends AppCompatActivity {
-    private TextInputEditText username_et;
-    private TextInputEditText email_et;
-    private TextInputEditText password_et;
-    private MaterialButton sign_up_mtn;
-    private TextView language_tv;
-    private RadioGroup language_rg;
+    private TextInputEditText sign_up_username_et;
+    private TextInputEditText sign_up_email_et;
+    private TextInputEditText sign_up_password_et;
+    private MaterialButton sign_up_sign_up_btn;
+    private TextView sign_up_language_tv;
+    private RadioGroup sign_up_language_rg;
+    private MaterialButton sign_up_sign_in_btn;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_sign_up);
 
-        username_et = findViewById(R.id.sign_up_username_et);
-        email_et = findViewById(R.id.sign_up_email_et);
-        password_et = findViewById(R.id.sign_up_password_et);
-        sign_up_mtn = findViewById(R.id.sign_up_sign_up_mtn);
-        language_tv = findViewById(R.id.sign_up_choose_language_tv);
-        language_rg = findViewById(R.id.sign_up_language_rg);
+        sign_up_username_et = findViewById(R.id.sign_up_username_et);
+        sign_up_email_et = findViewById(R.id.sign_up_email_et);
+        sign_up_password_et = findViewById(R.id.sign_up_password_et);
+        sign_up_sign_up_btn = findViewById(R.id.sign_up_sign_up_mtn);
+        sign_up_language_tv = findViewById(R.id.sign_up_choose_language_tv);
+        sign_up_language_rg = findViewById(R.id.sign_up_language_rg);
+        sign_up_sign_in_btn = findViewById(R.id.sign_up_sign_in_mtn);
 
-        password_et.setOnFocusChangeListener(new View.OnFocusChangeListener() {
+        sign_up_password_et.setOnFocusChangeListener(new View.OnFocusChangeListener() {
             @Override
             public void onFocusChange(View view, boolean b) {
-                String password = password_et.getText().toString();
+                String password = sign_up_password_et.getText().toString();
                 if (!b && !password.isEmpty()) {
                     if (!validatePassword(password))
                         Toast.makeText(getApplicationContext(), "Password must contain number and special character", Toast.LENGTH_SHORT).show();
                 }
             }
         });
-        email_et.setOnFocusChangeListener(new View.OnFocusChangeListener() {
+        sign_up_email_et.setOnFocusChangeListener(new View.OnFocusChangeListener() {
             @Override
             public void onFocusChange(View view, boolean b) {
-                String email = email_et.getText().toString();
+                String email = sign_up_email_et.getText().toString();
                 if (!b && !email.isEmpty()) {
                     if (!validateEmail(email)) {
                         Toast.makeText(getApplicationContext(), "Provide correct email address", Toast.LENGTH_SHORT).show();
@@ -73,13 +71,13 @@ public class SignUpActivity extends AppCompatActivity {
                 }
             }
         });
-        sign_up_mtn.setOnClickListener(new View.OnClickListener() {
+        sign_up_sign_up_btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                String username = username_et.getText().toString();
-                String email = email_et.getText().toString();
-                String password = password_et.getText().toString();
-                int languageIndex = language_rg.getCheckedRadioButtonId();
+                String username = sign_up_username_et.getText().toString();
+                String email = sign_up_email_et.getText().toString();
+                String password = sign_up_password_et.getText().toString();
+                int languageIndex = sign_up_language_rg.getCheckedRadioButtonId();
                 boolean validateAllData = validateAllData(username, email, password, languageIndex);
                 if (validateAllData) {
                     disableSignupButton();
@@ -87,18 +85,25 @@ public class SignUpActivity extends AppCompatActivity {
                 }
             }
         });
+        sign_up_sign_in_btn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(getApplicationContext(), LogInActivity.class);
+                startActivity(intent);
+            }
+        });
     }
 
     @SuppressLint("ResourceAsColor")
     public void disableSignupButton() {
-        sign_up_mtn.setEnabled(false);
-        sign_up_mtn.setBackgroundColor(getResources().getColor(R.color.colorAccent));
+        sign_up_sign_up_btn.setEnabled(false);
+        sign_up_sign_up_btn.setBackgroundColor(getResources().getColor(R.color.colorAccent));
     }
 
     @SuppressLint("ResourceAsColor")
     public void enableSignupButton() {
-        sign_up_mtn.setEnabled(true);
-        sign_up_mtn.setBackgroundColor(getResources().getColor(R.color.colorPrimary1));
+        sign_up_sign_up_btn.setEnabled(true);
+        sign_up_sign_up_btn.setBackgroundColor(getResources().getColor(R.color.colorPrimary1));
     }
 
     public void signUpRequest(String username, String email, String password, String secondLanguage) {
@@ -144,16 +149,16 @@ public class SignUpActivity extends AppCompatActivity {
 
     public boolean validateAllData(String username, String email, String password, int languageIndex) {
         if (username.isEmpty()) {
-            username_et.startAnimation(shakeError());
+            sign_up_username_et.startAnimation(shakeError());
         }
         if (email.isEmpty() || !validateEmail(email)) {
-            email_et.startAnimation(shakeError());
+            sign_up_email_et.startAnimation(shakeError());
         }
         if (password.isEmpty() || !validatePassword(password)) {
-            password_et.startAnimation(shakeError());
+            sign_up_password_et.startAnimation(shakeError());
         }
         if (languageIndex == -1) {
-            language_tv.startAnimation(shakeError());
+            sign_up_language_tv.startAnimation(shakeError());
         }
         return !username.isEmpty() && validateEmail(email) && validatePassword(password);
     }

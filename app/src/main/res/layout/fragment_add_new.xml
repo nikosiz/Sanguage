@@ -7,7 +7,7 @@
     android:background="@color/lightPrimary"
     android:orientation="vertical"
     android:paddingVertical="20dp"
-    tools:context=".SignUpActivity">
+    tools:context=".AddNewFragment">
 
     <TextView
         android:id="@+id/add_new_tv"
@@ -18,7 +18,7 @@
         android:layout_marginBottom="5dp"
         android:fontFamily="@font/open_sans_bold"
         android:gravity="start"
-        android:text="Learn"
+        android:text="@string/add_new"
         android:textColor="@color/white"
         android:textSize="30sp"
         android:textStyle="bold"

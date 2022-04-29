@@ -1,4 +1,4 @@
-package com.example.sanguagelogin;
+package com.example.sanguage;
 
 import android.content.Context;
 

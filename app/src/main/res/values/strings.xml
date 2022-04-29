@@ -1,41 +1,36 @@
 <resources>
-    <string name="app_name">Sanguage</string>
-    <string name="sign_in_btn">SignInButton</string>
-    <string name="sign_up_btn">SignUpButton</string>
-    <string name="sign_in">Sign In</string>
-    <string name="sign_up">Sign Up</string>
-    <string name="mascot">mascot</string>
-    <string name="skip">SKIP</string>
-    <string name="create_an_account_to_make_sure_your_progress_won_t_be_lost">Create an account to make sure your progress \nwon\'t be lost!</string>
+    <string name="app_logo">Sanguage</string>
+    <string name="app_slogan">WITH ALL THE BASIC INGREDIENTS</string>
+
+    <string name="sign_up">SIGN UP</string>
+    <string name="create_an_account">Create an account</string>
+    <string name="to_make_sure_your_progress_won_t_be_lost">to make sure your progress won\'t be lost!</string>
     <string name="username">Username</string>
     <string name="email_address">Email Address</string>
     <string name="password">Password</string>
-    <string name="create_account">Create account</string>
-    <string name="mascot_img">Mascot image</string>
-    <string name="choose_your_target_language">Choose your target language:</string>
-    <string name="app_slogan">WITH ALL THE BASIC INGREDIENTS</string>
-    <string name="welcome_back">Welcome back!</string>
-    <string name="to_make_sure_your_progress_won_t_be_lost">to make sure your progress won\'t be lost!</string>
-    <string name="add_new">Add new</string>
-    <string name="learn_tab">Learn tab</string>
-    <string name="category">CATEGORY</string>
-    <string name="translation">TRANSLATION</string>
-    <string name="definition">DEFINITION</string>
-    <string name="word">WORD</string>
-    <string name="forgot_password">DON\'T REMEMBER PASSWORD?</string>
-    <string name="vocabulary">VOCABULARY</string>
-    <string name="grammatical_category">GRAMMATICAL CATEGORY</string>
-    <string name="exemplary_collocations">Exemplary collocations:</string>
-    <string name="collocations">COLLOCATIONS</string>
-    <string name="topic">topic</string>
-    <string name="create_an_account">Create an account</string>
-    <string name="email">Email</string>
+    <string name="choose_your_target_language">Choose your target language</string>
     <string name="already_registered_click_here_to_log_in">Already registered? Click here to log in!</string>
-    <string name="log_in_to_continue">Log in to continue</string>
-    <string name="don_t_remember_password">Don\'t remember password?</string>
-    <string name="log_in">Log in</string>
-    <string name="first_time_here_sign_up">First time here? Sign Up!</string>
-    <string name="add">add</string>
-    <string name="with_all_the_basic_ingredients">with all the basic ingredients</string>
+
+    <string name="log_in">LOG IN</string>
+    <string name="welcome_back">Welcome back!</string>
     <string name="username_or_email">Username or email</string>
+    <string name="don_t_remember">Don\'t remember password?</string>
+    <string name="first_time_here_sign_up">First time here? Sign Up!</string>
+
+    <string name="skip">SKIP</string>
+
+    <string name="learn">LEARN</string>
+    <string name="database">DATABASE</string>
+    <string name="add_new">ADD NEW</string>
+    <string name="search">SEARCH</string>
+    <string name="profile">PROFILE</string>
+
+
+    <string name="vocabulary">VOCABULARY</string>
+    <string name="definition">DEFINITION</string>
+    <string name="grammatical_category">GRAMMATICAL CATEGORY</string>
+    <string name="collocations">COLLOCATIONS</string>
+    <string name="topic">TOPIC</string>
+
+    <string name="translation">TRANSLATION</string>
 </resources>

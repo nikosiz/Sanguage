@@ -1,4 +1,4 @@
-package com.example.sanguagelogin.pojo;
+package com.example.sanguage.pojo;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;

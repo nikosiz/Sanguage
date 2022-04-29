@@ -1,4 +1,4 @@
-package com.example.sanguagelogin;
+package com.example.sanguage;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
@@ -21,7 +21,6 @@ public class MainAppWindow extends AppCompatActivity implements ChipNavigationBa
     List vocabulary;
     private ArrayAdapter<String> arrayAdapter;
     SwipeFlingAdapterView flingContainer;
-
 
     ChipNavigationBar navBar;
 
@@ -53,13 +52,13 @@ public class MainAppWindow extends AppCompatActivity implements ChipNavigationBa
 
             @Override
             public void onLeftCardExit(Object o) {
-                Toast.makeText(MainAppWindow.this, "Left", Toast.LENGTH_SHORT).show();
+                Toast.makeText(MainAppWindow.this, "Rejected", Toast.LENGTH_SHORT).show();
 
             }
 
             @Override
             public void onRightCardExit(Object o) {
-                Toast.makeText(MainAppWindow.this, "Right", Toast.LENGTH_SHORT).show();
+                Toast.makeText(MainAppWindow.this, "Added", Toast.LENGTH_SHORT).show();
 
             }
 
@@ -83,7 +82,7 @@ public class MainAppWindow extends AppCompatActivity implements ChipNavigationBa
         flingContainer.setOnItemClickListener(new SwipeFlingAdapterView.OnItemClickListener() {
             @Override
             public void onItemClicked(int itemPosition, Object dataObject) {
-                Toast.makeText(MainAppWindow.this, "ASDFASDF", Toast.LENGTH_SHORT).show();
+                Toast.makeText(MainAppWindow.this, "< Swipe right to learn | Swipe left to reject >", Toast.LENGTH_SHORT).show();
 
             }
         });
@@ -122,19 +121,19 @@ public class MainAppWindow extends AppCompatActivity implements ChipNavigationBa
         Fragment fragment = null;
 
         switch (i) {
-            case R.id.learn_tab:
+            case R.id.bottom_nav_learn:
                 fragment = new LearnFragment();
                 break;
-            case R.id.your_database_tab:
+            case R.id.bottom_nav_database:
                 fragment = new YourDatabaseFragment();
                 break;
-            case R.id.add_new_tab:
+            case R.id.bottom_nav_add_new:
                 fragment = new AddNewFragment();
                 break;
-            case R.id.search_tab:
+            case R.id.bottom_nav_search:
                 fragment = new SearchFragment();
                 break;
-            case R.id.your_profile_tab:
+            case R.id.bottom_nav_profile:
                 fragment = new YourProfileFragment();
                 break;
         }

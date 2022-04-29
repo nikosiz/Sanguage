@@ -1,4 +1,4 @@
-package com.example.sanguagelogin;
+package com.example.sanguage;
 
 import android.annotation.SuppressLint;
 import android.content.Intent;
@@ -7,6 +7,7 @@ import android.util.Log;
 import android.view.View;
 import android.view.animation.CycleInterpolator;
 import android.view.animation.TranslateAnimation;
+import android.widget.Button;
 import android.widget.RadioGroup;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -32,7 +33,7 @@ public class SignUpActivity extends AppCompatActivity {
     private TextInputEditText sign_up_username_et;
     private TextInputEditText sign_up_email_et;
     private TextInputEditText sign_up_password_et;
-    private MaterialButton sign_up_sign_up_btn;
+    private Button sign_up_sign_up_btn;
     private TextView sign_up_language_tv;
     private RadioGroup sign_up_language_rg;
     private MaterialButton sign_up_sign_in_btn;

@@ -6,7 +6,6 @@
     android:layout_height="match_parent"
     android:background="@color/lightPrimary"
     android:orientation="vertical"
-    android:paddingHorizontal="40dp"
     android:paddingVertical="20dp"
     tools:context=".SignUpActivity">
 
@@ -16,7 +15,7 @@
         android:layout_height="wrap_content"
         android:fontFamily="@font/fredoka_one"
         android:gravity="center"
-        android:text="@string/app_name"
+        android:text="@string/app_logo"
         android:textColor="@color/white"
         android:textSize="60sp"
         android:transitionName="app_logo"
@@ -29,6 +28,7 @@
         android:id="@+id/sign_up_create_account_tv"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginHorizontal="40dp"
         android:layout_marginTop="20dp"
         android:fontFamily="@font/open_sans_bold"
         android:text="@string/create_an_account"
@@ -54,10 +54,10 @@
         android:id="@+id/sign_up_username_tf"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginHorizontal="40dp"
         android:layout_marginTop="20dp"
         android:hint="@string/username"
-        app:layout_constraintEnd_toEndOf="@id/sign_up_app_logo_tv"
-        app:layout_constraintStart_toStartOf="@id/sign_up_app_logo_tv"
+        app:layout_constraintStart_toStartOf="@id/sign_up_to_make_sure_tv"
         app:layout_constraintTop_toBottomOf="@id/sign_up_to_make_sure_tv">
 
         <com.google.android.material.textfield.TextInputEditText
@@ -66,6 +66,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="@drawable/light_button_background"
+            android:textSize="20sp"
             tools:ignore="TextContrastCheck">
 
         </com.google.android.material.textfield.TextInputEditText>
@@ -76,8 +77,9 @@
         android:id="@+id/sign_up_email_tf"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="@string/email"
-        app:layout_constraintEnd_toEndOf="@id/sign_up_username_tf"
+        android:layout_marginHorizontal="40dp"
+        android:hint="@string/email_address"
+        app:layout_constraintEnd_toEndOf="@+id/sign_up_username_tf"
         app:layout_constraintStart_toStartOf="@id/sign_up_username_tf"
         app:layout_constraintTop_toBottomOf="@+id/sign_up_username_tf">
 
@@ -87,6 +89,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="@drawable/light_button_background"
+            android:textSize="20sp"
             tools:ignore="TextContrastCheck">
 
         </com.google.android.material.textfield.TextInputEditText>
@@ -97,6 +100,7 @@
         android:id="@+id/sign_up_password_tf"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginHorizontal="40dp"
         android:layout_marginBottom="15dp"
         android:hint="@string/password"
         app:layout_constraintEnd_toEndOf="@id/sign_up_email_tf"
@@ -111,6 +115,7 @@
             android:layout_height="wrap_content"
             android:background="@drawable/light_button_background"
             android:inputType="textPassword"
+            android:textSize="20sp"
             tools:ignore="TextContrastCheck">
 
         </com.google.android.material.textfield.TextInputEditText>
@@ -121,9 +126,9 @@
         android:id="@+id/sign_up_choose_language_tv"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginHorizontal="40dp"
         android:layout_marginTop="20dp"
         android:text="@string/choose_your_target_language"
-        android:textColor="#3c5f69"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="@id/sign_up_app_logo_tv"
         app:layout_constraintStart_toStartOf="@id/sign_up_app_logo_tv"
@@ -134,6 +139,7 @@
         android:id="@+id/sign_up_language_rg"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginHorizontal="40dp"
         android:gravity="center"
         android:orientation="horizontal"
         app:layout_constraintEnd_toEndOf="@id/sign_up_choose_language_tv"
@@ -151,7 +157,7 @@
             android:button="@color/transparent"
             android:clickable="true"
             android:focusable="true"
-            tools:ignore="SpeakableTextPresentCheck" />
+            tools:ignore="SpeakableTextPresentCheck,TouchTargetSizeCheck,DuplicateSpeakableTextCheck" />
 
         <com.google.android.material.radiobutton.MaterialRadioButton
             android:id="@+id/learn_french"
@@ -162,7 +168,7 @@
             android:width="50dp"
             android:background="@drawable/fr_button"
             android:button="@color/transparent"
-            tools:ignore="SpeakableTextPresentCheck" />
+            tools:ignore="SpeakableTextPresentCheck,TouchTargetSizeCheck" />
 
         <com.google.android.material.radiobutton.MaterialRadioButton
             android:id="@+id/learn_spanish"
@@ -175,7 +181,7 @@
             android:button="@color/transparent"
             android:clickable="true"
             android:focusable="true"
-            tools:ignore="SpeakableTextPresentCheck" />
+            tools:ignore="SpeakableTextPresentCheck,TouchTargetSizeCheck" />
 
         <com.google.android.material.radiobutton.MaterialRadioButton
             android:id="@+id/learn_german"
@@ -186,21 +192,23 @@
             android:width="50dp"
             android:background="@drawable/de_button"
             android:button="@color/transparent"
-            tools:ignore="SpeakableTextPresentCheck" />
+            tools:ignore="SpeakableTextPresentCheck,TouchTargetSizeCheck" />
 
     </RadioGroup>
 
-    <com.google.android.material.button.MaterialButton
+    <Button
         android:id="@+id/sign_up_sign_up_mtn"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
+        android:layout_marginHorizontal="40dp"
         android:layout_marginTop="30dp"
         android:background="@drawable/basic_button_background"
         android:elevation="0dp"
         android:text="@string/sign_up"
         android:textAppearance="@style/TextAppearance.MaterialComponents.Button"
         android:textColor="@color/white"
+        android:textSize="20sp"
         android:theme="@style/FormButton"
         app:layout_constraintEnd_toEndOf="@id/sign_up_password_tf"
         app:layout_constraintStart_toStartOf="@id/sign_up_password_tf"
@@ -211,6 +219,7 @@
         android:id="@+id/sign_up_sign_in_mtn"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginHorizontal="40dp"
         android:background="@color/transparent"
         android:elevation="0dp"
         android:gravity="center|end"

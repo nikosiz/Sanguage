@@ -9,14 +9,14 @@
         android:id="@+id/left"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:onClick="left"
+        android:onClick="Rejected"
         android:text="left" />
 
     <Button
         android:id="@+id/right"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:onClick="right"
+        android:onClick="Added"
         android:text="right" />
 
 </LinearLayout>

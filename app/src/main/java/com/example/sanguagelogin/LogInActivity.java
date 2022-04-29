@@ -7,6 +7,8 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.view.animation.CycleInterpolator;
+import android.view.animation.TranslateAnimation;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
@@ -45,7 +47,9 @@ public class LogInActivity extends AppCompatActivity {
                 String username_email = username_email_et.getText().toString();
                 String password = password_et.getText().toString();
                 if (username_email.isEmpty() || password.isEmpty()) {
-                    Toast.makeText(getApplicationContext(), "please provide correct data", Toast.LENGTH_SHORT).show();
+                    TranslateAnimation shakeError = shakeError();
+                    password_et.startAnimation(shakeError);
+                    username_email_et.startAnimation(shakeError);
                 } else {
                     disableSignInButton();
                     logInRequest(username_email, password);
@@ -87,6 +91,15 @@ public class LogInActivity extends AppCompatActivity {
             public void onErrorResponse(VolleyError error) {
                 try {
                     String message = RequestErrorParser.parseError(error);
+                    if (message.equalsIgnoreCase("incorrect password")) {
+                        password_et.startAnimation(shakeError());
+                    } else if (message.equalsIgnoreCase("user not found")) {
+                        TranslateAnimation shakeError = shakeError();
+                        password_et.startAnimation(shakeError);
+                        username_email_et.startAnimation(shakeError);
+                    } else if (message.equalsIgnoreCase("email not confirmed") || message.equalsIgnoreCase("email not valid")) {
+                        username_email_et.startAnimation(shakeError());
+                    }
                     Toast.makeText(getApplicationContext(), message, Toast.LENGTH_SHORT).show();
                 } catch (JSONException j) {
                     Log.e("SignInActivity - onErrorResponse()", j.getMessage());
@@ -95,5 +108,12 @@ public class LogInActivity extends AppCompatActivity {
             }
         });
         queue.add(jsonObjectRequest);
+    }
+
+    public TranslateAnimation shakeError() {
+        TranslateAnimation shake = new TranslateAnimation(5, 15, 0, 0);
+        shake.setDuration(500);
+        shake.setInterpolator(new CycleInterpolator(7));
+        return shake;
     }
 }

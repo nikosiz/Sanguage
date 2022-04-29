@@ -15,7 +15,6 @@
     <string name="choose_your_target_language">Choose your target language:</string>
     <string name="app_slogan">WITH ALL THE BASIC INGREDIENTS</string>
     <string name="welcome_back">Welcome back!</string>
-    <string name="username_or_email">Username or email</string>
     <string name="to_make_sure_your_progress_won_t_be_lost">to make sure your progress won\'t be lost!</string>
     <string name="add_new">Add new</string>
     <string name="learn_tab">Learn tab</string>
@@ -38,4 +37,5 @@
     <string name="first_time_here_sign_up">First time here? Sign Up!</string>
     <string name="add">add</string>
     <string name="with_all_the_basic_ingredients">with all the basic ingredients</string>
+    <string name="username_or_email">Username or email</string>
 </resources>

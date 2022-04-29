@@ -26,19 +26,20 @@
 
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/add_new_vocabulary_tf"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="40dp"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="30dp"
         android:hint="@string/vocabulary"
         app:layout_constraintStart_toStartOf="@id/add_new_tv"
         app:layout_constraintTop_toBottomOf="@id/add_new_tv">
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/add_new_vocabulary_et"
-            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginBottom="30dp"
             android:background="@drawable/light_button_background"
             android:textSize="20sp"
             tools:ignore="TextContrastCheck">
@@ -49,6 +50,7 @@
 
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/add_new_definition_tf"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="40dp"
@@ -59,9 +61,9 @@
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/add_new_definition_et"
-            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginBottom="30dp"
             android:background="@drawable/light_button_background"
             android:textSize="20sp"
             tools:ignore="TextContrastCheck">
@@ -72,10 +74,11 @@
 
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/add_new_grammCat_tf"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="40dp"
-        android:layout_marginBottom="15dp"
+        android:layout_marginBottom="25dp"
         android:hint="@string/grammatical_category"
         app:layout_constraintEnd_toEndOf="@id/add_new_definition_tf"
         app:layout_constraintStart_toStartOf="@id/add_new_definition_tf"
@@ -83,9 +86,9 @@
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/add_new_collocations_et"
-            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginBottom="30dp"
             android:background="@drawable/light_button_background"
             android:textSize="20sp"
             tools:ignore="TextContrastCheck">
@@ -96,6 +99,7 @@
 
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/add_new_collocations_tf"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="40dp"
@@ -107,10 +111,9 @@
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/add_new_topic_et"
-            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="@drawable/light_button_background"
+            android:layout_marginBottom="30dp"
             android:textSize="20sp"
             tools:ignore="TextContrastCheck">
 
@@ -120,6 +123,7 @@
 
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/add_new_topic_tf"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="40dp"
@@ -131,7 +135,6 @@
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/sign_up_password_et"
-            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="@drawable/light_button_background"

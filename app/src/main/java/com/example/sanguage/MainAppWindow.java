@@ -29,8 +29,6 @@ public class MainAppWindow extends AppCompatActivity implements ChipNavigationBa
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_app_window);
 
-        loadFragment(new LearnFragment());
-
         flingContainer = findViewById(R.id.frame_flashcard);
 
         vocabulary = new ArrayList();
@@ -88,6 +86,7 @@ public class MainAppWindow extends AppCompatActivity implements ChipNavigationBa
         });
 
         navBar = findViewById(R.id.bottomNav);
+        navBar.setItemSelected(R.id.bottom_nav_learn, true);
         navBar.setOnItemSelectedListener(this);
     }
 
@@ -116,24 +115,39 @@ public class MainAppWindow extends AppCompatActivity implements ChipNavigationBa
         return true;
     }
 
+    public void disableFlingContainer() {
+        flingContainer.setEnabled(false);
+        flingContainer.setVisibility(View.INVISIBLE);
+    }
+
+    public void enableFlingContainer() {
+        flingContainer.setEnabled(true);
+        flingContainer.setVisibility(View.VISIBLE);
+    }
+
     public void onItemSelected(int i) {
 
         Fragment fragment = null;
 
         switch (i) {
             case R.id.bottom_nav_learn:
+                enableFlingContainer();
                 fragment = new LearnFragment();
                 break;
             case R.id.bottom_nav_database:
+                disableFlingContainer();
                 fragment = new YourDatabaseFragment();
                 break;
             case R.id.bottom_nav_add_new:
+                disableFlingContainer();
                 fragment = new AddNewFragment();
                 break;
             case R.id.bottom_nav_search:
+                disableFlingContainer();
                 fragment = new SearchFragment();
                 break;
             case R.id.bottom_nav_profile:
+                disableFlingContainer();
                 fragment = new YourProfileFragment();
                 break;
         }

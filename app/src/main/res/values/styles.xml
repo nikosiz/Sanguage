@@ -26,14 +26,14 @@
         <item name="colorOnSurface">@color/colorAccent</item>
     </style>
 
-    <style name="LightButton" parent="Theme.AppCompat">
+    <style name="LightButton" parent="Theme.MaterialComponents">
         <item name="colorOnPrimary">@color/colorPrimaryDark</item>
         <item name="colorPrimary">@color/colorPrimary1</item>
         <item name="colorOnSurface">@color/colorAccent</item>
     </style>
 
     <style name="ET_Material" parent="Theme.MaterialComponents">
-        <item name="colorOnPrimary">@color/colorPrimaryDark</item>
+        <item name="colorOnPrimary">@color/black</item>
         <item name="colorPrimary">@color/colorPrimary1</item>
         <item name="colorOnSurface">@color/colorAccent</item>
     </style>

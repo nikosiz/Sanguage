@@ -61,7 +61,6 @@
 
     <Button
         android:id="@+id/choose_sign_up_btn"
-        style="@style/Theme.AppCompat"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
@@ -74,7 +73,6 @@
         android:textColor="@android:color/white"
         android:textSize="20sp"
         android:textStyle="bold"
-        android:theme="@style/FormButton"
         app:layout_constraintEnd_toEndOf="@id/choose_app_logo"
         app:layout_constraintStart_toStartOf="@id/choose_app_logo"
         app:layout_constraintTop_toBottomOf="@id/choose_app_mascot"
@@ -86,10 +84,11 @@
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="40dp"
         android:layout_marginTop="20dp"
+        app:backgroundTint="@null"
         android:background="@drawable/ripple_effect_light_btn"
         android:padding="15dp"
         android:text="@string/log_in"
-        android:textColor="@color/colorPrimary1"
+        android:textColor="@color/colorPrimary2"
         android:textSize="20sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="@id/choose_sign_up_btn"

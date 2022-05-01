@@ -53,6 +53,7 @@
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/sign_up_username_tf"
         android:layout_width="match_parent"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="40dp"
         android:layout_marginTop="20dp"
@@ -62,7 +63,6 @@
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/sign_up_username_et"
-            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="@drawable/light_button_background"
@@ -78,14 +78,15 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="40dp"
+        android:layout_marginTop="10dp"
         android:hint="@string/email_address"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
         app:layout_constraintEnd_toEndOf="@+id/sign_up_username_tf"
         app:layout_constraintStart_toStartOf="@id/sign_up_username_tf"
         app:layout_constraintTop_toBottomOf="@+id/sign_up_username_tf">
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/sign_up_email_et"
-            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="@drawable/light_button_background"
@@ -102,7 +103,9 @@
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="40dp"
         android:layout_marginBottom="15dp"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
         android:hint="@string/password"
+        android:layout_marginTop="10dp"
         app:layout_constraintEnd_toEndOf="@id/sign_up_email_tf"
         app:layout_constraintStart_toStartOf="@id/sign_up_email_tf"
         app:layout_constraintTop_toBottomOf="@id/sign_up_email_tf"
@@ -110,7 +113,6 @@
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/sign_up_password_et"
-            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="@drawable/light_button_background"
@@ -151,6 +153,7 @@
             style="?android:attr/buttonBarButtonStyle"
             android:layout_width="60dp"
             android:layout_height="40dp"
+            app:backgroundTint="@null"
             android:layout_margin="5dp"
             android:width="50dp"
             android:background="@drawable/en_button"
@@ -164,6 +167,7 @@
             style="?android:attr/buttonBarButtonStyle"
             android:layout_width="60dp"
             android:layout_height="40dp"
+            app:backgroundTint="@null"
             android:layout_margin="5dp"
             android:width="50dp"
             android:background="@drawable/fr_button"
@@ -176,6 +180,7 @@
             android:layout_width="60dp"
             android:layout_height="40dp"
             android:layout_margin="5dp"
+            app:backgroundTint="@null"
             android:width="50dp"
             android:background="@drawable/es_button"
             android:button="@color/transparent"
@@ -190,6 +195,7 @@
             android:layout_height="40dp"
             android:layout_margin="5dp"
             android:width="50dp"
+            app:backgroundTint="@null"
             android:background="@drawable/de_button"
             android:button="@color/transparent"
             tools:ignore="SpeakableTextPresentCheck,TouchTargetSizeCheck" />

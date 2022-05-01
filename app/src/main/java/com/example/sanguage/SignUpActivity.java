@@ -21,11 +21,13 @@ import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.Volley;
 import com.google.android.material.button.MaterialButton;
+import com.google.android.material.radiobutton.MaterialRadioButton;
 import com.google.android.material.textfield.TextInputEditText;
 
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.util.HashSet;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -37,6 +39,7 @@ public class SignUpActivity extends AppCompatActivity {
     private TextView sign_up_language_tv;
     private RadioGroup sign_up_language_rg;
     private MaterialButton sign_up_sign_in_btn;
+    private HashSet<Integer> languages_buttons_ids;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -49,6 +52,11 @@ public class SignUpActivity extends AppCompatActivity {
         sign_up_sign_up_btn = findViewById(R.id.sign_up_sign_up_mtn);
         sign_up_language_tv = findViewById(R.id.sign_up_choose_language_tv);
         sign_up_language_rg = findViewById(R.id.sign_up_language_rg);
+        languages_buttons_ids = new HashSet<>();
+        languages_buttons_ids.add(R.id.learn_english);
+        languages_buttons_ids.add(R.id.learn_french);
+        languages_buttons_ids.add(R.id.learn_german);
+        languages_buttons_ids.add(R.id.learn_spanish);
         sign_up_sign_in_btn = findViewById(R.id.sign_up_sign_in_mtn);
 
         sign_up_password_et.setOnFocusChangeListener(new View.OnFocusChangeListener() {
@@ -91,6 +99,19 @@ public class SignUpActivity extends AppCompatActivity {
             public void onClick(View view) {
                 Intent intent = new Intent(getApplicationContext(), LogInActivity.class);
                 startActivity(intent);
+            }
+        });
+        sign_up_language_rg.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(RadioGroup radioGroup, int i) {
+                for (int button_id : languages_buttons_ids) {
+                    MaterialRadioButton materialRadioButton = (MaterialRadioButton) findViewById(button_id);
+                    if (i == button_id) {
+                        materialRadioButton.setAlpha(1.f);
+                    } else {
+                        materialRadioButton.setAlpha(.5f);
+                    }
+                }
             }
         });
     }

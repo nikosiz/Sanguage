@@ -156,7 +156,7 @@
             app:backgroundTint="@null"
             android:layout_margin="5dp"
             android:width="50dp"
-            android:background="@drawable/en_button"
+            android:background="@drawable/ic_en"
             android:button="@color/transparent"
             android:clickable="true"
             android:focusable="true"
@@ -170,7 +170,7 @@
             app:backgroundTint="@null"
             android:layout_margin="5dp"
             android:width="50dp"
-            android:background="@drawable/fr_button"
+            android:background="@drawable/ic_fr"
             android:button="@color/transparent"
             tools:ignore="SpeakableTextPresentCheck,TouchTargetSizeCheck" />
 
@@ -182,7 +182,7 @@
             android:layout_margin="5dp"
             app:backgroundTint="@null"
             android:width="50dp"
-            android:background="@drawable/es_button"
+            android:background="@drawable/ic_es"
             android:button="@color/transparent"
             android:clickable="true"
             android:focusable="true"
@@ -196,7 +196,7 @@
             android:layout_margin="5dp"
             android:width="50dp"
             app:backgroundTint="@null"
-            android:background="@drawable/de_button"
+            android:background="@drawable/ic_de"
             android:button="@color/transparent"
             tools:ignore="SpeakableTextPresentCheck,TouchTargetSizeCheck" />
 

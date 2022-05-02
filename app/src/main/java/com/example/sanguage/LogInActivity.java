@@ -11,6 +11,7 @@ import android.view.animation.TranslateAnimation;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -30,7 +31,9 @@ public class LogInActivity extends AppCompatActivity {
     private Button log_in_btn;
     private EditText username_email_et;
     private EditText password_et;
-    private TextView log_in_forgot_password_btn, log_in_sign_up_btn;
+    private TextView log_in_forgot_password_btn;
+    private TextView log_in_sign_up_btn;
+    private RelativeLayout log_in_progress_bar;
 
 
     @Override
@@ -43,22 +46,9 @@ public class LogInActivity extends AppCompatActivity {
         password_et = findViewById(R.id.log_in_password_et);
         log_in_forgot_password_btn = findViewById(R.id.log_in_forgot_password_btn);
         log_in_sign_up_btn = findViewById(R.id.log_in_sign_up_btn);
+        log_in_progress_bar = findViewById(R.id.log_in_progress_bar);
 
-        log_in_btn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                String username_email = username_email_et.getText().toString();
-                String password = password_et.getText().toString();
-                if (username_email.isEmpty() || password.isEmpty()) {
-                    TranslateAnimation shakeError = shakeError();
-                    password_et.startAnimation(shakeError);
-                    username_email_et.startAnimation(shakeError);
-                } else {
-                    disableSignInButton();
-                    logInRequest(username_email, password);
-                }
-            }
-        });
+        handleLoginBtn();
 
         log_in_forgot_password_btn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -78,15 +68,44 @@ public class LogInActivity extends AppCompatActivity {
 
     }
 
-    public void disableSignInButton() {
-        log_in_btn.setEnabled(false);
-        log_in_btn.setBackgroundColor(getResources().getColor(R.color.colorAccent));
+    public void handleLoginBtn() {
+        log_in_btn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                String username_email = username_email_et.getText().toString();
+                String password = password_et.getText().toString();
+                if (username_email.isEmpty() || password.isEmpty()) {
+                    TranslateAnimation shakeError = shakeError();
+                    password_et.startAnimation(shakeError);
+                    username_email_et.startAnimation(shakeError);
+                } else {
+                    disableAllActions();
+                    logInRequest(username_email, password);
+                }
+            }
+        });
     }
 
-    public void enableSignInButton() {
-        log_in_btn.setEnabled(true);
-        log_in_btn.setBackgroundColor(getResources().getColor(R.color.colorPrimary1));
+    public void disableAllActions() {
+        log_in_btn.setEnabled(false);
+        password_et.setEnabled(false);
+        username_email_et.setEnabled(false);
     }
+
+    public void enableAllActions() {
+        log_in_btn.setEnabled(true);
+        password_et.setEnabled(true);
+        username_email_et.setEnabled(true);
+    }
+
+    public void showProgressBar() {
+
+    }
+
+    public void hideProgressBar() {
+
+    }
+
 
     public void logInRequest(String username_email, String password) {
         String URL = "https://sanguage.herokuapp.com/login?usernameEmail=" + username_email + "&password=" + password;
@@ -117,14 +136,12 @@ public class LogInActivity extends AppCompatActivity {
                         TranslateAnimation shakeError = shakeError();
                         password_et.startAnimation(shakeError);
                         username_email_et.startAnimation(shakeError);
-                    } else if (message.equalsIgnoreCase("email not confirmed") || message.equalsIgnoreCase("email not valid")) {
-                        username_email_et.startAnimation(shakeError());
                     }
                     Toast.makeText(getApplicationContext(), message, Toast.LENGTH_SHORT).show();
                 } catch (JSONException j) {
                     Log.e("SignInActivity - onErrorResponse()", j.getMessage());
                 }
-                enableSignInButton();
+                enableAllActions();
             }
         });
         queue.add(jsonObjectRequest);

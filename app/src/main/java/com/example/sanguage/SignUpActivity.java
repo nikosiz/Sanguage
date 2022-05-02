@@ -9,6 +9,7 @@ import android.view.animation.CycleInterpolator;
 import android.view.animation.TranslateAnimation;
 import android.widget.Button;
 import android.widget.RadioGroup;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -40,6 +41,7 @@ public class SignUpActivity extends AppCompatActivity {
     private RadioGroup sign_up_language_rg;
     private TextView sign_up_sign_in_btn;
     private HashSet<Integer> languages_buttons_ids;
+    private RelativeLayout sign_up_progress_bar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -58,44 +60,23 @@ public class SignUpActivity extends AppCompatActivity {
         languages_buttons_ids.add(R.id.learn_german);
         languages_buttons_ids.add(R.id.learn_spanish);
         sign_up_sign_in_btn = findViewById(R.id.sign_up_sign_in_mtn);
+        sign_up_progress_bar = findViewById(R.id.sign_up_progress_bar);
 
-        sign_up_password_et.setOnFocusChangeListener(new View.OnFocusChangeListener() {
-            @Override
-            public void onFocusChange(View view, boolean b) {
-                String password = sign_up_password_et.getText().toString();
-                if (!b && !password.isEmpty()) {
-                    if (!validatePassword(password))
-                        Toast.makeText(getApplicationContext(), "Password must contain number and special character", Toast.LENGTH_SHORT).show();
-                }
-            }
-        });
-        sign_up_email_et.setOnFocusChangeListener(new View.OnFocusChangeListener() {
-            @Override
-            public void onFocusChange(View view, boolean b) {
-                String email = sign_up_email_et.getText().toString();
-                if (!b && !email.isEmpty()) {
-                    if (!validateEmail(email)) {
-                        Toast.makeText(getApplicationContext(), "Provide correct email address", Toast.LENGTH_SHORT).show();
-                    }
-                }
-            }
-        });
+        passwordFocusChanged();
+        emailFocusChanged();
+        handleRegisterBtn();
+        greyOutLanguages();
 
-        sign_up_sign_up_btn.setOnClickListener(new View.OnClickListener() {
+        sign_up_sign_in_btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                String username = sign_up_username_et.getText().toString();
-                String email = sign_up_email_et.getText().toString();
-                String password = sign_up_password_et.getText().toString();
-                int languageIndex = sign_up_language_rg.getCheckedRadioButtonId();
-                boolean validateAllData = validateAllData(username, email, password, languageIndex);
-                if (validateAllData) {
-                    disableSignupButton();
-                    signUpRequest(username, email, password, mapLanguageIndexToName(languageIndex));
-                }
+                Intent intent = new Intent(getApplicationContext(), LogInActivity.class);
+                startActivity(intent);
             }
         });
+    }
 
+    public void greyOutLanguages() {
         sign_up_language_rg.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(RadioGroup radioGroup, int i) {
@@ -110,25 +91,81 @@ public class SignUpActivity extends AppCompatActivity {
             }
         });
 
-        sign_up_sign_in_btn.setOnClickListener(new View.OnClickListener() {
+    }
+
+    public void handleRegisterBtn() {
+        sign_up_sign_up_btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(getApplicationContext(), LogInActivity.class);
-                startActivity(intent);
+                String username = sign_up_username_et.getText().toString();
+                String email = sign_up_email_et.getText().toString();
+                String password = sign_up_password_et.getText().toString();
+                int languageIndex = sign_up_language_rg.getCheckedRadioButtonId();
+                boolean validateAllData = validateAllData(username, email, password, languageIndex);
+                if (validateAllData) {
+                    disableAllActions();
+                    showProgressBar();
+                    signUpRequest(username, email, password, mapLanguageIndexToName(languageIndex));
+                }
             }
         });
     }
 
-    @SuppressLint("ResourceAsColor")
-    public void disableSignupButton() {
-        sign_up_sign_up_btn.setEnabled(false);
-        //sign_up_sign_up_btn.setBackgroundColor(getResources().getColor(R.color.colorAccent));
+    public void emailFocusChanged() {
+        sign_up_email_et.setOnFocusChangeListener(new View.OnFocusChangeListener() {
+            @Override
+            public void onFocusChange(View view, boolean b) {
+                String email = sign_up_email_et.getText().toString();
+                if (!b && !email.isEmpty()) {
+                    if (!validateEmail(email)) {
+                        Toast.makeText(getApplicationContext(), "Provide correct email address", Toast.LENGTH_SHORT).show();
+                    }
+                }
+            }
+        });
     }
 
-    @SuppressLint("ResourceAsColor")
-    public void enableSignupButton() {
+    public void passwordFocusChanged() {
+        sign_up_password_et.setOnFocusChangeListener(new View.OnFocusChangeListener() {
+            @Override
+            public void onFocusChange(View view, boolean b) {
+                String password = sign_up_password_et.getText().toString();
+                if (!b && !password.isEmpty()) {
+                    if (!validatePassword(password))
+                        Toast.makeText(getApplicationContext(), "Password must contain number and special character", Toast.LENGTH_SHORT).show();
+                }
+            }
+        });
+    }
+
+    public void disableAllActions() {
+        sign_up_username_et.setEnabled(false);
+        sign_up_email_et.setEnabled(false);
+        sign_up_password_et.setEnabled(false);
+        sign_up_sign_in_btn.setEnabled(false);
+        sign_up_sign_up_btn.setEnabled(false);
+        for (int button_id : languages_buttons_ids) {
+            findViewById(button_id).setEnabled(true);
+        }
+    }
+
+    public void enableAllActions() {
+        sign_up_username_et.setEnabled(true);
+        sign_up_email_et.setEnabled(true);
+        sign_up_password_et.setEnabled(true);
+        sign_up_sign_in_btn.setEnabled(true);
         sign_up_sign_up_btn.setEnabled(true);
-        sign_up_sign_up_btn.setBackgroundColor(getResources().getColor(R.color.colorPrimary1));
+        for (int button_id : languages_buttons_ids) {
+            findViewById(button_id).setEnabled(false);
+        }
+    }
+
+    public void showProgressBar() {
+        sign_up_progress_bar.setVisibility(View.VISIBLE);
+    }
+
+    public void hideProgressBar() {
+        sign_up_progress_bar.setVisibility(View.GONE);
     }
 
     public void signUpRequest(String username, String email, String password, String secondLanguage) {
@@ -152,7 +189,8 @@ public class SignUpActivity extends AppCompatActivity {
                     } catch (JSONException | NullPointerException e) {
                         Log.e("SignUp - onErrorResponse()", e.getMessage());
                     }
-                    enableSignupButton();
+                    hideProgressBar();
+                    enableAllActions();
                 }
             }
             );

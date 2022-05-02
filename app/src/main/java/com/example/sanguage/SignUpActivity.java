@@ -80,6 +80,7 @@ public class SignUpActivity extends AppCompatActivity {
                 }
             }
         });
+
         sign_up_sign_up_btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -94,13 +95,7 @@ public class SignUpActivity extends AppCompatActivity {
                 }
             }
         });
-        sign_up_sign_in_btn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(getApplicationContext(), LogInActivity.class);
-                startActivity(intent);
-            }
-        });
+
         sign_up_language_rg.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(RadioGroup radioGroup, int i) {
@@ -114,12 +109,20 @@ public class SignUpActivity extends AppCompatActivity {
                 }
             }
         });
+
+        sign_up_sign_in_btn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(getApplicationContext(), LogInActivity.class);
+                startActivity(intent);
+            }
+        });
     }
 
     @SuppressLint("ResourceAsColor")
     public void disableSignupButton() {
         sign_up_sign_up_btn.setEnabled(false);
-        sign_up_sign_up_btn.setBackgroundColor(getResources().getColor(R.color.colorAccent));
+        //sign_up_sign_up_btn.setBackgroundColor(getResources().getColor(R.color.colorAccent));
     }
 
     @SuppressLint("ResourceAsColor")

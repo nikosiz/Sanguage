@@ -41,4 +41,15 @@
     <string name="send_email">SEND EMAIL</string>
     <string name="have_you_lost">Have you lost your password? We\'ll help you find it!</string>
     <string name="close_btn">close_btn</string>
+    <string name="save">Save</string>
+    <string name="change_password">Change password</string>
+    <string name="change_email">Change email</string>
+    <string name="change_username">Change username</string>
+    <string name="you_need_to_revise">You need to revise</string>
+    <string name="you_ve_already_learned">You\'ve already learned</string>
+    <string name="profile_picture">profile_picture</string>
+    <string name="your_profile">Your profile</string>
+    <string name="account_settings">Account settings</string>
+    <string name="general_settings">General settings</string>
+    <string name="dark_mode">Dark mode</string>
 </resources>

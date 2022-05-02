@@ -41,6 +41,7 @@
             app:layout_constraintTop_toTopOf="@id/profile_cl">
 
             <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/profile_cl_cl"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
 
@@ -56,7 +57,7 @@
                     android:src="@drawable/ic_baseline_account_circle_24"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/profile_tv" />
+                    app:layout_constraintTop_toTopOf="parent" />
 
                 <androidx.cardview.widget.CardView
                     android:id="@+id/profile_progress_cv"
@@ -250,8 +251,8 @@
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="ASDF"
-                    android:textSize="500dp"
+                    android:text="@string/asdf"
+                    android:textSize="500sp"
                     app:layout_constraintTop_toBottomOf="@id/profile_dark_mode_switch" />
             </androidx.constraintlayout.widget.ConstraintLayout>
         </ScrollView>

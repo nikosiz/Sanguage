@@ -38,7 +38,7 @@ public class SignUpActivity extends AppCompatActivity {
     private Button sign_up_sign_up_btn;
     private TextView sign_up_language_tv;
     private RadioGroup sign_up_language_rg;
-    private MaterialButton sign_up_sign_in_btn;
+    private TextView sign_up_sign_in_btn;
     private HashSet<Integer> languages_buttons_ids;
 
     @Override

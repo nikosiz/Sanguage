@@ -10,6 +10,8 @@ import android.view.animation.CycleInterpolator;
 import android.view.animation.TranslateAnimation;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.android.volley.Request;
@@ -28,6 +30,8 @@ public class LogInActivity extends AppCompatActivity {
     private Button log_in_btn;
     private EditText username_email_et;
     private EditText password_et;
+    private TextView log_in_forgot_password_btn, log_in_sign_up_btn;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -37,6 +41,8 @@ public class LogInActivity extends AppCompatActivity {
         log_in_btn = findViewById(R.id.log_in_log_in_btn);
         username_email_et = findViewById(R.id.log_in_username_or_email_et);
         password_et = findViewById(R.id.log_in_password_et);
+        log_in_forgot_password_btn = findViewById(R.id.log_in_forgot_password_btn);
+        log_in_sign_up_btn = findViewById(R.id.log_in_sign_up_btn);
 
         log_in_btn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -53,6 +59,15 @@ public class LogInActivity extends AppCompatActivity {
                 }
             }
         });
+
+        log_in_forgot_password_btn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(getApplicationContext(), ForgotPasswordActivity.class);
+                startActivity(intent);
+            }
+        });
+
     }
 
     public void disableSignInButton() {

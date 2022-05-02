@@ -79,6 +79,7 @@ public class LogInActivity extends AppCompatActivity {
                     password_et.startAnimation(shakeError);
                     username_email_et.startAnimation(shakeError);
                 } else {
+                    showProgressBar();
                     disableAllActions();
                     logInRequest(username_email, password);
                 }
@@ -99,10 +100,11 @@ public class LogInActivity extends AppCompatActivity {
     }
 
     public void showProgressBar() {
-
+        log_in_progress_bar.setVisibility(View.VISIBLE);
     }
 
     public void hideProgressBar() {
+        log_in_progress_bar.setVisibility(View.GONE);
 
     }
 
@@ -141,6 +143,7 @@ public class LogInActivity extends AppCompatActivity {
                 } catch (JSONException j) {
                     Log.e("SignInActivity - onErrorResponse()", j.getMessage());
                 }
+                hideProgressBar();
                 enableAllActions();
             }
         });

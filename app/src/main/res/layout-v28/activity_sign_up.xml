@@ -52,35 +52,45 @@
 
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/sign_up_username_tf"
-        android:layout_width="match_parent"
         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="40dp"
         android:layout_marginTop="20dp"
+        android:layout_marginBottom="30dp"
         android:hint="@string/username"
-        app:layout_constraintStart_toStartOf="@id/sign_up_to_make_sure_tv"
+        app:boxBackgroundColor="@color/white"
+        app:boxCornerRadiusBottomEnd="20dp"
+        app:boxCornerRadiusBottomStart="20dp"
+        app:boxCornerRadiusTopEnd="20dp"
+        app:boxCornerRadiusTopStart="20dp"
+        app:layout_constraintEnd_toEndOf="@id/sign_up_app_logo_tv"
+        app:layout_constraintStart_toStartOf="@id/sign_up_app_logo_tv"
         app:layout_constraintTop_toBottomOf="@id/sign_up_to_make_sure_tv">
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/sign_up_username_et"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="@drawable/light_button_background"
             android:textSize="20sp"
-            tools:ignore="TextContrastCheck">
-
-        </com.google.android.material.textfield.TextInputEditText>
+            tools:ignore="TextContrastCheck" />
 
     </com.google.android.material.textfield.TextInputLayout>
 
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/sign_up_email_tf"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="40dp"
         android:layout_marginTop="10dp"
+        android:layout_marginBottom="30dp"
         android:hint="@string/email_address"
-        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+        app:boxBackgroundColor="@color/white"
+        app:boxCornerRadiusBottomEnd="20dp"
+        app:boxCornerRadiusBottomStart="20dp"
+        app:boxCornerRadiusTopEnd="20dp"
+        app:boxCornerRadiusTopStart="20dp"
         app:layout_constraintEnd_toEndOf="@+id/sign_up_username_tf"
         app:layout_constraintStart_toStartOf="@id/sign_up_username_tf"
         app:layout_constraintTop_toBottomOf="@+id/sign_up_username_tf">
@@ -89,23 +99,25 @@
             android:id="@+id/sign_up_email_et"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="@drawable/light_button_background"
             android:textSize="20sp"
-            tools:ignore="TextContrastCheck">
-
-        </com.google.android.material.textfield.TextInputEditText>
+            tools:ignore="TextContrastCheck" />
 
     </com.google.android.material.textfield.TextInputLayout>
 
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/sign_up_password_tf"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="40dp"
-        android:layout_marginBottom="15dp"
-        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-        android:hint="@string/password"
         android:layout_marginTop="10dp"
+        android:layout_marginBottom="15dp"
+        android:hint="@string/password"
+        app:boxBackgroundColor="@color/white"
+        app:boxCornerRadiusBottomEnd="20dp"
+        app:boxCornerRadiusBottomStart="20dp"
+        app:boxCornerRadiusTopEnd="20dp"
+        app:boxCornerRadiusTopStart="20dp"
         app:layout_constraintEnd_toEndOf="@id/sign_up_email_tf"
         app:layout_constraintStart_toStartOf="@id/sign_up_email_tf"
         app:layout_constraintTop_toBottomOf="@id/sign_up_email_tf"
@@ -115,12 +127,9 @@
             android:id="@+id/sign_up_password_et"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="@drawable/light_button_background"
             android:inputType="textPassword"
             android:textSize="20sp"
-            tools:ignore="TextContrastCheck">
-
-        </com.google.android.material.textfield.TextInputEditText>
+            tools:ignore="TextContrastCheck" />
 
     </com.google.android.material.textfield.TextInputLayout>
 
@@ -132,8 +141,8 @@
         android:layout_marginTop="20dp"
         android:text="@string/choose_your_target_language"
         android:textStyle="bold"
-        app:layout_constraintEnd_toEndOf="@id/sign_up_app_logo_tv"
-        app:layout_constraintStart_toStartOf="@id/sign_up_app_logo_tv"
+        app:layout_constraintEnd_toEndOf="@id/sign_up_password_tf"
+        app:layout_constraintStart_toStartOf="@id/sign_up_password_tf"
         app:layout_constraintTop_toBottomOf="@id/sign_up_password_tf"
         tools:ignore="TextContrastCheck" />
 
@@ -153,13 +162,13 @@
             style="?android:attr/buttonBarButtonStyle"
             android:layout_width="60dp"
             android:layout_height="40dp"
-            app:backgroundTint="@null"
             android:layout_margin="5dp"
             android:width="50dp"
             android:background="@drawable/ic_en"
             android:button="@color/transparent"
             android:clickable="true"
             android:focusable="true"
+            app:backgroundTint="@null"
             tools:ignore="SpeakableTextPresentCheck,TouchTargetSizeCheck,DuplicateSpeakableTextCheck" />
 
         <com.google.android.material.radiobutton.MaterialRadioButton
@@ -167,11 +176,11 @@
             style="?android:attr/buttonBarButtonStyle"
             android:layout_width="60dp"
             android:layout_height="40dp"
-            app:backgroundTint="@null"
             android:layout_margin="5dp"
             android:width="50dp"
             android:background="@drawable/ic_fr"
             android:button="@color/transparent"
+            app:backgroundTint="@null"
             tools:ignore="SpeakableTextPresentCheck,TouchTargetSizeCheck" />
 
         <com.google.android.material.radiobutton.MaterialRadioButton
@@ -180,12 +189,12 @@
             android:layout_width="60dp"
             android:layout_height="40dp"
             android:layout_margin="5dp"
-            app:backgroundTint="@null"
             android:width="50dp"
             android:background="@drawable/ic_es"
             android:button="@color/transparent"
             android:clickable="true"
             android:focusable="true"
+            app:backgroundTint="@null"
             tools:ignore="SpeakableTextPresentCheck,TouchTargetSizeCheck" />
 
         <com.google.android.material.radiobutton.MaterialRadioButton
@@ -195,9 +204,9 @@
             android:layout_height="40dp"
             android:layout_margin="5dp"
             android:width="50dp"
-            app:backgroundTint="@null"
             android:background="@drawable/ic_de"
             android:button="@color/transparent"
+            app:backgroundTint="@null"
             tools:ignore="SpeakableTextPresentCheck,TouchTargetSizeCheck" />
 
     </RadioGroup>
@@ -209,31 +218,36 @@
         android:layout_gravity="center"
         android:layout_marginHorizontal="40dp"
         android:layout_marginTop="30dp"
-        android:background="@drawable/basic_button_background"
+        android:background="@drawable/ripple_effect_basic_btn"
         android:elevation="0dp"
+        android:padding="10dp"
         android:text="@string/sign_up"
         android:textAppearance="@style/TextAppearance.MaterialComponents.Button"
         android:textColor="@color/white"
         android:textSize="20sp"
+        android:textStyle="bold"
         android:theme="@style/FormButton"
         app:layout_constraintEnd_toEndOf="@id/sign_up_password_tf"
         app:layout_constraintStart_toStartOf="@id/sign_up_password_tf"
         app:layout_constraintTop_toBottomOf="@id/sign_up_language_rg"
         tools:ignore="TextContrastCheck" />
 
-    <com.google.android.material.button.MaterialButton
+    <TextView
         android:id="@+id/sign_up_sign_in_mtn"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_gravity="end"
         android:layout_marginHorizontal="40dp"
-        android:background="@color/transparent"
+        android:layout_marginTop="10dp"
+        android:background="@drawable/ripple_effect_transparent_btn"
         android:elevation="0dp"
-        android:gravity="center|end"
+        android:gravity="center"
         android:text="@string/already_registered_click_here_to_log_in"
         android:textAppearance="@style/TextAppearance.MaterialComponents.Button"
         android:textColor="@color/colorPrimary2"
-        android:textSize="12sp"
+        android:textSize="15sp"
         android:theme="@style/FormButton"
+        app:backgroundTint="@null"
         app:layout_constraintEnd_toEndOf="@id/sign_up_sign_up_mtn"
         app:layout_constraintStart_toStartOf="@id/sign_up_sign_up_mtn"
         app:layout_constraintTop_toBottomOf="@id/sign_up_sign_up_mtn"

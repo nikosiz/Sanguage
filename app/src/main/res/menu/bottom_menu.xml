@@ -28,7 +28,7 @@
 
     <item
         android:id="@+id/bottom_nav_search"
-        android:icon="@drawable/ic_whole_database_file"
+        android:icon="@drawable/ic_baseline_search_24"
         android:title="Search"
         app:cnb_backgroundColor="@color/white"
         app:cnb_iconColor="@color/colorPrimary1"

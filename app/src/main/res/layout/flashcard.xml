@@ -1,96 +1,76 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:gravity="center">
+    android:layout_marginVertical="80dp"
+    android:layout_gravity="center_vertical">
 
-    <LinearLayout
+    <androidx.cardview.widget.CardView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:orientation="vertical">
+        android:layout_marginHorizontal="20dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="20dp"
+        android:background="@color/colorPrimary1"
+        android:elevation="100dp"
+        app:cardCornerRadius="20dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
 
-        <TextView
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
-            android:layout_marginBottom="5dp"
-            android:fontFamily="@font/fredoka_one"
+            android:layout_height="match_parent"
             android:gravity="center"
-            android:text="@string/app_name"
-            android:textColor="@color/transparent"
-            android:textSize="45sp"
-            android:textStyle="bold"
-            tools:ignore="TextContrastCheck" />
+            android:orientation="vertical"
+            android:padding="40dp"
+            android:paddingHorizontal="20dp">
 
-        <androidx.cardview.widget.CardView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginHorizontal="20dp"
-            android:layout_marginTop="10dp"
-            android:layout_marginBottom="20dp"
-            android:background="@color/colorPrimary1"
-            android:elevation="100dp"
-            app:cardCornerRadius="20dp">
+            <TextView
+                android:id="@+id/flashcard_vocabulary_tv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="20dp"
+                android:text="@string/vocabulary"
+                android:textSize="35sp" />
 
-            <LinearLayout
+            <TextView
+                android:id="@+id/flashcard_grammaticalCategory_tv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="20dp"
+                android:text="@string/grammatical_category"
+                android:textSize="15sp" />
+
+            <com.codesgood.views.JustifiedTextView
+                android:id="@+id/flashcard_definition_jtv"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:gravity="center"
-                android:orientation="vertical"
-                android:padding="40dp"
-                android:paddingHorizontal="20dp">
+                android:layout_height="wrap_content"
+                android:layout_margin="20dp"
+                android:text="@string/definition"
+                android:textSize="20sp" />
 
-                <TextView
-                    android:id="@+id/vocabulary_fc"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_margin="20dp"
-                    android:text="VOCABULARY"
-                    android:textSize="35dp" />
+            <TextView
+                android:id="@+id/flashcard_collocations_tv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="20dp"
+                android:text="@string/collocations" />
 
-                <TextView
-                    android:id="@+id/grammaticalCategory"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_margin="20dp"
-                    android:text="GRAMMATICAL CATEGORY"
-                    android:textSize="15dp" />
+            <TextView
+                android:id="@+id/flashcard_topic_tv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="20dp"
+                android:text="@string/topic" />
 
-                <com.codesgood.views.JustifiedTextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_margin="20dp"
-                    android:text="DEFINITION DEFINITION DEFINITION DEFINITION"
-                    android:textSize="20dp" />
+        </LinearLayout>
 
-                <TextView
-                    android:id="@+id/title_collocations"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginBottom="0dp"
-                    android:text="Exemplary collocations:" />
+    </androidx.cardview.widget.CardView>
 
-                <TextView
-                    android:id="@+id/collocations"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_margin="20dp"
-                    android:text="COLLOCATIONS" />
-
-                <TextView
-                    android:id="@+id/topic"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_margin="20dp"
-                    android:text="TOPIC" />
-
-            </LinearLayout>
-
-        </androidx.cardview.widget.CardView>
-
-    </LinearLayout>
 
     <View
         android:id="@+id/swipe_left_indicator"
@@ -98,7 +78,10 @@
         android:layout_height="20dp"
         android:layout_margin="10dp"
         android:alpha="0"
-        android:background="@color/white" />
+        android:background="@color/white"
+        app:layout_constraintEnd_toStartOf="@+id/linearLayout"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <View
         android:id="@+id/swipe_right_indicator"
@@ -106,7 +89,10 @@
         android:layout_height="20dp"
         android:layout_margin="10dp"
         android:alpha="0"
-        android:background="@color/white" />
+        android:background="@color/white"
+        app:layout_constraintEnd_toStartOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
 
-</RelativeLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

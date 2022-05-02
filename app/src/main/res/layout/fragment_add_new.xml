@@ -6,7 +6,6 @@
     android:layout_height="match_parent"
     android:background="@color/lightPrimary"
     android:orientation="vertical"
-    android:paddingVertical="20dp"
     tools:context=".AddNewFragment">
 
     <TextView
@@ -14,15 +13,18 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="30dp"
-        android:layout_marginTop="10dp"
-        android:layout_marginBottom="5dp"
-        android:fontFamily="@font/open_sans_bold"
+        android:layout_marginTop="20dp"
+        android:layout_marginBottom="10dp"
+        android:fontFamily="@font/fredoka_one"
         android:gravity="start"
-        android:text="@string/add_new"
+        android:text="Add new vocabulary"
         android:textColor="@color/white"
         android:textSize="30sp"
-        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
         tools:ignore="TextContrastCheck" />
+
 
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/add_new_vocabulary_tf"
@@ -37,14 +39,14 @@
         app:boxCornerRadiusBottomStart="20dp"
         app:boxCornerRadiusTopEnd="20dp"
         app:boxCornerRadiusTopStart="20dp"
-        app:layout_constraintStart_toStartOf="@id/add_new_tv"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/add_new_tv">
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/add_new_vocabulary_et"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="30dp"
             android:textSize="20sp"
             tools:ignore="TextContrastCheck">
 
@@ -58,6 +60,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="40dp"
+        android:layout_marginTop="15dp"
         android:hint="@string/definition"
         app:boxBackgroundColor="@color/white"
         app:boxCornerRadiusBottomEnd="20dp"
@@ -72,7 +75,6 @@
             android:id="@+id/add_new_definition_et"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="30dp"
             android:textSize="20sp"
             tools:ignore="TextContrastCheck">
 
@@ -86,12 +88,13 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="40dp"
-        android:layout_marginBottom="25dp"
+        android:layout_marginTop="15dp"
         android:hint="@string/grammatical_category"
         app:boxBackgroundColor="@color/white"
         app:boxCornerRadiusBottomEnd="20dp"
         app:boxCornerRadiusBottomStart="20dp"
         app:boxCornerRadiusTopEnd="20dp"
+
         app:boxCornerRadiusTopStart="20dp"
         app:layout_constraintEnd_toEndOf="@id/add_new_definition_tf"
         app:layout_constraintStart_toStartOf="@id/add_new_definition_tf"
@@ -101,7 +104,6 @@
             android:id="@+id/add_new_collocations_et"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="30dp"
             android:textSize="20sp"
             tools:ignore="TextContrastCheck">
 
@@ -115,7 +117,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="40dp"
-        android:layout_marginBottom="15dp"
+        android:layout_marginTop="15dp"
         android:hint="@string/collocations"
         app:boxBackgroundColor="@color/white"
         app:boxCornerRadiusBottomEnd="20dp"
@@ -130,7 +132,6 @@
             android:id="@+id/add_new_topic_et"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="30dp"
             android:textSize="20sp"
             tools:ignore="TextContrastCheck">
 
@@ -144,7 +145,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="40dp"
-        android:layout_marginBottom="15dp"
+        android:layout_marginTop="15dp"
         android:hint="@string/topic"
         app:boxBackgroundColor="@color/white"
         app:boxCornerRadiusBottomEnd="20dp"
@@ -168,24 +169,28 @@
 
 
     <Button
-        android:id="@+id/sign_up_sign_up_mtn"
+        android:id="@+id/add_new_add_btn"
         style="@style/Widget.MaterialComponents.Button.TextButton"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:layout_marginHorizontal="40dp"
         android:layout_marginTop="30dp"
+        android:background="@drawable/ripple_effect_basic_btn"
         android:elevation="0dp"
-        android:text="@string/sign_up"
+        android:padding="15dp"
+        android:text="Add"
         android:textAppearance="@style/TextAppearance.MaterialComponents.Button"
         android:textColor="@color/white"
         android:textSize="20sp"
+        android:textStyle="bold"
         android:theme="@style/FormButton"
+        app:backgroundTint="@null"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="@id/add_new_topic_tf"
         app:layout_constraintStart_toStartOf="@id/add_new_topic_tf"
         app:layout_constraintTop_toBottomOf="@id/add_new_topic_tf"
         tools:ignore="TextContrastCheck" />
-
 
 </androidx.constraintlayout.widget.ConstraintLayout>
 

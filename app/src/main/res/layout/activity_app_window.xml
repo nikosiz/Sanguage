@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/lightPrimary"
     tools:context=".MainAppWindow">
 
     <FrameLayout
@@ -16,26 +17,10 @@
         android:id="@+id/frame_flashcard"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="@color/transparent">
+        android:background="@color/transparent"
+        app:rotation_degrees="0">
 
     </com.lorentzos.flingswipe.SwipeFlingAdapterView>
-
-    <TextView
-        android:id="@+id/app_logo"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="@color/lightPrimary"
-        android:fontFamily="@font/fredoka_one"
-        android:gravity="center"
-        android:paddingTop="10dp"
-        android:paddingBottom="20dp"
-        android:text="@string/app_logo"
-        android:textColor="@color/white"
-        android:textSize="60dp"
-        android:transitionName="splash_logo_transition"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
 
 
     <com.ismaeldivita.chipnavigation.ChipNavigationBar
@@ -48,7 +33,7 @@
         android:elevation="18dp"
         android:padding="8dp"
         app:cnb_menuResource="@menu/bottom_menu"
-        app:cnb_unselectedColor="@color/black"
+        app:cnb_unselectedColor="#6C9EAE"
         app:layout_constraintBottom_toBottomOf="parent">
 
     </com.ismaeldivita.chipnavigation.ChipNavigationBar>

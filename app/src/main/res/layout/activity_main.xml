@@ -11,7 +11,7 @@
     tools:context=".MainActivity">
 
     <TextView
-        android:id="@+id/app_logo"
+        android:id="@+id/splash_app_logo"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="329dp"
@@ -21,15 +21,16 @@
         android:text="@string/app_logo"
         android:textColor="@color/white"
         android:textSize="60dp"
-        android:transitionName="splash_logo_transition"
-        app:layout_constraintBottom_toTopOf="@+id/app_slogan"
+        android:transitionName="splash_to_choose_transition"
+        app:layout_constraintBottom_toTopOf="@+id/splash_app_slogan"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        />
 
     <TextView
-        android:id="@+id/app_slogan"
+        android:id="@+id/splash_app_slogan"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="5dp"
@@ -43,5 +44,5 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/app_logo" />
+        app:layout_constraintTop_toBottomOf="@id/splash_app_logo" />
 </androidx.constraintlayout.widget.ConstraintLayout>

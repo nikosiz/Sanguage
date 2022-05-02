@@ -37,7 +37,7 @@ public class MainAppWindow extends AppCompatActivity implements ChipNavigationBa
         vocabulary.add("3");
         vocabulary.add("4");
 
-        arrayAdapter = new ArrayAdapter<>(this, R.layout.flashcard, R.id.vocabulary_fc, vocabulary);
+        arrayAdapter = new ArrayAdapter<>(this, R.layout.flashcard, R.id.flashcard_vocabulary_tv, vocabulary);
 
         flingContainer.setAdapter(arrayAdapter);
 

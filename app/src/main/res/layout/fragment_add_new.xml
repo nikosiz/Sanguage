@@ -25,14 +25,13 @@
         app:layout_constraintTop_toTopOf="parent"
         tools:ignore="TextContrastCheck" />
 
-
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/add_new_vocabulary_tf"
         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="40dp"
-        android:layout_marginTop="30dp"
+        android:layout_marginTop="15dp"
         android:hint="@string/vocabulary"
         app:boxBackgroundColor="@color/white"
         app:boxCornerRadiusBottomEnd="20dp"
@@ -94,14 +93,13 @@
         app:boxCornerRadiusBottomEnd="20dp"
         app:boxCornerRadiusBottomStart="20dp"
         app:boxCornerRadiusTopEnd="20dp"
-
         app:boxCornerRadiusTopStart="20dp"
         app:layout_constraintEnd_toEndOf="@id/add_new_definition_tf"
         app:layout_constraintStart_toStartOf="@id/add_new_definition_tf"
         app:layout_constraintTop_toBottomOf="@id/add_new_definition_tf">
 
         <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/add_new_collocations_et"
+            android:id="@+id/add_new_grammCat_et"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:textSize="20sp"
@@ -110,6 +108,15 @@
         </com.google.android.material.textfield.TextInputEditText>
 
     </com.google.android.material.textfield.TextInputLayout>
+
+    <Spinner
+        android:id="@+id/add_new_grammCat_s"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@android:drawable/btn_dropdown"
+        android:spinnerMode="dropdown"
+        app:layout_constraintTop_toBottomOf="@id/add_new_grammCat_tf" />
+
 
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/add_new_collocations_tf"
@@ -129,7 +136,7 @@
         app:layout_constraintTop_toBottomOf="@id/add_new_grammCat_tf">
 
         <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/add_new_topic_et"
+            android:id="@+id/add_new_collocations_et"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:textSize="20sp"
@@ -191,6 +198,7 @@
         app:layout_constraintStart_toStartOf="@id/add_new_topic_tf"
         app:layout_constraintTop_toBottomOf="@id/add_new_topic_tf"
         tools:ignore="TextContrastCheck" />
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>
 

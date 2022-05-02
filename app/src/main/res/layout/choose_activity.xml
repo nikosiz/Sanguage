@@ -10,7 +10,6 @@
     android:paddingVertical="20dp"
     tools:context=".ChooseActivity">
 
-
     <TextView
         android:id="@+id/choose_app_logo"
         android:layout_width="match_parent"

@@ -1,238 +1,261 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/lightPrimary"
     android:paddingBottom="56dp"
-    android:scrollbarSize="0dp">
+    tools:context=".YourProfileFragment">
 
 
-    <androidx.constraintlayout.widget.ConstraintLayout
+    <TextView
+        android:id="@+id/profile_tv"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        tools:context=".YourProfileFragment">
+        android:layout_marginStart="30dp"
+        android:layout_marginTop="20dp"
+        android:fontFamily="@font/fredoka_one"
+        android:gravity="start"
+        android:text="@string/your_profile"
+        android:textColor="@color/white"
+        android:textSize="30sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:ignore="TextContrastCheck" />
 
-        <TextView
-            android:id="@+id/profile_tv"
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/profile_cl"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="15dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/profile_tv">
+
+        <ScrollView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginStart="30dp"
-            android:layout_marginTop="20dp"
-            android:layout_marginBottom="10dp"
-            android:fontFamily="@font/fredoka_one"
-            android:gravity="start"
-            android:text="@string/your_profile"
-            android:textColor="@color/white"
-            android:textSize="30sp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            tools:ignore="TextContrastCheck" />
-
-        <ImageView
-            android:id="@+id/profile_picture_iv"
-            android:layout_width="150dp"
-            android:layout_height="150dp"
-            android:layout_gravity="center"
-            android:layout_marginHorizontal="20dp"
-            android:layout_marginVertical="10dp"
-            android:contentDescription="@string/profile_picture"
-            android:elevation="20dp"
-            android:src="@drawable/ic_baseline_account_circle_24"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/profile_tv" />
-
-        <androidx.cardview.widget.CardView
-            android:id="@+id/profile_progress_cv"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginHorizontal="40dp"
-            android:layout_marginTop="10dp"
-            android:background="@color/transparent"
-            app:cardCornerRadius="20dp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/profile_picture_iv">
+            android:scrollbarSize="0dp"
+            app:layout_constraintTop_toTopOf="@id/profile_cl">
 
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
 
-                <TextView
-                    android:id="@+id/profile_known_vocabulary_tv"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:background="@color/white"
-                    android:padding="10dp"
-                    android:text="@string/you_ve_already_learned"
-                    android:textColor="@color/black"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintEnd_toStartOf="@id/profile_unknown_vocabulary_tv"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent" />
-
-                <TextView
-                    android:id="@+id/profile_unknown_vocabulary_tv"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:background="@color/white"
-                    android:padding="10dp"
-                    android:text="@string/you_need_to_revise"
-                    android:textColor="@color/black"
-                    app:layout_constraintBottom_toBottomOf="parent"
+                <ImageView
+                    android:id="@+id/profile_picture_iv"
+                    android:layout_width="150dp"
+                    android:layout_height="150dp"
+                    android:layout_gravity="center"
+                    android:layout_marginHorizontal="20dp"
+                    android:layout_marginVertical="10dp"
+                    android:contentDescription="@string/profile_picture"
+                    android:elevation="20dp"
+                    android:src="@drawable/ic_baseline_account_circle_24"
                     app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toEndOf="@id/profile_known_vocabulary_tv"
-                    app:layout_constraintTop_toTopOf="parent"
-                    tools:layout_editor_absoluteX="215dp"
-                    tools:layout_editor_absoluteY="8dp" />
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/profile_tv" />
+
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/profile_progress_cv"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="40dp"
+                    android:layout_marginTop="10dp"
+                    android:background="@color/transparent"
+                    app:cardCornerRadius="20dp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/profile_picture_iv">
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+
+                        <TextView
+                            android:id="@+id/profile_known_vocabulary_tv"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:background="@color/white"
+                            android:padding="10dp"
+                            android:text="@string/you_ve_already_learned"
+                            android:textColor="@color/black"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintEnd_toStartOf="@id/profile_unknown_vocabulary_tv"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent" />
+
+                        <TextView
+                            android:id="@+id/profile_unknown_vocabulary_tv"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:background="@color/white"
+                            android:padding="10dp"
+                            android:text="@string/you_need_to_revise"
+                            android:textColor="@color/black"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toEndOf="@id/profile_known_vocabulary_tv"
+                            app:layout_constraintTop_toTopOf="parent"
+                            tools:layout_editor_absoluteX="215dp"
+                            tools:layout_editor_absoluteY="8dp" />
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+                </androidx.cardview.widget.CardView>
+
+                <TextView
+                    android:id="@+id/profile_change_settings_tv"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="40dp"
+                    android:layout_marginTop="30dp"
+                    android:fontFamily="@font/fredoka_one"
+                    android:text="@string/account_settings"
+                    android:textSize="30sp"
+                    app:layout_constraintTop_toBottomOf="@id/profile_progress_cv">
+
+                </TextView>
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/profile_change_username_tf"
+                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="40dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginBottom="30dp"
+                    android:hint="@string/change_username"
+                    app:boxBackgroundColor="@color/white"
+                    app:boxCornerRadiusBottomEnd="20dp"
+                    app:boxCornerRadiusBottomStart="20dp"
+                    app:boxCornerRadiusTopEnd="20dp"
+                    app:boxCornerRadiusTopStart="20dp"
+                    app:layout_constraintEnd_toEndOf="@id/profile_change_settings_tv"
+                    app:layout_constraintStart_toStartOf="@id/profile_change_settings_tv"
+                    app:layout_constraintTop_toBottomOf="@id/profile_change_settings_tv">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/profile_change_username_et"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:textSize="20sp"
+                        tools:ignore="TextContrastCheck">
+
+                    </com.google.android.material.textfield.TextInputEditText>
+
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/profile_change_email_tf"
+                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="40dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginBottom="30dp"
+                    android:hint="@string/change_email"
+                    app:boxBackgroundColor="@color/white"
+                    app:boxCornerRadiusBottomEnd="20dp"
+                    app:boxCornerRadiusBottomStart="20dp"
+                    app:boxCornerRadiusTopEnd="20dp"
+                    app:boxCornerRadiusTopStart="20dp"
+                    app:layout_constraintEnd_toEndOf="@id/profile_change_username_tf"
+                    app:layout_constraintStart_toStartOf="@id/profile_change_username_tf"
+                    app:layout_constraintTop_toBottomOf="@id/profile_change_username_tf">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/profile_change_email_et"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:textSize="20sp"
+                        tools:ignore="TextContrastCheck">
+
+                    </com.google.android.material.textfield.TextInputEditText>
+
+                </com.google.android.material.textfield.TextInputLayout>
+
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/profile_change_password_tf"
+                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="40dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginBottom="30dp"
+                    android:hint="@string/change_password"
+                    app:boxBackgroundColor="@color/white"
+                    app:boxCornerRadiusBottomEnd="20dp"
+                    app:boxCornerRadiusBottomStart="20dp"
+                    app:boxCornerRadiusTopEnd="20dp"
+                    app:boxCornerRadiusTopStart="20dp"
+                    app:layout_constraintEnd_toEndOf="@id/profile_change_email_tf"
+                    app:layout_constraintStart_toStartOf="@id/profile_change_email_tf"
+                    app:layout_constraintTop_toBottomOf="@id/profile_change_email_tf">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/profile_change_password_et"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:textSize="20sp"
+                        tools:ignore="TextContrastCheck">
+
+                    </com.google.android.material.textfield.TextInputEditText>
+
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <Button
+                    android:id="@+id/profile_save_btn"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginHorizontal="40dp"
+                    android:layout_marginTop="20dp"
+                    android:layout_marginBottom="5dp"
+                    android:background="@drawable/ripple_effect_basic_btn"
+                    android:elevation="0dp"
+                    android:padding="10dp"
+                    android:text="@string/save"
+                    android:textColor="@color/white"
+                    android:textSize="20sp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/profile_change_password_tf"
+                    tools:ignore="TextContrastCheck" />
+
+                <TextView
+                    android:id="@+id/profile_general_settings_tv"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="40dp"
+                    android:layout_marginTop="30dp"
+                    android:fontFamily="@font/fredoka_one"
+                    android:text="@string/general_settings"
+                    android:textSize="30sp"
+                    app:layout_constraintTop_toBottomOf="@id/profile_save_btn" />
+
+                <com.google.android.material.switchmaterial.SwitchMaterial
+                    android:id="@+id/profile_dark_mode_switch"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="40dp"
+                    android:text="@string/dark_mode"
+                    android:textSize="20sp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/profile_general_settings_tv"
+                    tools:ignore="TextContrastCheck" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="ASDF"
+                    android:textSize="500dp"
+                    app:layout_constraintTop_toBottomOf="@id/profile_dark_mode_switch" />
             </androidx.constraintlayout.widget.ConstraintLayout>
-        </androidx.cardview.widget.CardView>
-
-        <TextView
-            android:id="@+id/profile_change_settings_tv"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginHorizontal="40dp"
-            android:layout_marginTop="30dp"
-            android:fontFamily="@font/fredoka_one"
-            android:text="@string/account_settings"
-            android:textSize="30sp"
-            app:layout_constraintTop_toBottomOf="@id/profile_progress_cv">
-
-        </TextView>
-
-        <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/profile_change_username_tf"
-            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginHorizontal="40dp"
-            android:layout_marginTop="10dp"
-            android:layout_marginBottom="30dp"
-            android:hint="@string/change_username"
-            app:boxBackgroundColor="@color/white"
-            app:boxCornerRadiusBottomEnd="20dp"
-            app:boxCornerRadiusBottomStart="20dp"
-            app:boxCornerRadiusTopEnd="20dp"
-            app:boxCornerRadiusTopStart="20dp"
-            app:layout_constraintEnd_toEndOf="@id/profile_change_settings_tv"
-            app:layout_constraintStart_toStartOf="@id/profile_change_settings_tv"
-            app:layout_constraintTop_toBottomOf="@id/profile_change_settings_tv">
-
-            <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/profile_change_username_et"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:textSize="20sp"
-                tools:ignore="TextContrastCheck">
-
-            </com.google.android.material.textfield.TextInputEditText>
-
-        </com.google.android.material.textfield.TextInputLayout>
-
-        <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/profile_change_email_tf"
-            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginHorizontal="40dp"
-            android:layout_marginTop="10dp"
-            android:layout_marginBottom="30dp"
-            android:hint="@string/change_email"
-            app:boxBackgroundColor="@color/white"
-            app:boxCornerRadiusBottomEnd="20dp"
-            app:boxCornerRadiusBottomStart="20dp"
-            app:boxCornerRadiusTopEnd="20dp"
-            app:boxCornerRadiusTopStart="20dp"
-            app:layout_constraintEnd_toEndOf="@id/profile_change_username_tf"
-            app:layout_constraintStart_toStartOf="@id/profile_change_username_tf"
-            app:layout_constraintTop_toBottomOf="@id/profile_change_username_tf">
-
-            <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/profile_change_email_et"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:textSize="20sp"
-                tools:ignore="TextContrastCheck">
-
-            </com.google.android.material.textfield.TextInputEditText>
-
-        </com.google.android.material.textfield.TextInputLayout>
-
-
-        <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/profile_change_password_tf"
-            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginHorizontal="40dp"
-            android:layout_marginTop="10dp"
-            android:layout_marginBottom="30dp"
-            android:hint="@string/change_password"
-            app:boxBackgroundColor="@color/white"
-            app:boxCornerRadiusBottomEnd="20dp"
-            app:boxCornerRadiusBottomStart="20dp"
-            app:boxCornerRadiusTopEnd="20dp"
-            app:boxCornerRadiusTopStart="20dp"
-            app:layout_constraintEnd_toEndOf="@id/profile_change_email_tf"
-            app:layout_constraintStart_toStartOf="@id/profile_change_email_tf"
-            app:layout_constraintTop_toBottomOf="@id/profile_change_email_tf">
-
-            <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/profile_change_password_et"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:textSize="20sp"
-                tools:ignore="TextContrastCheck">
-
-            </com.google.android.material.textfield.TextInputEditText>
-
-        </com.google.android.material.textfield.TextInputLayout>
-
-        <Button
-            android:id="@+id/profile_save_btn"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:layout_marginHorizontal="40dp"
-            android:layout_marginTop="20dp"
-            android:layout_marginBottom="5dp"
-            android:background="@drawable/ripple_effect_basic_btn"
-            android:elevation="0dp"
-            android:padding="10dp"
-            android:text="@string/save"
-            android:textColor="@color/white"
-            android:textSize="20sp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/profile_change_password_tf"
-            tools:ignore="TextContrastCheck" />
-
-        <TextView
-            android:id="@+id/profile_general_settings_tv"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginHorizontal="40dp"
-            android:layout_marginTop="30dp"
-            android:fontFamily="@font/fredoka_one"
-            android:text="@string/general_settings"
-            android:textSize="30sp"
-            app:layout_constraintTop_toBottomOf="@id/profile_save_btn" />
-
-        <com.google.android.material.switchmaterial.SwitchMaterial
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginHorizontal="40dp"
-            android:text="@string/dark_mode"
-            android:textSize="20sp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/profile_general_settings_tv"
-            tools:ignore="TextContrastCheck" />
+        </ScrollView>
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
-</ScrollView>
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -22,7 +22,6 @@
 
     </com.lorentzos.flingswipe.SwipeFlingAdapterView>
 
-
     <com.ismaeldivita.chipnavigation.ChipNavigationBar
         android:id="@+id/bottomNav"
         android:layout_width="match_parent"

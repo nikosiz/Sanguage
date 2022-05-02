@@ -52,4 +52,13 @@
     <string name="account_settings">Account settings</string>
     <string name="general_settings">General settings</string>
     <string name="dark_mode">Dark mode</string>
+
+        <string name="gramm_cat">Grammatical category</string>
+        <string-array name="languages">
+            <item>verb</item>
+            <item>noun</item>
+            <item>adverb</item>
+            <item>phrase</item>
+            <item>adjective</item>
+        </string-array>
 </resources>

@@ -72,6 +72,8 @@
             android:id="@+id/sign_up_username_et"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:inputType="text"
+            android:maxLines="1"
             android:textSize="20sp"
             tools:ignore="TextContrastCheck" />
 
@@ -99,6 +101,8 @@
             android:id="@+id/sign_up_email_et"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:inputType="textEmailAddress"
+            android:maxLines="1"
             android:textSize="20sp"
             tools:ignore="TextContrastCheck" />
 
@@ -128,6 +132,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:inputType="textPassword"
+            android:maxLines="1"
             android:textSize="20sp"
             tools:ignore="TextContrastCheck" />
 
@@ -257,9 +262,9 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:background="@drawable/white_circle"
+        android:elevation="10dp"
         android:foregroundGravity="center"
         android:padding="20dp"
-        android:elevation="10dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

@@ -8,6 +8,7 @@ import android.view.View;
 import android.view.WindowManager;
 import android.view.animation.CycleInterpolator;
 import android.view.animation.TranslateAnimation;
+import android.view.inputmethod.EditorInfo;
 import android.widget.Button;
 import android.widget.RadioGroup;
 import android.widget.RelativeLayout;
@@ -225,6 +226,7 @@ public class SignUpActivity extends AppCompatActivity {
         }
         if (languageIndex == -1) {
             sign_up_language_tv.startAnimation(shakeError());
+            sign_up_language_rg.startAnimation(shakeError());
         }
         return !username.isEmpty() && validateEmail(email) && validatePassword(password);
     }

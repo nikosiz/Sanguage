@@ -85,7 +85,7 @@
         android:background="@drawable/ripple_effect_light_btn"
         android:padding="10dp"
         android:text="@string/log_in"
-        android:textColor="@color/colorPrimary2"
+        android:textColor="@color/colorPrimary1"
         android:textSize="20sp"
         android:textStyle="bold"
         app:backgroundTint="@null"

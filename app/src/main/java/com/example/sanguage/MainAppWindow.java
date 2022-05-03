@@ -4,7 +4,6 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.View;
-import android.view.WindowManager;
 import android.widget.ArrayAdapter;
 import android.widget.Toast;
 
@@ -20,6 +19,7 @@ import com.android.volley.toolbox.Volley;
 import com.example.sanguage.pojo.DictionaryPojo;
 import com.example.sanguage.utils.FlashcardAdapter;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.google.android.material.chip.Chip;
 import com.ismaeldivita.chipnavigation.ChipNavigationBar;
 import com.lorentzos.flingswipe.SwipeFlingAdapterView;
 
@@ -35,7 +35,7 @@ public class MainAppWindow extends AppCompatActivity implements ChipNavigationBa
     private List vocabulary;
     private ArrayAdapter<String> arrayAdapter;
     private SwipeFlingAdapterView flingContainer;
-    private ChipNavigationBar navBar;
+    private ChipNavigationBar navigationBar;
     private FlashcardAdapter flashcardAdapter;
     private String currentURL;
     private ArrayList<DictionaryPojo> dictionaryListSimple;
@@ -48,7 +48,6 @@ public class MainAppWindow extends AppCompatActivity implements ChipNavigationBa
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
         setContentView(R.layout.activity_app_window);
         flingContainer = findViewById(R.id.frame_flashcard);
         dictionaryListSimple = new ArrayList<>();
@@ -63,9 +62,42 @@ public class MainAppWindow extends AppCompatActivity implements ChipNavigationBa
             }
         });
 
-        navBar = findViewById(R.id.bottomNav);
-        navBar.setItemSelected(R.id.bottom_nav_learn, true);
-        navBar.setOnItemSelectedListener(this);
+        navigationBar = findViewById(R.id.bottomNav);
+        //navigationBar.setItemSelected(R.id.bottom_nav_learn, true);
+        //navigationBar.setOnItemSelectedListener(this);
+        navigationBar.setItemSelected(R.id.bottom_nav_learn, true);
+        getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new LearnFragment()).commit();
+        bottomMenu();
+
+    }
+
+    private void bottomMenu() {
+
+        navigationBar.setOnItemSelectedListener(new ChipNavigationBar.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(int i) {
+                Fragment fragment = null;
+                switch (i) {
+                    case R.id.bottom_nav_learn:
+                        fragment = new LearnFragment();
+                        break;
+                    case R.id.bottom_nav_database:
+                        fragment = new DatabaseFragment();
+                        break;
+                    case R.id.bottom_nav_add_new:
+                        fragment = new AddNewFragment();
+                        break;
+                    case R.id.bottom_nav_search:
+                        fragment = new SearchFragment();
+                        break;
+                    case R.id.bottom_nav_profile:
+                        fragment = new ProfileFragment();
+                        break;
+                }
+                getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, fragment).commit();
+            }
+        });
+
     }
 
     private void left(View v) {
@@ -187,26 +219,5 @@ public class MainAppWindow extends AppCompatActivity implements ChipNavigationBa
 
     public void onItemSelected(int i) {
 
-        Fragment fragment = null;
-
-
-        if (i == R.id.bottom_nav_learn) {
-            enableFlingContainer();
-            fragment = new LearnFragment();
-        } else if (i == R.id.bottom_nav_database) {
-            disableFlingContainer();
-            fragment = new DatabaseFragment();
-        } else if (i == R.id.bottom_nav_add_new) {
-            disableFlingContainer();
-            fragment = new AddNewFragment();
-        } else if (i == R.id.bottom_nav_search) {
-            disableFlingContainer();
-            fragment = new SearchFragment();
-        } else if (i == R.id.bottom_nav_profile) {
-            disableFlingContainer();
-            fragment = new ProfileFragment();
-        }
-    loadFragment(fragment);
-
-}
+    }
 }

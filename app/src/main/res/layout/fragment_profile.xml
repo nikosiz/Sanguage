@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/lightPrimary"
+    android:background="@color/colorPrimary"
     android:paddingBottom="56dp"
     tools:context=".ProfileFragment">
 
@@ -220,6 +220,7 @@
                     android:text="@string/save"
                     android:textColor="@color/white"
                     android:textSize="20sp"
+                    app:backgroundTint="@null"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@id/profile_change_password_tf"

@@ -58,6 +58,8 @@
     <string name="vocabulary_database">Vocabulary database</string>
     <string name="add_new_vocabulary">Add new vocabulary</string>
     <string name="add">Add</string>
+    <string name="search_for_vocabulary">Search for vocabulary</string>
+    <string name="look_for_a_word">Look for a word</string>
     <string-array name="languages">
         <item>verb</item>
         <item>noun</item>

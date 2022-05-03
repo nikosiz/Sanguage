@@ -23,4 +23,13 @@
         app:layout_constraintTop_toTopOf="parent"
         tools:ignore="TextContrastCheck" />
 
+    <com.lorentzos.flingswipe.SwipeFlingAdapterView
+        android:id="@+id/frame_flashcard"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/transparent"
+        app:rotation_degrees="0">
+
+    </com.lorentzos.flingswipe.SwipeFlingAdapterView>
+
 </androidx.constraintlayout.widget.ConstraintLayout>

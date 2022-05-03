@@ -4,6 +4,7 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.View;
+import android.view.WindowManager;
 import android.widget.ArrayAdapter;
 import android.widget.Toast;
 
@@ -47,6 +48,7 @@ public class MainAppWindow extends AppCompatActivity implements ChipNavigationBa
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
         setContentView(R.layout.activity_app_window);
         flingContainer = findViewById(R.id.frame_flashcard);
         dictionaryListSimple = new ArrayList<>();
@@ -193,7 +195,7 @@ public class MainAppWindow extends AppCompatActivity implements ChipNavigationBa
             fragment = new LearnFragment();
         } else if (i == R.id.bottom_nav_database) {
             disableFlingContainer();
-            fragment = new YourDatabaseFragment();
+            fragment = new DatabaseFragment();
         } else if (i == R.id.bottom_nav_add_new) {
             disableFlingContainer();
             fragment = new AddNewFragment();
@@ -202,7 +204,7 @@ public class MainAppWindow extends AppCompatActivity implements ChipNavigationBa
             fragment = new SearchFragment();
         } else if (i == R.id.bottom_nav_profile) {
             disableFlingContainer();
-            fragment = new YourProfileFragment();
+            fragment = new ProfileFragment();
         }
     loadFragment(fragment);
 

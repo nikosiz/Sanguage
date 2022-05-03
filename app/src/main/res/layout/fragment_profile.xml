@@ -238,7 +238,7 @@
                     app:layout_constraintTop_toBottomOf="@id/profile_save_btn" />
 
                 <com.google.android.material.switchmaterial.SwitchMaterial
-                    android:id="@+id/profile_dark_mode_switch"
+                    android:id="@+id/profile_mode_switch"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginHorizontal="40dp"
@@ -254,7 +254,7 @@
                     android:layout_height="wrap_content"
                     android:text="@string/asdf"
                     android:textSize="500sp"
-                    app:layout_constraintTop_toBottomOf="@id/profile_dark_mode_switch" />
+                    app:layout_constraintTop_toBottomOf="@id/profile_mode_switch" />
             </androidx.constraintlayout.widget.ConstraintLayout>
         </ScrollView>
 

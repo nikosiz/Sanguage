@@ -16,4 +16,8 @@
     <color name="colorAccent">#B5B5B5</color>
 
     <color name="mint">#83ddd5</color>
+
+    <color name="backgroundColor">@color/colorPrimary</color>
+    <color name="textColor">@color/black</color>
+
 </resources>

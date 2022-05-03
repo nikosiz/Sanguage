@@ -42,77 +42,13 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
 
-                <TextView
-                    android:id="@+id/database_vocab1_tv"
+                <ListView
+                    android:id="@+id/database_lv"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="@string/asdf"
-                    android:textSize="150sp"
-                    app:layout_constraintTop_toTopOf="parent" />
+                    android:layout_height="match_parent"
+                    android:divider="@color/colorPrimary1"
+                    android:dividerHeight="1dp" />
 
-                <TextView
-                    android:id="@+id/database_vocab2_tv"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="@string/asdf"
-                    android:textSize="150sp"
-                    app:layout_constraintTop_toBottomOf="@id/database_vocab1_tv" />
-
-                <TextView
-                    android:id="@+id/database_vocab3_tv"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="@string/asdf"
-                    android:textSize="150sp"
-                    app:layout_constraintTop_toBottomOf="@id/database_vocab2_tv" />
-
-                <TextView
-                    android:id="@+id/database_vocab4_tv"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="@string/asdf"
-                    android:textSize="150sp"
-                    app:layout_constraintTop_toBottomOf="@id/database_vocab3_tv" />
-
-                <TextView
-                    android:id="@+id/database_vocab5_tv"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="@string/asdf"
-                    android:textSize="150sp"
-                    app:layout_constraintTop_toBottomOf="@id/database_vocab4_tv" />
-
-                <TextView
-                    android:id="@+id/database_vocab6_tv"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="@string/asdf"
-                    android:textSize="150sp"
-                    app:layout_constraintTop_toBottomOf="@id/database_vocab5_tv" />
-
-                <TextView
-                    android:id="@+id/database_vocab7_tv"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="@string/asdf"
-                    android:textSize="150sp"
-                    app:layout_constraintTop_toBottomOf="@id/database_vocab6_tv" />
-
-                <TextView
-                    android:id="@+id/database_vocab8_tv"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="@string/asdf"
-                    android:textSize="150sp"
-                    app:layout_constraintTop_toBottomOf="@id/database_vocab7_tv" />
-
-                <TextView
-                    android:id="@+id/database_vocab9_tv"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="@string/asdf"
-                    android:textSize="150sp"
-                    app:layout_constraintTop_toBottomOf="@id/database_vocab8_tv" />
             </androidx.constraintlayout.widget.ConstraintLayout>
         </ScrollView>
     </androidx.constraintlayout.widget.ConstraintLayout>

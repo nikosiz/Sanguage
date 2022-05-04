@@ -1,6 +1,8 @@
 package com.example.sanguage;
 
+import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.preference.PreferenceManager;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.widget.Toast;
@@ -26,9 +28,10 @@ public class AppWindowAccount extends AppCompatActivity implements ChipNavigatio
 
         navBar = findViewById(R.id.bottomNav);
         currentFragment = null;
-        ArrayList<DictionaryPojo> objects = new ArrayList<>();
-        objects.add(new DictionaryPojo("DASDASD"));
-        learnFragment = new LearnFragment();
+
+        SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(getApplicationContext());
+        Long userID = preferences.getLong("userID",2L);
+        learnFragment = new LearnFragment(userID);
         getSupportFragmentManager().beginTransaction().add(R.id.fragment_container, learnFragment).commit();
         navBar.setItemSelected(R.id.bottom_nav_learn, true);
         navBar.setOnItemSelectedListener(this);

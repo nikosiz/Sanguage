@@ -31,8 +31,9 @@
         android:layout_width="24dp"
         android:layout_height="24dp"
         android:layout_marginHorizontal="20dp"
+        android:background="@drawable/ripple_effect_transparent_btn"
         android:clickable="true"
-        android:src="@drawable/ic_baseline_filter_alt_24"
+        android:src="@drawable/learn_filter"
         app:layout_constraintBottom_toBottomOf="@id/learn_tv"
         app:layout_constraintEnd_toEndOf="@id/learn_tv"
         app:layout_constraintTop_toTopOf="@id/learn_tv" />

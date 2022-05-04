@@ -35,7 +35,6 @@ public class LearnFragment extends Fragment {
     private Context context;
     private String currentURL;
 
-
     public LearnFragment() {
     }
 

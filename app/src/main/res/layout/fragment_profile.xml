@@ -30,6 +30,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="15dp"
+        android:paddingBottom="56dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/profile_tv">
@@ -150,37 +151,6 @@
                 </com.google.android.material.textfield.TextInputLayout>
 
                 <com.google.android.material.textfield.TextInputLayout
-                    android:id="@+id/profile_change_email_tf"
-                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginHorizontal="40dp"
-                    android:layout_marginTop="10dp"
-                    android:layout_marginBottom="30dp"
-                    android:hint="@string/change_email"
-                    android:textColorHint="@color/hintColor"
-                    app:boxBackgroundColor="@color/colorEditText"
-                    app:boxCornerRadiusBottomEnd="20dp"
-                    app:boxCornerRadiusBottomStart="20dp"
-                    app:boxCornerRadiusTopEnd="20dp"
-                    app:boxCornerRadiusTopStart="20dp"
-                    app:layout_constraintEnd_toEndOf="@id/profile_change_username_tf"
-                    app:layout_constraintStart_toStartOf="@id/profile_change_username_tf"
-                    app:layout_constraintTop_toBottomOf="@id/profile_change_username_tf">
-
-                    <com.google.android.material.textfield.TextInputEditText
-                        android:id="@+id/profile_change_email_et"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:textSize="20sp"
-                        tools:ignore="TextContrastCheck">
-
-                    </com.google.android.material.textfield.TextInputEditText>
-
-                </com.google.android.material.textfield.TextInputLayout>
-
-
-                <com.google.android.material.textfield.TextInputLayout
                     android:id="@+id/profile_change_password_tf"
                     style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                     android:layout_width="match_parent"
@@ -195,9 +165,9 @@
                     app:boxCornerRadiusBottomStart="20dp"
                     app:boxCornerRadiusTopEnd="20dp"
                     app:boxCornerRadiusTopStart="20dp"
-                    app:layout_constraintEnd_toEndOf="@id/profile_change_email_tf"
-                    app:layout_constraintStart_toStartOf="@id/profile_change_email_tf"
-                    app:layout_constraintTop_toBottomOf="@id/profile_change_email_tf">
+                    app:layout_constraintEnd_toEndOf="@id/profile_change_username_tf"
+                    app:layout_constraintStart_toStartOf="@id/profile_change_username_tf"
+                    app:layout_constraintTop_toBottomOf="@id/profile_change_username_tf">
 
                     <com.google.android.material.textfield.TextInputEditText
                         android:id="@+id/profile_change_password_et"
@@ -260,8 +230,8 @@
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="@string/asdf"
-                    android:textSize="500sp"
+                    android:text="test"
+                    android:textSize="100sp"
                     app:layout_constraintTop_toBottomOf="@id/profile_mode_switch" />
             </androidx.constraintlayout.widget.ConstraintLayout>
         </ScrollView>

@@ -36,8 +36,6 @@ public class MainAppWindow extends AppCompatActivity implements ChipNavigationBa
 
     }
 
-
-
     private void loadFragment(Fragment fragment) {
 
         if (fragment != null) {

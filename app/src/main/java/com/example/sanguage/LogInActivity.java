@@ -1,7 +1,6 @@
 package com.example.sanguage;
 
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.appcompat.app.AppCompatDelegate;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -119,7 +118,7 @@ public class LogInActivity extends AppCompatActivity {
         JsonObjectRequest jsonObjectRequest = new JsonObjectRequest(Request.Method.GET, URL, null, new Response.Listener<JSONObject>() {
             @Override
             public void onResponse(JSONObject response) {
-                Intent intent = new Intent(getApplicationContext(), MainAppWindow.class);
+                Intent intent = new Intent(getApplicationContext(), AppWindowAccount.class);
                 try {
                     intent.putExtra("userID", response.getLong("userID"));
                     intent.putExtra("username", response.getString("username"));

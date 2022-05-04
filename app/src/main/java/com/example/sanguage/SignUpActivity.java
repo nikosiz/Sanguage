@@ -8,7 +8,6 @@ import android.view.View;
 import android.view.WindowManager;
 import android.view.animation.CycleInterpolator;
 import android.view.animation.TranslateAnimation;
-import android.view.inputmethod.EditorInfo;
 import android.widget.Button;
 import android.widget.RadioGroup;
 import android.widget.RelativeLayout;
@@ -24,7 +23,6 @@ import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.Volley;
 import com.example.sanguage.utils.RequestErrorParser;
-import com.google.android.material.button.MaterialButton;
 import com.google.android.material.radiobutton.MaterialRadioButton;
 import com.google.android.material.textfield.TextInputEditText;
 
@@ -181,7 +179,7 @@ public class SignUpActivity extends AppCompatActivity {
                 @Override
                 public void onResponse(JSONObject response) {
                     //  TODO confirm token window
-                    Intent intent = new Intent(getApplicationContext(), MainAppWindow.class);
+                    Intent intent = new Intent(getApplicationContext(), AppWindowAccount.class);
                     startActivity(intent);
                 }
             }, new Response.ErrorListener() {

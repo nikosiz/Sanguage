@@ -30,7 +30,7 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".MainAppWindow"
+            android:name=".AppWindowAccount"
             android:exported="false" />
         <activity
             android:name=".LogInActivity"

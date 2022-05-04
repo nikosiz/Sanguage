@@ -6,7 +6,6 @@ import android.view.MenuInflater;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.appcompat.app.AppCompatDelegate;
 import androidx.fragment.app.Fragment;
 
 import com.example.sanguage.pojo.DictionaryPojo;
@@ -14,7 +13,7 @@ import com.ismaeldivita.chipnavigation.ChipNavigationBar;
 
 import java.util.ArrayList;
 
-public class MainAppWindow extends AppCompatActivity implements ChipNavigationBar.OnItemSelectedListener {
+public class AppWindowAccount extends AppCompatActivity implements ChipNavigationBar.OnItemSelectedListener {
 
     private ChipNavigationBar navBar;
     private LearnFragment learnFragment;
@@ -54,7 +53,7 @@ public class MainAppWindow extends AppCompatActivity implements ChipNavigationBa
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         MenuInflater inflater = getMenuInflater();
-        inflater.inflate(R.menu.bottom_menu, menu);
+        inflater.inflate(R.menu.bottom_menu_acc, menu);
         return true;
     }
 

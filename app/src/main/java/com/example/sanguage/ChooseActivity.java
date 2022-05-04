@@ -8,9 +8,6 @@ import android.view.View;
 import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.TextView;
-import android.widget.Toast;
-
-import com.balysv.materialripple.MaterialRippleLayout;
 
 public class ChooseActivity extends AppCompatActivity {
 
@@ -48,7 +45,7 @@ public class ChooseActivity extends AppCompatActivity {
         choose_skip_btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(getApplicationContext(), MainAppWindow.class);
+                Intent intent = new Intent(getApplicationContext(), AppWindowAccount.class);
                 startActivity(intent);
             }
         });

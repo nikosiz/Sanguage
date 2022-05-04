@@ -6,7 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/transparent"
-    tools:context=".MainAppWindow">
+    tools:context=".AppWindowAccount">
 
     <FrameLayout
         android:layout_width="match_parent"
@@ -31,7 +31,7 @@
         android:background="@color/colorSecondary"
         android:elevation="3dp"
         android:padding="8dp"
-        app:cnb_menuResource="@menu/bottom_menu"
+        app:cnb_menuResource="@menu/bottom_menu_acc"
         app:cnb_orientationMode="horizontal"
         app:cnb_radius="8dp"
         app:cnb_unselectedColor="@color/white"

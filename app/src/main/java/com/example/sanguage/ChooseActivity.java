@@ -10,9 +10,6 @@ import android.view.View;
 import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.TextView;
-import android.widget.Toast;
-
-import com.balysv.materialripple.MaterialRippleLayout;
 
 public class ChooseActivity extends AppCompatActivity {
 

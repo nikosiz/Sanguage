@@ -67,4 +67,7 @@ dependencies {
 
     implementation 'com.lorentzos.swipecards:library:1.0.9@aar'
 
+    //implementation 'com.daimajia.esing:library:2.0@aar'
+    //implementation 'com.daimajia.androidanimations:library:2.4@aar'
+
 }

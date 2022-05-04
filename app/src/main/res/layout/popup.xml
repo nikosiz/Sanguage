@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="wrap_content"
+    android:padding="20dp"
+    android:layout_height="wrap_content"
+    android:layout_gravity="center"
+    android:orientation="vertical">
+
+    <TextView
+        android:id="@+id/filter_known_words_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Known words"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <CheckBox
+        android:id="@+id/filter_known_words_cb"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="@id/filter_known_words_tv"
+        app:layout_constraintStart_toEndOf="@id/filter_known_words_tv"
+        app:layout_constraintTop_toTopOf="@id/filter_known_words_tv" />
+
+    <TextView
+        android:id="@+id/filter_new_words_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="New words"
+        app:layout_constraintTop_toBottomOf="@id/filter_known_words_cb"
+
+        />
+
+    <CheckBox
+        android:id="@+id/filter_new_words_cb"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="@id/filter_new_words_tv"
+        app:layout_constraintStart_toEndOf="@id/filter_new_words_tv"
+        app:layout_constraintTop_toTopOf="@id/filter_new_words_tv" />
+
+    <TextView
+        android:id="@+id/filter_level_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Level"
+        app:layout_constraintTop_toBottomOf="@id/filter_new_words_cb" />
+
+    <CheckBox
+        android:id="@+id/filter_level_A1_cb"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="@id/filter_level_tv"
+        app:layout_constraintStart_toEndOf="@id/filter_level_tv"
+        app:layout_constraintTop_toTopOf="@id/filter_level_tv" />
+
+    <CheckBox
+        android:id="@+id/filter_level_A2_cb"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="@id/filter_level_tv"
+        app:layout_constraintStart_toEndOf="@id/filter_level_A1_cb"
+        app:layout_constraintTop_toTopOf="@id/filter_level_tv" />
+
+    <CheckBox
+        android:id="@+id/filter_level_B1_cb"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="@id/filter_level_tv"
+        app:layout_constraintStart_toEndOf="@id/filter_level_A2_cb"
+        app:layout_constraintTop_toTopOf="@id/filter_level_tv" />
+
+    <CheckBox
+        android:id="@+id/filter_level_B2_cb"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="@id/filter_level_tv"
+        app:layout_constraintStart_toEndOf="@id/filter_level_B1_cb"
+        app:layout_constraintTop_toTopOf="@id/filter_level_tv" />
+
+    <CheckBox
+        android:id="@+id/filter_level_C1_cb"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="@id/filter_level_tv"
+        app:layout_constraintStart_toEndOf="@id/filter_level_B2_cb"
+        app:layout_constraintTop_toTopOf="@id/filter_level_tv" />
+
+    <CheckBox
+        android:id="@+id/filter_level_C2_cb"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="@id/filter_level_tv"
+        app:layout_constraintStart_toEndOf="@id/filter_level_C1_cb"
+        app:layout_constraintTop_toTopOf="@id/filter_level_tv" />
+
+    <TextView
+        android:id="@+id/filter_topic_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Topic"
+        app:layout_constraintTop_toBottomOf="@id/filter_level_C2_cb"
+
+        />
+
+    <CheckBox
+        android:id="@+id/filter_topic_cb"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="@id/filter_topic_tv"
+        app:layout_constraintStart_toEndOf="@id/filter_topic_tv"
+        app:layout_constraintTop_toTopOf="@id/filter_topic_tv" />
+
+    <Button
+        android:id="@+id/filter_apply_btn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Apply"
+        app:layout_constraintTop_toBottomOf="@id/filter_topic_cb"
+        tools:layout_editor_absoluteX="16dp"
+        tools:layout_editor_absoluteY="471dp" />
+
+    <Button
+        android:id="@+id/filter_cancel_btn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Cancel"
+        app:layout_constraintBottom_toBottomOf="@id/filter_apply_btn"
+        app:layout_constraintStart_toEndOf="@id/filter_apply_btn"
+        app:layout_constraintTop_toTopOf="@id/filter_apply_btn"
+        tools:layout_editor_absoluteX="16dp"
+        tools:layout_editor_absoluteY="278dp" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

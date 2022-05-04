@@ -13,11 +13,20 @@
     <color name="colorSecondaryDark">#005C6E</color>
     <color name="colorSecondaryDarkVariant">#37656E</color>
 
+    <color name="greyBlue">#3c5f69</color>
+
     <color name="colorAccent">#B5B5B5</color>
 
     <color name="mint">#83ddd5</color>
 
     <color name="backgroundColor">@color/colorPrimary</color>
-    <color name="textColor">@color/black</color>
-
+    <color name="basicButtonBackground">@color/colorSecondary</color>
+    <color name="lightButtonBackground">@color/white</color>
+    <color name="lightButtonStroke">@color/colorSecondary</color>
+    <color name="lightButtonText">@color/colorSecondary</color>
+    <color name="app_logo">@color/white</color>
+    <color name="app_slogan">@color/white</color>
+    <color name="commonText">@color/greyBlue</color>
+    <color name="colorEditText">@color/white</color>
+    <color name="hintColor">#434343</color>
 </resources>

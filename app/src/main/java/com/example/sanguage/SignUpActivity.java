@@ -178,7 +178,7 @@ public class SignUpActivity extends AppCompatActivity {
                 @Override
                 public void onResponse(JSONObject response) {
                     //  TODO confirm token window
-                    Intent intent = new Intent(getApplicationContext(), MainAppWindow.class);
+                    Intent intent = new Intent(getApplicationContext(), AppWindowAccount.class);
                     startActivity(intent);
                 }
             }, new Response.ErrorListener() {

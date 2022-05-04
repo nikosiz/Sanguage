@@ -15,7 +15,7 @@ import com.ismaeldivita.chipnavigation.ChipNavigationBar;
 
 import java.util.ArrayList;
 
-public class MainAppWindow extends AppCompatActivity implements ChipNavigationBar.OnItemSelectedListener {
+public class AppWindowAccount extends AppCompatActivity implements ChipNavigationBar.OnItemSelectedListener {
 
     private ChipNavigationBar navBar;
     private LearnFragment learnFragment;
@@ -38,8 +38,6 @@ public class MainAppWindow extends AppCompatActivity implements ChipNavigationBa
 
     }
 
-
-
     private void loadFragment(Fragment fragment) {
 
         if (fragment != null) {
@@ -58,7 +56,7 @@ public class MainAppWindow extends AppCompatActivity implements ChipNavigationBa
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         MenuInflater inflater = getMenuInflater();
-        inflater.inflate(R.menu.bottom_menu, menu);
+        inflater.inflate(R.menu.bottom_menu_acc, menu);
         return true;
     }
 

@@ -1,10 +1,19 @@
 package com.example.sanguage;
 
+import android.app.AlertDialog;
 import android.content.Context;
+import android.content.Intent;
+import android.media.Image;
 import android.os.Bundle;
 import android.view.LayoutInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
+import android.widget.CheckBox;
+import android.widget.ImageView;
+import android.widget.RadioButton;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
@@ -38,7 +47,12 @@ public class LearnFragment extends Fragment {
     private String currentURL;
     private RequestQueue requestQueue;
     private Long userID;
-
+    private AlertDialog.Builder dialogBuilder;
+    private AlertDialog dialog;
+    private TextView filter_known_words_tv, filter_new_words_tv, filter_level_tv, filter_topic_tv;
+    private CheckBox filter_known_words_cb, filter_new_words_cb, filter_level_A1_cb, filter_level_A2_cb, filter_level_B1_cb, filter_level_B2_cb, filter_level_C1_cb, filter_level_C2_cb, filter_topic_cb;
+    private Button filter_apply_btn, filter_cancel_btn;
+    private ImageView filter_btn;
 
     public LearnFragment(Long userID) {
         this.userID = userID;
@@ -151,6 +165,16 @@ public class LearnFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_learn, container, false);
+
+        filter_btn = (ImageView) view.findViewById(R.id.learn_filter_btn);
+
+        filter_btn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                filterDialog();
+            }
+        });
+
         requestQueue = Volley.newRequestQueue(context);
         System.out.println(userID);
         flingContainer = (SwipeFlingAdapterView) view.findViewById(R.id.frame_flashcard);
@@ -159,5 +183,47 @@ public class LearnFragment extends Fragment {
         flingContainer.setAdapter(flashcardAdapter);
         setFlingContainer();
         return view;
+    }
+
+    public void filterDialog() {
+        dialogBuilder = new AlertDialog.Builder(getContext());
+        final View filterPopupView = getLayoutInflater().inflate(R.layout.popup, null);
+
+        filter_known_words_tv = (TextView) filterPopupView.findViewById(R.id.filter_known_words_tv);
+        filter_new_words_tv = (TextView) filterPopupView.findViewById(R.id.filter_new_words_tv);
+        filter_level_tv = (TextView) filterPopupView.findViewById(R.id.filter_level_tv);
+        filter_topic_tv = (TextView) filterPopupView.findViewById(R.id.filter_topic_tv);
+
+        filter_known_words_cb = (CheckBox) filterPopupView.findViewById(R.id.filter_known_words_cb);
+        filter_new_words_cb = (CheckBox) filterPopupView.findViewById(R.id.filter_new_words_cb);
+        filter_level_A1_cb = (CheckBox) filterPopupView.findViewById(R.id.filter_level_A1_cb);
+        filter_level_A2_cb = (CheckBox) filterPopupView.findViewById(R.id.filter_level_A2_cb);
+        filter_level_B1_cb = (CheckBox) filterPopupView.findViewById(R.id.filter_level_B1_cb);
+        filter_level_B2_cb = (CheckBox) filterPopupView.findViewById(R.id.filter_level_B2_cb);
+        filter_level_C1_cb = (CheckBox) filterPopupView.findViewById(R.id.filter_level_C1_cb);
+        filter_level_C2_cb = (CheckBox) filterPopupView.findViewById(R.id.filter_level_C2_cb);
+        filter_topic_cb = (CheckBox) filterPopupView.findViewById(R.id.filter_topic_cb);
+
+        filter_apply_btn = (Button) filterPopupView.findViewById(R.id.filter_apply_btn);
+        filter_cancel_btn = (Button) filterPopupView.findViewById(R.id.filter_cancel_btn);
+
+        dialogBuilder.setView(filterPopupView);
+        dialog = dialogBuilder.create();
+        dialog.show();
+
+        filter_apply_btn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                //apply filter action
+            }
+        });
+
+        filter_cancel_btn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                //apply cancel action
+                dialog.dismiss();
+            }
+        });
     }
 }

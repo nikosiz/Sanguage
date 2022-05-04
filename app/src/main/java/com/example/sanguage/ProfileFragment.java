@@ -38,8 +38,7 @@ public class ProfileFragment extends Fragment {
         this.userID = userID;
     }
 
-    public ProfileFragment() {
-    }
+    public ProfileFragment() {}
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -128,5 +127,4 @@ public class ProfileFragment extends Fragment {
         });
         return view;
     }
-
 }

@@ -34,30 +34,24 @@ public class FlashcardAdapter extends ArrayAdapter<DictionaryPojo> {
     @Override
     public View getView(int position, @Nullable View convertView, @NonNull ViewGroup parent) {
         if (convertView == null) {
-            System.out.println("1");
             convertView = LayoutInflater.from(getContext()).inflate(R.layout.flashcard, parent, false);
             ConstraintLayout mainLayout = (ConstraintLayout) convertView.findViewById(R.id.flashcard_mainLayout);
             ConstraintLayout flashcardLayout = (ConstraintLayout) convertView.findViewById(R.id.flashcard_flashcardLayout);
             CardView cardView = (CardView) convertView.findViewById(R.id.flashcard_cardView);
             TextView vocabulary_tv = (TextView) convertView.findViewById(R.id.flashcard_vocabulary_tv);
-/*            TextView collocations_tv = (TextView) convertView.findViewById(R.id.flashcard_collocations_tv);
+            TextView collocations_tv = (TextView) convertView.findViewById(R.id.flashcard_collocations_tv);
             JustifiedTextView definition_jtv = (JustifiedTextView) convertView.findViewById(R.id.flashcard_definition_jtv);
             TextView topic_tv = (TextView) convertView.findViewById(R.id.flashcard_topic_tv);
-            TextView gramCategory_tv = (TextView) convertView.findViewById(R.id.flashcard_grammaticalCategory_tv);*/
+            TextView gramCategory_tv = (TextView) convertView.findViewById(R.id.flashcard_grammaticalCategory_tv);
             DictionaryPojo dictionaryPojo = dictionaryList.get(position);
             vocabulary_tv.setText(dictionaryPojo.getVocabulary());
-            convertView.setTag(new Flashcard(mainLayout, cardView, flashcardLayout, vocabulary_tv));
-            /*            convertView.setTag(new Flashcard(mainLayout, cardView, flashcardLayout, vocabulary_tv, gramCategory_tv, definition_jtv, collocations_tv, topic_tv));*/
-            System.out.println("2213");
+            gramCategory_tv.setText(dictionaryPojo.getGrammaticalCategory());
+            definition_jtv.setText(dictionaryPojo.getDefinitionTranslated());
+            collocations_tv.setText(dictionaryPojo.getCollocations());
+            topic_tv.setText(dictionaryPojo.getTopic());
+            convertView.setTag(new Flashcard(mainLayout, cardView, flashcardLayout, vocabulary_tv, gramCategory_tv, definition_jtv, collocations_tv, topic_tv));
             return convertView;
         } else {
-/*            DictionaryPojo dictionaryPojo = dictionaryList.get(position);
-            TextView vocabulary_tv = convertView.findViewById(R.id.flashcard_vocabulary_tv);
-            vocabulary_tv.setText("dasddas");
-
-            convertView.setTag(vocabulary_tv);
-            System.out.println(dictionaryPojo.getVocabulary());*/
-            System.out.println("else");
             return convertView;
         }
 
@@ -68,13 +62,13 @@ public class FlashcardAdapter extends ArrayAdapter<DictionaryPojo> {
         CardView cardView;
         ConstraintLayout flashcardLayout;
         TextView flashcardVocabulary;
-/*        TextView flashcardGramCategory;
+        TextView flashcardGramCategory;
         JustifiedTextView flashcardDefinition;
         TextView flashcardCollocations;
-        TextView flashcardTopic;*/
+        TextView flashcardTopic;
 
 
-       /* public Flashcard(ConstraintLayout mainLayout, CardView cardView, ConstraintLayout flashcardLayout, TextView flashcardVocabulary, TextView flashcardGramCategory, JustifiedTextView flashcardDefinition, TextView flashcardCollocations, TextView flashcardTopic) {
+        public Flashcard(ConstraintLayout mainLayout, CardView cardView, ConstraintLayout flashcardLayout, TextView flashcardVocabulary, TextView flashcardGramCategory, JustifiedTextView flashcardDefinition, TextView flashcardCollocations, TextView flashcardTopic) {
             this.mainLayout = mainLayout;
             this.cardView = cardView;
             this.flashcardLayout = flashcardLayout;
@@ -83,14 +77,9 @@ public class FlashcardAdapter extends ArrayAdapter<DictionaryPojo> {
             this.flashcardDefinition = flashcardDefinition;
             this.flashcardCollocations = flashcardCollocations;
             this.flashcardTopic = flashcardTopic;
-        }*/
-
-        public Flashcard(ConstraintLayout mainLayout, CardView cardView, ConstraintLayout flashcardLayout, TextView flashcardVocabulary) {
-            this.mainLayout = mainLayout;
-            this.cardView = cardView;
-            this.flashcardLayout = flashcardLayout;
-            this.flashcardVocabulary = flashcardVocabulary;
         }
+
+
     }
 }
 

@@ -50,6 +50,12 @@ public class DictionaryPojo {
     @JsonProperty("level")
     private String level;
 
+    public DictionaryPojo(String vocabulary) {
+        this.vocabulary = vocabulary;
+    }
+
+    public DictionaryPojo() {
+    }
 
     @JsonProperty("vocabulary")
     public String getVocabulary() {

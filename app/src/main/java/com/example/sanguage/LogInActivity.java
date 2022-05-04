@@ -1,19 +1,20 @@
 package com.example.sanguage;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.preference.PreferenceManager;
 import android.util.Log;
 import android.view.View;
 import android.view.WindowManager;
-import android.view.animation.CycleInterpolator;
 import android.view.animation.TranslateAnimation;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import androidx.appcompat.app.AppCompatActivity;
 
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
@@ -22,7 +23,9 @@ import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.Volley;
 import com.example.sanguage.utils.RequestErrorParser;
+import com.example.sanguage.utils.Utils;
 
+import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
@@ -35,6 +38,7 @@ public class LogInActivity extends AppCompatActivity {
     private TextView log_in_forgot_password_btn;
     private TextView log_in_sign_up_btn;
     private RelativeLayout log_in_progress_bar;
+    private TranslateAnimation shakeError;
 
 
     @Override
@@ -49,6 +53,7 @@ public class LogInActivity extends AppCompatActivity {
         log_in_forgot_password_btn = findViewById(R.id.log_in_forgot_password_btn);
         log_in_sign_up_btn = findViewById(R.id.log_in_sign_up_btn);
         log_in_progress_bar = findViewById(R.id.log_in_progress_bar);
+        shakeError = Utils.shakeError(5, 15, 0, 0, 500, 7);
 
         handleLoginBtn();
 
@@ -77,7 +82,6 @@ public class LogInActivity extends AppCompatActivity {
                 String username_email = username_email_et.getText().toString();
                 String password = password_et.getText().toString();
                 if (username_email.isEmpty() || password.isEmpty()) {
-                    TranslateAnimation shakeError = shakeError();
                     password_et.startAnimation(shakeError);
                     username_email_et.startAnimation(shakeError);
                 } else {
@@ -118,14 +122,21 @@ public class LogInActivity extends AppCompatActivity {
             @Override
             public void onResponse(JSONObject response) {
                 Intent intent = new Intent(getApplicationContext(), MainAppWindow.class);
+                SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(LogInActivity.this);
+                SharedPreferences.Editor editor = preferences.edit();
                 try {
-                    intent.putExtra("userID", response.getLong("userID"));
-                    intent.putExtra("username", response.getString("username"));
-                    intent.putExtra("email", response.getString("email"));
-                    intent.putExtra("registrationDate", response.getString("registrationDate"));
-                    intent.putExtra("userID", response.getLong("userID"));
-                } catch (JSONException j) {
-                    Log.e("SignInActivity - intent.putExtra()", j.getMessage());
+                    editor.putLong("userID", response.getLong("userID"));
+                    editor.putBoolean("enabled", true);
+                    editor.putString("username", response.getString("username"));
+                    editor.putString("email", response.getString("email"));
+                    editor.putString("registrationDate", response.getString("registrationDate"));
+                    JSONArray secondLanguage = response.getJSONArray("secondLanguage");
+                    for (int i = 0; i < secondLanguage.length(); i++) {
+                        editor.putString("secondLanguage" + (i + 1), secondLanguage.getString(i).toString());
+                    }
+                    editor.apply();
+                } catch (JSONException jsonException) {
+                    jsonException.printStackTrace();
                 }
                 startActivity(intent);
             }
@@ -135,9 +146,8 @@ public class LogInActivity extends AppCompatActivity {
                 try {
                     String message = RequestErrorParser.parseError(error);
                     if (message.equalsIgnoreCase("incorrect password")) {
-                        password_et.startAnimation(shakeError());
+                        password_et.startAnimation(shakeError);
                     } else if (message.equalsIgnoreCase("user not found")) {
-                        TranslateAnimation shakeError = shakeError();
                         password_et.startAnimation(shakeError);
                         username_email_et.startAnimation(shakeError);
                     }
@@ -150,12 +160,5 @@ public class LogInActivity extends AppCompatActivity {
             }
         });
         queue.add(jsonObjectRequest);
-    }
-
-    public TranslateAnimation shakeError() {
-        TranslateAnimation shake = new TranslateAnimation(5, 15, 0, 0);
-        shake.setDuration(500);
-        shake.setInterpolator(new CycleInterpolator(7));
-        return shake;
     }
 }

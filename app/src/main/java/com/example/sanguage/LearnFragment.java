@@ -15,6 +15,7 @@ import com.android.volley.RequestQueue;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonArrayRequest;
+import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.Volley;
 import com.example.sanguage.pojo.DictionaryPojo;
 import com.example.sanguage.utils.FlashcardAdapter;
@@ -22,6 +23,7 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import com.lorentzos.flingswipe.SwipeFlingAdapterView;
 
 import org.json.JSONArray;
+import org.json.JSONObject;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -34,7 +36,13 @@ public class LearnFragment extends Fragment {
     private ArrayList<DictionaryPojo> dictionaryListSimple = new ArrayList<>();
     private Context context;
     private String currentURL;
+    private RequestQueue requestQueue;
+    private Long userID;
 
+
+    public LearnFragment(Long userID) {
+        this.userID = userID;
+    }
 
     public LearnFragment() {
     }
@@ -43,13 +51,6 @@ public class LearnFragment extends Fragment {
     public void onAttach(@NonNull Context context) {
         super.onAttach(context);
         this.context = context;
-    }
-
-    public static LearnFragment newInstance() {
-        LearnFragment fragment = new LearnFragment();
-        Bundle args = new Bundle();
-        fragment.setArguments(args);
-        return fragment;
     }
 
     @Override
@@ -71,10 +72,12 @@ public class LearnFragment extends Fragment {
 
             @Override
             public void onLeftCardExit(Object o) {
+                addKnownVocabulary((DictionaryPojo) o);
             }
 
             @Override
             public void onRightCardExit(Object o) {
+                ;
             }
 
             @Override
@@ -97,9 +100,24 @@ public class LearnFragment extends Fragment {
         });
     }
 
+    public void addKnownVocabulary(DictionaryPojo dictionaryPojo) {
+        String addVocabURL = "https://sanguage.herokuapp.com/user/addKnownVocab?userID=" + userID + "&vocabulary=" + dictionaryPojo.getVocabulary();
+        JsonObjectRequest jsonObjectRequest = new JsonObjectRequest(Request.Method.PUT, addVocabURL, null, new Response.Listener<JSONObject>() {
+            @Override
+            public void onResponse(JSONObject response) {
+                Toast.makeText(context, response.toString(), Toast.LENGTH_SHORT).show();
+            }
+        }, new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError error) {
+                Toast.makeText(context, "Check your internet connection", Toast.LENGTH_SHORT).show();
+            }
+        });
+        requestQueue.add(jsonObjectRequest);
+    }
+
     public void dictionaryRequest() {
         System.out.println("dictionary request");
-        RequestQueue queue = Volley.newRequestQueue(context);
         JsonArrayRequest jsonArrayRequest = new JsonArrayRequest(Request.Method.GET, currentURL, null, new Response.Listener<JSONArray>() {
             @Override
             public void onResponse(JSONArray response) {
@@ -111,16 +129,12 @@ public class LearnFragment extends Fragment {
                 Toast.makeText(context, "Check your internet connection", Toast.LENGTH_SHORT).show();
             }
         });
-        queue.add(jsonArrayRequest);
+        requestQueue.add(jsonArrayRequest);
     }
 
     public void addDictionaryListSimple(ArrayList<DictionaryPojo> dictionaryListSimple) {
         this.dictionaryListSimple.addAll(dictionaryListSimple);
         this.flashcardAdapter.notifyDataSetChanged();
-    }
-
-    public void setDictionaryListSimple(ArrayList<DictionaryPojo> dictionaryListSimple) {
-        this.dictionaryListSimple = dictionaryListSimple;
     }
 
     public void parseJSONArray(JSONArray response) {
@@ -137,7 +151,8 @@ public class LearnFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_learn, container, false);
-
+        requestQueue = Volley.newRequestQueue(context);
+        System.out.println(userID);
         flingContainer = (SwipeFlingAdapterView) view.findViewById(R.id.frame_flashcard);
         currentURL = "https://sanguage.herokuapp.com/dictionary/byLanguage?language=English";
         flashcardAdapter = new FlashcardAdapter(context, R.layout.flashcard, dictionaryListSimple);

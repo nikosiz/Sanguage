@@ -6,9 +6,7 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.view.WindowManager;
-import android.view.animation.CycleInterpolator;
 import android.view.animation.TranslateAnimation;
-import android.view.inputmethod.EditorInfo;
 import android.widget.Button;
 import android.widget.RadioGroup;
 import android.widget.RelativeLayout;
@@ -24,7 +22,7 @@ import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.Volley;
 import com.example.sanguage.utils.RequestErrorParser;
-import com.google.android.material.button.MaterialButton;
+import com.example.sanguage.utils.Utils;
 import com.google.android.material.radiobutton.MaterialRadioButton;
 import com.google.android.material.textfield.TextInputEditText;
 
@@ -32,8 +30,6 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.util.HashSet;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
 
 public class SignUpActivity extends AppCompatActivity {
     private TextInputEditText sign_up_username_et;
@@ -45,6 +41,7 @@ public class SignUpActivity extends AppCompatActivity {
     private TextView sign_up_sign_in_btn;
     private HashSet<Integer> languages_buttons_ids;
     private RelativeLayout sign_up_progress_bar;
+    private TranslateAnimation shakeError;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -65,7 +62,7 @@ public class SignUpActivity extends AppCompatActivity {
         languages_buttons_ids.add(R.id.learn_spanish);
         sign_up_sign_in_btn = findViewById(R.id.sign_up_sign_in_mtn);
         sign_up_progress_bar = findViewById(R.id.sign_up_progress_bar);
-
+        shakeError = Utils.shakeError(5, 10, 0, 0, 500, 7);
         passwordFocusChanged();
         emailFocusChanged();
         handleRegisterBtn();
@@ -121,7 +118,7 @@ public class SignUpActivity extends AppCompatActivity {
             public void onFocusChange(View view, boolean b) {
                 String email = sign_up_email_et.getText().toString();
                 if (!b && !email.isEmpty()) {
-                    if (!validateEmail(email)) {
+                    if (!Utils.validateEmail(email)) {
                         Toast.makeText(getApplicationContext(), "Provide correct email address", Toast.LENGTH_SHORT).show();
                     }
                 }
@@ -135,7 +132,7 @@ public class SignUpActivity extends AppCompatActivity {
             public void onFocusChange(View view, boolean b) {
                 String password = sign_up_password_et.getText().toString();
                 if (!b && !password.isEmpty()) {
-                    if (!validatePassword(password))
+                    if (!Utils.validatePassword(password))
                         Toast.makeText(getApplicationContext(), "Password must contain number and special character", Toast.LENGTH_SHORT).show();
                 }
             }
@@ -216,39 +213,21 @@ public class SignUpActivity extends AppCompatActivity {
 
     public boolean validateAllData(String username, String email, String password, int languageIndex) {
         if (username.isEmpty()) {
-            sign_up_username_et.startAnimation(shakeError());
+            sign_up_username_et.startAnimation(shakeError);
         }
-        if (email.isEmpty() || !validateEmail(email)) {
-            sign_up_email_et.startAnimation(shakeError());
+        if (email.isEmpty() || !Utils.validateEmail(email)) {
+            sign_up_email_et.startAnimation(shakeError);
         }
-        if (password.isEmpty() || !validatePassword(password)) {
-            sign_up_password_et.startAnimation(shakeError());
+        if (password.isEmpty() || !Utils.validatePassword(password)) {
+            sign_up_password_et.startAnimation(shakeError);
         }
         if (languageIndex == -1) {
-            sign_up_language_tv.startAnimation(shakeError());
-            sign_up_language_rg.startAnimation(shakeError());
+            sign_up_language_tv.startAnimation(shakeError);
+            sign_up_language_rg.startAnimation(shakeError);
         }
-        return !username.isEmpty() && validateEmail(email) && validatePassword(password);
+        return !username.isEmpty() && Utils.validateEmail(email) && Utils.validatePassword(password);
     }
 
-    public boolean validatePassword(String password) {
-        Pattern p = Pattern.compile("^(?=.*[A-Za-z])(?=.*\\d)(?=.*[@$!%*#?&])[A-Za-z\\d@$!%*#?&]{8,}$");
-        Matcher m = p.matcher(password);
-        return m.matches();
-    }
-
-    public boolean validateEmail(String email) {
-        Pattern p = Pattern.compile(".+@.+\\.[a-z]+");
-        Matcher m = p.matcher(email);
-        return m.matches();
-    }
-
-    public TranslateAnimation shakeError() {
-        TranslateAnimation shake = new TranslateAnimation(5, 15, 0, 0);
-        shake.setDuration(500);
-        shake.setInterpolator(new CycleInterpolator(7));
-        return shake;
-    }
 
     @SuppressLint("NonConstantResourceId")
     public String mapLanguageIndexToName(int index) {

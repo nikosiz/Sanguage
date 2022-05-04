@@ -3,7 +3,9 @@ package com.example.sanguage;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.preference.PreferenceManager;
 import android.view.View;
 import android.view.WindowManager;
 import android.widget.Button;
@@ -23,6 +25,10 @@ public class ChooseActivity extends AppCompatActivity {
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
         setContentView(R.layout.choose_activity);
 
+        SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(ChooseActivity.this);
+        SharedPreferences.Editor editor = preferences.edit();
+        editor.putBoolean("enabled",false);
+        editor.apply();
 
         choose_sign_up_btn = findViewById(R.id.choose_sign_up_btn);
 

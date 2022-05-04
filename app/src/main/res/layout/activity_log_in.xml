@@ -18,13 +18,14 @@
         android:fontFamily="@font/fredoka_one"
         android:gravity="center"
         android:text="@string/app_logo"
-        android:textColor="@color/white"
+        android:textColor="@color/app_logo"
         android:textSize="60sp"
         android:transitionName="app_logo"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         tools:ignore="TextContrastCheck" />
+
 
     <ImageView
         android:id="@+id/log_in_mascot_iv"
@@ -33,13 +34,14 @@
         android:layout_gravity="center"
         android:layout_marginHorizontal="20dp"
         android:layout_marginVertical="20dp"
+        android:layout_marginTop="16dp"
         android:contentDescription="@string/mascot"
         android:src="@drawable/ic_mascot"
-        android:transitionName="mascot_splash_screen"
+        android:transitionName="mascot_transition"
         app:layout_constraintEnd_toEndOf="@id/log_in_app_logo_tv"
+        app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="@id/log_in_app_logo_tv"
         app:layout_constraintTop_toBottomOf="@id/log_in_app_logo_tv" />
-
 
     <TextView
         android:id="@+id/log_in_welcome_back_tv"
@@ -48,6 +50,7 @@
         android:layout_marginTop="20dp"
         android:fontFamily="@font/open_sans_bold"
         android:text="@string/welcome_back"
+        android:textColor="@color/commonText"
         android:textSize="30sp"
         android:textStyle="bold"
         android:transitionName="app_slogan"
@@ -62,7 +65,8 @@
         android:layout_marginTop="10dp"
         android:layout_marginBottom="30dp"
         android:hint="@string/username_or_email"
-        app:boxBackgroundColor="@color/white"
+        android:textColorHint="@color/hintColor"
+        app:boxBackgroundColor="@color/colorEditText"
         app:boxCornerRadiusBottomEnd="20dp"
         app:boxCornerRadiusBottomStart="20dp"
         app:boxCornerRadiusTopEnd="20dp"
@@ -92,7 +96,8 @@
         android:layout_marginTop="10dp"
         android:layout_marginBottom="30dp"
         android:hint="@string/password"
-        app:boxBackgroundColor="@color/white"
+        android:textColorHint="@color/hintColor"
+        app:boxBackgroundColor="@color/colorEditText"
         app:boxCornerRadiusBottomEnd="20dp"
         app:boxCornerRadiusBottomStart="20dp"
         app:boxCornerRadiusTopEnd="20dp"
@@ -128,10 +133,9 @@
         android:focusable="true"
         android:gravity="center"
         android:minHeight="48dp"
-        android:padding="10dp"
         android:text="@string/don_t_remember"
         android:textAppearance="@style/TextAppearance.MaterialComponents.Button"
-        android:textColor="@color/colorSecondaryDark"
+        android:textColor="@color/commonText"
         android:textSize="13sp"
         android:theme="@style/FormButton"
         app:backgroundTint="@null"
@@ -175,7 +179,7 @@
         android:padding="10dp"
         android:text="@string/first_time_here_sign_up"
         android:textAppearance="@style/TextAppearance.MaterialComponents.Button"
-        android:textColor="@color/colorSecondaryDark"
+        android:textColor="@color/commonText"
         android:textSize="13sp"
         android:theme="@style/FormButton"
         app:backgroundTint="@null"
@@ -205,8 +209,6 @@
             android:layout_height="wrap_content">
 
         </ProgressBar>
-
-
     </RelativeLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

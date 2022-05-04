@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/colorPrimary"
+    android:background="@color/backgroundColor"
     android:paddingBottom="56dp"
     tools:context=".SearchFragment">
 
@@ -35,7 +35,8 @@
         android:layout_marginEnd="40dp"
         android:layout_marginBottom="30dp"
         android:hint="@string/look_for_a_word"
-        app:boxBackgroundColor="@color/white"
+        android:textColorHint="@color/hintColor"
+        app:boxBackgroundColor="@color/colorEditText"
         app:boxCornerRadiusBottomEnd="20dp"
         app:boxCornerRadiusBottomStart="20dp"
         app:boxCornerRadiusTopEnd="20dp"

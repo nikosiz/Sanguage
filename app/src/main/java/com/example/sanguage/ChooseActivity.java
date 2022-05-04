@@ -23,7 +23,6 @@ public class ChooseActivity extends AppCompatActivity {
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
         setContentView(R.layout.choose_activity);
 
-
         choose_sign_up_btn = findViewById(R.id.choose_sign_up_btn);
 
         choose_sign_up_btn.setOnClickListener(new View.OnClickListener() {

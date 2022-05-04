@@ -1,6 +1,7 @@
 package com.example.sanguage;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.app.AppCompatDelegate;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -28,6 +29,7 @@ import org.json.JSONObject;
 
 
 public class LogInActivity extends AppCompatActivity {
+
 
     private Button log_in_btn;
     private EditText username_email_et;

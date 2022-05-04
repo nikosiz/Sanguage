@@ -39,7 +39,7 @@
     <string name="title_notifications">Notifications</string>
     <string name="mascot">Mascot</string>
     <string name="send_email">SEND EMAIL</string>
-    <string name="have_you_lost">Have you lost your password? We\'ll help you find it!</string>
+    <string name="have_you_lost">Have you lost your password? \nWe\'ll help you find it!</string>
     <string name="close_btn">close_btn</string>
     <string name="save">Save</string>
     <string name="change_password">Change password</string>

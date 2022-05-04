@@ -57,6 +57,20 @@ public class DictionaryPojo {
     public DictionaryPojo() {
     }
 
+    public DictionaryPojo(String vocabulary, String grammaticalCategory, String collocations, String topic, String vocabularyTranslated, String grammaticalCategoryTranslated, String definitionTranslated, String collocationsTranslated, String topicTranslated, String language, String level) {
+        this.vocabulary = vocabulary;
+        this.grammaticalCategory = grammaticalCategory;
+        this.collocations = collocations;
+        this.topic = topic;
+        this.vocabularyTranslated = vocabularyTranslated;
+        this.grammaticalCategoryTranslated = grammaticalCategoryTranslated;
+        this.definitionTranslated = definitionTranslated;
+        this.collocationsTranslated = collocationsTranslated;
+        this.topicTranslated = topicTranslated;
+        this.language = language;
+        this.level = level;
+    }
+
     @JsonProperty("vocabulary")
     public String getVocabulary() {
         return vocabulary;
@@ -166,7 +180,6 @@ public class DictionaryPojo {
     public void setLevel(String level) {
         this.level = level;
     }
-
 
 
 }

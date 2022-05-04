@@ -69,17 +69,26 @@ public class ProfileFragment extends Fragment {
         String username = profile_change_username_et.getText().toString();
         boolean passwordEmpty = password.isEmpty();
         boolean usernameEmpty = username.isEmpty();
-        if (!passwordEmpty) {
-            if (Utils.validatePassword(password)) {
+        if (!passwordEmpty && usernameEmpty) {
+            if (!Utils.validatePassword(password)) {
                 Toast.makeText(context, "Password must contain number and special character", Toast.LENGTH_SHORT).show();
+                enableChangeDataActions();
             } else {
                 changeDataRequest(password, RequestOption.PASSWORD);
             }
 
-        } else if (!usernameEmpty) {
+        } else if (!usernameEmpty && passwordEmpty) {
             changeDataRequest(username, RequestOption.USERNAME);
-        } else if (!passwordEmpty && usernameEmpty) {
-            changeDataRequest(password, RequestOption.BOTH);
+        } else if (!passwordEmpty && !usernameEmpty) {
+            if (!Utils.validatePassword(password)) {
+                Toast.makeText(context, "Password must contain number and special character", Toast.LENGTH_SHORT).show();
+                enableChangeDataActions();
+            } else {
+                changeDataRequest(password, RequestOption.BOTH);
+            }
+        }
+        else{
+            enableChangeDataActions();
         }
     }
 

@@ -121,7 +121,7 @@ public class LogInActivity extends AppCompatActivity {
         JsonObjectRequest jsonObjectRequest = new JsonObjectRequest(Request.Method.GET, URL, null, new Response.Listener<JSONObject>() {
             @Override
             public void onResponse(JSONObject response) {
-                Intent intent = new Intent(getApplicationContext(), MainAppWindow.class);
+                Intent intent = new Intent(getApplicationContext(), AppWindowAccount.class);
                 SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(LogInActivity.this);
                 SharedPreferences.Editor editor = preferences.edit();
                 try {

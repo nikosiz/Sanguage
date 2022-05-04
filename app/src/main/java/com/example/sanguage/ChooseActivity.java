@@ -24,7 +24,7 @@ public class ChooseActivity extends AppCompatActivity {
 
         SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(ChooseActivity.this);
         SharedPreferences.Editor editor = preferences.edit();
-        editor.putBoolean("enabled",false);
+        editor.putBoolean("enabled", false);
         editor.apply();
 
         choose_sign_up_btn = findViewById(R.id.choose_sign_up_btn);

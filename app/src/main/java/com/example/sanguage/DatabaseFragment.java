@@ -92,10 +92,9 @@ public class DatabaseFragment extends Fragment {
 
         //TextView asdf = (TextView) view.findViewById(R.id.database_lv);
 
+        database_lv = view.findViewById(R.id.database_lv);
         registerForContextMenu(database_lv);
 
-        return view;
-        database_lv = view.findViewById(R.id.database_lv);
         //setKnownVocabularyListView();
         userKnownVocab.add("Michalek");
         userKnownVocab.add("Lukaszek");

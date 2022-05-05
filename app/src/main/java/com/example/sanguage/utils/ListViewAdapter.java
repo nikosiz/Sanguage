@@ -34,7 +34,7 @@ public class ListViewAdapter extends ArrayAdapter<String> {
     @Override
     public View getView(int position, @Nullable View convertView, @NonNull ViewGroup parent) {
         if (convertView == null) {
-            convertView = LayoutInflater.from(getContext()).inflate(R.layout.listview_row, parent, false);
+            convertView = LayoutInflater.from(getContext()).inflate(R.layout.database_listview_row, parent, false);
             String item = itemsList.get(position);
             TextView textView = (TextView) convertView.findViewById(R.id.list_view_row);
             textView.setText(item);

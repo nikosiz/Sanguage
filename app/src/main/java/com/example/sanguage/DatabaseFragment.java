@@ -18,6 +18,7 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.Volley;
+import com.example.sanguage.utils.ListViewAdapter;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
 import org.json.JSONObject;
@@ -85,8 +86,15 @@ public class DatabaseFragment extends Fragment {
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_database, container, false);
         database_lv = view.findViewById(R.id.database_lv);
-        setKnownVocabularyListView();
-        arrayAdapter = new ArrayAdapter(this, R.layout.database_list_view_row, userKnownVocab);
+        //setKnownVocabularyListView();
+        userKnownVocab.add("Michalek");
+        userKnownVocab.add("Lukaszek");
+        userKnownVocab.add("chuj");
+        userKnownVocab.add("pati");
+        arrayAdapter = new ListViewAdapter(context, R.layout.listview_row, userKnownVocab);
+        database_lv.setAdapter(arrayAdapter);
+    // arrayAdapter.getFilter().convertResultToString("dasd");
+        arrayAdapter.notifyDataSetChanged();
         return view;
 
     }

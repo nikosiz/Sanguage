@@ -26,5 +26,30 @@
         <item name="colorOnSurface">@color/colorAccent</item>
     </style>
 
+    <style name="TextInputLayoutAppearanceOutLined" parent="Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+
+        <item name="android:textColor">@color/commonText</item>
+        <item name="android:textColorHint">@color/colorAccent</item>
+        <item name="hintTextColor">@color/colorAccent</item>
+        <item name="boxStrokeColor">@color/colorAccent</item>
+        <item name="startIconTint">@color/colorAccent</item>
+        <item name="boxBackgroundColor">@color/white</item>
+
+        <item name="boxCornerRadiusBottomEnd">20dp</item>
+        <item name="boxCornerRadiusBottomStart">20dp</item>
+        <item name="boxCornerRadiusTopEnd">20dp</item>
+        <item name="boxCornerRadiusTopStart">20dp</item>
+
+        <item name="boxStrokeWidthFocused">1dp</item>
+
+        <item name="hintEnabled">true</item>
+        <item name="hintAnimationEnabled">true</item>
+
+        <item name="colorControlNormal">@color/colorAccent</item>
+        <item name="colorControlActivated">@color/colorPrimary</item>
+
+        <item name="hintTextAppearance">@color/commonText</item>
+        <item name="helperTextTextAppearance">@color/colorAccent</item>
+    </style>
 
 </resources>

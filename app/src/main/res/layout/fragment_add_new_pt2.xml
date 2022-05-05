@@ -9,11 +9,35 @@
     android:paddingBottom="56dp"
     tools:context=".AddNewFragment">
 
+    <ImageView
+        android:id="@+id/add_new_back_iv"
+        style="@style/Widget.MaterialComponents.Button.TextButton"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_gravity="center"
+        android:layout_marginStart="15dp"
+        android:background="@drawable/ripple_effect_transparent_btn"
+        android:clickable="true"
+        android:elevation="0dp"
+        android:padding="10dp"
+        android:src="@drawable/ic_baseline_arrow_back_24"
+        android:text="@string/add"
+        android:textAppearance="@style/TextAppearance.MaterialComponents.Button"
+        android:textColor="@color/white"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        android:theme="@style/FormButton"
+        app:backgroundTint="@null"
+        app:layout_constraintBottom_toBottomOf="@+id/add_new_tv"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/add_new_tv"
+        tools:ignore="TextContrastCheck" />
+
     <TextView
         android:id="@+id/add_new_tv"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginStart="30dp"
+        android:layout_marginStart="55dp"
         android:layout_marginTop="20dp"
         android:layout_marginBottom="10dp"
         android:fontFamily="@font/fredoka_one"
@@ -22,9 +46,9 @@
         android:textColor="@color/white"
         android:textSize="30sp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         tools:ignore="TextContrastCheck" />
+
 
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/add_new_vocabulary_tf"
@@ -183,8 +207,9 @@
 
     </com.google.android.material.textfield.TextInputLayout>
 
+
     <Button
-        android:id="@+id/add_new_next_btn"
+        android:id="@+id/add_new_add_btn"
         style="@style/Widget.MaterialComponents.Button.TextButton"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -194,7 +219,7 @@
         android:background="@drawable/ripple_effect_basic_btn"
         android:elevation="0dp"
         android:padding="10dp"
-        android:text="NEXT"
+        android:text="@string/add"
         android:textAppearance="@style/TextAppearance.MaterialComponents.Button"
         android:textColor="@color/white"
         android:textSize="20sp"
@@ -209,4 +234,3 @@
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
-

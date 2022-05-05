@@ -5,11 +5,14 @@ import android.os.Bundle;
 import android.preference.PreferenceManager;
 import android.view.Menu;
 import android.view.MenuInflater;
+import android.widget.Button;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentTransaction;
 
+import com.example.sanguage.databinding.ActivityAppWindowBinding;
 import com.example.sanguage.pojo.DictionaryPojo;
 import com.ismaeldivita.chipnavigation.ChipNavigationBar;
 
@@ -27,15 +30,21 @@ public class AppWindowAccount extends AppCompatActivity implements ChipNavigatio
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_app_window);
 
+        FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
+
+        fragmentTransaction.add(R.id.fragment_container, new AddNewFragment());
+        fragmentTransaction.commit();
+
         navBar = findViewById(R.id.bottomNav);
         currentFragment = null;
 
         SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(getApplicationContext());
-        userID = preferences.getLong("userID",4L);
+        userID = preferences.getLong("userID", 4L);
         learnFragment = new LearnFragment(userID);
         getSupportFragmentManager().beginTransaction().add(R.id.fragment_container, learnFragment).commit();
         navBar.setItemSelected(R.id.bottom_nav_learn, true);
         navBar.setOnItemSelectedListener(this);
+
 
     }
 

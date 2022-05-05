@@ -20,6 +20,7 @@ public class AppWindowAccount extends AppCompatActivity implements ChipNavigatio
     private ChipNavigationBar navBar;
     private LearnFragment learnFragment;
     private Fragment currentFragment;
+    private Long userID;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -30,7 +31,7 @@ public class AppWindowAccount extends AppCompatActivity implements ChipNavigatio
         currentFragment = null;
 
         SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(getApplicationContext());
-        Long userID = preferences.getLong("userID",2L);
+        userID = preferences.getLong("userID",4L);
         learnFragment = new LearnFragment(userID);
         getSupportFragmentManager().beginTransaction().add(R.id.fragment_container, learnFragment).commit();
         navBar.setItemSelected(R.id.bottom_nav_learn, true);
@@ -72,7 +73,7 @@ public class AppWindowAccount extends AppCompatActivity implements ChipNavigatio
         } else if (i == R.id.bottom_nav_search) {
             currentFragment = new SearchFragment();
         } else if (i == R.id.bottom_nav_profile) {
-            currentFragment = new ProfileFragment();
+            currentFragment = new ProfileFragment(userID);
         }
 
 

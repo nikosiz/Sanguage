@@ -81,7 +81,7 @@ public class AppWindowAccount extends AppCompatActivity implements ChipNavigatio
         if (i == R.id.bottom_nav_learn) {
             currentFragment = this.learnFragment;
         } else if (i == R.id.bottom_nav_database) {
-            currentFragment = new DatabaseFragment();
+            currentFragment = new DatabaseFragment(userID);
         } else if (i == R.id.bottom_nav_add_new) {
             currentFragment = new AddNewFragment();
         } else if (i == R.id.bottom_nav_search) {

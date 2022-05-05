@@ -1,0 +1,71 @@
+<resources>
+    <string name="app_logo">Sanguage</string>
+    <string name="app_slogan">WITH ALL THE BASIC INGREDIENTS</string>
+
+    <string name="sign_up">SIGN UP</string>
+    <string name="create_an_account">Create an account</string>
+    <string name="to_make_sure_your_progress_won_t_be_lost">to make sure your progress won\'t be lost!</string>
+    <string name="username">Username</string>
+    <string name="email_address">Email Address</string>
+    <string name="password">Password</string>
+    <string name="choose_your_target_language">Choose your target language</string>
+    <string name="already_registered_click_here_to_log_in">Already registered? Click here to log in!</string>
+
+    <string name="log_in">LOG IN</string>
+    <string name="welcome_back">Welcome back!</string>
+    <string name="username_or_email">Username or email</string>
+    <string name="don_t_remember">Don\'t remember password?</string>
+    <string name="first_time_here_sign_up">First time here? Sign Up!</string>
+
+    <string name="skip">SKIP</string>
+
+    <string name="learn">LEARN</string>
+    <string name="database">DATABASE</string>
+    <string name="add_new">ADD NEW</string>
+    <string name="search">SEARCH</string>
+    <string name="profile">PROFILE</string>
+
+
+    <string name="vocabulary">VOCABULARY</string>
+    <string name="definition">DEFINITION</string>
+    <string name="grammatical_category">GRAMMATICAL CATEGORY</string>
+    <string name="collocations">COLLOCATIONS</string>
+    <string name="topic">TOPIC</string>
+
+    <string name="translation">TRANSLATION</string>
+    <string name="title_activity_main2">MainActivity2</string>
+    <string name="title_home">Home</string>
+    <string name="title_dashboard">Dashboard</string>
+    <string name="title_notifications">Notifications</string>
+    <string name="mascot">Mascot</string>
+    <string name="send_email">SEND EMAIL</string>
+    <string name="have_you_lost">Have you lost your password? \nWe\'ll help you find it!</string>
+    <string name="close_btn">close_btn</string>
+    <string name="save">Save</string>
+    <string name="change_password">Change password</string>
+    <string name="change_email">Change email</string>
+    <string name="change_username">Change username</string>
+    <string name="you_need_to_revise">You need to revise</string>
+    <string name="you_ve_already_learned">You\'ve already learned</string>
+    <string name="profile_picture">profile_picture</string>
+    <string name="your_profile">Your profile</string>
+    <string name="account_settings">Account settings</string>
+    <string name="general_settings">General settings</string>
+    <string name="dark_mode">Dark mode</string>
+
+    <string name="gramm_cat">Grammatical category</string>
+    <string name="asdf">ASDF</string>
+    <string name="vocabulary_database">Vocabulary database</string>
+    <string name="add_new_vocabulary">Add new vocabulary</string>
+    <string name="add">Add</string>
+    <string name="search_for_vocabulary">Search for vocabulary</string>
+    <string name="look_for_a_word">Look for a word</string>
+    <string-array name="languages">
+        <item>verb</item>
+        <item>noun</item>
+        <item>adverb</item>
+        <item>phrase</item>
+        <item>adjective</item>
+    </string-array>
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+</resources>

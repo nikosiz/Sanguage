@@ -12,6 +12,7 @@ import android.widget.ListView;
 
 public class DatabaseFragment extends Fragment {
 
+    private ListView database_lv;
 
     public DatabaseFragment() {
     }

@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="black">#FF000000</color>
+    <color name="white">#FFFFFFFF</color>
+
+    <color name="colorPrimary">#83CEE5</color>
+    <color name="colorPrimaryVariant">#24CCFF</color>
+    <color name="colorSecondary">#00b5d8</color>
+    <color name="colorSecondaryVariant">#6CC7D9</color>
+
+    <color name="colorPrimaryDark">#426773</color>
+    <color name="colorPrimaryDarkVariant">#115B73</color>
+    <color name="colorSecondaryDark">#005C6E</color>
+    <color name="colorSecondaryDarkVariant">#37656E</color>
+
+    <color name="greyBlue">#3c5f69</color>
+
+    <color name="colorAccent">#B5B5B5</color>
+
+    <color name="mint">#83ddd5</color>
+
+    <color name="backgroundColor">#426773</color>
+    <color name="basicButtonBackground">#005C6E</color>
+    <color name="lightButtonBackground">#C5C5C5</color>
+    <color name="lightButtonStroke">#005C6E</color>
+    <color name="lightButtonText">#005C6E</color>
+    <color name="app_logo">@color/white</color>
+    <color name="app_slogan">@color/white</color>
+    <color name="commonText">@color/white</color>
+    <color name="colorEditText">#C5C5C5</color>
+    <color name="textColorHint">#434343</color>
+    <color name="hintTextAndStrokeColor">#434343</color>
+    <color name="flashcardBG">#283e45</color>
+</resources>

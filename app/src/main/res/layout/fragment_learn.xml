@@ -18,7 +18,7 @@
         android:layout_marginBottom="10dp"
         android:fontFamily="@font/fredoka_one"
         android:gravity="start"
-        android:text="Learn new vocabulary"
+        android:text="Learn vocabulary"
         android:textColor="@color/white"
         android:textSize="30sp"
         app:layout_constraintEnd_toEndOf="parent"

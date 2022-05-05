@@ -7,7 +7,7 @@
         android:icon="@drawable/ic_learn_tab"
         android:title="Learn"
         app:cnb_backgroundColor="@color/white"
-        app:cnb_iconColor="@color/colorSecondary"
+        app:cnb_iconColor="@color/basicButtonBackground"
         app:cnb_textColor="@color/black" />
 
     <item
@@ -15,7 +15,7 @@
         android:icon="@drawable/ic_your_database_tab"
         android:title="Database"
         app:cnb_backgroundColor="@color/white"
-        app:cnb_iconColor="@color/colorSecondary"
+        app:cnb_iconColor="@color/basicButtonBackground"
         app:cnb_textColor="@color/black" />
 
     <item
@@ -23,7 +23,7 @@
         android:icon="@drawable/ic_add_new_tab"
         android:title="Add new"
         app:cnb_backgroundColor="@color/white"
-        app:cnb_iconColor="@color/colorSecondary"
+        app:cnb_iconColor="@color/basicButtonBackground"
         app:cnb_textColor="@color/black" />
 
     <item
@@ -31,7 +31,7 @@
         android:icon="@drawable/ic_baseline_search_24"
         android:title="Search"
         app:cnb_backgroundColor="@color/white"
-        app:cnb_iconColor="@color/colorSecondary"
+        app:cnb_iconColor="@color/basicButtonBackground"
         app:cnb_textColor="@color/black" />
 
     <item
@@ -39,7 +39,7 @@
         android:icon="@drawable/ic_your_profile_tab"
         android:title="Profile"
         app:cnb_backgroundColor="@color/white"
-        app:cnb_iconColor="@color/colorSecondary"
+        app:cnb_iconColor="@color/basicButtonBackground"
         app:cnb_textColor="@color/black" />
 
 </menu>

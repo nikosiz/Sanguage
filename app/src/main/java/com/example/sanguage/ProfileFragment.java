@@ -4,12 +4,15 @@ import android.content.Context;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatDelegate;
 import androidx.fragment.app.Fragment;
 
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.CheckBox;
+import android.widget.CompoundButton;
 import android.widget.Toast;
 
 import com.android.volley.Request;
@@ -31,6 +34,8 @@ public class ProfileFragment extends Fragment {
     private Context context;
     private Long userID;
     private RequestQueue requestQueue;
+
+    private CheckBox profile_dark_mode_cb;
 
     public enum RequestOption {USERNAME, PASSWORD, BOTH}
 
@@ -127,6 +132,18 @@ public class ProfileFragment extends Fragment {
         profile_change_password_et = view.findViewById(R.id.profile_change_password_et);
         profile_change_username_et = view.findViewById(R.id.profile_change_username_et);
         profile_save_btn = view.findViewById(R.id.profile_save_btn);
+        profile_dark_mode_cb = view.findViewById(R.id.profile_dark_mode_cb);
+
+        profile_dark_mode_cb.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
+                if(compoundButton.isChecked()) {
+                    AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES);
+                } else {
+                    AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO);
+                }
+            }
+        });
 
         profile_save_btn.setOnClickListener(new View.OnClickListener() {
             @Override

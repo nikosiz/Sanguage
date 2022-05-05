@@ -19,16 +19,16 @@
 
     <color name="mint">#83ddd5</color>
 
-    <color name="backgroundColor">@color/colorPrimary</color>
-    <color name="basicButtonBackground">@color/colorSecondary</color>
-    <color name="lightButtonBackground">@color/white</color>
-    <color name="lightButtonStroke">@color/colorSecondary</color>
-    <color name="lightButtonText">@color/colorSecondary</color>
+    <color name="backgroundColor">#426773</color>
+    <color name="basicButtonBackground">#005C6E</color>
+    <color name="lightButtonBackground">#C5C5C5</color>
+    <color name="lightButtonStroke">#005C6E</color>
+    <color name="lightButtonText">#005C6E</color>
     <color name="app_logo">@color/white</color>
     <color name="app_slogan">@color/white</color>
-    <color name="commonText">@color/greyBlue</color>
-    <color name="colorEditText">@color/white</color>
-    <color name="textColorHint">#666666</color>
-    <color name="hintTextAndStrokeColor">@color/colorSecondary</color>
-    <color name="flashcardBG">@color/white</color>
+    <color name="commonText">@color/white</color>
+    <color name="colorEditText">#C5C5C5</color>
+    <color name="textColorHint">#434343</color>
+    <color name="hintTextAndStrokeColor">#434343</color>
+    <color name="flashcardBG">#283e45</color>
 </resources>

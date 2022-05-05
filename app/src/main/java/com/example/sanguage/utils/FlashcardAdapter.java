@@ -17,7 +17,6 @@ import com.example.sanguage.R;
 import com.example.sanguage.pojo.DictionaryPojo;
 
 import java.util.ArrayList;
-import java.util.List;
 
 public class FlashcardAdapter extends ArrayAdapter<DictionaryPojo> {
     private Context context;
@@ -38,11 +37,11 @@ public class FlashcardAdapter extends ArrayAdapter<DictionaryPojo> {
             ConstraintLayout mainLayout = (ConstraintLayout) convertView.findViewById(R.id.flashcard_mainLayout);
             ConstraintLayout flashcardLayout = (ConstraintLayout) convertView.findViewById(R.id.flashcard_flashcardLayout);
             CardView cardView = (CardView) convertView.findViewById(R.id.flashcard_cardView);
-            TextView vocabulary_tv = (TextView) convertView.findViewById(R.id.flashcard_vocabulary_tv);
-            TextView collocations_tv = (TextView) convertView.findViewById(R.id.flashcard_collocations_tv);
-            JustifiedTextView definition_jtv = (JustifiedTextView) convertView.findViewById(R.id.flashcard_definition_jtv);
-            TextView topic_tv = (TextView) convertView.findViewById(R.id.flashcard_topic_tv);
-            TextView gramCategory_tv = (TextView) convertView.findViewById(R.id.flashcard_grammaticalCategory_tv);
+            TextView vocabulary_tv = (TextView) convertView.findViewById(R.id.search_vocabulary_tv);
+            TextView collocations_tv = (TextView) convertView.findViewById(R.id.search_collocations_tv);
+            JustifiedTextView definition_jtv = (JustifiedTextView) convertView.findViewById(R.id.search_definition_jtv);
+            TextView topic_tv = (TextView) convertView.findViewById(R.id.search_topic_tv);
+            TextView gramCategory_tv = (TextView) convertView.findViewById(R.id.search_grammaticalCategory_tv);
             DictionaryPojo dictionaryPojo = dictionaryList.get(position);
             vocabulary_tv.setText(dictionaryPojo.getVocabularyTranslated());
             gramCategory_tv.setText(dictionaryPojo.getGrammaticalCategoryTranslated());

@@ -66,7 +66,8 @@
                     android:layout_height="wrap_content"
                     android:layout_marginHorizontal="40dp"
                     android:layout_marginTop="10dp"
-                    android:background="@color/transparent"
+                    android:background="@color/colorEditText"
+                    android:backgroundTint="@color/colorEditText"
                     app:cardCornerRadius="20dp"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
@@ -80,10 +81,12 @@
                             android:id="@+id/profile_known_vocabulary_tv"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:background="@color/white"
+                            android:background="@color/colorEditText"
+                            android:backgroundTint="@color/colorEditText"
                             android:padding="10dp"
                             android:text="@string/you_ve_already_learned"
-                            android:textColor="@color/black"
+                            android:textColor="@color/textColorHint"
+                            android:textStyle="bold"
                             app:layout_constraintBottom_toBottomOf="parent"
                             app:layout_constraintEnd_toStartOf="@id/profile_unknown_vocabulary_tv"
                             app:layout_constraintStart_toStartOf="parent"
@@ -93,10 +96,12 @@
                             android:id="@+id/profile_unknown_vocabulary_tv"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:background="@color/white"
+                            android:background="@color/colorEditText"
+                            android:backgroundTint="@color/colorEditText"
                             android:padding="10dp"
                             android:text="@string/you_need_to_revise"
-                            android:textColor="@color/black"
+                            android:textColor="@color/textColorHint"
+                            android:textStyle="bold"
                             app:layout_constraintBottom_toBottomOf="parent"
                             app:layout_constraintEnd_toEndOf="parent"
                             app:layout_constraintStart_toEndOf="@id/profile_known_vocabulary_tv"
@@ -129,12 +134,15 @@
                     android:layout_marginTop="10dp"
                     android:layout_marginBottom="30dp"
                     android:hint="@string/change_username"
-                    android:textColorHint="@color/hintColor"
+                    android:textColorHint="@color/textColorHint"
                     app:boxBackgroundColor="@color/colorEditText"
                     app:boxCornerRadiusBottomEnd="20dp"
                     app:boxCornerRadiusBottomStart="20dp"
                     app:boxCornerRadiusTopEnd="20dp"
                     app:boxCornerRadiusTopStart="20dp"
+                    app:boxStrokeColor="@color/hintTextAndStrokeColor"
+                    app:hintTextColor="@color/hintTextAndStrokeColor"
+
                     app:layout_constraintEnd_toEndOf="@id/profile_change_settings_tv"
                     app:layout_constraintStart_toStartOf="@id/profile_change_settings_tv"
                     app:layout_constraintTop_toBottomOf="@id/profile_change_settings_tv">
@@ -159,13 +167,14 @@
                     android:layout_marginTop="10dp"
                     android:layout_marginBottom="30dp"
                     android:hint="@string/change_password"
-                    android:textColorHint="@color/hintColor"
+                    android:textColorHint="@color/textColorHint"
                     app:boxBackgroundColor="@color/colorEditText"
                     app:boxCornerRadiusBottomEnd="20dp"
                     app:boxCornerRadiusBottomStart="20dp"
                     app:boxCornerRadiusTopEnd="20dp"
                     app:boxCornerRadiusTopStart="20dp"
-
+                    app:boxStrokeColor="@color/hintTextAndStrokeColor"
+                    app:hintTextColor="@color/hintTextAndStrokeColor"
                     app:layout_constraintEnd_toEndOf="@id/profile_change_username_tf"
                     app:layout_constraintStart_toStartOf="@id/profile_change_username_tf"
                     app:layout_constraintTop_toBottomOf="@id/profile_change_username_tf">
@@ -203,38 +212,35 @@
                     tools:ignore="TextContrastCheck" />
 
                 <TextView
-                    android:id="@+id/profile_general_settings_tv"
-                    android:layout_width="match_parent"
+                    android:id="@+id/profile_dark_mode_switch_tv"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginHorizontal="40dp"
+                    android:layout_marginVertical="20dp"
                     android:layout_marginTop="30dp"
-                    android:fontFamily="@font/fredoka_one"
-                    android:text="@string/general_settings"
-                    android:textColor="@color/commonText"
-                    android:textSize="30sp"
-                    app:layout_constraintTop_toBottomOf="@id/profile_save_btn" />
-
-                <com.google.android.material.switchmaterial.SwitchMaterial
-                    android:id="@+id/profile_mode_switch"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginHorizontal="40dp"
-                    android:fontFamily="@font/open_sans_bold"
-                    android:text="@string/dark_mode"
-                    android:textColor="@color/commonText"
-                    android:textSize="20sp"
+                    android:text="Dark mode"
+                    android:textSize="25sp"
                     android:textStyle="bold"
-                    app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/profile_general_settings_tv"
-                    tools:ignore="TextContrastCheck" />
+                    app:layout_constraintTop_toBottomOf="@+id/profile_save_btn" />
+
+                <CheckBox
+                    android:id="@+id/profile_dark_mode_cb"
+                    android:layout_width="35dp"
+                    android:layout_height="35dp"
+                    android:layout_marginStart="20dp"
+                    android:background="@drawable/level_cb"
+                    android:button="@color/transparent"
+                    app:layout_constraintBottom_toBottomOf="@id/profile_dark_mode_switch_tv"
+                    app:layout_constraintStart_toEndOf="@id/profile_dark_mode_switch_tv"
+                    app:layout_constraintTop_toTopOf="@id/profile_dark_mode_switch_tv" />
 
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="test"
                     android:textSize="100sp"
-                    app:layout_constraintTop_toBottomOf="@id/profile_mode_switch" />
+                    app:layout_constraintTop_toBottomOf="@+id/profile_dark_mode_cb" />
             </androidx.constraintlayout.widget.ConstraintLayout>
         </ScrollView>
 

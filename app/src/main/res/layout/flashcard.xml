@@ -7,17 +7,16 @@
     android:layout_height="match_parent"
     android:layout_gravity="center_vertical"
     android:layout_marginTop="50dp"
-    android:layout_marginBottom="20dp"
-    >
+    android:layout_marginBottom="20dp">
 
     <androidx.cardview.widget.CardView
+        android:id="@+id/flashcard_cardView"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:id="@+id/flashcard_cardView"
         android:layout_marginHorizontal="20dp"
         android:layout_marginTop="10dp"
-        android:layout_marginBottom="20dp"
-        android:background="@color/colorSecondary"
+        android:backgroundTint="@color/flashcardBG"
+        android:layout_marginBottom="35dp"
         android:elevation="10dp"
         app:cardCornerRadius="20dp"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -26,66 +25,72 @@
         app:layout_constraintTop_toTopOf="parent">
 
         <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/flashcard_flashcardLayout"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:id="@+id/flashcard_flashcardLayout"
             android:gravity="center"
             android:orientation="vertical"
             android:padding="20dp"
             android:paddingHorizontal="20dp">
 
             <TextView
-                android:id="@+id/flashcard_vocabulary_tv"
+                android:id="@+id/search_vocabulary_tv"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_margin="20dp"
                 android:text="@string/vocabulary"
+                android:textColor="@color/commonText"
                 android:textSize="35sp"
+                android:textStyle="bold"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
             <TextView
-                android:id="@+id/flashcard_grammaticalCategory_tv"
+                android:id="@+id/search_grammaticalCategory_tv"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_margin="20dp"
                 android:text="@string/grammatical_category"
+                android:textColor="@color/commonText"
                 android:textSize="15sp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/flashcard_vocabulary_tv" />
+                app:layout_constraintTop_toBottomOf="@id/search_vocabulary_tv" />
 
             <com.codesgood.views.JustifiedTextView
-                android:id="@+id/flashcard_definition_jtv"
+                android:id="@+id/search_definition_jtv"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_margin="20dp"
                 android:text="@string/definition"
+                android:textColor="@color/commonText"
                 android:textSize="20sp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/flashcard_grammaticalCategory_tv" />
+                app:layout_constraintTop_toBottomOf="@id/search_grammaticalCategory_tv" />
 
             <TextView
-                android:id="@+id/flashcard_collocations_tv"
+                android:id="@+id/search_collocations_tv"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_margin="20dp"
                 android:text="@string/collocations"
+                android:textColor="@color/commonText"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/flashcard_definition_jtv" />
+                app:layout_constraintTop_toBottomOf="@id/search_definition_jtv" />
 
             <TextView
-                android:id="@+id/flashcard_topic_tv"
+                android:id="@+id/search_topic_tv"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_margin="20dp"
                 android:text="@string/topic"
+                android:textColor="@color/commonText"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/flashcard_collocations_tv" />
+                app:layout_constraintTop_toBottomOf="@id/search_collocations_tv" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 

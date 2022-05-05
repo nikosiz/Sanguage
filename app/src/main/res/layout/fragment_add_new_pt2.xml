@@ -58,7 +58,6 @@
         android:layout_marginHorizontal="40dp"
         android:layout_marginTop="15dp"
         android:hint="@string/Vocabulary"
-
         android:textColorHint="@color/textColorHint"
         app:boxBackgroundColor="@color/colorEditText"
         app:boxCornerRadiusBottomEnd="20dp"
@@ -90,17 +89,14 @@
         android:layout_marginHorizontal="40dp"
         android:layout_marginTop="15dp"
         android:hint="@string/Definition"
-
         android:textColorHint="@color/textColorHint"
         app:boxBackgroundColor="@color/colorEditText"
         app:boxCornerRadiusBottomEnd="20dp"
         app:boxCornerRadiusBottomStart="20dp"
         app:boxCornerRadiusTopEnd="20dp"
-
         app:boxCornerRadiusTopStart="20dp"
         app:boxStrokeColor="@color/hintTextAndStrokeColor"
         app:hintTextColor="@color/hintTextAndStrokeColor"
-
         app:layout_constraintEnd_toEndOf="@+id/add_new_vocabulary_tf"
         app:layout_constraintStart_toStartOf="@id/add_new_vocabulary_tf"
         app:layout_constraintTop_toBottomOf="@+id/add_new_vocabulary_tf">
@@ -124,7 +120,6 @@
         android:layout_marginHorizontal="40dp"
         android:layout_marginTop="15dp"
         android:hint="@string/Grammatical_category"
-
         android:textColorHint="@color/textColorHint"
         app:boxBackgroundColor="@color/colorEditText"
         app:boxCornerRadiusBottomEnd="20dp"
@@ -133,7 +128,6 @@
         app:boxCornerRadiusTopStart="20dp"
         app:boxStrokeColor="@color/hintTextAndStrokeColor"
         app:hintTextColor="@color/hintTextAndStrokeColor"
-
         app:layout_constraintEnd_toEndOf="@id/add_new_definition_tf"
         app:layout_constraintStart_toStartOf="@id/add_new_definition_tf"
         app:layout_constraintTop_toBottomOf="@id/add_new_definition_tf">

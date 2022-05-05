@@ -231,5 +231,4 @@
         app:layout_constraintStart_toEndOf="@id/filter_apply_btn"
         app:layout_constraintTop_toBottomOf="@id/filter_topic_tv" />
 
-
 </androidx.constraintlayout.widget.ConstraintLayout>

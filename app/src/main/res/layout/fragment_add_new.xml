@@ -37,13 +37,11 @@
         android:textColorHint="@color/textColorHint"
         app:boxBackgroundColor="@color/colorEditText"
         app:boxCornerRadiusBottomEnd="20dp"
-
         app:boxCornerRadiusBottomStart="20dp"
         app:boxCornerRadiusTopEnd="20dp"
         app:boxCornerRadiusTopStart="20dp"
         app:boxStrokeColor="@color/hintTextAndStrokeColor"
         app:hintTextColor="@color/hintTextAndStrokeColor"
-
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/add_new_tv">
@@ -70,13 +68,11 @@
         android:textColorHint="@color/textColorHint"
         app:boxBackgroundColor="@color/colorEditText"
         app:boxCornerRadiusBottomEnd="20dp"
-
         app:boxCornerRadiusBottomStart="20dp"
         app:boxCornerRadiusTopEnd="20dp"
         app:boxCornerRadiusTopStart="20dp"
         app:boxStrokeColor="@color/hintTextAndStrokeColor"
         app:hintTextColor="@color/hintTextAndStrokeColor"
-
         app:layout_constraintEnd_toEndOf="@+id/add_new_vocabulary_tf"
         app:layout_constraintStart_toStartOf="@id/add_new_vocabulary_tf"
         app:layout_constraintTop_toBottomOf="@+id/add_new_vocabulary_tf">
@@ -103,13 +99,11 @@
         android:textColorHint="@color/textColorHint"
         app:boxBackgroundColor="@color/colorEditText"
         app:boxCornerRadiusBottomEnd="20dp"
-
         app:boxCornerRadiusBottomStart="20dp"
         app:boxCornerRadiusTopEnd="20dp"
         app:boxCornerRadiusTopStart="20dp"
         app:boxStrokeColor="@color/hintTextAndStrokeColor"
         app:hintTextColor="@color/hintTextAndStrokeColor"
-
         app:layout_constraintEnd_toEndOf="@id/add_new_definition_tf"
         app:layout_constraintStart_toStartOf="@id/add_new_definition_tf"
         app:layout_constraintTop_toBottomOf="@id/add_new_definition_tf">
@@ -136,13 +130,11 @@
         android:textColorHint="@color/textColorHint"
         app:boxBackgroundColor="@color/colorEditText"
         app:boxCornerRadiusBottomEnd="20dp"
-
         app:boxCornerRadiusBottomStart="20dp"
         app:boxCornerRadiusTopEnd="20dp"
         app:boxCornerRadiusTopStart="20dp"
         app:boxStrokeColor="@color/hintTextAndStrokeColor"
         app:hintTextColor="@color/hintTextAndStrokeColor"
-
         app:layout_constraintEnd_toEndOf="@id/add_new_grammCat_tf"
         app:layout_constraintStart_toStartOf="@id/add_new_grammCat_tf"
         app:layout_constraintTop_toBottomOf="@id/add_new_grammCat_tf">
@@ -169,13 +161,11 @@
         android:textColorHint="@color/textColorHint"
         app:boxBackgroundColor="@color/colorEditText"
         app:boxCornerRadiusBottomEnd="20dp"
-
         app:boxCornerRadiusBottomStart="20dp"
         app:boxCornerRadiusTopEnd="20dp"
         app:boxCornerRadiusTopStart="20dp"
         app:boxStrokeColor="@color/hintTextAndStrokeColor"
         app:endIconDrawable="@drawable/ic_baseline_search_24"
-
         app:hintTextColor="@color/hintTextAndStrokeColor"
         app:layout_constraintEnd_toEndOf="@id/add_new_collocations_tf"
         app:layout_constraintStart_toStartOf="@id/add_new_collocations_tf"
@@ -216,7 +206,6 @@
         app:layout_constraintStart_toStartOf="@id/add_new_topic_tf"
         app:layout_constraintTop_toBottomOf="@id/add_new_topic_tf"
         tools:ignore="TextContrastCheck" />
-
 
 </androidx.constraintlayout.widget.ConstraintLayout>
 

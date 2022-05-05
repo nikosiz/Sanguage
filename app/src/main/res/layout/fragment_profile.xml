@@ -8,7 +8,6 @@
     android:paddingBottom="56dp"
     tools:context=".ProfileFragment">
 
-
     <TextView
         android:id="@+id/profile_tv"
         android:layout_width="match_parent"
@@ -142,7 +141,6 @@
                     app:boxCornerRadiusTopStart="20dp"
                     app:boxStrokeColor="@color/hintTextAndStrokeColor"
                     app:hintTextColor="@color/hintTextAndStrokeColor"
-
                     app:layout_constraintEnd_toEndOf="@id/profile_change_settings_tv"
                     app:layout_constraintStart_toStartOf="@id/profile_change_settings_tv"
                     app:layout_constraintTop_toBottomOf="@id/profile_change_settings_tv">
@@ -242,6 +240,7 @@
                     android:textSize="100sp"
                     app:layout_constraintTop_toBottomOf="@+id/profile_dark_mode_cb" />
             </androidx.constraintlayout.widget.ConstraintLayout>
+
         </ScrollView>
 
     </androidx.constraintlayout.widget.ConstraintLayout>

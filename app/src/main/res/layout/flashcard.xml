@@ -15,8 +15,8 @@
         android:layout_height="match_parent"
         android:layout_marginHorizontal="20dp"
         android:layout_marginTop="10dp"
-        android:backgroundTint="@color/flashcardBG"
         android:layout_marginBottom="35dp"
+        android:backgroundTint="@color/flashcardBG"
         android:elevation="10dp"
         app:cardCornerRadius="20dp"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -117,6 +117,5 @@
         app:layout_constraintEnd_toStartOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
-
 
 </androidx.constraintlayout.widget.ConstraintLayout>

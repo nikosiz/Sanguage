@@ -10,7 +10,6 @@
     android:paddingVertical="20dp"
     tools:context=".ChooseActivity">
 
-
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent">
@@ -123,4 +122,5 @@
             tools:ignore="TextContrastCheck" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
+
 </RelativeLayout>

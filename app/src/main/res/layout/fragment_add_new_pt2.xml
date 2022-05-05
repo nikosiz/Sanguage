@@ -19,6 +19,7 @@
         android:background="@drawable/ripple_effect_transparent_btn"
         android:clickable="true"
         android:elevation="0dp"
+        android:focusable="true"
         android:padding="10dp"
         android:src="@drawable/ic_baseline_arrow_back_24"
         android:text="@string/add"
@@ -31,13 +32,13 @@
         app:layout_constraintBottom_toBottomOf="@+id/add_new_tv"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/add_new_tv"
-        tools:ignore="TextContrastCheck" />
+        tools:ignore="TextContrastCheck,ImageContrastCheck" />
 
     <TextView
         android:id="@+id/add_new_tv"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginStart="55dp"
+        android:layout_marginStart="60dp"
         android:layout_marginTop="20dp"
         android:layout_marginBottom="10dp"
         android:fontFamily="@font/fredoka_one"
@@ -56,8 +57,7 @@
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="40dp"
         android:layout_marginTop="15dp"
-        android:hint="Vocabulary"
-
+        android:hint="@string/Vocabulary"
         android:textColorHint="@color/textColorHint"
         app:boxBackgroundColor="@color/colorEditText"
         app:boxCornerRadiusBottomEnd="20dp"
@@ -88,18 +88,15 @@
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="40dp"
         android:layout_marginTop="15dp"
-        android:hint="Definition"
-
+        android:hint="@string/Definition"
         android:textColorHint="@color/textColorHint"
         app:boxBackgroundColor="@color/colorEditText"
         app:boxCornerRadiusBottomEnd="20dp"
         app:boxCornerRadiusBottomStart="20dp"
         app:boxCornerRadiusTopEnd="20dp"
-
         app:boxCornerRadiusTopStart="20dp"
         app:boxStrokeColor="@color/hintTextAndStrokeColor"
         app:hintTextColor="@color/hintTextAndStrokeColor"
-
         app:layout_constraintEnd_toEndOf="@+id/add_new_vocabulary_tf"
         app:layout_constraintStart_toStartOf="@id/add_new_vocabulary_tf"
         app:layout_constraintTop_toBottomOf="@+id/add_new_vocabulary_tf">
@@ -122,8 +119,7 @@
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="40dp"
         android:layout_marginTop="15dp"
-        android:hint="Grammatical category"
-
+        android:hint="@string/Grammatical_category"
         android:textColorHint="@color/textColorHint"
         app:boxBackgroundColor="@color/colorEditText"
         app:boxCornerRadiusBottomEnd="20dp"
@@ -132,7 +128,6 @@
         app:boxCornerRadiusTopStart="20dp"
         app:boxStrokeColor="@color/hintTextAndStrokeColor"
         app:hintTextColor="@color/hintTextAndStrokeColor"
-
         app:layout_constraintEnd_toEndOf="@id/add_new_definition_tf"
         app:layout_constraintStart_toStartOf="@id/add_new_definition_tf"
         app:layout_constraintTop_toBottomOf="@id/add_new_definition_tf">
@@ -155,7 +150,7 @@
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="40dp"
         android:layout_marginTop="15dp"
-        android:hint="Collocations"
+        android:hint="@string/Collocations"
         android:textColorHint="@color/textColorHint"
         app:boxBackgroundColor="@color/colorEditText"
         app:boxCornerRadiusBottomEnd="20dp"
@@ -186,7 +181,7 @@
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="40dp"
         android:layout_marginTop="15dp"
-        android:hint="Topic"
+        android:hint="@string/Topic"
         android:textColorHint="@color/textColorHint"
         app:boxBackgroundColor="@color/colorEditText"
         app:boxCornerRadiusBottomEnd="20dp"

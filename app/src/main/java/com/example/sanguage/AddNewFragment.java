@@ -27,6 +27,7 @@ public class AddNewFragment<adapter> extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
+
         View view=inflater.inflate(R.layout.fragment_add_new, container, false);
         Button add_new_next_btn=(Button) view.findViewById(R.id.add_new_next_btn);
 

@@ -44,11 +44,11 @@ public class FlashcardAdapter extends ArrayAdapter<DictionaryPojo> {
             TextView topic_tv = (TextView) convertView.findViewById(R.id.flashcard_topic_tv);
             TextView gramCategory_tv = (TextView) convertView.findViewById(R.id.flashcard_grammaticalCategory_tv);
             DictionaryPojo dictionaryPojo = dictionaryList.get(position);
-            vocabulary_tv.setText(dictionaryPojo.getVocabulary());
-            gramCategory_tv.setText(dictionaryPojo.getGrammaticalCategory());
+            vocabulary_tv.setText(dictionaryPojo.getVocabularyTranslated());
+            gramCategory_tv.setText(dictionaryPojo.getGrammaticalCategoryTranslated());
             definition_jtv.setText(dictionaryPojo.getDefinitionTranslated());
-            collocations_tv.setText(dictionaryPojo.getCollocations());
-            topic_tv.setText(dictionaryPojo.getTopic());
+            collocations_tv.setText(dictionaryPojo.getCollocationsTranslated());
+            topic_tv.setText(dictionaryPojo.getTopicTranslated());
             convertView.setTag(new Flashcard(mainLayout, cardView, flashcardLayout, vocabulary_tv, gramCategory_tv, definition_jtv, collocations_tv, topic_tv));
             return convertView;
         } else {

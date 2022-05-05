@@ -49,7 +49,6 @@
         app:layout_constraintTop_toTopOf="parent"
         tools:ignore="TextContrastCheck" />
 
-
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/add_new_vocabulary_tf"
         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
@@ -58,14 +57,15 @@
         android:layout_marginHorizontal="40dp"
         android:layout_marginTop="15dp"
         android:hint="Vocabulary"
-        android:textColorHint="@color/hintColor"
+
+        android:textColorHint="@color/textColorHint"
         app:boxBackgroundColor="@color/colorEditText"
         app:boxCornerRadiusBottomEnd="20dp"
         app:boxCornerRadiusBottomStart="20dp"
         app:boxCornerRadiusTopEnd="20dp"
         app:boxCornerRadiusTopStart="20dp"
-        app:boxStrokeColor="@color/colorSecondary"
-        app:hintTextColor="@color/colorPrimaryDark"
+        app:boxStrokeColor="@color/hintTextAndStrokeColor"
+        app:hintTextColor="@color/hintTextAndStrokeColor"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/add_new_tv">
@@ -89,14 +89,17 @@
         android:layout_marginHorizontal="40dp"
         android:layout_marginTop="15dp"
         android:hint="Definition"
-        android:textColorHint="@color/hintColor"
+
+        android:textColorHint="@color/textColorHint"
         app:boxBackgroundColor="@color/colorEditText"
         app:boxCornerRadiusBottomEnd="20dp"
         app:boxCornerRadiusBottomStart="20dp"
         app:boxCornerRadiusTopEnd="20dp"
+
         app:boxCornerRadiusTopStart="20dp"
-        app:boxStrokeColor="@color/colorSecondary"
-        app:hintTextColor="@color/colorPrimaryDark"
+        app:boxStrokeColor="@color/hintTextAndStrokeColor"
+        app:hintTextColor="@color/hintTextAndStrokeColor"
+
         app:layout_constraintEnd_toEndOf="@+id/add_new_vocabulary_tf"
         app:layout_constraintStart_toStartOf="@id/add_new_vocabulary_tf"
         app:layout_constraintTop_toBottomOf="@+id/add_new_vocabulary_tf">
@@ -120,14 +123,16 @@
         android:layout_marginHorizontal="40dp"
         android:layout_marginTop="15dp"
         android:hint="Grammatical category"
-        android:textColorHint="@color/hintColor"
+
+        android:textColorHint="@color/textColorHint"
         app:boxBackgroundColor="@color/colorEditText"
         app:boxCornerRadiusBottomEnd="20dp"
         app:boxCornerRadiusBottomStart="20dp"
         app:boxCornerRadiusTopEnd="20dp"
         app:boxCornerRadiusTopStart="20dp"
-        app:boxStrokeColor="@color/colorSecondary"
-        app:hintTextColor="@color/colorPrimaryDark"
+        app:boxStrokeColor="@color/hintTextAndStrokeColor"
+        app:hintTextColor="@color/hintTextAndStrokeColor"
+
         app:layout_constraintEnd_toEndOf="@id/add_new_definition_tf"
         app:layout_constraintStart_toStartOf="@id/add_new_definition_tf"
         app:layout_constraintTop_toBottomOf="@id/add_new_definition_tf">
@@ -151,14 +156,14 @@
         android:layout_marginHorizontal="40dp"
         android:layout_marginTop="15dp"
         android:hint="Collocations"
-        android:textColorHint="@color/hintColor"
+        android:textColorHint="@color/textColorHint"
         app:boxBackgroundColor="@color/colorEditText"
         app:boxCornerRadiusBottomEnd="20dp"
         app:boxCornerRadiusBottomStart="20dp"
         app:boxCornerRadiusTopEnd="20dp"
         app:boxCornerRadiusTopStart="20dp"
-        app:boxStrokeColor="@color/colorSecondary"
-        app:hintTextColor="@color/colorPrimaryDark"
+        app:boxStrokeColor="@color/hintTextAndStrokeColor"
+        app:hintTextColor="@color/hintTextAndStrokeColor"
         app:layout_constraintEnd_toEndOf="@id/add_new_grammCat_tf"
         app:layout_constraintStart_toStartOf="@id/add_new_grammCat_tf"
         app:layout_constraintTop_toBottomOf="@id/add_new_grammCat_tf">
@@ -182,15 +187,15 @@
         android:layout_marginHorizontal="40dp"
         android:layout_marginTop="15dp"
         android:hint="Topic"
-        android:textColorHint="@color/hintColor"
+        android:textColorHint="@color/textColorHint"
         app:boxBackgroundColor="@color/colorEditText"
         app:boxCornerRadiusBottomEnd="20dp"
         app:boxCornerRadiusBottomStart="20dp"
         app:boxCornerRadiusTopEnd="20dp"
         app:boxCornerRadiusTopStart="20dp"
-        app:boxStrokeColor="@color/colorSecondary"
+        app:boxStrokeColor="@color/hintTextAndStrokeColor"
         app:endIconDrawable="@drawable/ic_baseline_search_24"
-        app:hintTextColor="@color/colorPrimaryDark"
+        app:hintTextColor="@color/hintTextAndStrokeColor"
         app:layout_constraintEnd_toEndOf="@id/add_new_collocations_tf"
         app:layout_constraintStart_toStartOf="@id/add_new_collocations_tf"
         app:layout_constraintTop_toBottomOf="@id/add_new_collocations_tf"
@@ -206,7 +211,6 @@
         </com.google.android.material.textfield.TextInputEditText>
 
     </com.google.android.material.textfield.TextInputLayout>
-
 
     <Button
         android:id="@+id/add_new_add_btn"
@@ -231,6 +235,5 @@
         app:layout_constraintStart_toStartOf="@id/add_new_topic_tf"
         app:layout_constraintTop_toBottomOf="@id/add_new_topic_tf"
         tools:ignore="TextContrastCheck" />
-
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -9,10 +9,8 @@
     android:orientation="vertical"
     android:paddingHorizontal="30dp"
     android:paddingVertical="10dp"
-    app:layout_constraintBottom_toBottomOf="parent"
     app:layout_constraintEnd_toEndOf="parent"
-    app:layout_constraintStart_toStartOf="parent"
-    app:layout_constraintTop_toTopOf="parent">
+    app:layout_constraintStart_toStartOf="parent">
 
     <TextView
         android:id="@+id/filter_filter_tv"
@@ -38,7 +36,6 @@
         android:text="Known words"
         android:textSize="25sp"
         android:textStyle="bold"
-        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/filter_filter_tv" />
 
     <CheckBox
@@ -56,7 +53,6 @@
         android:id="@+id/filter_new_words_tv"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:layout_constraintStart_toStartOf="parent"
         android:layout_marginVertical="20dp"
         android:text="New words"
         android:textSize="25sp"
@@ -82,7 +78,6 @@
         android:layout_height="wrap_content"
         android:layout_marginVertical="20dp"
         android:text="Level"
-        app:layout_constraintStart_toStartOf="parent"
         android:textSize="25sp"
         android:textStyle="bold"
         app:layout_constraintTop_toBottomOf="@id/filter_new_words_cb" />
@@ -97,7 +92,7 @@
         android:fontFamily="@font/fredoka_one"
         android:gravity="center"
         android:text="A1"
-        android:textColor="@color/commonText"
+        android:textColor="@color/lightButtonText"
         app:layout_constraintBottom_toBottomOf="@id/filter_level_tv"
         app:layout_constraintStart_toEndOf="@id/filter_level_tv"
         app:layout_constraintTop_toTopOf="@id/filter_level_tv" />
@@ -112,7 +107,7 @@
         android:fontFamily="@font/fredoka_one"
         android:gravity="center"
         android:text="B1"
-        android:textColor="@color/commonText"
+        android:textColor="@color/lightButtonText"
         app:layout_constraintBottom_toBottomOf="@id/filter_level_A1_cb"
         app:layout_constraintStart_toEndOf="@id/filter_level_A1_cb"
         app:layout_constraintTop_toTopOf="@id/filter_level_A1_cb" />
@@ -127,7 +122,7 @@
         android:fontFamily="@font/fredoka_one"
         android:gravity="center"
         android:text="C1"
-        android:textColor="@color/commonText"
+        android:textColor="@color/lightButtonText"
         app:layout_constraintBottom_toBottomOf="@id/filter_level_tv"
         app:layout_constraintStart_toEndOf="@id/filter_level_B1_cb"
         app:layout_constraintTop_toTopOf="@id/filter_level_tv" />
@@ -142,7 +137,7 @@
         android:fontFamily="@font/fredoka_one"
         android:gravity="center"
         android:text="A2"
-        android:textColor="@color/commonText"
+        android:textColor="@color/lightButtonText"
         app:layout_constraintStart_toStartOf="@id/filter_level_A1_cb"
         app:layout_constraintTop_toBottomOf="@id/filter_level_A1_cb" />
 
@@ -157,7 +152,7 @@
         android:fontFamily="@font/fredoka_one"
         android:gravity="center"
         android:text="B2"
-        android:textColor="@color/commonText"
+        android:textColor="@color/lightButtonText"
         app:layout_constraintBottom_toBottomOf="@id/filter_level_A2_cb"
         app:layout_constraintStart_toEndOf="@id/filter_level_A2_cb"
         app:layout_constraintTop_toBottomOf="@id/filter_level_B1_cb" />
@@ -173,7 +168,7 @@
         android:fontFamily="@font/fredoka_one"
         android:gravity="center"
         android:text="C2"
-        android:textColor="@color/commonText"
+        android:textColor="@color/lightButtonText"
         app:layout_constraintBottom_toBottomOf="@id/filter_level_B2_cb"
         app:layout_constraintStart_toEndOf="@id/filter_level_B2_cb"
         app:layout_constraintTop_toBottomOf="@id/filter_level_C1_cb" />
@@ -185,7 +180,6 @@
         android:layout_marginVertical="20dp"
         android:layout_marginTop="20dp"
         android:text="Topic"
-        app:layout_constraintStart_toStartOf="parent"
         android:textSize="25sp"
         android:textStyle="bold"
         app:layout_constraintTop_toBottomOf="@id/filter_level_C2_cb" />
@@ -210,6 +204,7 @@
         android:background="@drawable/ripple_effect_basic_btn"
         android:fontFamily="@font/open_sans_bold"
         android:text="Apply"
+        android:textColor="@color/white"
         android:textSize="18sp"
         android:textStyle="bold"
         app:backgroundTint="@null"
@@ -227,6 +222,7 @@
         android:background="@drawable/ripple_effect_basic_btn"
         android:fontFamily="@font/open_sans_bold"
         android:text="Cancel"
+        android:textColor="@color/white"
         android:textSize="18sp"
         android:textStyle="bold"
         app:backgroundTint="@null"

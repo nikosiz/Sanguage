@@ -28,5 +28,7 @@
     <color name="app_slogan">@color/white</color>
     <color name="commonText">@color/greyBlue</color>
     <color name="colorEditText">@color/white</color>
-    <color name="hintColor">#434343</color>
+    <color name="textColorHint">#666666</color>
+    <color name="hintTextAndStrokeColor">@color/colorSecondary</color>
+    <color name="flashcardBG">@color/white</color>
 </resources>

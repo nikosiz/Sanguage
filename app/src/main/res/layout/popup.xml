@@ -7,8 +7,12 @@
     android:layout_gravity="center"
     android:background="@color/backgroundColor"
     android:orientation="vertical"
-    android:paddingHorizontal="20dp"
-    android:paddingVertical="10dp">
+    android:paddingHorizontal="30dp"
+    android:paddingVertical="10dp"
+    app:layout_constraintBottom_toBottomOf="parent"
+    app:layout_constraintEnd_toEndOf="parent"
+    app:layout_constraintStart_toStartOf="parent"
+    app:layout_constraintTop_toTopOf="parent">
 
     <TextView
         android:id="@+id/filter_filter_tv"
@@ -21,6 +25,8 @@
         android:textColor="@color/commonText"
         android:textSize="35sp"
         android:transitionName="app_slogan"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
@@ -32,6 +38,7 @@
         android:text="Known words"
         android:textSize="25sp"
         android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/filter_filter_tv" />
 
     <CheckBox
@@ -49,6 +56,7 @@
         android:id="@+id/filter_new_words_tv"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="parent"
         android:layout_marginVertical="20dp"
         android:text="New words"
         android:textSize="25sp"
@@ -74,6 +82,7 @@
         android:layout_height="wrap_content"
         android:layout_marginVertical="20dp"
         android:text="Level"
+        app:layout_constraintStart_toStartOf="parent"
         android:textSize="25sp"
         android:textStyle="bold"
         app:layout_constraintTop_toBottomOf="@id/filter_new_words_cb" />
@@ -176,6 +185,7 @@
         android:layout_marginVertical="20dp"
         android:layout_marginTop="20dp"
         android:text="Topic"
+        app:layout_constraintStart_toStartOf="parent"
         android:textSize="25sp"
         android:textStyle="bold"
         app:layout_constraintTop_toBottomOf="@id/filter_level_C2_cb" />

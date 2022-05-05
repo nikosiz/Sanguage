@@ -68,4 +68,9 @@
         <item>adjective</item>
     </string-array>
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="Vocabulary">Vocabulary</string>
+    <string name="Topic">Topic</string>
+    <string name="Collocations">Collocations</string>
+    <string name="Grammatical_category">Grammatical category</string>
+    <string name="Definition">Definition</string>
 </resources>

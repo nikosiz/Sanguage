@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_logo">Sanguage</string>
+    <string name="app_slogan">WITH ALL THE BASIC INGREDIENTS</string>
+    <string name="sign_up">ZAREJESTRUJ SIĘ</string>
+    <string name="create_an_account">Utwórz konto</string>
+    <string name="username">Nazwa użytkownika</string>
+    <string name="email_address">Adres email</string>
+    <string name="password">Hasło</string>
+    <string name="choose_your_target_language">Wybierz język, którego chcesz się uczyć</string>
+    <string name="already_registered_click_here_to_log_in">Masz już konto? Zaloguj się!</string>
+    <string name="log_in">ZALOGUJ SIĘ</string>
+    <string name="welcome_back">Cześć!</string>
+    <string name="username_or_email">Nazwa użytkownika lub adres email</string>
+    <string name="don_t_remember">Nie pamiętasz hasła?</string>
+    <string name="first_time_here_sign_up">Jesteś tu po raz pierwszy? Zarejestruj się!</string>
+    <string name="skip">POMIŃ</string>
+    <string name="learn">UCZ SIĘ</string>
+    <string name="database">BAZA SŁÓWEK</string>
+    <string name="add_new">DODAJ</string>
+    <string name="search">WYSZUKAJ</string>
+    <string name="profile">PROFIL</string>
+    <string name="look_for_a_word">Wyszukaj słówko</string>
+    <string name="search_for_vocabulary">Wyszukaj słówka</string>
+    <string name="add">Dodaj</string>
+    <string name="add_new_vocabulary">Dodaj nowe słówko</string>
+    <string name="vocabulary_database">Baza słówek</string>
+    <string name="account_settings">Ustawienia konta</string>
+    <string name="general_settings">Ustawienia</string>
+    <string name="your_profile">Twój profil</string>
+    <string name="you_need_to_revise">Musisz powtórzyć</string>
+    <string name="you_ve_already_learned">Znasz już</string>
+    <string name="change_username">Zmień nazwę</string>
+    <string name="change_email">Zmień email</string>
+    <string name="change_password">Zmień hasło</string>
+    <string name="save">Zapisz</string>
+    <string name="have_you_lost">Pomożemy Ci odnaleźć Twoje hasło!</string>
+    <string name="send_email">WYŚLI EMAIL</string>
+</resources>

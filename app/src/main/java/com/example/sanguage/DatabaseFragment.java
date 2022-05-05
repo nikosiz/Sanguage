@@ -98,7 +98,7 @@ public class DatabaseFragment extends Fragment {
         //setKnownVocabularyListView();
         userKnownVocab.add("Michalek");
         userKnownVocab.add("Lukaszek");
-        userKnownVocab.add("chuj");
+        userKnownVocab.add("krawi");
         userKnownVocab.add("pati");
         arrayAdapter = new ListViewAdapter(context, R.layout.database_listview_row, userKnownVocab);
         database_lv.setAdapter(arrayAdapter);

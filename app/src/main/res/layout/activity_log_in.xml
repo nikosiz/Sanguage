@@ -10,7 +10,7 @@
     tools:context=".LogInActivity">
 
     <TextView
-        android:id="@+id/log_in_app_logo_tv"
+        android:id="@+id/waiting_app_logo_tv"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
@@ -28,7 +28,7 @@
 
 
     <ImageView
-        android:id="@+id/log_in_mascot_iv"
+        android:id="@+id/waiting_mascot_iv"
         android:layout_width="150dp"
         android:layout_height="150dp"
         android:layout_gravity="center"
@@ -38,10 +38,10 @@
         android:contentDescription="@string/mascot"
         android:src="@drawable/ic_mascot"
         android:transitionName="mascot_transition"
-        app:layout_constraintEnd_toEndOf="@id/log_in_app_logo_tv"
+        app:layout_constraintEnd_toEndOf="@id/waiting_app_logo_tv"
         app:layout_constraintHorizontal_bias="0.497"
-        app:layout_constraintStart_toStartOf="@id/log_in_app_logo_tv"
-        app:layout_constraintTop_toBottomOf="@id/log_in_app_logo_tv" />
+        app:layout_constraintStart_toStartOf="@id/waiting_app_logo_tv"
+        app:layout_constraintTop_toBottomOf="@id/waiting_app_logo_tv" />
 
     <TextView
         android:id="@+id/log_in_welcome_back_tv"
@@ -54,8 +54,8 @@
         android:textSize="30sp"
         android:textStyle="bold"
         android:transitionName="app_slogan"
-        app:layout_constraintStart_toStartOf="@id/log_in_app_logo_tv"
-        app:layout_constraintTop_toBottomOf="@id/log_in_mascot_iv" />
+        app:layout_constraintStart_toStartOf="@id/waiting_app_logo_tv"
+        app:layout_constraintTop_toBottomOf="@id/waiting_mascot_iv" />
 
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/log_in_username_or_email_tf"
@@ -73,8 +73,8 @@
         app:boxCornerRadiusTopStart="20dp"
         app:boxStrokeColor="@color/hintTextAndStrokeColor"
         app:hintTextColor="@color/hintTextAndStrokeColor"
-        app:layout_constraintEnd_toEndOf="@id/log_in_app_logo_tv"
-        app:layout_constraintStart_toStartOf="@id/log_in_app_logo_tv"
+        app:layout_constraintEnd_toEndOf="@id/waiting_app_logo_tv"
+        app:layout_constraintStart_toStartOf="@id/waiting_app_logo_tv"
         app:layout_constraintTop_toBottomOf="@id/log_in_welcome_back_tv">
 
         <com.google.android.material.textfield.TextInputEditText

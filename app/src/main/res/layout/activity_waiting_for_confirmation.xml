@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/backgroundColor"
+    android:orientation="vertical"
+    android:paddingHorizontal="40dp"
+    tools:context=".LogInActivity">
+
+    <TextView
+        android:id="@+id/waiting_app_logo_tv"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:layout_marginBottom="20dp"
+        android:fontFamily="@font/fredoka_one"
+        android:gravity="center"
+        android:text="@string/app_logo"
+        android:textColor="@color/app_logo"
+        android:textSize="60sp"
+        android:transitionName="app_logo"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:ignore="TextContrastCheck" />
+
+
+    <ImageView
+        android:id="@+id/waiting_mascot_iv"
+        android:layout_width="200dp"
+        android:layout_height="200dp"
+        android:layout_gravity="center"
+        android:layout_marginHorizontal="20dp"
+        android:layout_marginVertical="20dp"
+        android:contentDescription="@string/mascot"
+        android:src="@drawable/ic_mascot"
+        android:transitionName="mascot_transition"
+        app:layout_constraintEnd_toEndOf="@id/waiting_app_logo_tv"
+        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintStart_toStartOf="@id/waiting_app_logo_tv"
+        app:layout_constraintTop_toBottomOf="@id/waiting_app_logo_tv" />
+
+    <TextView
+        android:id="@+id/waiting_now_its_time_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:fontFamily="@font/open_sans_bold"
+        android:text="Now it's time to confirm your account!"
+        android:textColor="@color/commonText"
+        android:textSize="30sp"
+        android:textStyle="bold"
+        android:transitionName="app_slogan"
+        app:layout_constraintStart_toStartOf="@id/waiting_app_logo_tv"
+        app:layout_constraintTop_toBottomOf="@id/waiting_mascot_iv" />
+
+    <Button
+        android:id="@+id/waiting_open_email_btn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginTop="20dp"
+        android:layout_marginBottom="5dp"
+        android:background="@drawable/ripple_effect_basic_btn"
+        android:elevation="0dp"
+        android:padding="10dp"
+        android:text="Open email"
+        android:textColor="@color/white"
+        android:textSize="20sp"
+        app:backgroundTint="@null"
+        app:layout_constraintEnd_toEndOf="@id/waiting_now_its_time_tv"
+        app:layout_constraintStart_toStartOf="@id/waiting_now_its_time_tv"
+        app:layout_constraintTop_toBottomOf="@id/waiting_now_its_time_tv"
+        tools:ignore="TextContrastCheck" />
+
+    <Button
+        android:id="@+id/waiting_email_confirmed_btn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginTop="20dp"
+        android:layout_marginBottom="5dp"
+        android:background="@drawable/ripple_effect_light_btn"
+        android:elevation="0dp"
+        android:padding="10dp"
+        android:text="Email confirmed"
+        android:textColor="@color/basicButtonBackground"
+        android:textSize="20sp"
+        app:backgroundTint="@null"
+        app:layout_constraintEnd_toEndOf="@id/waiting_open_email_btn"
+        app:layout_constraintStart_toStartOf="@id/waiting_open_email_btn"
+        app:layout_constraintTop_toBottomOf="@id/waiting_open_email_btn"
+        tools:ignore="TextContrastCheck" />
+
+    <RelativeLayout
+        android:id="@+id/log_in_progress_bar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/white_circle"
+        android:elevation="10dp"
+        android:foregroundGravity="center"
+        android:padding="20dp"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <ProgressBar
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+    </RelativeLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

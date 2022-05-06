@@ -108,6 +108,8 @@ public class SignUpActivity extends AppCompatActivity {
                     showProgressBar();
                     signUpRequest(username, email, password, mapLanguageIndexToName(languageIndex));
                 }
+                Intent intent = new Intent(getApplicationContext(), WaitingForConfirmationActivity.class);
+                startActivity(intent);
             }
         });
     }

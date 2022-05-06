@@ -2,14 +2,16 @@ package com.example.sanguage;
 
 import android.content.Context;
 import android.os.Bundle;
+import android.text.Editable;
+import android.text.TextWatcher;
+import android.util.Log;
 import android.view.ContextMenu;
 import android.view.LayoutInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ArrayAdapter;
+import android.widget.AdapterView;
 import android.widget.ListView;
-import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
@@ -20,12 +22,14 @@ import com.android.volley.Request;
 import com.android.volley.RequestQueue;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
-import com.android.volley.toolbox.JsonObjectRequest;
+import com.android.volley.toolbox.JsonArrayRequest;
 import com.android.volley.toolbox.Volley;
 import com.example.sanguage.utils.ListViewAdapter;
+import com.example.sanguage.utils.VolleyRequestCallback;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.google.android.material.textfield.TextInputEditText;
 
-import org.json.JSONObject;
+import org.json.JSONArray;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -37,7 +41,9 @@ public class DatabaseFragment extends Fragment {
     private Long userID;
     private Context context;
     private ArrayList<String> userKnownVocab = new ArrayList<>();
-    private ArrayAdapter arrayAdapter;
+    private ListViewAdapter arrayAdapter;
+    private TextInputEditText databaseSearch_et;
+    private RequestQueue requestQueue;
 
     public DatabaseFragment() {
     }
@@ -55,27 +61,27 @@ public class DatabaseFragment extends Fragment {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
     }
 
-    public void setKnownVocabularyListView() {
-        RequestQueue requestQueue = Volley.newRequestQueue(context);
+    public void userKnownVocabRequest(final VolleyRequestCallback callback) {
         String URL = "https://sanguage.herokuapp.com/user/getKnownVocab?userID=" + userID;
-        JsonObjectRequest jsonObjectRequest = new JsonObjectRequest(Request.Method.GET, URL, null, new Response.Listener<JSONObject>() {
+        JsonArrayRequest jsonArrayRequest = new JsonArrayRequest(Request.Method.GET, URL, null, new Response.Listener<JSONArray>() {
             @Override
-            public void onResponse(JSONObject response) {
+            public void onResponse(JSONArray response) {
+                System.out.println(response);
                 setUserKnownVocab(response);
+                callback.onSuccess();
             }
         }, new Response.ErrorListener() {
             @Override
             public void onErrorResponse(VolleyError error) {
-                Toast.makeText(context, "Check your internet connection", Toast.LENGTH_SHORT).show();
+                Log.e("knownVocabularyRequest - onErrorResponse()", String.valueOf(error));
             }
         });
-        requestQueue.add(jsonObjectRequest);
+        requestQueue.add(jsonArrayRequest);
     }
 
-    public void setUserKnownVocab(JSONObject response) {
+    public void setUserKnownVocab(JSONArray response) {
         ObjectMapper mapper = new ObjectMapper();
         try {
             String[] dictionary = mapper.readValue(response.toString(), String[].class);
@@ -85,49 +91,71 @@ public class DatabaseFragment extends Fragment {
         }
     }
 
+    public void setDatabaseSearchListener() {
+        databaseSearch_et.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+                arrayAdapter.getFilter().filter(charSequence.toString());
+            }
+
+            @Override
+            public void afterTextChanged(Editable editable) {
+
+            }
+        });
+    }
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_database, container, false);
-
-        //TextView asdf = (TextView) view.findViewById(R.id.database_lv);
-
         database_lv = view.findViewById(R.id.database_lv);
+        databaseSearch_et = view.findViewById(R.id.database_search_et);
+        requestQueue = Volley.newRequestQueue(context);
         registerForContextMenu(database_lv);
-
-        //setKnownVocabularyListView();
-        userKnownVocab.add("Michalek");
-        userKnownVocab.add("Lukaszek");
-        userKnownVocab.add("krawi");
-        userKnownVocab.add("pati");
-        arrayAdapter = new ListViewAdapter(context, R.layout.database_listview_row, userKnownVocab);
-        database_lv.setAdapter(arrayAdapter);
-    // arrayAdapter.getFilter().convertResultToString("dasd");
-        arrayAdapter.notifyDataSetChanged();
-
-        registerForContextMenu(database_lv);
-
+        setDatabaseSearchListener();
+        userKnownVocabRequest(new VolleyRequestCallback() {
+            @Override
+            public void onSuccess() {
+                arrayAdapter = new ListViewAdapter(context, R.layout.database_listview_row, userKnownVocab);
+                database_lv.setAdapter(arrayAdapter);
+            }
+        });
         return view;
-
     }
 
     @Override
     public void onCreateContextMenu(@NonNull ContextMenu menu, @NonNull View v, @Nullable ContextMenu.ContextMenuInfo menuInfo) {
         super.onCreateContextMenu(menu, v, menuInfo);
-
         getActivity().getMenuInflater().inflate(R.menu.context_database, menu);
+    }
+
+    public void deleteUserKnownVocab(String vocabulary) {
+        arrayAdapter.remove(vocabulary);
+    }
+
+    public void deleteUserKnownVocabRequest(String vocabulary) {
+        //delete known vocab in db
     }
 
     @Override
     public boolean onContextItemSelected(@NonNull MenuItem item) {
+        AdapterView.AdapterContextMenuInfo info = (AdapterView.AdapterContextMenuInfo) item.getMenuInfo();
         switch (item.getItemId()) {
             case R.id.context_database_show_more:
-                Toast.makeText(getContext(), "show more", Toast.LENGTH_SHORT).show();
+                Toast.makeText(getContext(), "show more" + item.getItemId(), Toast.LENGTH_SHORT).show();
                 //show selected vocabulary on a flashcard
                 return true;
             case R.id.context_database_delete:
                 Toast.makeText(getContext(), "delete", Toast.LENGTH_SHORT).show();
-                //delete selected vocabulary from database
+                String vocabulary = arrayAdapter.getItem(info.position);
+                deleteUserKnownVocab(vocabulary);
+                deleteUserKnownVocabRequest(vocabulary);
                 return true;
             default:
                 return super.onContextItemSelected(item);

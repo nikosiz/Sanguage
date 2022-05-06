@@ -13,6 +13,7 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.CompoundButton;
+import android.widget.Switch;
 import android.widget.Toast;
 
 import com.android.volley.Request;
@@ -35,7 +36,7 @@ public class ProfileFragment extends Fragment {
     private Long userID;
     private RequestQueue requestQueue;
 
-    private CheckBox profile_dark_mode_cb;
+    private Switch profile_dark_mode_cb;
 
     public enum RequestOption {USERNAME, PASSWORD, BOTH}
 

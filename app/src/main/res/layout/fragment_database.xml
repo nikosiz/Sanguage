@@ -75,7 +75,7 @@
                 android:id="@+id/database_lv"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:divider="@color/colorSecondary"
+                android:divider="@color/basicButtonBackground"
                 android:dividerHeight="2dp"
                 />
 

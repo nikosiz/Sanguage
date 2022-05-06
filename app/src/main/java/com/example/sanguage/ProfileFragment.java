@@ -11,7 +11,6 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
-import android.widget.CheckBox;
 import android.widget.CompoundButton;
 import android.widget.Switch;
 import android.widget.Toast;
@@ -133,7 +132,7 @@ public class ProfileFragment extends Fragment {
         profile_change_password_et = view.findViewById(R.id.profile_change_password_et);
         profile_change_username_et = view.findViewById(R.id.profile_change_username_et);
         profile_save_btn = view.findViewById(R.id.profile_save_btn);
-        profile_dark_mode_cb = view.findViewById(R.id.profile_dark_mode_cb);
+        profile_dark_mode_cb = view.findViewById(R.id.profile_dark_mode_s);
 
         profile_dark_mode_cb.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override

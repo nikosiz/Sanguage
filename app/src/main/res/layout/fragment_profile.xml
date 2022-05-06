@@ -232,7 +232,7 @@
                     tools:ignore="TextContrastCheck" />
 
                 <Switch
-                    android:id="@+id/profile_dark_mode_cb"
+                    android:id="@+id/profile_dark_mode_s"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginHorizontal="40dp"
@@ -244,6 +244,14 @@
                     android:textSize="30dp"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintTop_toBottomOf="@id/profile_save_btn" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="   "
+                    app:layout_constraintTop_toBottomOf="@id/profile_dark_mode_s"
+                    />
+
             </androidx.constraintlayout.widget.ConstraintLayout>
 
         </ScrollView>

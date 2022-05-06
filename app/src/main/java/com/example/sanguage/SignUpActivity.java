@@ -184,12 +184,7 @@ public class SignUpActivity extends AppCompatActivity {
             }, new Response.ErrorListener() {
                 @Override
                 public void onErrorResponse(VolleyError error) {
-                    try {
-                        String message = RequestErrorParser.parseError(error);
-                        Toast.makeText(getApplicationContext(), message, Toast.LENGTH_SHORT).show();
-                    } catch (JSONException | NullPointerException e) {
-                        Log.e("SignUp - onErrorResponse()", e.getMessage());
-                    }
+                    Log.e("knownVocabularyRequest - onErrorResponse()", String.valueOf(error));
                     hideProgressBar();
                     enableAllActions();
                 }

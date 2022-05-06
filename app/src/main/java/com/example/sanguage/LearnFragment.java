@@ -3,6 +3,7 @@ package com.example.sanguage;
 import android.app.AlertDialog;
 import android.content.Context;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -24,10 +25,12 @@ import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.Volley;
 import com.example.sanguage.pojo.DictionaryPojo;
 import com.example.sanguage.utils.FlashcardAdapter;
+import com.example.sanguage.utils.RequestErrorParser;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.lorentzos.flingswipe.SwipeFlingAdapterView;
 
 import org.json.JSONArray;
+import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.io.IOException;
@@ -49,9 +52,11 @@ public class LearnFragment extends Fragment {
     private CheckBox filter_known_words_cb, filter_new_words_cb, filter_level_A1_cb, filter_level_A2_cb, filter_level_B1_cb, filter_level_B2_cb, filter_level_C1_cb, filter_level_C2_cb, filter_topic_cb;
     private Button filter_apply_btn, filter_cancel_btn;
     private ImageView filter_btn;
+    private DatabaseFragment databaseFragment;
 
-    public LearnFragment(Long userID) {
+    public LearnFragment(Long userID, DatabaseFragment databaseFragment) {
         this.userID = userID;
+        this.databaseFragment = databaseFragment;
     }
 
     public LearnFragment() {
@@ -116,12 +121,17 @@ public class LearnFragment extends Fragment {
         JsonObjectRequest jsonObjectRequest = new JsonObjectRequest(Request.Method.PUT, addVocabURL, null, new Response.Listener<JSONObject>() {
             @Override
             public void onResponse(JSONObject response) {
-                Toast.makeText(context, response.toString(), Toast.LENGTH_SHORT).show();
+                ;
             }
         }, new Response.ErrorListener() {
             @Override
             public void onErrorResponse(VolleyError error) {
-                Toast.makeText(context, "Check your internet connection", Toast.LENGTH_SHORT).show();
+                try {
+                    String message = RequestErrorParser.parseError(error);
+                    Log.e("addKnownVocabulary - onErrorResponse()", message);
+                } catch (JSONException e) {
+                    Log.e("addKnownVocabulary - onErrorResponse()", e.getMessage());
+                }
             }
         });
         requestQueue.add(jsonObjectRequest);
@@ -173,7 +183,6 @@ public class LearnFragment extends Fragment {
         });
 
         requestQueue = Volley.newRequestQueue(context);
-        System.out.println(userID);
         flingContainer = (SwipeFlingAdapterView) view.findViewById(R.id.frame_flashcard);
         currentURL = "https://sanguage.herokuapp.com/dictionary/byLanguage?language=English";
         flashcardAdapter = new FlashcardAdapter(context, R.layout.flashcard, dictionaryListSimple);

@@ -56,7 +56,7 @@ public class FlashcardAdapter extends ArrayAdapter<DictionaryPojo> {
 
     }
 
-    public static class Flashcard {
+    public class Flashcard {
         ConstraintLayout mainLayout;
         CardView cardView;
         ConstraintLayout flashcardLayout;

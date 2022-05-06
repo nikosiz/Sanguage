@@ -91,7 +91,6 @@ public class SignUpActivity extends AppCompatActivity {
                 }
             }
         });
-
     }
 
     public void handleRegisterBtn() {
@@ -108,8 +107,6 @@ public class SignUpActivity extends AppCompatActivity {
                     showProgressBar();
                     signUpRequest(username, email, password, mapLanguageIndexToName(languageIndex));
                 }
-                Intent intent = new Intent(getApplicationContext(), WaitingForConfirmationActivity.class);
-                startActivity(intent);
             }
         });
     }
@@ -180,7 +177,7 @@ public class SignUpActivity extends AppCompatActivity {
                 @Override
                 public void onResponse(JSONObject response) {
                     //  TODO confirm token window
-                    Intent intent = new Intent(getApplicationContext(), AppWindowAccount.class);
+                    Intent intent = new Intent(getApplicationContext(), WaitingForConfirmationActivity.class);
                     startActivity(intent);
                 }
             }, new Response.ErrorListener() {

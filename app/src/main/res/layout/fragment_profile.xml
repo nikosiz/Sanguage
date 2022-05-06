@@ -144,6 +144,7 @@
                     android:text="@string/account_settings"
                     android:textColor="@color/commonText"
                     android:textSize="30sp"
+                    android:visibility="invisible"
                     app:layout_constraintTop_toBottomOf="@id/profile_progress_cv">
 
                 </TextView>
@@ -158,6 +159,7 @@
                     android:layout_marginBottom="30dp"
                     android:hint="@string/change_username"
                     android:textColorHint="@color/textColorHint"
+                    android:visibility="invisible"
                     app:boxBackgroundColor="@color/colorEditText"
                     app:boxCornerRadiusBottomEnd="20dp"
                     app:boxCornerRadiusBottomStart="20dp"
@@ -190,6 +192,7 @@
                     android:layout_marginBottom="30dp"
                     android:hint="@string/change_password"
                     android:textColorHint="@color/textColorHint"
+                    android:visibility="invisible"
                     app:boxBackgroundColor="@color/colorEditText"
                     app:boxCornerRadiusBottomEnd="20dp"
                     app:boxCornerRadiusBottomStart="20dp"
@@ -227,6 +230,7 @@
                     android:text="@string/save"
                     android:textColor="@color/white"
                     android:textSize="20sp"
+                    android:visibility="invisible"
                     app:backgroundTint="@null"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"

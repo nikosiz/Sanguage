@@ -63,7 +63,7 @@ public class AppWindowNoAccount extends AppCompatActivity implements ChipNavigat
         if (i == R.id.bottom_nav_learn) {
             currentFragment = new LearnFragment(userID);
         } else if (i == R.id.bottom_nav_profile) {
-            currentFragment = new ProfileFragment(userID);
+            currentFragment = new CreateAccountFragment();
         }
         loadFragment();
     }

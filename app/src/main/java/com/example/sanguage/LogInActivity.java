@@ -47,13 +47,13 @@ public class LogInActivity extends AppCompatActivity {
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
         setContentView(R.layout.activity_log_in);
 
-        Fade fade = new Fade();
+        /*Fade fade = new Fade();
         View decor  = getWindow().getDecorView();
         fade.excludeTarget(decor.findViewById(R.id.log_in), true);
         fade.excludeTarget(decor.findViewById(R.id.choose), true);
 
         getWindow().setEnterTransition(fade);
-        getWindow().setExitTransition(fade);
+        getWindow().setExitTransition(fade);*/
 
         log_in_btn = findViewById(R.id.log_in_log_in_btn);
         username_email_et = findViewById(R.id.log_in_username_or_email_et);

@@ -20,7 +20,6 @@ public class ChooseActivity extends AppCompatActivity {
     private Button choose_sign_up_btn, choose_sign_in_btn;
     private TextView choose_skip_btn;
     private ImageView mascot;
-    private TextView logo;
 
     @Override
     public void onBackPressed() {
@@ -33,11 +32,11 @@ public class ChooseActivity extends AppCompatActivity {
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
         setContentView(R.layout.choose_activity);
 
-        Fade fade = new Fade();
-        View decor  = getWindow().getDecorView();
+        /*Fade fade = new Fade();
+        View decor = getWindow().getDecorView();
         fade.excludeTarget(decor.findViewById(R.id.choose), true);
         getWindow().setEnterTransition(fade);
-        getWindow().setExitTransition(fade);
+        getWindow().setExitTransition(fade);*/
 
         choose_sign_up_btn = findViewById(R.id.choose_sign_up_btn);
         choose_sign_up_btn.setOnClickListener(new View.OnClickListener() {
@@ -51,16 +50,14 @@ public class ChooseActivity extends AppCompatActivity {
 
         choose_sign_in_btn = findViewById(R.id.choose_log_in_btn);
         mascot = findViewById(R.id.choose_app_mascot);
-        logo = findViewById(R.id.choose_app_logo);
 
         choose_sign_in_btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(getApplicationContext(), LogInActivity.class);
-                ActivityOptionsCompat options = ActivityOptionsCompat.makeSceneTransitionAnimation(ChooseActivity.this, mascot, ViewCompat.getTransitionName(mascot));
-                ActivityOptionsCompat options_logo = ActivityOptionsCompat.makeSceneTransitionAnimation(ChooseActivity.this, logo, ViewCompat.getTransitionName(logo));
-                options_logo.toBundle();
-                startActivity(intent, options.toBundle());
+                //ActivityOptionsCompat options = ActivityOptionsCompat.makeSceneTransitionAnimation(ChooseActivity.this, mascot, ViewCompat.getTransitionName(mascot));
+                //startActivity(intent, options.toBundle());
+                startActivity(intent);
                 overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
             }
         });

@@ -48,11 +48,6 @@ public class AppWindowAccount extends AppCompatActivity implements ChipNavigatio
         }
     }
 
-    public void mapFilterToRequestURL() {
-        ;
-    }
-
-
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         MenuInflater inflater = getMenuInflater();

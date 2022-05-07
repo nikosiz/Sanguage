@@ -36,13 +36,13 @@
         android:layout_marginBottom="30dp"
         android:hint="@string/look_for_a_word"
         android:textColorHint="@color/textColorHint"
-        app:boxStrokeColor="@color/hintTextAndStrokeColor"
-        app:hintTextColor="@color/hintTextAndStrokeColor"
         app:boxBackgroundColor="@color/colorEditText"
         app:boxCornerRadiusBottomEnd="20dp"
         app:boxCornerRadiusBottomStart="20dp"
         app:boxCornerRadiusTopEnd="20dp"
         app:boxCornerRadiusTopStart="20dp"
+        app:boxStrokeColor="@color/hintTextAndStrokeColor"
+        app:hintTextColor="@color/hintTextAndStrokeColor"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/search_search_tv"
@@ -61,13 +61,13 @@
     </com.google.android.material.textfield.TextInputLayout>
 
     <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/database_cl"
+        android:id="@+id/search_cl"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
         android:layout_marginBottom="50dp"
         android:paddingBottom="75dp"
-        app:layout_constraintTop_toBottomOf="@id/database_search_tf">
+        app:layout_constraintTop_toBottomOf="@id/search_tf">
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
@@ -83,17 +83,13 @@
                 android:paddingHorizontal="40dp"
                 android:scrollbarSize="0dp"
                 android:smoothScrollbar="true" />
-
-
         </androidx.constraintlayout.widget.ConstraintLayout>
 
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="   "
-            app:layout_constraintTop_toBottomOf="@id/database_cl" />
+            app:layout_constraintTop_toBottomOf="@id/search_cl" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
-
-
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -266,7 +266,6 @@
         android:background="@drawable/ripple_effect_transparent_btn"
         android:elevation="0dp"
         android:gravity="center"
-
         android:text="@string/already_registered_click_here_to_log_in"
         android:textAppearance="@style/TextAppearance.MaterialComponents.Button"
         android:textColor="@color/commonText"

@@ -29,6 +29,6 @@
     <color name="commonText">@color/greyBlue</color>
     <color name="colorEditText">@color/white</color>
     <color name="textColorHint">#666666</color>
-    <color name="hintTextAndStrokeColor">@color/colorSecondary</color>
+    <color name="hintTextAndStrokeColor">@color/colorPrimaryDarkVariant</color>
     <color name="flashcardBG">@color/white</color>
 </resources>

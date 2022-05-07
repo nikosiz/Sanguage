@@ -194,7 +194,6 @@
         android:textStyle="bold"
         android:theme="@style/FormButton"
         app:backgroundTint="@null"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="@id/add_new_collocations_tf"
         app:layout_constraintStart_toStartOf="@id/add_new_collocations_tf"
         app:layout_constraintTop_toBottomOf="@id/add_new_collocations_tf"

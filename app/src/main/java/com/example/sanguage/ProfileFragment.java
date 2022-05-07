@@ -164,8 +164,8 @@ public class ProfileFragment extends Fragment {
         profile_save_btn = view.findViewById(R.id.profile_save_btn);
         profile_dark_mode_cb = view.findViewById(R.id.profile_dark_mode_s);
         profile_log_out_btn = view.findViewById(R.id.profile_log_out_btn);
-        profile_sign_up_btn = view.findViewById(R.id.profile_sign_up_btn);
-        profile_current_password_et = view.findViewById(R.id.profile_current_password_et);
+        //profile_sign_up_btn = view.findViewById(R.id.profile_sign_up_btn);
+        //profile_current_password_et = view.findViewById(R.id.profile_current_password_et);
 
         SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(context);
         boolean enabled = preferences.getBoolean("enabled", false);

@@ -73,7 +73,7 @@
                 android:autoSizeMaxTextSize="30sp"
                 android:autoSizeMinTextSize="20dp"
                 android:autoSizeTextType="uniform"
-                android:gravity="start"
+                android:gravity="center_vertical"
                 android:maxHeight="175dp"
                 android:minHeight="150dp"
                 android:text="@string/definition"

@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/backgroundColor"
-    android:paddingBottom="56dp"
+    android:layout_marginBottom="75dp"
     tools:context=".DatabaseFragment">
 
     <TextView
@@ -64,6 +64,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
+        android:paddingBottom="75dp"
         app:layout_constraintTop_toBottomOf="@id/database_search_tf">
 
         <androidx.constraintlayout.widget.ConstraintLayout
@@ -71,13 +72,14 @@
             android:layout_height="match_parent">
 
             <ListView
-                android:paddingHorizontal="40dp"
                 android:id="@+id/database_lv"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:divider="@color/basicButtonBackground"
-                android:dividerHeight="2dp"
-                />
+                android:dividerHeight="1dp"
+                android:paddingHorizontal="40dp"
+                android:scrollbarSize="0dp"
+                android:smoothScrollbar="true" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 

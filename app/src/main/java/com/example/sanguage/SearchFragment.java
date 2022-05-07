@@ -16,7 +16,6 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ListView;
-import android.widget.TextView;
 import android.widget.Toast;
 
 import com.android.volley.Request;
@@ -58,7 +57,6 @@ public class SearchFragment extends Fragment {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
     }
 
     @Override
@@ -94,7 +92,8 @@ public class SearchFragment extends Fragment {
             e.printStackTrace();
         }
     }
-/*    public void setSearchEtListener() {
+
+    public void setSearchEtListener() {
         search_search_et.addTextChangedListener(new TextWatcher() {
             @Override
             public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
@@ -103,11 +102,11 @@ public class SearchFragment extends Fragment {
 
             @Override
             public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+                searchResults.clear();
                 searchVocabStartingWithRequest(new VolleyRequestCallback() {
                     @Override
                     public void onSuccess() {
-                        arrayAdapter = new ListViewAdapter(context, R.layout.database_listview_row, searchResults);
-                        search_database_lv.setAdapter(arrayAdapter);
+                        ;
                     }
                 }, charSequence.toString());
             }
@@ -117,7 +116,7 @@ public class SearchFragment extends Fragment {
 
             }
         });
-    }*/
+    }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -125,8 +124,10 @@ public class SearchFragment extends Fragment {
         View view = inflater.inflate(R.layout.fragment_search, container, false);
         requestQueue = Volley.newRequestQueue(context);
         search_search_et = (TextInputEditText) view.findViewById(R.id.search_search_et);
-        //search_search_lv= (ListView) view.findViewById(R.id.search_search_lv);
-      //  setSearchEtListener();
+        search_search_lv = (ListView) view.findViewById(R.id.search_search_lv);
+        arrayAdapter = new ListViewAdapter(context, R.layout.database_listview_row, searchResults);
+        search_search_lv.setAdapter(arrayAdapter);
+        setSearchEtListener();
         registerForContextMenu(search_search_et);
         return view;
     }

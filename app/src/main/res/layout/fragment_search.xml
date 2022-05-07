@@ -74,7 +74,7 @@
             android:layout_height="match_parent">
 
             <ListView
-                android:id="@+id/database_lv"
+                android:id="@+id/search_search_lv"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_marginBottom="50dp"

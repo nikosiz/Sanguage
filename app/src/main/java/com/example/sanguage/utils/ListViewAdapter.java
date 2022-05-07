@@ -47,7 +47,6 @@ public class ListViewAdapter extends ArrayAdapter<String> implements Filterable 
             return convertView;
         }
     }
-
     @NonNull
     @Override
     public Filter getFilter() {

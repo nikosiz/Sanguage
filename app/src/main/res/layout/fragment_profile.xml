@@ -171,6 +171,7 @@
                         android:id="@+id/profile_change_username_et"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
+                        android:maxLines="1"
                         android:textSize="20sp"
                         tools:ignore="TextContrastCheck">
 
@@ -197,13 +198,50 @@
                     app:hintTextColor="@color/hintTextAndStrokeColor"
                     app:layout_constraintEnd_toEndOf="@id/profile_change_username_tf"
                     app:layout_constraintStart_toStartOf="@id/profile_change_username_tf"
-                    app:layout_constraintTop_toBottomOf="@id/profile_change_username_tf">
+                    app:layout_constraintTop_toBottomOf="@id/profile_change_username_tf"
+                    app:passwordToggleEnabled="true">
 
                     <com.google.android.material.textfield.TextInputEditText
                         android:id="@+id/profile_change_password_et"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:inputType="textPassword"
+                        android:maxLines="1"
+                        android:textSize="20sp"
+                        tools:ignore="TextContrastCheck">
+
+                    </com.google.android.material.textfield.TextInputEditText>
+
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/profile_confirm_password_tf"
+                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="40dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginBottom="30dp"
+                    android:hint="Confirm password"
+                    android:textColorHint="@color/textColorHint"
+                    app:boxBackgroundColor="@color/colorEditText"
+                    app:boxCornerRadiusBottomEnd="20dp"
+                    app:boxCornerRadiusBottomStart="20dp"
+                    app:boxCornerRadiusTopEnd="20dp"
+                    app:boxCornerRadiusTopStart="20dp"
+                    app:boxStrokeColor="@color/hintTextAndStrokeColor"
+                    app:hintTextColor="@color/hintTextAndStrokeColor"
+                    app:layout_constraintEnd_toEndOf="@id/profile_change_username_tf"
+                    app:layout_constraintStart_toStartOf="@id/profile_change_username_tf"
+                    app:layout_constraintTop_toBottomOf="@id/profile_change_password_tf"
+                    app:passwordToggleEnabled="true">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/profile_confirm_password_et"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:inputType="textPassword"
+                        android:maxLines="1"
                         android:textSize="20sp"
                         tools:ignore="TextContrastCheck">
 
@@ -227,7 +265,7 @@
                     app:backgroundTint="@null"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/profile_change_password_tf"
+                    app:layout_constraintTop_toBottomOf="@id/profile_confirm_password_tf"
                     tools:ignore="TextContrastCheck" />
 
                 <Switch
@@ -241,7 +279,7 @@
                     android:textColorHint="@color/commonText"
                     android:textSize="30dp"
                     app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/profile_save_btn" />
+                    app:layout_constraintTop_toBottomOf="@+id/profile_save_btn" />
 
                 <Button
                     android:id="@+id/profile_log_out_btn"
@@ -269,7 +307,6 @@
                     android:layout_height="wrap_content"
                     android:text="   "
                     app:layout_constraintTop_toBottomOf="@id/profile_log_out_btn" />
-
 
             </androidx.constraintlayout.widget.ConstraintLayout>
 

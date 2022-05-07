@@ -31,26 +31,19 @@ public class AppWindowNoAccount extends AppCompatActivity implements ChipNavigat
         setContentView(R.layout.activity_app_window_no_account);
 
         nav_bar = findViewById(R.id.bottom_nav_no);
-        SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(getApplicationContext());
-        userID = preferences.getLong("userID", 9999999999999L);
-        getSupportFragmentManager().beginTransaction().add(R.id.fragment_container, new LearnFragment(userID)).commit();
+        getSupportFragmentManager().beginTransaction().add(R.id.fragment_container, new LearnFragment()).commit();
         nav_bar.setItemSelected(R.id.bottom_nav_learn, true);
         nav_bar.setOnItemSelectedListener(this);
     }
 
     private void loadFragment() {
-
         if (currentFragment != null) {
             getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, currentFragment).commit();
-
         } else {
             Toast.makeText(this, "Fragment error", Toast.LENGTH_SHORT).show();
         }
     }
 
-    public void mapFilterToRequestURL() {
-        ;
-    }
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {

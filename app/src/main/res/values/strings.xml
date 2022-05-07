@@ -51,7 +51,7 @@
     <string name="your_profile">Your profile</string>
     <string name="account_settings">Account settings</string>
     <string name="general_settings">General settings</string>
-    <string name="dark_mode">Dark mode</string>
+
 
     <string name="gramm_cat">Grammatical category</string>
     <string name="asdf">ASDF</string>
@@ -73,4 +73,8 @@
     <string name="Collocations">Collocations</string>
     <string name="Grammatical_category">Grammatical category</string>
     <string name="Definition">Definition</string>
+    <string name="create_account">Create account</string>
+    <string name="dark_mode">Dark mode</string>
+    <string name="current_password">Current password</string>
+    <string name="log_out">Log out</string>
 </resources>

@@ -56,7 +56,7 @@
                     android:background="@drawable/ripple_effect_basic_btn"
                     android:elevation="0dp"
                     android:padding="10dp"
-                    android:text="Create account"
+                    android:text="@string/create_account"
                     android:textColor="@color/white"
                     android:textSize="20sp"
                     android:visibility="invisible"
@@ -139,9 +139,9 @@
                     android:layout_marginTop="30dp"
                     android:button="@color/transparent"
                     android:fontFamily="@font/fredoka_one"
-                    android:hint="Dark mode"
+                    android:hint="@string/dark_mode"
                     android:textColorHint="@color/commonText"
-                    android:textSize="30dp"
+                    android:textSize="30sp"
                     app:layout_constraintTop_toBottomOf="@+id/profile_progress_cv" />
 
                 <TextView
@@ -234,7 +234,7 @@
                     android:layout_marginHorizontal="40dp"
                     android:layout_marginTop="10dp"
                     android:layout_marginBottom="30dp"
-                    android:hint="Confirm password"
+                    android:hint="@string/current_password"
                     android:textColorHint="@color/textColorHint"
                     app:boxBackgroundColor="@color/colorEditText"
                     app:boxCornerRadiusBottomEnd="20dp"
@@ -249,7 +249,7 @@
                     app:passwordToggleEnabled="true">
 
                     <com.google.android.material.textfield.TextInputEditText
-                        android:id="@+id/profile_confirm_password_et"
+                        android:id="@+id/profile_current_password_et"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:inputType="textPassword"
@@ -291,7 +291,7 @@
                     android:background="@drawable/ripple_effect_light_btn"
                     android:elevation="0dp"
                     android:padding="10dp"
-                    android:text="Log out"
+                    android:text="@string/log_out"
                     android:textColor="@color/basicButtonBackground"
                     android:textSize="20sp"
                     android:textStyle="bold"

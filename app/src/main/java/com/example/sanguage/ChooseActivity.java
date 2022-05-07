@@ -51,7 +51,7 @@ public class ChooseActivity extends AppCompatActivity {
         choose_skip_btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(getApplicationContext(), AppWindowAccount.class);
+                Intent intent = new Intent(getApplicationContext(), AppWindowNoAccount.class);
                 startActivity(intent);
             }
         });

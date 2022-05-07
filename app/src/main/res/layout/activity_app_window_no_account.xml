@@ -2,8 +2,42 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/fragment_container"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/transparent"
     tools:context=".AppWindowNoAccount">
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:backgroundTint="@color/black" />
+
+    <com.lorentzos.flingswipe.SwipeFlingAdapterView
+        android:id="@+id/frame_flashcard"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/transparent"
+        app:rotation_degrees="0">
+
+    </com.lorentzos.flingswipe.SwipeFlingAdapterView>
+
+    <com.ismaeldivita.chipnavigation.ChipNavigationBar
+        android:id="@+id/bottom_nav_no"
+        android:layout_width="match_parent"
+        android:layout_height="75dp"
+        android:layout_alignParentBottom="true"
+        android:layout_gravity="bottom"
+        android:background="@color/basicButtonBackground"
+        android:elevation="3dp"
+        android:padding="8dp"
+        app:cnb_iconSize="30dp"
+        app:cnb_menuResource="@menu/bottom_menu_no_acc"
+        app:cnb_orientationMode="horizontal"
+        app:cnb_radius="20dp"
+        app:cnb_unselectedColor="@color/white"
+        app:layout_constraintBottom_toBottomOf="parent">
+
+    </com.ismaeldivita.chipnavigation.ChipNavigationBar>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

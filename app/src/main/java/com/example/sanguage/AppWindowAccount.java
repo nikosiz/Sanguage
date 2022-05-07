@@ -15,7 +15,7 @@ import com.ismaeldivita.chipnavigation.ChipNavigationBar;
 
 public class AppWindowAccount extends AppCompatActivity implements ChipNavigationBar.OnItemSelectedListener {
 
-    private ChipNavigationBar navBar;
+    private ChipNavigationBar nav_bar;
     private Fragment currentFragment;
     private Long userID;
 
@@ -30,12 +30,12 @@ public class AppWindowAccount extends AppCompatActivity implements ChipNavigatio
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
         setContentView(R.layout.activity_app_window);
 
-        navBar = findViewById(R.id.bottomNav);
+        nav_bar = findViewById(R.id.bottom_nav);
         SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(getApplicationContext());
         userID = preferences.getLong("userID", 9999999999999L);
         getSupportFragmentManager().beginTransaction().add(R.id.fragment_container, new LearnFragment(userID)).commit();
-        navBar.setItemSelected(R.id.bottom_nav_learn, true);
-        navBar.setOnItemSelectedListener(this);
+        nav_bar.setItemSelected(R.id.bottom_nav_learn, true);
+        nav_bar.setOnItemSelectedListener(this);
     }
 
     private void loadFragment() {

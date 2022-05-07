@@ -52,11 +52,6 @@ public class AppWindowAccount extends AppCompatActivity implements ChipNavigatio
         overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
     }
 
-    public void mapFilterToRequestURL() {
-        ;
-    }
-
-
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         MenuInflater inflater = getMenuInflater();

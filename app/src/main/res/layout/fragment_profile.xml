@@ -45,6 +45,27 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
 
+                <Button
+                    android:id="@+id/profile_sign_up_btn"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginHorizontal="40dp"
+                    android:layout_marginTop="20dp"
+                    android:layout_marginBottom="5dp"
+                    android:background="@drawable/ripple_effect_basic_btn"
+                    android:elevation="0dp"
+                    android:padding="10dp"
+                    android:text="@string/create_account"
+                    android:textColor="@color/white"
+                    android:textSize="20sp"
+                    android:visibility="invisible"
+                    app:backgroundTint="@null"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    tools:ignore="TextContrastCheck" />
+
                 <ImageView
                     android:id="@+id/profile_picture_iv"
                     android:layout_width="150dp"

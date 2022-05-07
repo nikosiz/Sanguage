@@ -1,6 +1,10 @@
 package com.example.sanguage;
 
 import android.content.Context;
+import android.content.Intent;
+import android.content.SharedPreferences;
+import android.graphics.Color;
+import android.graphics.PorterDuff;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
@@ -8,6 +12,7 @@ import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatDelegate;
 import androidx.fragment.app.Fragment;
 
+import android.preference.PreferenceManager;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -31,7 +36,10 @@ import org.json.JSONObject;
 public class ProfileFragment extends Fragment {
     private TextInputEditText profile_change_username_et;
     private TextInputEditText profile_change_password_et;
+    private TextInputEditText profile_current_password_et;
     private Button profile_save_btn;
+    private Button profile_log_out_btn;
+    private Button profile_sign_up_btn;
     private Context context;
     private Long userID;
     private RequestQueue requestQueue;
@@ -124,6 +132,27 @@ public class ProfileFragment extends Fragment {
         requestQueue.add(jsonObjectRequest);
     }
 
+    public void handleNoAccount() {
+        profile_log_out_btn.setEnabled(false);
+        profile_save_btn.setEnabled(false);
+        profile_change_password_et.setEnabled(false);
+        profile_change_username_et.setEnabled(false);
+        profile_current_password_et.setEnabled(false);
+        profile_log_out_btn.setAlpha(0.35f);
+        profile_save_btn.setAlpha(0.35f);
+        profile_change_password_et.setAlpha(0.35f);
+        profile_change_username_et.setAlpha(0.35f);
+        profile_current_password_et.setAlpha(0.35f);
+        profile_sign_up_btn.setVisibility(View.VISIBLE);
+        profile_sign_up_btn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(context, SignUpActivity.class);
+                startActivity(intent);
+            }
+        });
+    }
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -134,11 +163,20 @@ public class ProfileFragment extends Fragment {
         profile_change_username_et = view.findViewById(R.id.profile_change_username_et);
         profile_save_btn = view.findViewById(R.id.profile_save_btn);
         profile_dark_mode_cb = view.findViewById(R.id.profile_dark_mode_s);
+        profile_log_out_btn = view.findViewById(R.id.profile_log_out_btn);
+        profile_sign_up_btn = view.findViewById(R.id.profile_sign_up_btn);
+        profile_current_password_et = view.findViewById(R.id.profile_current_password_et);
+
+        SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(context);
+        boolean enabled = preferences.getBoolean("enabled", false);
+        if (!enabled) {
+            handleNoAccount();
+        }
 
         profile_dark_mode_cb.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
-                if(compoundButton.isChecked()) {
+                if (compoundButton.isChecked()) {
                     AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES);
                 } else {
                     AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO);
@@ -150,6 +188,16 @@ public class ProfileFragment extends Fragment {
             @Override
             public void onClick(View view) {
                 saveBtnHandler();
+            }
+        });
+        profile_log_out_btn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                SharedPreferences.Editor editor = preferences.edit();
+                editor.putBoolean("enabled", false);
+                editor.apply();
+                Intent intent = new Intent(context, ChooseActivity.class);
+                startActivity(intent);
             }
         });
         return view;

@@ -4,6 +4,7 @@ import android.content.Context;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatDelegate;
 import androidx.fragment.app.Fragment;
 
@@ -103,9 +104,9 @@ public class ProfileFragment extends Fragment {
         if (option.equals(RequestOption.PASSWORD) || option.equals(RequestOption.BOTH)) {
             changeDataURL = "https://sanguage.herokuapp.com/user/passChange?userID=" + userID + "&password=" + data;
         } else if (option.equals(RequestOption.USERNAME)) {
-            changeDataURL = "https://sanguage.herokuapp.com/user/usernameChange?userID=" + userID + "&username=" + data;
+            changeDataURL = "https://sanguage.herokuapp.com/user/usernameChange?userID=" + userID + "&newUsername=" + data;
         }
-        JsonObjectRequest jsonObjectRequest = new JsonObjectRequest(Request.Method.PUT, changeDataURL, null, new Response.Listener<JSONObject>() {
+        JsonObjectRequest jsonObjectRequest = new JsonObjectRequest(Request.Method.POST, changeDataURL, null, new Response.Listener<JSONObject>() {
             @Override
             public void onResponse(JSONObject response) {
                 Toast.makeText(context, response.toString(), Toast.LENGTH_SHORT).show();

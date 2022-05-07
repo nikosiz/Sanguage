@@ -11,6 +11,10 @@ public class WaitingForConfirmationActivity extends AppCompatActivity {
 
     private Button openEmailApp;
 
+    @Override
+    public void onBackPressed() {
+        moveTaskToBack(true);
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

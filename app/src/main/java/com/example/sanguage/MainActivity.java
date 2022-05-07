@@ -3,8 +3,10 @@ package com.example.sanguage;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.os.Handler;
+import android.preference.PreferenceManager;
 import android.view.WindowManager;
 
 public class MainActivity extends AppCompatActivity {
@@ -16,11 +18,17 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
         setContentView(R.layout.activity_main);
-
         new Handler().postDelayed(new Runnable() {
             @Override
             public void run() {
-                Intent intent = new Intent(MainActivity.this, ChooseActivity.class);
+                SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(MainActivity.this);
+                boolean enabled = preferences.getBoolean("enabled", false);
+                Intent intent;
+                if (enabled) {
+                    intent = new Intent(MainActivity.this, AppWindowAccount.class);
+                } else {
+                    intent = new Intent(MainActivity.this, ChooseActivity.class);
+                }
                 startActivity(intent);
             }
         }, SPLASH_SCREEN);

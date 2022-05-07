@@ -52,11 +52,9 @@ public class LearnFragment extends Fragment {
     private CheckBox filter_known_words_cb, filter_new_words_cb, filter_level_A1_cb, filter_level_A2_cb, filter_level_B1_cb, filter_level_B2_cb, filter_level_C1_cb, filter_level_C2_cb, filter_topic_cb;
     private Button filter_apply_btn, filter_cancel_btn;
     private ImageView filter_btn;
-    private DatabaseFragment databaseFragment;
 
-    public LearnFragment(Long userID, DatabaseFragment databaseFragment) {
+    public LearnFragment(Long userID) {
         this.userID = userID;
-        this.databaseFragment = databaseFragment;
     }
 
     public LearnFragment() {
@@ -110,15 +108,16 @@ public class LearnFragment extends Fragment {
         flingContainer.setOnItemClickListener(new SwipeFlingAdapterView.OnItemClickListener() {
             @Override
             public void onItemClicked(int itemPosition, Object dataObject) {
-                System.out.println("onitemclicked");
-
+                View selectedView = flingContainer.getSelectedView();
+                System.out.println(itemPosition);
+                flashcardAdapter.toggleTranslations(selectedView,(DictionaryPojo) dataObject);
             }
         });
     }
 
     public void addKnownVocabulary(String vocabularyTranslated) {
         String addVocabURL = "https://sanguage.herokuapp.com/user/addKnownVocab?userID=" + userID + "&vocabulary=" + vocabularyTranslated;
-        JsonObjectRequest jsonObjectRequest = new JsonObjectRequest(Request.Method.PUT, addVocabURL, null, new Response.Listener<JSONObject>() {
+        JsonObjectRequest jsonObjectRequest = new JsonObjectRequest(Request.Method.POST, addVocabURL, null, new Response.Listener<JSONObject>() {
             @Override
             public void onResponse(JSONObject response) {
                 ;
@@ -126,6 +125,7 @@ public class LearnFragment extends Fragment {
         }, new Response.ErrorListener() {
             @Override
             public void onErrorResponse(VolleyError error) {
+                System.out.println(error);
                 try {
                     String message = RequestErrorParser.parseError(error);
                     Log.e("addKnownVocabulary - onErrorResponse()", message);

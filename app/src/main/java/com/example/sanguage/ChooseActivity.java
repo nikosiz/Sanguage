@@ -17,18 +17,17 @@ public class ChooseActivity extends AppCompatActivity {
     private TextView choose_skip_btn;
 
     @Override
+    public void onBackPressed() {
+        moveTaskToBack(true);
+    }
+
+    @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
         setContentView(R.layout.choose_activity);
 
-        SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(ChooseActivity.this);
-        SharedPreferences.Editor editor = preferences.edit();
-        editor.putBoolean("enabled", false);
-        editor.apply();
-
         choose_sign_up_btn = findViewById(R.id.choose_sign_up_btn);
-
         choose_sign_up_btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -56,7 +55,5 @@ public class ChooseActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
-
-
     }
 }

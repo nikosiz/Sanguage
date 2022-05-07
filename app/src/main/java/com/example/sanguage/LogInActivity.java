@@ -40,13 +40,11 @@ public class LogInActivity extends AppCompatActivity {
     private RelativeLayout log_in_progress_bar;
     private TranslateAnimation shakeError;
 
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
         setContentView(R.layout.activity_log_in);
-
         log_in_btn = findViewById(R.id.log_in_log_in_btn);
         username_email_et = findViewById(R.id.log_in_username_or_email_et);
         password_et = findViewById(R.id.log_in_password_et);
@@ -54,7 +52,6 @@ public class LogInActivity extends AppCompatActivity {
         log_in_sign_up_btn = findViewById(R.id.log_in_sign_up_btn);
         log_in_progress_bar = findViewById(R.id.log_in_progress_bar);
         shakeError = Utils.shakeError(5, 15, 0, 0, 500, 7);
-
         handleLoginBtn();
 
         log_in_forgot_password_btn.setOnClickListener(new View.OnClickListener() {
@@ -72,7 +69,6 @@ public class LogInActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
-
     }
 
     public void handleLoginBtn() {
@@ -114,11 +110,10 @@ public class LogInActivity extends AppCompatActivity {
 
     }
 
-
     public void logInRequest(String username_email, String password) {
         String URL = "https://sanguage.herokuapp.com/login?usernameEmail=" + username_email + "&password=" + password;
         RequestQueue queue = Volley.newRequestQueue(LogInActivity.this);
-        JsonObjectRequest jsonObjectRequest = new JsonObjectRequest(Request.Method.GET, URL, null, new Response.Listener<JSONObject>() {
+        JsonObjectRequest jsonObjectRequest = new JsonObjectRequest(Request.Method.POST, URL, null, new Response.Listener<JSONObject>() {
             @Override
             public void onResponse(JSONObject response) {
                 Intent intent = new Intent(getApplicationContext(), AppWindowAccount.class);

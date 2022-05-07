@@ -176,7 +176,6 @@ public class SignUpActivity extends AppCompatActivity {
             JsonObjectRequest jsonObjectRequest = new JsonObjectRequest(Request.Method.POST, URL, signUpJSON, new Response.Listener<JSONObject>() {
                 @Override
                 public void onResponse(JSONObject response) {
-                    //  TODO confirm token window
                     Intent intent = new Intent(getApplicationContext(), WaitingForConfirmationActivity.class);
                     startActivity(intent);
                 }

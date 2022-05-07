@@ -18,8 +18,6 @@ public class AddNewFragment<adapter> extends Fragment {
 
     FragmentAddNewBinding binding;
 
-
-
     public AddNewFragment() {
     }
 

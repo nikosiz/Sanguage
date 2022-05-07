@@ -23,6 +23,7 @@ import com.android.volley.RequestQueue;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonArrayRequest;
+import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.Volley;
 import com.example.sanguage.utils.ListViewAdapter;
 import com.example.sanguage.utils.VolleyRequestCallback;
@@ -30,6 +31,7 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import com.google.android.material.textfield.TextInputEditText;
 
 import org.json.JSONArray;
+import org.json.JSONObject;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -119,13 +121,15 @@ public class DatabaseFragment extends Fragment {
         requestQueue = Volley.newRequestQueue(context);
         registerForContextMenu(database_lv);
         setDatabaseSearchListener();
-        userKnownVocabRequest(new VolleyRequestCallback() {
-            @Override
-            public void onSuccess() {
-                arrayAdapter = new ListViewAdapter(context, R.layout.database_listview_row, userKnownVocab);
-                database_lv.setAdapter(arrayAdapter);
-            }
-        });
+        if (userKnownVocab.isEmpty()) {
+            userKnownVocabRequest(new VolleyRequestCallback() {
+                @Override
+                public void onSuccess() {
+                    arrayAdapter = new ListViewAdapter(context, R.layout.database_listview_row, userKnownVocab);
+                    database_lv.setAdapter(arrayAdapter);
+                }
+            });
+        }
         return view;
     }
 
@@ -140,7 +144,19 @@ public class DatabaseFragment extends Fragment {
     }
 
     public void deleteUserKnownVocabRequest(String vocabulary) {
-        //delete known vocab in db
+        String URL = "https://sanguage.herokuapp.com/user/deleteKnownVocab?userID=" + userID + "&vocabulary=" + vocabulary;
+        JsonObjectRequest jsonObjectRequest = new JsonObjectRequest(Request.Method.DELETE, URL, null, new Response.Listener<JSONObject>() {
+            @Override
+            public void onResponse(JSONObject response) {
+                ;
+            }
+        }, new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError error) {
+                Log.e("deleteUserKnownVocabRequest - onErrorResponse()", String.valueOf(error));
+            }
+        });
+        requestQueue.add(jsonObjectRequest);
     }
 
     @Override

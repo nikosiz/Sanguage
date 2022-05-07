@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
+import android.transition.Fade;
 import android.util.Log;
 import android.view.View;
 import android.view.WindowManager;
@@ -45,6 +46,15 @@ public class LogInActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
         setContentView(R.layout.activity_log_in);
+
+        /*Fade fade = new Fade();
+        View decor  = getWindow().getDecorView();
+        fade.excludeTarget(decor.findViewById(R.id.log_in), true);
+        fade.excludeTarget(decor.findViewById(R.id.choose), true);
+
+        getWindow().setEnterTransition(fade);
+        getWindow().setExitTransition(fade);*/
+
         log_in_btn = findViewById(R.id.log_in_log_in_btn);
         username_email_et = findViewById(R.id.log_in_username_or_email_et);
         password_et = findViewById(R.id.log_in_password_et);
@@ -155,5 +165,11 @@ public class LogInActivity extends AppCompatActivity {
             }
         });
         queue.add(jsonObjectRequest);
+    }
+
+    @Override
+    public void finish() {
+        super.finish();
+        overridePendingTransition(R.anim.slide_in_left, R.anim.slide_out_right);
     }
 }

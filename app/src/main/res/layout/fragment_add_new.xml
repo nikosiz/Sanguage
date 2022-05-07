@@ -21,6 +21,7 @@
         android:text="@string/add_new_vocabulary"
         android:textColor="@color/white"
         android:textSize="30sp"
+        android:transitionName="add_new_vocab_title"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
@@ -158,41 +159,6 @@
 
     </com.google.android.material.textfield.TextInputLayout>
 
-    <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/add_new_topic_tf"
-        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginHorizontal="40dp"
-        android:layout_marginTop="15dp"
-        android:hint="Topic"
-        android:textColorHint="@color/textColorHint"
-        app:boxBackgroundColor="@color/colorEditText"
-        app:boxCornerRadiusBottomEnd="20dp"
-
-        app:boxCornerRadiusBottomStart="20dp"
-        app:boxCornerRadiusTopEnd="20dp"
-        app:boxCornerRadiusTopStart="20dp"
-        app:boxStrokeColor="@color/hintTextAndStrokeColor"
-        app:endIconDrawable="@drawable/ic_baseline_search_24"
-
-        app:hintTextColor="@color/hintTextAndStrokeColor"
-        app:layout_constraintEnd_toEndOf="@id/add_new_collocations_tf"
-        app:layout_constraintStart_toStartOf="@id/add_new_collocations_tf"
-        app:layout_constraintTop_toBottomOf="@id/add_new_collocations_tf"
-        app:startIconDrawable="@drawable/ic_baseline_search_24">
-
-        <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/sign_up_password_et"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:textSize="20sp"
-            tools:ignore="TextContrastCheck">
-
-        </com.google.android.material.textfield.TextInputEditText>
-
-    </com.google.android.material.textfield.TextInputLayout>
-
     <Button
         android:id="@+id/add_new_next_btn"
         style="@style/Widget.MaterialComponents.Button.TextButton"
@@ -212,9 +178,9 @@
         android:theme="@style/FormButton"
         app:backgroundTint="@null"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="@id/add_new_topic_tf"
-        app:layout_constraintStart_toStartOf="@id/add_new_topic_tf"
-        app:layout_constraintTop_toBottomOf="@id/add_new_topic_tf"
+        app:layout_constraintEnd_toEndOf="@id/add_new_collocations_tf"
+        app:layout_constraintStart_toStartOf="@id/add_new_collocations_tf"
+        app:layout_constraintTop_toBottomOf="@id/add_new_collocations_tf"
         tools:ignore="TextContrastCheck" />
 
 

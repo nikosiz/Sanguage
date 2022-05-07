@@ -10,6 +10,7 @@ import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentTransaction;
 
 import com.ismaeldivita.chipnavigation.ChipNavigationBar;
 
@@ -39,13 +40,16 @@ public class AppWindowAccount extends AppCompatActivity implements ChipNavigatio
     }
 
     private void loadFragment() {
-
         if (currentFragment != null) {
+            FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
             getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, currentFragment).commit();
+            transaction.setCustomAnimations(R.anim.slide_in_right, R.anim.slide_out_left);
+
 
         } else {
             Toast.makeText(this, "Fragment error", Toast.LENGTH_SHORT).show();
         }
+        overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
     }
 
     @Override

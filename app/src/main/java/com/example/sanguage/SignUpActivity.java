@@ -113,6 +113,7 @@ public class SignUpActivity extends AppCompatActivity {
                         public void onSuccess() {
                             Intent intent = new Intent(getApplicationContext(), WaitingForConfirmationActivity.class);
                             startActivity(intent);
+                            finish();
                         }
                     });
                 }

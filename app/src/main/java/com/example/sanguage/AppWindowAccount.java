@@ -22,7 +22,7 @@ public class AppWindowAccount extends AppCompatActivity implements ChipNavigatio
 
     @Override
     public void onBackPressed() {
-        moveTaskToBack(true);
+        ;
     }
 
     @Override

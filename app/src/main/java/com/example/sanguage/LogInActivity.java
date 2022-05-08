@@ -145,6 +145,7 @@ public class LogInActivity extends AppCompatActivity {
                     jsonException.printStackTrace();
                 }
                 startActivity(intent);
+                finish();
             }
         }, new Response.ErrorListener() {
             @Override

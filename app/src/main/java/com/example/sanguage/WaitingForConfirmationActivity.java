@@ -30,10 +30,7 @@ public class WaitingForConfirmationActivity extends AppCompatActivity {
     private Long userID;
     private boolean enabled;
 
-    @Override
-    public void onBackPressed() {
-        moveTaskToBack(true);
-    }
+
 
     public void getUserEnabledRequest() {
         String URL = "https://sanguage.herokuapp.com/user/getUserEnabled?userID=" + userID;
@@ -42,7 +39,6 @@ public class WaitingForConfirmationActivity extends AppCompatActivity {
             public void onResponse(JSONObject response) {
                 try {
                     String message = response.getString("messages");
-                    System.out.println(message);
                     handleResponse(message);
                 } catch (JSONException jsonException) {
                     jsonException.printStackTrace();
@@ -83,6 +79,7 @@ public class WaitingForConfirmationActivity extends AppCompatActivity {
                 Intent intent = new Intent(Intent.ACTION_MAIN);
                 intent.addCategory(Intent.CATEGORY_APP_EMAIL);
                 startActivity(intent);
+                finish();
             }
         });
     }

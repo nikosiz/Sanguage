@@ -18,10 +18,6 @@ public class AppWindowNoAccount extends AppCompatActivity implements ChipNavigat
     private ChipNavigationBar nav_bar;
     private Fragment currentFragment;
 
-    @Override
-    public void onBackPressed() {
-        moveTaskToBack(true);
-    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

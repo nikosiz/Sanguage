@@ -30,6 +30,7 @@ public class MainActivity extends AppCompatActivity {
                     intent = new Intent(MainActivity.this, ChooseActivity.class);
                 }
                 startActivity(intent);
+                finish();
                 overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
             }
         }, SPLASH_SCREEN);

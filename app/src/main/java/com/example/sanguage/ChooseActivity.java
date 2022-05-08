@@ -21,10 +21,6 @@ public class ChooseActivity extends AppCompatActivity {
     private TextView choose_skip_btn;
     private ImageView mascot;
 
-    @Override
-    public void onBackPressed() {
-        moveTaskToBack(true);
-    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -69,6 +65,7 @@ public class ChooseActivity extends AppCompatActivity {
             public void onClick(View view) {
                 Intent intent = new Intent(getApplicationContext(), AppWindowNoAccount.class);
                 startActivity(intent);
+                finish();
                 overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
             }
         });

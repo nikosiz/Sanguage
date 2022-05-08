@@ -54,16 +54,16 @@
             android:layout_width="200dp"
             android:layout_height="200dp"
             android:layout_marginHorizontal="20dp"
-            android:layout_marginVertical="40dp"
+            android:layout_marginVertical="60dp"
             android:elevation="10dp"
             android:src="@drawable/ic_mascot"
             android:transitionName="mascot_transition"
+            app:layout_constraintBottom_toTopOf="@id/choose_sign_up_btn"
             app:layout_constraintEnd_toEndOf="@id/choose_app_logo"
             app:layout_constraintStart_toStartOf="@id/choose_app_logo"
             app:layout_constraintTop_toBottomOf="@id/choose_app_slogan">
 
         </ImageView>
-
 
         <Button
             android:id="@+id/choose_sign_up_btn"
@@ -71,7 +71,7 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:layout_marginHorizontal="40dp"
-            android:layout_marginTop="40dp"
+            android:layout_marginTop="0dp"
             android:background="@drawable/ripple_effect_basic_btn"
             android:elevation="0dp"
             android:padding="10dp"
@@ -80,6 +80,7 @@
             android:textSize="20sp"
             android:textStyle="bold"
             app:backgroundTint="@null"
+            app:layout_constraintBottom_toTopOf="@id/choose_log_in_btn"
             app:layout_constraintEnd_toEndOf="@id/choose_app_logo"
             app:layout_constraintStart_toStartOf="@id/choose_app_logo"
             app:layout_constraintTop_toBottomOf="@id/choose_app_mascot"

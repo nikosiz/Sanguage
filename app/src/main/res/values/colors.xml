@@ -8,10 +8,10 @@
     <color name="colorSecondary">#00b5d8</color>
     <color name="colorSecondaryVariant">#6CC7D9</color>
 
-    <color name="colorPrimaryDark">#426773</color>
-    <color name="colorPrimaryDarkVariant">#115B73</color>
-    <color name="colorSecondaryDark">#005C6E</color>
-    <color name="colorSecondaryDarkVariant">#37656E</color>
+    <color name="colorPrimaryDark">#005287</color>
+    <color name="colorPrimaryDarkVariant">#0070a5</color>
+    <color name="colorSecondaryDark">#005a66</color>
+    <color name="colorSecondaryDarkVariant">#007c91</color>
 
     <color name="greyBlue">#3c5f69</color>
 
@@ -27,6 +27,7 @@
     <color name="app_logo">@color/white</color>
     <color name="app_slogan">@color/white</color>
     <color name="commonText">@color/greyBlue</color>
+    <color name="flashcardText">@color/black</color>
     <color name="colorEditText">@color/white</color>
     <color name="textColorHint">#666666</color>
     <color name="hintTextAndStrokeColor">@color/colorPrimaryDarkVariant</color>

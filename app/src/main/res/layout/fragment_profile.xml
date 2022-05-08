@@ -60,7 +60,7 @@
                     app:layout_constraintTop_toTopOf="parent" />
 
                 <Switch
-                    android:id="@+id/profile_dark_mode_s"
+                    android:id="@+id/create_account_dark_mode_s"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginHorizontal="40dp"
@@ -82,7 +82,7 @@
                     android:text="@string/account_settings"
                     android:textColor="@color/commonText"
                     android:textSize="30sp"
-                    app:layout_constraintTop_toBottomOf="@id/profile_dark_mode_s">
+                    app:layout_constraintTop_toBottomOf="@id/create_account_dark_mode_s">
 
                 </TextView>
 

@@ -3,12 +3,9 @@ package com.example.sanguage;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
-import android.graphics.Color;
-import android.graphics.PorterDuff;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatDelegate;
 import androidx.fragment.app.Fragment;
 
@@ -44,7 +41,7 @@ public class ProfileFragment extends Fragment {
     private Long userID;
     private RequestQueue requestQueue;
 
-    private Switch profile_dark_mode_cb;
+    private Switch profile_dark_mode_s;
 
     public enum RequestOption {USERNAME, PASSWORD, BOTH}
 
@@ -162,7 +159,7 @@ public class ProfileFragment extends Fragment {
         profile_change_password_et = view.findViewById(R.id.profile_change_password_et);
         profile_change_username_et = view.findViewById(R.id.profile_change_username_et);
         profile_save_btn = view.findViewById(R.id.profile_save_btn);
-        profile_dark_mode_cb = view.findViewById(R.id.profile_dark_mode_s);
+        profile_dark_mode_s = view.findViewById(R.id.create_account_dark_mode_s);
         profile_log_out_btn = view.findViewById(R.id.profile_log_out_btn);
         //profile_sign_up_btn = view.findViewById(R.id.profile_sign_up_btn);
         //profile_current_password_et = view.findViewById(R.id.profile_current_password_et);
@@ -173,7 +170,7 @@ public class ProfileFragment extends Fragment {
             handleNoAccount();
         }
 
-        profile_dark_mode_cb.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+        profile_dark_mode_s.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
                 if (compoundButton.isChecked()) {

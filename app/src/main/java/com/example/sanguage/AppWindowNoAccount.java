@@ -17,7 +17,6 @@ public class AppWindowNoAccount extends AppCompatActivity implements ChipNavigat
 
     private ChipNavigationBar nav_bar;
     private Fragment currentFragment;
-    private Long userID;
 
     @Override
     public void onBackPressed() {
@@ -54,7 +53,7 @@ public class AppWindowNoAccount extends AppCompatActivity implements ChipNavigat
 
     public void onItemSelected(int i) {
         if (i == R.id.bottom_nav_learn) {
-            currentFragment = new LearnFragment(userID);
+            currentFragment = new LearnFragment();
         } else if (i == R.id.bottom_nav_profile) {
             currentFragment = new CreateAccountFragment();
         }

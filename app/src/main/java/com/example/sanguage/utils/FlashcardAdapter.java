@@ -35,14 +35,12 @@ public class FlashcardAdapter extends ArrayAdapter<DictionaryPojo> {
         TextView vocabulary_tv = (TextView) view.findViewById(R.id.search_vocabulary_tv);
         TextView collocations_tv = (TextView) view.findViewById(R.id.search_collocations_tv);
         JustifiedTextView definition_jtv = (JustifiedTextView) view.findViewById(R.id.search_definition_jtv);
-        TextView topic_tv = (TextView) view.findViewById(R.id.search_topic_tv);
         TextView gramCategory_tv = (TextView) view.findViewById(R.id.search_grammaticalCategory_tv);
         if (translated) {
             translated=false;
             vocabulary_tv.setText(dictionaryPojo.getVocabulary());
             collocations_tv.setText(dictionaryPojo.getCollocations());
             definition_jtv.setText("");
-            topic_tv.setText(dictionaryPojo.getTopic());
             gramCategory_tv.setText(dictionaryPojo.getGrammaticalCategory());
         } else {
             translated = true;
@@ -50,7 +48,6 @@ public class FlashcardAdapter extends ArrayAdapter<DictionaryPojo> {
             gramCategory_tv.setText(dictionaryPojo.getGrammaticalCategoryTranslated());
             definition_jtv.setText(dictionaryPojo.getDefinitionTranslated());
             collocations_tv.setText(dictionaryPojo.getCollocationsTranslated());
-            topic_tv.setText(dictionaryPojo.getTopicTranslated());
         }
     }
 
@@ -67,15 +64,13 @@ public class FlashcardAdapter extends ArrayAdapter<DictionaryPojo> {
             TextView vocabulary_tv = (TextView) convertView.findViewById(R.id.search_vocabulary_tv);
             TextView collocations_tv = (TextView) convertView.findViewById(R.id.search_collocations_tv);
             JustifiedTextView definition_jtv = (JustifiedTextView) convertView.findViewById(R.id.search_definition_jtv);
-            TextView topic_tv = (TextView) convertView.findViewById(R.id.search_topic_tv);
             TextView gramCategory_tv = (TextView) convertView.findViewById(R.id.search_grammaticalCategory_tv);
             DictionaryPojo dictionaryPojo = dictionary.get(position);
             vocabulary_tv.setText(dictionaryPojo.getVocabularyTranslated());
             gramCategory_tv.setText(dictionaryPojo.getGrammaticalCategoryTranslated());
             definition_jtv.setText(dictionaryPojo.getDefinitionTranslated());
             collocations_tv.setText(dictionaryPojo.getCollocationsTranslated());
-            topic_tv.setText(dictionaryPojo.getTopicTranslated());
-            convertView.setTag(new Flashcard(mainLayout, cardView, flashcardLayout, vocabulary_tv, gramCategory_tv, definition_jtv, collocations_tv, topic_tv));
+            convertView.setTag(new Flashcard(mainLayout, cardView, flashcardLayout, vocabulary_tv, gramCategory_tv, definition_jtv, collocations_tv));
             return convertView;
         } else {
             return convertView;
@@ -90,10 +85,9 @@ public class FlashcardAdapter extends ArrayAdapter<DictionaryPojo> {
         TextView flashcardGramCategory;
         JustifiedTextView flashcardDefinition;
         TextView flashcardCollocations;
-        TextView flashcardTopic;
 
 
-        public Flashcard(ConstraintLayout mainLayout, CardView cardView, ConstraintLayout flashcardLayout, TextView flashcardVocabulary, TextView flashcardGramCategory, JustifiedTextView flashcardDefinition, TextView flashcardCollocations, TextView flashcardTopic) {
+        public Flashcard(ConstraintLayout mainLayout, CardView cardView, ConstraintLayout flashcardLayout, TextView flashcardVocabulary, TextView flashcardGramCategory, JustifiedTextView flashcardDefinition, TextView flashcardCollocations) {
             this.mainLayout = mainLayout;
             this.cardView = cardView;
             this.flashcardLayout = flashcardLayout;
@@ -101,7 +95,6 @@ public class FlashcardAdapter extends ArrayAdapter<DictionaryPojo> {
             this.flashcardGramCategory = flashcardGramCategory;
             this.flashcardDefinition = flashcardDefinition;
             this.flashcardCollocations = flashcardCollocations;
-            this.flashcardTopic = flashcardTopic;
         }
 
 

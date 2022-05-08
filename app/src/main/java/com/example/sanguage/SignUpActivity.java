@@ -2,7 +2,9 @@ package com.example.sanguage;
 
 import android.annotation.SuppressLint;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.preference.PreferenceManager;
 import android.util.Log;
 import android.view.View;
 import android.view.WindowManager;
@@ -23,6 +25,7 @@ import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.Volley;
 import com.example.sanguage.utils.RequestErrorParser;
 import com.example.sanguage.utils.Utils;
+import com.example.sanguage.utils.VolleyRequestCallback;
 import com.google.android.material.radiobutton.MaterialRadioButton;
 import com.google.android.material.textfield.TextInputEditText;
 
@@ -105,7 +108,13 @@ public class SignUpActivity extends AppCompatActivity {
                 if (validateAllData) {
                     disableAllActions();
                     showProgressBar();
-                    signUpRequest(username, email, password, mapLanguageIndexToName(languageIndex));
+                    signUpRequest(username, email, password, mapLanguageIndexToName(languageIndex), new VolleyRequestCallback() {
+                        @Override
+                        public void onSuccess() {
+                            Intent intent = new Intent(getApplicationContext(), WaitingForConfirmationActivity.class);
+                            startActivity(intent);
+                        }
+                    });
                 }
             }
         });
@@ -145,7 +154,7 @@ public class SignUpActivity extends AppCompatActivity {
         sign_up_sign_in_btn.setEnabled(false);
         sign_up_sign_up_btn.setEnabled(false);
         for (int button_id : languages_buttons_ids) {
-            findViewById(button_id).setEnabled(true);
+            findViewById(button_id).setEnabled(false);
         }
     }
 
@@ -156,7 +165,7 @@ public class SignUpActivity extends AppCompatActivity {
         sign_up_sign_in_btn.setEnabled(true);
         sign_up_sign_up_btn.setEnabled(true);
         for (int button_id : languages_buttons_ids) {
-            findViewById(button_id).setEnabled(false);
+            findViewById(button_id).setEnabled(true);
         }
     }
 
@@ -168,7 +177,7 @@ public class SignUpActivity extends AppCompatActivity {
         sign_up_progress_bar.setVisibility(View.GONE);
     }
 
-    public void signUpRequest(String username, String email, String password, String secondLanguage) {
+    public void signUpRequest(String username, String email, String password, String secondLanguage, final VolleyRequestCallback callback) {
         String URL = "https://sanguage.herokuapp.com/registration";
         try {
             JSONObject signUpJSON = createSignUpJSON(username, email, password, secondLanguage);
@@ -176,12 +185,27 @@ public class SignUpActivity extends AppCompatActivity {
             JsonObjectRequest jsonObjectRequest = new JsonObjectRequest(Request.Method.POST, URL, signUpJSON, new Response.Listener<JSONObject>() {
                 @Override
                 public void onResponse(JSONObject response) {
-                    Intent intent = new Intent(getApplicationContext(), WaitingForConfirmationActivity.class);
-                    startActivity(intent);
+                    try {
+                        String userID = response.getString("messages");
+                        System.out.println(userID);
+                        SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(SignUpActivity.this);
+                        SharedPreferences.Editor editor = preferences.edit();
+                        editor.putLong("userID", Long.valueOf(userID));
+                        editor.apply();
+                        callback.onSuccess();
+                    } catch (JSONException jsonException) {
+                        jsonException.printStackTrace();
+                    }
                 }
             }, new Response.ErrorListener() {
                 @Override
                 public void onErrorResponse(VolleyError error) {
+                    try {
+                        String message = RequestErrorParser.parseError(error);
+                        Toast.makeText(getApplicationContext(), message, Toast.LENGTH_SHORT).show();
+                    } catch (JSONException jsonException) {
+                        jsonException.printStackTrace();
+                    }
                     Log.e("knownVocabularyRequest - onErrorResponse()", String.valueOf(error));
                     hideProgressBar();
                     enableAllActions();

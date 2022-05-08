@@ -100,11 +100,6 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/search_definition_jtv" />
 
-            <TextView
-                android:id="@+id/search_topic_tv"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                app:layout_constraintTop_toBottomOf="@id/search_collocations_tv" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 

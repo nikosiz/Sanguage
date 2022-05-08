@@ -76,7 +76,7 @@
         tools:ignore="TextContrastCheck" />
 
     <RelativeLayout
-        android:id="@+id/log_in_progress_bar"
+        android:id="@+id/waiting_for_confirmation_progress_bar"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:background="@drawable/white_circle"

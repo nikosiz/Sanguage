@@ -41,6 +41,7 @@ public class LogInActivity extends AppCompatActivity {
     private RelativeLayout log_in_progress_bar;
     private TranslateAnimation shakeError;
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

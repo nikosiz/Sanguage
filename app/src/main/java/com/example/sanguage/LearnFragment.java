@@ -85,8 +85,10 @@ public class LearnFragment extends Fragment {
 
             @Override
             public void onLeftCardExit(Object o) {
-                DictionaryPojo dictionaryPojo = (DictionaryPojo) o;
-                addKnownVocabulary(dictionaryPojo.getVocabularyTranslated());
+                if (userID != null) {
+                    DictionaryPojo dictionaryPojo = (DictionaryPojo) o;
+                    addKnownVocabulary(dictionaryPojo.getVocabularyTranslated());
+                }
             }
 
             @Override
@@ -109,8 +111,7 @@ public class LearnFragment extends Fragment {
             @Override
             public void onItemClicked(int itemPosition, Object dataObject) {
                 View selectedView = flingContainer.getSelectedView();
-                System.out.println(itemPosition);
-                flashcardAdapter.toggleTranslations(selectedView,(DictionaryPojo) dataObject);
+                flashcardAdapter.toggleTranslations(selectedView, (DictionaryPojo) dataObject);
             }
         });
     }
@@ -138,7 +139,6 @@ public class LearnFragment extends Fragment {
     }
 
     public void dictionaryRequest() {
-        System.out.println("dictionary request");
         JsonArrayRequest jsonArrayRequest = new JsonArrayRequest(Request.Method.GET, currentURL, null, new Response.Listener<JSONArray>() {
             @Override
             public void onResponse(JSONArray response) {

@@ -77,6 +77,7 @@ public class WaitingForConfirmationActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(Intent.ACTION_MAIN);
+                intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
                 intent.addCategory(Intent.CATEGORY_APP_EMAIL);
                 startActivity(intent);
                 finish();

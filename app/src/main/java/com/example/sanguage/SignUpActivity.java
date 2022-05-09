@@ -242,6 +242,7 @@ public class SignUpActivity extends AppCompatActivity {
         if (languageIndex == -1) {
             sign_up_language_tv.startAnimation(shakeError);
             sign_up_language_rg.startAnimation(shakeError);
+            return false;
         }
         return !username.isEmpty() && Utils.validateEmail(email) && Utils.validatePassword(password);
     }

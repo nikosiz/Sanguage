@@ -76,6 +76,7 @@ public class SignUpActivity extends AppCompatActivity {
             public void onClick(View view) {
                 Intent intent = new Intent(getApplicationContext(), LogInActivity.class);
                 startActivity(intent);
+                overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
             }
         });
     }
@@ -113,6 +114,7 @@ public class SignUpActivity extends AppCompatActivity {
                         public void onSuccess() {
                             Intent intent = new Intent(getApplicationContext(), WaitingForConfirmationActivity.class);
                             startActivity(intent);
+                            overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
                             finish();
                         }
                     });

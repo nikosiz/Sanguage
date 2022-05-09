@@ -36,6 +36,7 @@ import org.json.JSONObject;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.HashSet;
 
 public class LearnFragment extends Fragment {
 
@@ -52,6 +53,7 @@ public class LearnFragment extends Fragment {
     private CheckBox filter_known_words_cb, filter_new_words_cb, filter_level_A1_cb, filter_level_A2_cb, filter_level_B1_cb, filter_level_B2_cb, filter_level_C1_cb, filter_level_C2_cb, filter_topic_cb;
     private Button filter_apply_btn, filter_cancel_btn;
     private ImageView filter_btn;
+    private HashSet<CheckBox> checkBoxHashSet;
 
     public LearnFragment(Long userID) {
         this.userID = userID;
@@ -174,7 +176,7 @@ public class LearnFragment extends Fragment {
         View view = inflater.inflate(R.layout.fragment_learn, container, false);
 
         filter_btn = (ImageView) view.findViewById(R.id.learn_filter_btn);
-
+        dialogBuilder = new AlertDialog.Builder(getContext());
         filter_btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -184,7 +186,7 @@ public class LearnFragment extends Fragment {
 
         requestQueue = Volley.newRequestQueue(context);
         flingContainer = (SwipeFlingAdapterView) view.findViewById(R.id.frame_flashcard);
-        currentURL = "https://sanguage.herokuapp.com/dictionary/byLanguage?language=English";
+        currentURL = "https://sanguage.herokuapp.com/dictionary/mixedByLanguage?language=English";
         flashcardAdapter = new FlashcardAdapter(context, R.layout.flashcard, dictionaryListSimple);
         flingContainer.setAdapter(flashcardAdapter);
         setFlingContainer();
@@ -192,13 +194,11 @@ public class LearnFragment extends Fragment {
     }
 
     public void filterDialog() {
-        dialogBuilder = new AlertDialog.Builder(getContext());
         final View filterPopupView = getLayoutInflater().inflate(R.layout.popup, null);
 
         filter_known_words_tv = (TextView) filterPopupView.findViewById(R.id.filter_known_words_tv);
         filter_new_words_tv = (TextView) filterPopupView.findViewById(R.id.filter_new_words_tv);
         filter_level_tv = (TextView) filterPopupView.findViewById(R.id.filter_level_tv);
-        filter_topic_tv = (TextView) filterPopupView.findViewById(R.id.filter_topic_tv);
 
         filter_known_words_cb = (CheckBox) filterPopupView.findViewById(R.id.filter_known_words_cb);
         filter_new_words_cb = (CheckBox) filterPopupView.findViewById(R.id.filter_new_words_cb);
@@ -208,7 +208,13 @@ public class LearnFragment extends Fragment {
         filter_level_B2_cb = (CheckBox) filterPopupView.findViewById(R.id.filter_level_B2_cb);
         filter_level_C1_cb = (CheckBox) filterPopupView.findViewById(R.id.filter_level_C1_cb);
         filter_level_C2_cb = (CheckBox) filterPopupView.findViewById(R.id.filter_level_C2_cb);
-        filter_topic_cb = (CheckBox) filterPopupView.findViewById(R.id.filter_topic_cb);
+        checkBoxHashSet = new HashSet<>();
+        checkBoxHashSet.add(filter_level_A1_cb);
+        checkBoxHashSet.add(filter_level_A2_cb);
+        checkBoxHashSet.add(filter_level_B1_cb);
+        checkBoxHashSet.add(filter_level_B2_cb);
+        checkBoxHashSet.add(filter_level_C1_cb);
+        checkBoxHashSet.add(filter_level_C2_cb);
 
         filter_apply_btn = (Button) filterPopupView.findViewById(R.id.filter_apply_btn);
         filter_cancel_btn = (Button) filterPopupView.findViewById(R.id.filter_cancel_btn);
@@ -220,16 +226,93 @@ public class LearnFragment extends Fragment {
         filter_apply_btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                //apply filter action
+                mapFilterToURL();
+                flashcardAdapter.clear();
+                dialog.dismiss();
             }
         });
 
         filter_cancel_btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                //apply cancel action
                 dialog.dismiss();
             }
         });
+    }
+
+    public void mapFilterToURL() {
+        currentURL = "";
+        boolean knownWordsChecked = filter_known_words_cb.isChecked();
+        boolean newWordsChecked = filter_new_words_cb.isChecked();
+        FilterState state = null;
+        if ((knownWordsChecked && newWordsChecked) || (!knownWordsChecked && !newWordsChecked)) {
+            state = FilterState.MIXED;
+        } else if (knownWordsChecked) {
+            state = FilterState.KNOWN;
+        } else if (newWordsChecked) {
+            state = FilterState.NEW;
+        }
+        ArrayList<String> checkedLevels = new ArrayList<>();
+        for (CheckBox checkBox : checkBoxHashSet) {
+            if (checkBox.isChecked()) {
+                checkedLevels.add(checkBox.getText().toString());
+            }
+        }
+        if (state.equals(FilterState.KNOWN) && checkedLevels.isEmpty()) {
+            currentURL = "https://sanguage.herokuapp.com/dictionary/knownByLanguage?language=English&userID=" + userID;
+        } else if (state.equals(FilterState.MIXED) && checkedLevels.isEmpty()) {
+            currentURL = "https://sanguage.herokuapp.com/dictionary/mixedByLanguage?language=English";
+        } else if (state.equals(FilterState.NEW) && checkedLevels.isEmpty()) {
+            currentURL = "https://sanguage.herokuapp.com/dictionary/newByLanguage?language=English&userID=" + userID;
+        } else {
+            mapStateLevelsToURL(checkedLevels, state);
+        }
+
+    }
+
+    public void mapStateLevelsToURL(ArrayList<String> checkedLevels, FilterState state) {
+        int hashSetSize = checkedLevels.size();
+        if (state.equals(FilterState.KNOWN)) {
+            currentURL = "https://sanguage.herokuapp.com/dictionary/knownByLanguage";
+        } else if (state.equals(FilterState.MIXED)) {
+            currentURL = "https://sanguage.herokuapp.com/dictionary/mixedByLanguage";
+        } else {
+            currentURL = "https://sanguage.herokuapp.com/dictionary/newByLanguage";
+        }
+        if (hashSetSize == 1) {
+            String level = checkedLevels.get(0);
+            currentURL = currentURL + "Level?language=English&level=" + level;
+        } else if (hashSetSize == 2) {
+            String level1 = checkedLevels.get(0);
+            String level2 = checkedLevels.get(1);
+            currentURL = currentURL + "TwoLevel?language=English&level1=" + level1 + "&level2=" + level2;
+        } else if (hashSetSize == 3) {
+            String level1 = checkedLevels.get(0);
+            String level2 = checkedLevels.get(1);
+            String level3 = checkedLevels.get(2);
+            currentURL = currentURL + "ThreeLevel?language=English&level1=" + level1 + "&level2=" + level2 + "&level3=" + level3;
+        } else if (hashSetSize == 4) {
+            String level1 = checkedLevels.get(0);
+            String level2 = checkedLevels.get(1);
+            String level3 = checkedLevels.get(2);
+            String level4 = checkedLevels.get(3);
+            currentURL = currentURL + "FourLevel?language=English&level1=" + level1 + "&level2=" + level2 + "%level3=" + level3 + "&level4=" + level4;
+        } else if (hashSetSize == 5) {
+            String level1 = checkedLevels.get(0);
+            String level2 = checkedLevels.get(1);
+            String level3 = checkedLevels.get(2);
+            String level4 = checkedLevels.get(3);
+            String level5 = checkedLevels.get(4);
+            currentURL = currentURL + "FiveLevel?language=English&level1=" + level1 + "&level2=" + level2 + "%level3=" + level3 + "&level4=" + level4 + "&level5=" + level5;
+        } else if (hashSetSize == 6) {
+            currentURL = currentURL + "?language=English&";
+        }
+        if (state.equals(FilterState.KNOWN) || state.equals(FilterState.NEW)) {
+            currentURL = currentURL + "&userID=" + userID;
+        }
+    }
+
+    enum FilterState {
+        KNOWN, NEW, MIXED
     }
 }

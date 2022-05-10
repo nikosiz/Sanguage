@@ -84,6 +84,7 @@ public class SearchFragment extends Fragment {
     }
 
     public void setSearchResults(JSONArray response) {
+        searchResults.clear();
         ObjectMapper mapper = new ObjectMapper();
         try {
             String[] dictionary = mapper.readValue(response.toString(), String[].class);
@@ -102,13 +103,14 @@ public class SearchFragment extends Fragment {
 
             @Override
             public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
-                searchResults.clear();
-                searchVocabStartingWithRequest(new VolleyRequestCallback() {
-                    @Override
-                    public void onSuccess() {
-                        ;
-                    }
-                }, charSequence.toString());
+                if (charSequence.length() != 0) {
+                    searchVocabStartingWithRequest(new VolleyRequestCallback() {
+                        @Override
+                        public void onSuccess() {
+                            arrayAdapter.notifyDataSetChanged();
+                        }
+                    }, charSequence.toString());
+                }
             }
 
             @Override

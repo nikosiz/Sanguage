@@ -87,15 +87,15 @@ public class LearnFragment extends Fragment {
 
             @Override
             public void onLeftCardExit(Object o) {
-                if (userID != null) {
-                    DictionaryPojo dictionaryPojo = (DictionaryPojo) o;
-                    addKnownVocabulary(dictionaryPojo.getVocabularyTranslated());
-                }
+               ;
             }
 
             @Override
             public void onRightCardExit(Object o) {
-                ;
+                if (userID != null) {
+                    DictionaryPojo dictionaryPojo = (DictionaryPojo) o;
+                    addKnownVocabulary(dictionaryPojo.getVocabularyTranslated());
+                }
             }
 
             @Override

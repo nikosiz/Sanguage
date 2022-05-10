@@ -49,11 +49,12 @@ public class LearnFragment extends Fragment {
     private Long userID;
     private AlertDialog.Builder dialogBuilder;
     private AlertDialog dialog;
-    private TextView filter_known_words_tv, filter_new_words_tv, filter_level_tv, filter_topic_tv;
-    private CheckBox filter_known_words_cb, filter_new_words_cb, filter_level_A1_cb, filter_level_A2_cb, filter_level_B1_cb, filter_level_B2_cb, filter_level_C1_cb, filter_level_C2_cb, filter_topic_cb;
+    private TextView filter_known_words_tv, filter_new_words_tv, filter_level_tv;
+    private CheckBox filter_known_words_cb, filter_new_words_cb, filter_level_A1_cb, filter_level_A2_cb, filter_level_B1_cb, filter_level_B2_cb, filter_level_C1_cb, filter_level_C2_cb;
     private Button filter_apply_btn, filter_cancel_btn;
     private ImageView filter_btn;
     private HashSet<CheckBox> checkBoxHashSet;
+    private  View filterPopupView;
 
     public LearnFragment(Long userID) {
         this.userID = userID;
@@ -194,35 +195,32 @@ public class LearnFragment extends Fragment {
     }
 
     public void filterDialog() {
-        final View filterPopupView = getLayoutInflater().inflate(R.layout.popup, null);
-
-        filter_known_words_tv = (TextView) filterPopupView.findViewById(R.id.filter_known_words_tv);
-        filter_new_words_tv = (TextView) filterPopupView.findViewById(R.id.filter_new_words_tv);
-        filter_level_tv = (TextView) filterPopupView.findViewById(R.id.filter_level_tv);
-
-        filter_known_words_cb = (CheckBox) filterPopupView.findViewById(R.id.filter_known_words_cb);
-        filter_new_words_cb = (CheckBox) filterPopupView.findViewById(R.id.filter_new_words_cb);
-        filter_level_A1_cb = (CheckBox) filterPopupView.findViewById(R.id.filter_level_A1_cb);
-        filter_level_A2_cb = (CheckBox) filterPopupView.findViewById(R.id.filter_level_A2_cb);
-        filter_level_B1_cb = (CheckBox) filterPopupView.findViewById(R.id.filter_level_B1_cb);
-        filter_level_B2_cb = (CheckBox) filterPopupView.findViewById(R.id.filter_level_B2_cb);
-        filter_level_C1_cb = (CheckBox) filterPopupView.findViewById(R.id.filter_level_C1_cb);
-        filter_level_C2_cb = (CheckBox) filterPopupView.findViewById(R.id.filter_level_C2_cb);
-        checkBoxHashSet = new HashSet<>();
-        checkBoxHashSet.add(filter_level_A1_cb);
-        checkBoxHashSet.add(filter_level_A2_cb);
-        checkBoxHashSet.add(filter_level_B1_cb);
-        checkBoxHashSet.add(filter_level_B2_cb);
-        checkBoxHashSet.add(filter_level_C1_cb);
-        checkBoxHashSet.add(filter_level_C2_cb);
-
-        filter_apply_btn = (Button) filterPopupView.findViewById(R.id.filter_apply_btn);
-        filter_cancel_btn = (Button) filterPopupView.findViewById(R.id.filter_cancel_btn);
-
-        dialogBuilder.setView(filterPopupView);
-        dialog = dialogBuilder.create();
-        dialog.show();
-
+        if(filterPopupView==null) {
+            filterPopupView = getLayoutInflater().inflate(R.layout.popup, null);
+            filter_known_words_tv = (TextView) filterPopupView.findViewById(R.id.filter_known_words_tv);
+            filter_new_words_tv = (TextView) filterPopupView.findViewById(R.id.filter_new_words_tv);
+            filter_level_tv = (TextView) filterPopupView.findViewById(R.id.filter_level_tv);
+            filter_known_words_cb = (CheckBox) filterPopupView.findViewById(R.id.filter_known_words_cb);
+            filter_new_words_cb = (CheckBox) filterPopupView.findViewById(R.id.filter_new_words_cb);
+            filter_level_A1_cb = (CheckBox) filterPopupView.findViewById(R.id.filter_level_A1_cb);
+            filter_level_A2_cb = (CheckBox) filterPopupView.findViewById(R.id.filter_level_A2_cb);
+            filter_level_B1_cb = (CheckBox) filterPopupView.findViewById(R.id.filter_level_B1_cb);
+            filter_level_B2_cb = (CheckBox) filterPopupView.findViewById(R.id.filter_level_B2_cb);
+            filter_level_C1_cb = (CheckBox) filterPopupView.findViewById(R.id.filter_level_C1_cb);
+            filter_level_C2_cb = (CheckBox) filterPopupView.findViewById(R.id.filter_level_C2_cb);
+            checkBoxHashSet = new HashSet<>();
+            checkBoxHashSet.add(filter_level_A1_cb);
+            checkBoxHashSet.add(filter_level_A2_cb);
+            checkBoxHashSet.add(filter_level_B1_cb);
+            checkBoxHashSet.add(filter_level_B2_cb);
+            checkBoxHashSet.add(filter_level_C1_cb);
+            checkBoxHashSet.add(filter_level_C2_cb);
+            filter_apply_btn = (Button) filterPopupView.findViewById(R.id.filter_apply_btn);
+            filter_cancel_btn = (Button) filterPopupView.findViewById(R.id.filter_cancel_btn);
+            dialogBuilder.setView(filterPopupView);
+            dialog = dialogBuilder.create();
+        }
+            dialog.show();
         filter_apply_btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -267,7 +265,6 @@ public class LearnFragment extends Fragment {
         } else {
             mapStateLevelsToURL(checkedLevels, state);
         }
-
     }
 
     public void mapStateLevelsToURL(ArrayList<String> checkedLevels, FilterState state) {

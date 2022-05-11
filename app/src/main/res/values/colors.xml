@@ -30,6 +30,6 @@
     <color name="flashcardText">@color/black</color>
     <color name="colorEditText">@color/white</color>
     <color name="textColorHint">#666666</color>
-    <color name="hintTextAndStrokeColor">@color/colorPrimaryDarkVariant</color>
+    <color name="hintTextAndStrokeColor">@color/greyBlue</color>
     <color name="flashcardBG">@color/white</color>
 </resources>

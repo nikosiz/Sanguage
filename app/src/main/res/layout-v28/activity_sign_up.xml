@@ -132,17 +132,16 @@
         android:textColorHint="@color/textColorHint"
         app:boxBackgroundColor="@color/colorEditText"
         app:boxCornerRadiusBottomEnd="20dp"
-
         app:boxCornerRadiusBottomStart="20dp"
         app:boxCornerRadiusTopEnd="20dp"
         app:boxCornerRadiusTopStart="20dp"
         app:boxStrokeColor="@color/hintTextAndStrokeColor"
         app:hintTextColor="@color/hintTextAndStrokeColor"
-
         app:layout_constraintEnd_toEndOf="@id/sign_up_email_tf"
         app:layout_constraintStart_toStartOf="@id/sign_up_email_tf"
         app:layout_constraintTop_toBottomOf="@id/sign_up_email_tf"
-        app:passwordToggleEnabled="true">
+        app:passwordToggleEnabled="true"
+        app:passwordToggleTint="@color/textColorHint">
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/sign_up_password_et"

@@ -35,10 +35,10 @@ public class AppWindowAccount extends AppCompatActivity implements ChipNavigatio
         nav_bar = findViewById(R.id.bottom_nav);
         SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(getApplicationContext());
         userID = preferences.getLong("userID", 9999999999999L);
-        getSupportFragmentManager().beginTransaction().add(R.id.fragment_container, new LearnFragment(userID)).commit();
+        learnFragment=new LearnFragment(userID);
+        getSupportFragmentManager().beginTransaction().add(R.id.fragment_container, learnFragment).commit();
         nav_bar.setItemSelected(R.id.bottom_nav_learn, true);
         nav_bar.setOnItemSelectedListener(this);
-        learnFragment=new LearnFragment(userID);
     }
 
     private void loadFragment() {

@@ -3,6 +3,7 @@ package com.example.sanguage;
 import android.app.AlertDialog;
 import android.content.Context;
 import android.os.Bundle;
+import android.os.Parcelable;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -14,6 +15,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
 import com.android.volley.Request;
@@ -68,15 +70,6 @@ public class LearnFragment extends Fragment {
         this.context = context;
     }
 
-    @Override
-    public void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.fragment_learn);
-    }
-
-    private void setContentView(int fragment_learn) {
-    }
-
     public void setFlingContainer() {
         flingContainer.setFlingListener(new SwipeFlingAdapterView.onFlingListener() {
             @Override
@@ -127,7 +120,6 @@ public class LearnFragment extends Fragment {
         }, new Response.ErrorListener() {
             @Override
             public void onErrorResponse(VolleyError error) {
-                System.out.println(error);
                 try {
                     String message = RequestErrorParser.parseError(error);
                     Log.e("addKnownVocabulary - onErrorResponse()", message);

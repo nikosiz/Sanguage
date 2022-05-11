@@ -33,7 +33,7 @@ public class AddNewFragment<adapter> extends Fragment {
                              Bundle savedInstanceState) {
 
         View view = inflater.inflate(R.layout.fragment_add_new, container, false);
-        Button add_new_next_btn = (Button) view.findViewById(R.id.add_new_next_btn);
+        Button add_new_next_btn = (Button) view.findViewById(R.id.add_new_add_btn);
         add_new_vocabulary_title_tv = (TextView) view.findViewById(R.id.add_new_tv);
 
         add_new_next_btn.setOnClickListener(new View.OnClickListener() {

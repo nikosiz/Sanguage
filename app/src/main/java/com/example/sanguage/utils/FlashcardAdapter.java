@@ -13,7 +13,6 @@ import androidx.annotation.Nullable;
 import androidx.cardview.widget.CardView;
 import androidx.constraintlayout.widget.ConstraintLayout;
 
-import com.codesgood.views.JustifiedTextView;
 import com.example.sanguage.R;
 import com.example.sanguage.pojo.DictionaryPojo;
 
@@ -34,7 +33,7 @@ public class FlashcardAdapter extends ArrayAdapter<DictionaryPojo> {
     public void toggleTranslations(View view, DictionaryPojo dictionaryPojo) {
         TextView vocabulary_tv = (TextView) view.findViewById(R.id.search_vocabulary_tv);
         TextView collocations_tv = (TextView) view.findViewById(R.id.search_collocations_tv);
-        JustifiedTextView definition_jtv = (JustifiedTextView) view.findViewById(R.id.search_definition_jtv);
+        TextView definition_jtv = (TextView) view.findViewById(R.id.search_definition_jtv);
         TextView gramCategory_tv = (TextView) view.findViewById(R.id.search_grammaticalCategory_tv);
         if (translated) {
             translated=false;
@@ -63,7 +62,7 @@ public class FlashcardAdapter extends ArrayAdapter<DictionaryPojo> {
             CardView cardView = (CardView) convertView.findViewById(R.id.flashcard_cardView);
             TextView vocabulary_tv = (TextView) convertView.findViewById(R.id.search_vocabulary_tv);
             TextView collocations_tv = (TextView) convertView.findViewById(R.id.search_collocations_tv);
-            JustifiedTextView definition_jtv = (JustifiedTextView) convertView.findViewById(R.id.search_definition_jtv);
+            TextView definition_jtv = (TextView) convertView.findViewById(R.id.search_definition_jtv);
             TextView gramCategory_tv = (TextView) convertView.findViewById(R.id.search_grammaticalCategory_tv);
             DictionaryPojo dictionaryPojo = dictionary.get(position);
             vocabulary_tv.setText(dictionaryPojo.getVocabularyTranslated());
@@ -83,11 +82,11 @@ public class FlashcardAdapter extends ArrayAdapter<DictionaryPojo> {
         ConstraintLayout flashcardLayout;
         TextView flashcardVocabulary;
         TextView flashcardGramCategory;
-        JustifiedTextView flashcardDefinition;
+        TextView flashcardDefinition;
         TextView flashcardCollocations;
 
 
-        public Flashcard(ConstraintLayout mainLayout, CardView cardView, ConstraintLayout flashcardLayout, TextView flashcardVocabulary, TextView flashcardGramCategory, JustifiedTextView flashcardDefinition, TextView flashcardCollocations) {
+        public Flashcard(ConstraintLayout mainLayout, CardView cardView, ConstraintLayout flashcardLayout, TextView flashcardVocabulary, TextView flashcardGramCategory, TextView flashcardDefinition, TextView flashcardCollocations) {
             this.mainLayout = mainLayout;
             this.cardView = cardView;
             this.flashcardLayout = flashcardLayout;

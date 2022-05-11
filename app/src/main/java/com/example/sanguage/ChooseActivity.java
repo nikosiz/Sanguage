@@ -46,7 +46,6 @@ public class ChooseActivity extends AppCompatActivity {
 
         choose_sign_in_btn = findViewById(R.id.choose_log_in_btn);
         mascot = findViewById(R.id.choose_app_mascot);
-
         choose_sign_in_btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -59,7 +58,6 @@ public class ChooseActivity extends AppCompatActivity {
         });
 
         choose_skip_btn = findViewById(R.id.choose_skip_btn);
-
         choose_skip_btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

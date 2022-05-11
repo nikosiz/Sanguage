@@ -162,7 +162,7 @@
                     android:layout_marginHorizontal="40dp"
                     android:layout_marginTop="10dp"
                     android:layout_marginBottom="30dp"
-                    android:hint="Confirm password"
+                    android:hint="Current password"
                     android:textColorHint="@color/textColorHint"
                     app:boxBackgroundColor="@color/colorEditText"
                     app:boxCornerRadiusBottomEnd="20dp"
@@ -177,7 +177,7 @@
                     app:passwordToggleEnabled="true">
 
                     <com.google.android.material.textfield.TextInputEditText
-                        android:id="@+id/profile_confirm_password_et"
+                        android:id="@+id/profile_current_password_et"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:inputType="textPassword"

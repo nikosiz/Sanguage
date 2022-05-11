@@ -6,6 +6,7 @@ import android.content.SharedPreferences;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatDelegate;
 import androidx.fragment.app.Fragment;
 
@@ -40,7 +41,6 @@ public class ProfileFragment extends Fragment {
     private Context context;
     private Long userID;
     private RequestQueue requestQueue;
-
     private Switch profile_dark_mode_s;
 
     public enum RequestOption {USERNAME, PASSWORD, BOTH}
@@ -75,38 +75,65 @@ public class ProfileFragment extends Fragment {
         profile_save_btn.setEnabled(true);
     }
 
-    public void saveBtnHandler() {
-        disableChangeDataActions();
-        String password = profile_change_password_et.getText().toString();
-        String username = profile_change_username_et.getText().toString();
-        boolean passwordEmpty = password.isEmpty();
-        boolean usernameEmpty = username.isEmpty();
-        if (!passwordEmpty && usernameEmpty) {
-            if (!Utils.validatePassword(password)) {
-                Toast.makeText(context, "Password must contain number and special character", Toast.LENGTH_SHORT).show();
-                enableChangeDataActions();
-            } else {
-                changeDataRequest(password, RequestOption.PASSWORD);
+    public void logOutButtonHandler() {
+        profile_log_out_btn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(context);
+                SharedPreferences.Editor editor = preferences.edit();
+                editor.putBoolean("enabled", false);
+                editor.apply();
+                Intent intent = new Intent(context, ChooseActivity.class);
+                startActivity(intent);
             }
-
-        } else if (!usernameEmpty && passwordEmpty) {
-            changeDataRequest(username, RequestOption.USERNAME);
-        } else if (!passwordEmpty && !usernameEmpty) {
-            if (!Utils.validatePassword(password)) {
-                Toast.makeText(context, "Password must contain number and special character", Toast.LENGTH_SHORT).show();
-                enableChangeDataActions();
-            } else {
-                changeDataRequest(password, RequestOption.BOTH);
-            }
-        } else {
-            enableChangeDataActions();
-        }
+        });
     }
 
-    public void changeDataRequest(String data, RequestOption option) {
+    public void saveButtonHandler() {
+        profile_save_btn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                disableChangeDataActions();
+                String newPassword = profile_change_password_et.getText().toString();
+                String currentPassword = profile_current_password_et.getText().toString();
+                String username = profile_change_username_et.getText().toString();
+                boolean newPasswordEmpty = newPassword.isEmpty();
+                boolean currentPasswordEmpty = currentPassword.isEmpty();
+                boolean usernameEmpty = username.isEmpty();
+                if (!currentPasswordEmpty) {
+                    if (!newPasswordEmpty && usernameEmpty) {
+                        if (!Utils.validatePassword(newPassword)) {
+                            Toast.makeText(context, "Password must contain number and special character", Toast.LENGTH_SHORT).show();
+                            enableChangeDataActions();
+                        } else {
+                            changeDataRequest(newPassword, currentPassword, RequestOption.PASSWORD);
+                        }
+
+                    } else if (!usernameEmpty && newPasswordEmpty) {
+                        changeDataRequest(username, currentPassword, RequestOption.USERNAME);
+                    } else if (!newPasswordEmpty) {
+                        if (!Utils.validatePassword(newPassword)) {
+                            Toast.makeText(context, "Password must contain number and special character", Toast.LENGTH_SHORT).show();
+                            enableChangeDataActions();
+                        } else {
+                            changeDataRequest(newPassword, currentPassword, RequestOption.BOTH);
+                        }
+                    } else {
+                        enableChangeDataActions();
+                    }
+                } else {
+                    Toast.makeText(context, "Enter current password", Toast.LENGTH_SHORT).show();
+                    profile_current_password_et.startAnimation(Utils.shakeError(5, 10, 0, 0, 500, 7));
+                    enableChangeDataActions();
+                }
+            }
+        });
+    }
+
+    public void changeDataRequest(String data, String currentPassword, RequestOption option) {
         String changeDataURL = "";
         if (option.equals(RequestOption.PASSWORD) || option.equals(RequestOption.BOTH)) {
-            changeDataURL = "https://sanguage.herokuapp.com/user/passChange?userID=" + userID + "&password=" + data;
+            changeDataURL = "https://sanguage.herokuapp.com/user/passChange?userID=" + userID + "&oldPassword=" + data;
         } else if (option.equals(RequestOption.USERNAME)) {
             changeDataURL = "https://sanguage.herokuapp.com/user/usernameChange?userID=" + userID + "&newUsername=" + data;
         }
@@ -115,7 +142,7 @@ public class ProfileFragment extends Fragment {
             public void onResponse(JSONObject response) {
                 Toast.makeText(context, response.toString(), Toast.LENGTH_SHORT).show();
                 if (option.equals(RequestOption.BOTH)) {
-                    changeDataRequest(profile_change_username_et.getText().toString(), RequestOption.USERNAME);
+                    changeDataRequest(profile_change_username_et.getText().toString(), currentPassword, RequestOption.USERNAME);
                 }
                 enableChangeDataActions();
             }
@@ -129,23 +156,15 @@ public class ProfileFragment extends Fragment {
         requestQueue.add(jsonObjectRequest);
     }
 
-    public void handleNoAccount() {
-        profile_log_out_btn.setEnabled(false);
-        profile_save_btn.setEnabled(false);
-        profile_change_password_et.setEnabled(false);
-        profile_change_username_et.setEnabled(false);
-        profile_current_password_et.setEnabled(false);
-        profile_log_out_btn.setAlpha(0.35f);
-        profile_save_btn.setAlpha(0.35f);
-        profile_change_password_et.setAlpha(0.35f);
-        profile_change_username_et.setAlpha(0.35f);
-        profile_current_password_et.setAlpha(0.35f);
-        profile_sign_up_btn.setVisibility(View.VISIBLE);
-        profile_sign_up_btn.setOnClickListener(new View.OnClickListener() {
+    public void darkModeHandler() {
+        profile_dark_mode_s.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(context, SignUpActivity.class);
-                startActivity(intent);
+            public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
+                if (compoundButton.isChecked()) {
+                    AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES);
+                } else {
+                    AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO);
+                }
             }
         });
     }
@@ -161,42 +180,16 @@ public class ProfileFragment extends Fragment {
         profile_save_btn = view.findViewById(R.id.profile_save_btn);
         profile_dark_mode_s = view.findViewById(R.id.create_account_dark_mode_s);
         profile_log_out_btn = view.findViewById(R.id.profile_log_out_btn);
-        //profile_sign_up_btn = view.findViewById(R.id.profile_sign_up_btn);
-        //profile_current_password_et = view.findViewById(R.id.profile_current_password_et);
+        profile_current_password_et = view.findViewById(R.id.profile_current_password_et);
 
-        SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(context);
-        boolean enabled = preferences.getBoolean("enabled", false);
-        if (!enabled) {
-            handleNoAccount();
-        }
-
-        profile_dark_mode_s.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
-            @Override
-            public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
-                if (compoundButton.isChecked()) {
-                    AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES);
-                } else {
-                    AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO);
-                }
-            }
-        });
-
-        profile_save_btn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                saveBtnHandler();
-            }
-        });
-        profile_log_out_btn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                SharedPreferences.Editor editor = preferences.edit();
-                editor.putBoolean("enabled", false);
-                editor.apply();
-                Intent intent = new Intent(context, ChooseActivity.class);
-                startActivity(intent);
-            }
-        });
+        darkModeHandler();
+        saveButtonHandler();
+        logOutButtonHandler();
         return view;
+    }
+
+    @Override
+    public void onSaveInstanceState(@NonNull Bundle outState) {
+        super.onSaveInstanceState(outState);
     }
 }

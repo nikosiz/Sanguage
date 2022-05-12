@@ -38,7 +38,7 @@
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_height="wrap_content">
 
             <com.google.android.material.textfield.TextInputLayout
                 android:id="@+id/add_new_vocabulary_tf"
@@ -47,7 +47,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginHorizontal="40dp"
                 android:layout_marginTop="15dp"
-                android:hint="Vocabulary"
+                android:hint="@string/Vocabulary"
                 android:textColorHint="@color/textColorHint"
                 app:boxBackgroundColor="@color/colorEditText"
                 app:boxCornerRadiusBottomEnd="20dp"
@@ -78,7 +78,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginHorizontal="40dp"
                 android:layout_marginTop="15dp"
-                android:hint="Definition"
+                android:hint="@string/Definition"
                 android:textColorHint="@color/textColorHint"
                 app:boxBackgroundColor="@color/colorEditText"
                 app:boxCornerRadiusBottomEnd="20dp"
@@ -109,7 +109,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginHorizontal="40dp"
                 android:layout_marginTop="15dp"
-                android:hint="Collocations"
+                android:hint="@string/Collocations"
                 android:textColorHint="@color/textColorHint"
                 app:boxBackgroundColor="@color/colorEditText"
                 app:boxCornerRadiusBottomEnd="20dp"
@@ -140,7 +140,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginHorizontal="40dp"
                 android:layout_marginTop="15dp"
-                android:hint="Translated vocabulary"
+                android:hint="@string/Translated_vocabulary"
                 android:textColorHint="@color/textColorHint"
                 app:boxBackgroundColor="@color/colorEditText"
                 app:boxCornerRadiusBottomEnd="20dp"
@@ -165,13 +165,13 @@
             </com.google.android.material.textfield.TextInputLayout>
 
             <com.google.android.material.textfield.TextInputLayout
-                android:id="@+id/add_new_grammCat_translation_tf"
+                android:id="@+id/add_new_collocations_translation_tf"
                 style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginHorizontal="40dp"
                 android:layout_marginTop="15dp"
-                android:hint="Translated grammatical category"
+                android:hint="@string/Translated_collocations"
                 android:textColorHint="@color/textColorHint"
                 app:boxBackgroundColor="@color/colorEditText"
                 app:boxCornerRadiusBottomEnd="20dp"
@@ -183,37 +183,6 @@
                 app:layout_constraintEnd_toEndOf="@id/add_new_vocabulary_translation_tf"
                 app:layout_constraintStart_toStartOf="@id/add_new_vocabulary_translation_tf"
                 app:layout_constraintTop_toBottomOf="@id/add_new_vocabulary_translation_tf">
-
-                <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/add_new_grammCat_translation_et"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:textSize="20sp"
-                    tools:ignore="TextContrastCheck">
-
-                </com.google.android.material.textfield.TextInputEditText>
-
-            </com.google.android.material.textfield.TextInputLayout>
-
-            <com.google.android.material.textfield.TextInputLayout
-                android:id="@+id/add_new_collocations_translation_tf"
-                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginHorizontal="40dp"
-                android:layout_marginTop="15dp"
-                android:hint="Translated collocations "
-                android:textColorHint="@color/textColorHint"
-                app:boxBackgroundColor="@color/colorEditText"
-                app:boxCornerRadiusBottomEnd="20dp"
-                app:boxCornerRadiusBottomStart="20dp"
-                app:boxCornerRadiusTopEnd="20dp"
-                app:boxCornerRadiusTopStart="20dp"
-                app:boxStrokeColor="@color/hintTextAndStrokeColor"
-                app:hintTextColor="@color/hintTextAndStrokeColor"
-                app:layout_constraintEnd_toEndOf="@id/add_new_grammCat_translation_tf"
-                app:layout_constraintStart_toStartOf="@id/add_new_grammCat_translation_tf"
-                app:layout_constraintTop_toBottomOf="@id/add_new_grammCat_translation_tf">
 
                 <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/add_new_collocations_translation_et"
@@ -252,7 +221,7 @@
                         android:layout_height="wrap_content"
                         android:layout_marginHorizontal="20dp"
                         android:layout_marginBottom="20dp"
-                        android:text="Grammatical category"
+                        android:text="@string/Grammatical_category"
                         android:textColor="@color/hintTextAndStrokeColor"
                         android:textSize="20sp"
                         app:layout_constraintEnd_toEndOf="parent"
@@ -274,7 +243,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:buttonTint="@color/hintTextAndStrokeColor"
-                            android:text="adjective / przymiotnik"
+                            android:text="@string/adjective_przymiotnik"
                             android:textColor="@color/hintTextAndStrokeColor"
 
                             android:textSize="20sp"
@@ -285,7 +254,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:buttonTint="@color/hintTextAndStrokeColor"
-                            android:text="adverb / przysłówek"
+                            android:text="@string/adverb_przys_wek"
                             android:textColor="@color/hintTextAndStrokeColor"
                             android:textSize="20sp" />
 
@@ -294,7 +263,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:buttonTint="@color/hintTextAndStrokeColor"
-                            android:text="conjunction / spójnik"
+                            android:text="@string/conjunction_sp_jnik"
                             android:textColor="@color/hintTextAndStrokeColor"
                             android:textSize="20sp" />
 
@@ -303,7 +272,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:buttonTint="@color/hintTextAndStrokeColor"
-                            android:text="determiner / określnik"
+                            android:text="@string/determiner_okre_lnik"
                             android:textColor="@color/hintTextAndStrokeColor"
                             android:textSize="20sp" />
 
@@ -312,7 +281,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:buttonTint="@color/hintTextAndStrokeColor"
-                            android:text="noun / rzeczownik"
+                            android:text="@string/noun_rzeczownik"
                             android:textColor="@color/hintTextAndStrokeColor"
                             android:textSize="20sp" />
 
@@ -321,7 +290,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:buttonTint="@color/hintTextAndStrokeColor"
-                            android:text="number / liczba"
+                            android:text="@string/number_liczba"
                             android:textColor="@color/hintTextAndStrokeColor"
                             android:textSize="20sp" />
 
@@ -330,7 +299,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:buttonTint="@color/hintTextAndStrokeColor"
-                            android:text="phrasal verb"
+                            android:text="@string/phrasal_verb"
                             android:textColor="@color/hintTextAndStrokeColor"
                             android:textSize="20sp" />
 
@@ -339,7 +308,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:buttonTint="@color/hintTextAndStrokeColor"
-                            android:text="phrase / wyrażenie"
+                            android:text="@string/phrase_wyra_enie"
                             android:textColor="@color/hintTextAndStrokeColor"
                             android:textSize="20sp" />
 
@@ -348,7 +317,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:buttonTint="@color/hintTextAndStrokeColor"
-                            android:text="prefix / przedrostek"
+                            android:text="@string/prefix_przedrostek"
                             android:textColor="@color/hintTextAndStrokeColor"
                             android:textSize="20sp" />
 
@@ -357,7 +326,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:buttonTint="@color/hintTextAndStrokeColor"
-                            android:text="preposition / przyimek"
+                            android:text="@string/preposition_przyimek"
                             android:textColor="@color/hintTextAndStrokeColor"
                             android:textSize="20sp" />
 
@@ -366,7 +335,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:buttonTint="@color/hintTextAndStrokeColor"
-                            android:text="pronoun / zaimek"
+                            android:text="@string/pronoun_zaimek"
                             android:textColor="@color/hintTextAndStrokeColor"
                             android:textSize="20sp" />
 
@@ -375,7 +344,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:buttonTint="@color/hintTextAndStrokeColor"
-                            android:text="verb / czasownik"
+                            android:text="@string/verb_czasownik"
                             android:textColor="@color/hintTextAndStrokeColor"
                             android:textSize="20sp" />
 
@@ -395,7 +364,7 @@
                 android:background="@drawable/ripple_effect_basic_btn"
                 android:elevation="0dp"
                 android:padding="10dp"
-                android:text="ADD"
+                android:text="@string/ADD"
                 android:textAppearance="@style/TextAppearance.MaterialComponents.Button"
                 android:textColor="@color/white"
                 android:textSize="20sp"
@@ -410,8 +379,8 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text=" "
-                android:textSize="30dp"
+                android:text="@string/blank"
+                android:textSize="30sp"
                 app:layout_constraintTop_toBottomOf="@id/add_new_add_btn" />
         </androidx.constraintlayout.widget.ConstraintLayout>
 

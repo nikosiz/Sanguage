@@ -77,4 +77,20 @@
     <string name="dark_mode">Dark mode</string>
     <string name="current_password">Current password</string>
     <string name="log_out">Log out</string>
+    <string name="verb_czasownik">verb / czasownik</string>
+    <string name="pronoun_zaimek">pronoun / zaimek</string>
+    <string name="preposition_przyimek">preposition / przyimek</string>
+    <string name="prefix_przedrostek">prefix / przedrostek</string>
+    <string name="adjective_przymiotnik">adjective / przymiotnik</string>
+    <string name="Translated_vocabulary">Translated vocabulary</string>
+    <string name="Translated_collocations">Translated collocations</string>
+    <string name="ADD">ADD</string>
+    <string name="blank" />
+    <string name="adverb_przys_wek">adverb / przysłówek</string>
+    <string name="conjunction_sp_jnik">conjunction / spójnik</string>
+    <string name="determiner_okre_lnik">determiner / określnik</string>
+    <string name="noun_rzeczownik">noun / rzeczownik</string>
+    <string name="number_liczba">number / liczba</string>
+    <string name="phrasal_verb">phrasal verb</string>
+    <string name="phrase_wyra_enie">phrase / wyrażenie</string>
 </resources>

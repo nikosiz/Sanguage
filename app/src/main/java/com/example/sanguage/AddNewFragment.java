@@ -43,8 +43,6 @@ public class AddNewFragment<adapter> extends Fragment {
                 ft.replace(R.id.fragment_container, new AddNewFragmentPt2());
                 ft.commit();
                 //overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
-
-
             }
         });
 

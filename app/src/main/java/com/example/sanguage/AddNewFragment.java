@@ -1,21 +1,14 @@
 package com.example.sanguage;
 
-import static androidx.core.view.ViewCompat.getTransitionName;
-
 import android.os.Bundle;
-
-import androidx.core.app.ActivityOptionsCompat;
-import androidx.core.view.ViewCompat;
-import androidx.fragment.app.Fragment;
-import androidx.fragment.app.FragmentTransaction;
-
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ArrayAdapter;
 import android.widget.Button;
-import android.widget.Spinner;
 import android.widget.TextView;
+
+import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentTransaction;
 
 import com.example.sanguage.databinding.FragmentAddNewBinding;
 
@@ -26,7 +19,6 @@ public class AddNewFragment<adapter> extends Fragment {
 
     public AddNewFragment() {
     }
-
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -43,8 +35,6 @@ public class AddNewFragment<adapter> extends Fragment {
                 ft.replace(R.id.fragment_container, new AddNewFragmentPt2());
                 ft.commit();
                 //overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
-
-
             }
         });
 

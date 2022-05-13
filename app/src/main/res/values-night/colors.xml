@@ -28,8 +28,8 @@
     <color name="app_slogan">@color/white</color>
     <color name="commonText">@color/white</color>
     <color name="flashcardText">@color/black</color>
-    <color name="colorEditText">#0093ca</color>
+    <color name="colorEditText">#13a1d9</color>
     <color name="textColorHint">@color/white</color>
     <color name="hintTextAndStrokeColor">@color/white</color>
-    <color name="flashcardBG">#00a1d8</color>
+    <color name="flashcardBG">#0087c8</color>
 </resources>

@@ -59,6 +59,7 @@ public class AppWindowAccount extends AppCompatActivity implements ChipNavigatio
         return true;
     }
 
+
     public void onItemSelected(int i) {
         if (i == R.id.bottom_nav_learn) {
             currentFragment = learnFragment;
@@ -72,5 +73,9 @@ public class AppWindowAccount extends AppCompatActivity implements ChipNavigatio
             currentFragment = new ProfileFragment(userID);
         }
         loadFragment();
+    }
+
+    public ChipNavigationBar getNav_bar() {
+        return nav_bar;
     }
 }

@@ -2,12 +2,15 @@ package com.example.sanguage;
 
 import android.app.AlertDialog;
 import android.content.Context;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.os.Parcelable;
+import android.preference.PreferenceManager;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.animation.Animation;
 import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.ImageView;
@@ -16,6 +19,8 @@ import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.dynamicanimation.animation.DynamicAnimation;
+import androidx.dynamicanimation.animation.FlingAnimation;
 import androidx.fragment.app.Fragment;
 
 import com.android.volley.Request;
@@ -40,7 +45,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashSet;
 
-public class LearnFragment extends Fragment {
+public class LearnFragment extends Fragment{
 
     private FlashcardAdapter flashcardAdapter;
     private SwipeFlingAdapterView flingContainer;
@@ -194,6 +199,14 @@ public class LearnFragment extends Fragment {
         filter_level_B2_cb = (CheckBox) filterPopupView.findViewById(R.id.filter_level_B2_cb);
         filter_level_C1_cb = (CheckBox) filterPopupView.findViewById(R.id.filter_level_C1_cb);
         filter_level_C2_cb = (CheckBox) filterPopupView.findViewById(R.id.filter_level_C2_cb);
+        SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(context);
+        boolean enabled = preferences.getBoolean("enabled", false);
+        if(!enabled){
+            filter_known_words_cb.setEnabled(false);
+            filter_new_words_cb.setEnabled(false);
+           filter_known_words_cb.setAlpha(0.5f);
+           filter_new_words_cb.setAlpha(0.5f);
+        }
         checkBoxHashSet = new HashSet<>();
         checkBoxHashSet.add(filter_level_A1_cb);
         checkBoxHashSet.add(filter_level_A2_cb);

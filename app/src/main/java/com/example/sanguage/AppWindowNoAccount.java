@@ -17,7 +17,7 @@ public class AppWindowNoAccount extends AppCompatActivity implements ChipNavigat
 
     private ChipNavigationBar nav_bar;
     private Fragment currentFragment;
-
+    private LearnFragment learnFragment;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -26,7 +26,8 @@ public class AppWindowNoAccount extends AppCompatActivity implements ChipNavigat
         setContentView(R.layout.activity_app_window_no_account);
 
         nav_bar = findViewById(R.id.bottom_nav_no);
-        getSupportFragmentManager().beginTransaction().add(R.id.fragment_container, new LearnFragment()).commit();
+        learnFragment=new LearnFragment();
+        getSupportFragmentManager().beginTransaction().add(R.id.fragment_container, learnFragment).commit();
         nav_bar.setItemSelected(R.id.bottom_nav_learn, true);
         nav_bar.setOnItemSelectedListener(this);
     }
@@ -39,7 +40,6 @@ public class AppWindowNoAccount extends AppCompatActivity implements ChipNavigat
         }
     }
 
-
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         MenuInflater inflater = getMenuInflater();
@@ -49,10 +49,14 @@ public class AppWindowNoAccount extends AppCompatActivity implements ChipNavigat
 
     public void onItemSelected(int i) {
         if (i == R.id.bottom_nav_learn) {
-            currentFragment = new LearnFragment();
+            currentFragment = learnFragment;
         } else if (i == R.id.bottom_nav_profile) {
             currentFragment = new CreateAccountFragment();
         }
         loadFragment();
+    }
+
+    public ChipNavigationBar getNav_bar() {
+        return nav_bar;
     }
 }

@@ -2,7 +2,9 @@ package com.example.sanguage;
 
 import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.preference.PreferenceManager;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -37,7 +39,12 @@ public class CreateAccountFragment extends Fragment {
         View view = inflater.inflate(R.layout.fragment_create_account, container, false);
 
         create_account = (Button) view.findViewById(R.id.create_account_btn);
+        create_account_dark_mode_s = (Switch) view.findViewById(R.id.create_account_dark_mode_s);
 
+        SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(context);
+        SharedPreferences.Editor editor = preferences.edit();
+        boolean darkMode = preferences.getBoolean("darkMode", false);
+        create_account_dark_mode_s.setChecked(darkMode);
         create_account.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -46,16 +53,19 @@ public class CreateAccountFragment extends Fragment {
             }
         });
 
-        create_account_dark_mode_s = (Switch) view.findViewById(R.id.create_account_dark_mode_s);
 
         create_account_dark_mode_s.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
                 if (compoundButton.isChecked()) {
                     AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES);
+                    editor.putBoolean("darkMode", true);
                 } else {
                     AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO);
+                    editor.putBoolean("darkMode", false);
                 }
+                editor.apply();
+                ((AppWindowNoAccount) getActivity()).getNav_bar().setItemSelected(R.id.bottom_nav_learn, true);
             }
         });
 

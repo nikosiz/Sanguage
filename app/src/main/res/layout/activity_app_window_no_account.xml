@@ -14,7 +14,7 @@
         android:backgroundTint="@color/black" />
 
     <com.lorentzos.flingswipe.SwipeFlingAdapterView
-        android:id="@+id/frame_flashcard"
+        android:id="@+id/learn_frame_flashcard"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:background="@color/transparent"

@@ -59,6 +59,19 @@
         </com.google.android.material.textfield.TextInputEditText>
     </com.google.android.material.textfield.TextInputLayout>
 
+    <com.lorentzos.flingswipe.SwipeFlingAdapterView
+        android:id="@+id/database_flashcard"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/transparent"
+        android:visibility="gone"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/database_search_tf"
+        app:rotation_degrees="0">
+
+    </com.lorentzos.flingswipe.SwipeFlingAdapterView>
+
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/database_cl"
         android:layout_width="match_parent"

@@ -31,10 +31,7 @@ public class AddNewFragment<adapter> extends Fragment {
         add_new_next_btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                FragmentTransaction ft = getFragmentManager().beginTransaction();
-                ft.replace(R.id.fragment_container, new AddNewFragmentPt2());
-                ft.commit();
-                //overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
+
             }
         });
 

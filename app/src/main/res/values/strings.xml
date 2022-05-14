@@ -93,4 +93,20 @@
     <string name="number_liczba">number / liczba</string>
     <string name="phrasal_verb">phrasal verb</string>
     <string name="phrase_wyra_enie">phrase / wyrażenie</string>
+
+    <string-array name="programming_languages">
+        <item>Adjective</item>
+        <item>Adverb</item>
+        <item>Conjunction</item>
+        <item>Determiner</item>
+        <item>Interjection</item>
+        <item>Noun</item>
+        <item>Number</item>
+        <item>Phrasal verb</item>
+        <item>Phrase</item>
+        <item>Prefix</item>
+        <item>Preposition</item>
+        <item>Pronoun</item>
+        <item>Verb</item>
+    </string-array>
 </resources>

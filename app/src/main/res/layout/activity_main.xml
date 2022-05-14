@@ -15,7 +15,7 @@
         android:id="@+id/splash_app_logo"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="329dp"
+        android:layout_marginTop="300dp"
         android:layout_marginBottom="5dp"
         android:fontFamily="@font/fredoka_one"
         android:gravity="center"

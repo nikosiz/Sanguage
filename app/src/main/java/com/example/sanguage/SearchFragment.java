@@ -1,6 +1,7 @@
 package com.example.sanguage;
 
 import android.content.Context;
+import android.hardware.SensorManager;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
@@ -15,6 +16,7 @@ import android.view.LayoutInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.inputmethod.InputMethodManager;
 import android.widget.AdapterView;
 import android.widget.ListView;
 import android.widget.Toast;
@@ -232,7 +234,13 @@ public class SearchFragment extends Fragment {
         arrayAdapter = new ListViewAdapter(context, R.layout.database_listview_row, searchResults);
         search_search_lv.setAdapter(arrayAdapter);
         setSearchEtListener();
-
+        search_search_lv.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+                InputMethodManager imm  = (InputMethodManager) getActivity().getSystemService(Context.INPUT_METHOD_SERVICE);
+                imm.hideSoftInputFromWindow(search_search_et.getWindowToken(), 0);
+            }
+        });
         flashcardAdapter = new FlashcardAdapter(context, R.layout.flashcard, dictionaryListSimple);
         flingContainer.setAdapter(flashcardAdapter);
         setFlingContainer();

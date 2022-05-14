@@ -14,13 +14,16 @@ import android.widget.Switch;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatDelegate;
+import androidx.appcompat.widget.SwitchCompat;
 import androidx.fragment.app.Fragment;
+
+import com.google.android.material.switchmaterial.SwitchMaterial;
 
 public class CreateAccountFragment extends Fragment {
 
     private Button create_account;
     private Context context;
-    private Switch create_account_dark_mode_s;
+    private SwitchCompat create_account_dark_mode_s;
 
     public CreateAccountFragment() {
         // Required empty public constructor
@@ -39,7 +42,7 @@ public class CreateAccountFragment extends Fragment {
         View view = inflater.inflate(R.layout.fragment_create_account, container, false);
 
         create_account = (Button) view.findViewById(R.id.create_account_btn);
-        create_account_dark_mode_s = (Switch) view.findViewById(R.id.create_account_dark_mode_s);
+        create_account_dark_mode_s = (SwitchCompat) view.findViewById(R.id.create_account_dark_mode_s);
 
         SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(context);
         SharedPreferences.Editor editor = preferences.edit();

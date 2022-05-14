@@ -4,23 +4,17 @@ import android.app.AlertDialog;
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.os.Bundle;
-import android.os.Parcelable;
 import android.preference.PreferenceManager;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.view.animation.Animation;
 import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.ImageView;
-import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import androidx.dynamicanimation.animation.DynamicAnimation;
-import androidx.dynamicanimation.animation.FlingAnimation;
 import androidx.fragment.app.Fragment;
 
 import com.android.volley.Request;
@@ -181,7 +175,7 @@ public class LearnFragment extends Fragment{
         });
 
         requestQueue = Volley.newRequestQueue(context);
-        flingContainer = (SwipeFlingAdapterView) view.findViewById(R.id.frame_flashcard);
+        flingContainer = (SwipeFlingAdapterView) view.findViewById(R.id.learn_frame_flashcard);
         currentURL = "https://sanguage.herokuapp.com/dictionary/mixedByLanguage?language=English";
         flashcardAdapter = new FlashcardAdapter(context, R.layout.flashcard, dictionaryListSimple);
         flingContainer.setAdapter(flashcardAdapter);

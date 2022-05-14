@@ -17,7 +17,7 @@
         android:layout_marginBottom="10dp"
         android:fontFamily="@font/fredoka_one"
         android:gravity="start"
-        android:text="Learn vocabulary"
+        android:text="@string/Learn_vocabulary"
         android:textColor="@color/white"
         android:textSize="30sp"
         app:layout_constraintEnd_toEndOf="parent"
@@ -27,15 +27,18 @@
 
     <ImageView
         android:id="@+id/learn_filter_btn"
-        android:layout_width="30dp"
-        android:layout_height="30dp"
+        android:layout_width="48dp"
+        android:layout_height="48dp"
         android:layout_marginHorizontal="20dp"
         android:background="@color/transparent"
         android:clickable="true"
+        android:contentDescription="@string/Filter"
+        android:focusable="true"
         android:src="@drawable/ic_filter"
         app:layout_constraintBottom_toBottomOf="@id/learn_tv"
         app:layout_constraintEnd_toEndOf="@id/learn_tv"
-        app:layout_constraintTop_toTopOf="@id/learn_tv" />
+        app:layout_constraintTop_toTopOf="@id/learn_tv"
+        tools:ignore="ImageContrastCheck" />
 
     <com.lorentzos.flingswipe.SwipeFlingAdapterView
         android:id="@+id/learn_frame_flashcard"

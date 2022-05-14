@@ -95,6 +95,23 @@
     <string name="phrase_wyra_enie">phrase / wyrażenie</string>
     <string name="Open_email">Open email</string>
     <string name="Now_it_s_time_to_confirm_your_account">Now it\'s time to confirm your account!</string>
+    <string name="Known_words">Known words</string>
+    <string name="Cancel">Cancel</string>
+    <string name="Apply">Apply</string>
+    <string name="C2">C2</string>
+    <string name="B2">B2</string>
+    <string name="A2">A2</string>
+    <string name="C1">C1</string>
+    <string name="B1">B1</string>
+    <string name="A1">A1</string>
+    <string name="Level">Level</string>
+    <string name="New_words">New words</string>
+    <string name="Filter_vocabulary">Filter vocabulary</string>
+    <string name="Filter">Filter</string>
+    <string name="Learn_vocabulary">Learn vocabulary</string>
+    <string name="Dark_mode">Dark mode</string>
+    <string name="Create_account">Create account</string>
+    <string name="Look_for_vocabulary">Look for vocabulary</string>
 
     <string-array name="programming_languages">
         <item>Adjective</item>

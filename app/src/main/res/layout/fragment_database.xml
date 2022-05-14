@@ -33,7 +33,7 @@
         android:layout_marginTop="20dp"
         android:layout_marginEnd="40dp"
         android:layout_marginBottom="30dp"
-        android:hint="Look for vocabulary"
+        android:hint="@string/Look_for_vocabulary"
         android:textColorHint="@color/textColorHint"
         app:boxBackgroundColor="@color/colorEditText"
         app:boxCornerRadiusBottomEnd="20dp"
@@ -100,8 +100,9 @@
                 android:layout_width="match_parent"
                 android:layout_height="75dp"
                 android:layout_marginTop="20dp"
-                android:text="   "
-                app:layout_constraintTop_toBottomOf="@id/database_lv" />
+                android:text="@string/blank"
+                app:layout_constraintTop_toBottomOf="@id/database_lv"
+                tools:ignore="SpeakableTextPresentCheck" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 

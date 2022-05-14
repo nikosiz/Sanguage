@@ -59,31 +59,19 @@
         </com.google.android.material.textfield.TextInputEditText>
     </com.google.android.material.textfield.TextInputLayout>
 
-    <com.lorentzos.flingswipe.SwipeFlingAdapterView
-        android:id="@+id/database_flashcard"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="@color/transparent"
-        android:visibility="gone"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/database_search_tf"
-        app:rotation_degrees="0">
-
-    </com.lorentzos.flingswipe.SwipeFlingAdapterView>
-
-    <androidx.constraintlayout.widget.ConstraintLayout
+    <RelativeLayout
         android:id="@+id/database_cl"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
         android:layout_marginBottom="50dp"
-        android:paddingBottom="75dp"
+        android:paddingBottom="35dp"
         app:layout_constraintTop_toBottomOf="@id/database_search_tf">
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_height="match_parent"
+            >
 
             <ListView
                 android:id="@+id/database_lv"
@@ -94,18 +82,24 @@
                 android:dividerHeight="1dp"
                 android:paddingHorizontal="40dp"
                 android:scrollbarSize="0dp"
-                android:smoothScrollbar="true" />
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="75dp"
-                android:layout_marginTop="20dp"
-                android:text="@string/blank"
-                app:layout_constraintTop_toBottomOf="@id/database_lv"
-                tools:ignore="SpeakableTextPresentCheck" />
+                android:smoothScrollbar="true"
+                app:layout_goneMarginBottom="75dp" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 
-    </androidx.constraintlayout.widget.ConstraintLayout>
+        <com.lorentzos.flingswipe.SwipeFlingAdapterView
+            android:id="@+id/database_flashcard"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="30dp"
+            android:background="@color/transparent"
+            android:visibility="gone"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:rotation_degrees="0">
+
+        </com.lorentzos.flingswipe.SwipeFlingAdapterView>
+
+    </RelativeLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

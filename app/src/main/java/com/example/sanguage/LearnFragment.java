@@ -86,7 +86,7 @@ public class LearnFragment extends Fragment{
             public void onRightCardExit(Object o) {
                 if (userID != null) {
                     DictionaryPojo dictionaryPojo = (DictionaryPojo) o;
-                    addKnownVocabulary(dictionaryPojo.getVocabularyTranslated());
+                    addVocabularyToLearn(dictionaryPojo.getVocabularyTranslated());
                 }
             }
 
@@ -110,7 +110,7 @@ public class LearnFragment extends Fragment{
         });
     }
 
-    public void addKnownVocabulary(String vocabularyTranslated) {
+    public void addVocabularyToLearn(String vocabularyTranslated) {
         String addVocabURL = "https://sanguage.herokuapp.com/user/addKnownVocab?userID=" + userID + "&vocabulary=" + vocabularyTranslated;
         JsonObjectRequest jsonObjectRequest = new JsonObjectRequest(Request.Method.POST, addVocabURL, null, new Response.Listener<JSONObject>() {
             @Override

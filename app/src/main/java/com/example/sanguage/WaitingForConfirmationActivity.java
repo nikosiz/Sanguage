@@ -67,7 +67,6 @@ public class WaitingForConfirmationActivity extends AppCompatActivity {
         setContentView(R.layout.activity_waiting_for_confirmation);
 
         openEmailApp = findViewById(R.id.waiting_open_email_btn);
-        progress_bar = findViewById(R.id.waiting_for_confirmation_progress_bar);
         requestQueue = Volley.newRequestQueue(WaitingForConfirmationActivity.this);
         SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(getApplicationContext());
         userID = preferences.getLong("userID", 9999999999999L);

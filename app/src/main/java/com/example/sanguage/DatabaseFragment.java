@@ -25,11 +25,14 @@ import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonArrayRequest;
 import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.Volley;
+import com.example.sanguage.pojo.DictionaryPojo;
+import com.example.sanguage.utils.FlashcardAdapter;
 import com.example.sanguage.utils.ListViewAdapter;
 import com.example.sanguage.utils.RequestErrorParser;
 import com.example.sanguage.utils.VolleyRequestCallback;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.google.android.material.textfield.TextInputEditText;
+import com.lorentzos.flingswipe.SwipeFlingAdapterView;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -48,6 +51,9 @@ public class DatabaseFragment extends Fragment {
     private ListViewAdapter arrayAdapter;
     private TextInputEditText databaseSearch_et;
     private RequestQueue requestQueue;
+    private SwipeFlingAdapterView flingContainer;
+    private ArrayList<DictionaryPojo> dictionaryListSimple = new ArrayList<>();
+    private FlashcardAdapter flashcardAdapter;
 
     public DatabaseFragment() {
     }
@@ -122,6 +128,11 @@ public class DatabaseFragment extends Fragment {
         databaseSearch_et = view.findViewById(R.id.database_search_et);
         requestQueue = Volley.newRequestQueue(context);
         registerForContextMenu(database_lv);
+        flingContainer = (SwipeFlingAdapterView) view.findViewById(R.id.database_flashcard);
+
+        flashcardAdapter = new FlashcardAdapter(context, R.layout.flashcard, dictionaryListSimple);
+        flingContainer.setAdapter(flashcardAdapter);
+        setFlingContainer();
         setDatabaseSearchListener();
         if (userKnownVocab.isEmpty()) {
             userKnownVocabRequest(new VolleyRequestCallback() {
@@ -134,7 +145,41 @@ public class DatabaseFragment extends Fragment {
         }
         return view;
     }
+    public void setFlingContainer() {
+        flingContainer.setFlingListener(new SwipeFlingAdapterView.onFlingListener() {
+            @Override
+            public void removeFirstObjectInAdapter() {
+                toggleFlashcard(false);
+                dictionaryListSimple.remove(0);
+            }
 
+            @Override
+            public void onLeftCardExit(Object o) {
+
+            }
+
+            @Override
+            public void onRightCardExit(Object o) {
+            }
+
+            @Override
+            public void onAdapterAboutToEmpty(int i) {
+            }
+
+            @Override
+            public void onScroll(float v) {
+
+            }
+        });
+
+        flingContainer.setOnItemClickListener(new SwipeFlingAdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClicked(int itemPosition, Object dataObject) {
+                View selectedView = flingContainer.getSelectedView();
+                flashcardAdapter.toggleTranslations(selectedView, (DictionaryPojo) dataObject);
+            }
+        });
+    }
     @Override
     public void onCreateContextMenu(@NonNull ContextMenu menu, @NonNull View v, @Nullable ContextMenu.ContextMenuInfo menuInfo) {
         super.onCreateContextMenu(menu, v, menuInfo);
@@ -164,16 +209,16 @@ public class DatabaseFragment extends Fragment {
     @Override
     public boolean onContextItemSelected(@NonNull MenuItem item) {
         AdapterView.AdapterContextMenuInfo info = (AdapterView.AdapterContextMenuInfo) item.getMenuInfo();
+        String vocabulary = arrayAdapter.getItem(info.position);
+        dictionaryListSimple.clear();
+        flashcardAdapter.notifyDataSetChanged();
         switch (item.getItemId()) {
             case R.id.context_database_show_more:
-                Toast.makeText(getContext(), "show more" + item.getItemId(), Toast.LENGTH_SHORT).show();
-                //show selected vocabulary on a flashcard
-                String dw = arrayAdapter.getItem(info.position);
-                System.out.println(dw);
+                searchGivenVocabularyRequest(vocabulary);
+                toggleFlashcard(true);
                 return true;
             case R.id.context_database_delete:
-                Toast.makeText(getContext(), "delete", Toast.LENGTH_SHORT).show();
-                String vocabulary = arrayAdapter.getItem(info.position);
+                Toast.makeText(getContext(), "deleted", Toast.LENGTH_SHORT).show();
                 deleteUserKnownVocab(vocabulary);
                 deleteUserKnownVocabRequest(vocabulary);
                 return true;
@@ -181,4 +226,41 @@ public class DatabaseFragment extends Fragment {
                 return super.onContextItemSelected(item);
         }
     }
+
+    public void toggleFlashcard(boolean state) {
+        if (state) {
+            flingContainer.setEnabled(true);
+            flingContainer.setVisibility(View.VISIBLE);
+        } else {
+            flingContainer.setEnabled(false);
+            flingContainer.setVisibility(View.GONE);
+        }
+    }
+    public void searchGivenVocabularyRequest(String vocabulary) {
+        String URL = "https://sanguage.herokuapp.com/dictionary/byLanguageVocabulary?language=English&vocabulary=" + vocabulary;
+        JsonObjectRequest jsonObjectRequest = new JsonObjectRequest(Request.Method.GET, URL, null, new Response.Listener<JSONObject>() {
+            @Override
+            public void onResponse(JSONObject response) {
+                setFlashcard(response);
+            }
+        }, new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError error) {
+                Log.e("searchGivenVocabularyRequest - onErrorResponse()", String.valueOf(error));
+            }
+        });
+        requestQueue.add(jsonObjectRequest);
+    }
+    public void setFlashcard(JSONObject response) {
+        dictionaryListSimple.clear();
+        flashcardAdapter.notifyDataSetChanged();
+        ObjectMapper mapper = new ObjectMapper();
+        try {
+            DictionaryPojo dictionaryPojo = mapper.readValue(response.toString(), DictionaryPojo.class);
+            dictionaryListSimple.add(dictionaryPojo);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
 }

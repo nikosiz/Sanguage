@@ -39,7 +39,6 @@ public class AddNewFragment<adapter> extends Fragment {
         add_new_collocations_et=view.findViewById(R.id.add_new_collocations_et);
         add_new_vocabulary_translation_et=view.findViewById(R.id.add_new_vocabulary_translation_et);
         add_new_collocations_translation_et=view.findViewById(R.id.add_new_collocations_translation_et);
-        add_new_rg=view.findViewById(R.id.add_new_rg);
 
 
         add_new_next_btn.setOnClickListener(new View.OnClickListener() {
@@ -50,7 +49,6 @@ public class AddNewFragment<adapter> extends Fragment {
                 String collocations=add_new_collocations_et.getText().toString();
                 String vocabularyTranslated=add_new_vocabulary_translation_et.getText().toString();
                 String collocationsTranslated=add_new_collocations_translation_et.getText().toString();
-                int checkedRadioButtonId = add_new_rg.getCheckedRadioButtonId();
 
             }
         });

@@ -32,7 +32,7 @@
         android:layout_marginHorizontal="20dp"
         android:background="@color/transparent"
         android:clickable="true"
-        android:src="@drawable/ic_baseline_filter_alt_24"
+        android:src="@drawable/ic_filter"
         app:layout_constraintBottom_toBottomOf="@id/learn_tv"
         app:layout_constraintEnd_toEndOf="@id/learn_tv"
         app:layout_constraintTop_toTopOf="@id/learn_tv" />

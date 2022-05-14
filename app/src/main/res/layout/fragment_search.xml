@@ -46,7 +46,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/search_search_tv"
-        app:startIconDrawable="@drawable/ic_baseline_search_24">
+        app:startIconDrawable="@drawable/ic_search">
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/search_search_et"

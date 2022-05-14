@@ -26,11 +26,13 @@ import com.android.volley.toolbox.JsonArrayRequest;
 import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.Volley;
 import com.example.sanguage.utils.ListViewAdapter;
+import com.example.sanguage.utils.RequestErrorParser;
 import com.example.sanguage.utils.VolleyRequestCallback;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.google.android.material.textfield.TextInputEditText;
 
 import org.json.JSONArray;
+import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.io.IOException;
@@ -166,6 +168,8 @@ public class DatabaseFragment extends Fragment {
             case R.id.context_database_show_more:
                 Toast.makeText(getContext(), "show more" + item.getItemId(), Toast.LENGTH_SHORT).show();
                 //show selected vocabulary on a flashcard
+                String dw = arrayAdapter.getItem(info.position);
+                System.out.println(dw);
                 return true;
             case R.id.context_database_delete:
                 Toast.makeText(getContext(), "delete", Toast.LENGTH_SHORT).show();

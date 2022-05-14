@@ -92,6 +92,7 @@ public class WaitingForConfirmationActivity extends AppCompatActivity {
                 while (true) {
                     if (enabled) {
                         Intent intent = new Intent(getApplicationContext(), LogInActivity.class);
+                        intent.putExtra("afterSignup",true);
                         startActivity(intent);
                         break;
                     }

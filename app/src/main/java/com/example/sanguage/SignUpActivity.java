@@ -250,7 +250,6 @@ public class SignUpActivity extends AppCompatActivity {
     }
 
 
-    @SuppressLint("NonConstantResourceId")
     public String mapLanguageIndexToName(int index) {
         switch (index) {
             case R.id.learn_english:

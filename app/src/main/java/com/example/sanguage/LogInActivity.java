@@ -63,6 +63,11 @@ public class LogInActivity extends AppCompatActivity {
         log_in_sign_up_btn = findViewById(R.id.log_in_sign_up_btn);
         log_in_progress_bar = findViewById(R.id.log_in_progress_bar);
         shakeError = Utils.shakeError(5, 15, 0, 0, 500, 7);
+        boolean afterSignup = getIntent().getBooleanExtra("afterSignup",false);
+        if(afterSignup){
+            log_in_sign_up_btn.setVisibility(View.GONE);
+        }
+
         handleLoginBtn();
 
         log_in_forgot_password_btn.setOnClickListener(new View.OnClickListener() {

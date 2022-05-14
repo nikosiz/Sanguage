@@ -16,7 +16,7 @@
         android:layout_marginTop="20dp"
         android:fontFamily="@font/fredoka_one"
         android:gravity="start"
-        android:text="@string/vocabulary_database"
+        android:text="@string/to_learn_database"
         android:textColor="@color/white"
         android:textSize="30sp"
         app:layout_constraintEnd_toEndOf="parent"
@@ -70,8 +70,7 @@
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            >
+            android:layout_height="match_parent">
 
             <ListView
                 android:id="@+id/database_lv"
@@ -81,6 +80,7 @@
                 android:divider="@color/basicButtonBackground"
                 android:dividerHeight="1dp"
                 android:paddingHorizontal="40dp"
+                android:paddingBottom="95dp"
                 android:scrollbarSize="0dp"
                 android:smoothScrollbar="true"
                 app:layout_goneMarginBottom="75dp" />

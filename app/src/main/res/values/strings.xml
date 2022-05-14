@@ -93,6 +93,8 @@
     <string name="number_liczba">number / liczba</string>
     <string name="phrasal_verb">phrasal verb</string>
     <string name="phrase_wyra_enie">phrase / wyrażenie</string>
+    <string name="Open_email">Open email</string>
+    <string name="Now_it_s_time_to_confirm_your_account">Now it\'s time to confirm your account!</string>
 
     <string-array name="programming_languages">
         <item>Adjective</item>

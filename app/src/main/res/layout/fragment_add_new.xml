@@ -215,7 +215,7 @@
                 app:layout_constraintTop_toBottomOf="@id/add_new_collocations_translation_tf">
 
                 <AutoCompleteTextView
-                    android:id="@+id/autoCompleteTextView"
+                    android:id="@+id/add_new_gram_cat_actv"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:layout_weight="1"

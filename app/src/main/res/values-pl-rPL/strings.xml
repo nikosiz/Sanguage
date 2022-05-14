@@ -21,10 +21,10 @@
     <string name="search">WYSZUKAJ</string>
     <string name="profile">PROFIL</string>
     <string name="look_for_a_word">Wyszukaj słówko</string>
-    <string name="search_for_vocabulary">Wyszukaj słówka</string>
+    <string name="vocabulary_database">Wyszukaj słówka</string>
     <string name="add">Dodaj</string>
     <string name="add_new_vocabulary">Dodaj nowe słówko</string>
-    <string name="vocabulary_database">Baza słówek</string>
+    <string name="to_learn_database">Baza słówek</string>
     <string name="account_settings">Ustawienia konta</string>
     <string name="general_settings">Ustawienia</string>
     <string name="your_profile">Twój profil</string>

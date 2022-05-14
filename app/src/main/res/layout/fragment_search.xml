@@ -17,7 +17,7 @@
         android:layout_marginBottom="10dp"
         android:fontFamily="@font/fredoka_one"
         android:gravity="start"
-        android:text="@string/search_for_vocabulary"
+        android:text="@string/vocabulary_database"
         android:textColor="@color/white"
         android:textSize="30sp"
         app:layout_constraintEnd_toEndOf="parent"
@@ -81,6 +81,7 @@
                 android:divider="@color/basicButtonBackground"
                 android:dividerHeight="1dp"
                 android:paddingHorizontal="40dp"
+                android:paddingBottom="95dp"
                 android:scrollbarSize="0dp"
                 android:smoothScrollbar="true" />
         </androidx.constraintlayout.widget.ConstraintLayout>

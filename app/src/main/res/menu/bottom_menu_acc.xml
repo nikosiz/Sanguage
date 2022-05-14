@@ -13,7 +13,7 @@
     <item
         android:id="@+id/bottom_nav_database"
         android:icon="@drawable/ic_your_database_tab"
-        android:title="Database"
+        android:title="To-learn"
         app:cnb_backgroundColor="@color/white"
         app:cnb_iconColor="@color/basicButtonBackground"
         app:cnb_textColor="@color/black" />

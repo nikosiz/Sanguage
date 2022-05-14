@@ -51,14 +51,14 @@
     <string name="your_profile">Your profile</string>
     <string name="account_settings">Account settings</string>
     <string name="general_settings">General settings</string>
-    <string name="dark_mode">Dark mode</string>
+
 
     <string name="gramm_cat">Grammatical category</string>
     <string name="asdf">ASDF</string>
-    <string name="vocabulary_database">Vocabulary database</string>
+    <string name="to_learn_database">To-learn database</string>
     <string name="add_new_vocabulary">Add new vocabulary</string>
     <string name="add">Add</string>
-    <string name="search_for_vocabulary">Search for vocabulary</string>
+    <string name="vocabulary_database">Vocabulary database</string>
     <string name="look_for_a_word">Look for a word</string>
     <string-array name="languages">
         <item>verb</item>
@@ -68,4 +68,64 @@
         <item>adjective</item>
     </string-array>
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="Vocabulary">Vocabulary</string>
+    <string name="Topic">Topic</string>
+    <string name="Collocations">Collocations</string>
+    <string name="Grammatical_category">Grammatical category</string>
+    <string name="Definition">Definition</string>
+    <string name="create_account">Create account</string>
+    <string name="dark_mode">Dark mode</string>
+    <string name="current_password">Current password</string>
+    <string name="log_out">Log out</string>
+    <string name="verb_czasownik">verb / czasownik</string>
+    <string name="pronoun_zaimek">pronoun / zaimek</string>
+    <string name="preposition_przyimek">preposition / przyimek</string>
+    <string name="prefix_przedrostek">prefix / przedrostek</string>
+    <string name="adjective_przymiotnik">adjective / przymiotnik</string>
+    <string name="Translated_vocabulary">Translated vocabulary</string>
+    <string name="Translated_collocations">Translated collocations</string>
+    <string name="ADD">ADD</string>
+    <string name="blank" />
+    <string name="adverb_przys_wek">adverb / przysłówek</string>
+    <string name="conjunction_sp_jnik">conjunction / spójnik</string>
+    <string name="determiner_okre_lnik">determiner / określnik</string>
+    <string name="noun_rzeczownik">noun / rzeczownik</string>
+    <string name="number_liczba">number / liczba</string>
+    <string name="phrasal_verb">phrasal verb</string>
+    <string name="phrase_wyra_enie">phrase / wyrażenie</string>
+    <string name="Open_email">Open email</string>
+    <string name="Now_it_s_time_to_confirm_your_account">Now it\'s time to confirm your account!</string>
+    <string name="Known_words">Known words</string>
+    <string name="Cancel">Cancel</string>
+    <string name="Apply">Apply</string>
+    <string name="C2">C2</string>
+    <string name="B2">B2</string>
+    <string name="A2">A2</string>
+    <string name="C1">C1</string>
+    <string name="B1">B1</string>
+    <string name="A1">A1</string>
+    <string name="Level">Level</string>
+    <string name="New_words">New words</string>
+    <string name="Filter_vocabulary">Filter vocabulary</string>
+    <string name="Filter">Filter</string>
+    <string name="Learn_vocabulary">Learn vocabulary</string>
+    <string name="Dark_mode">Dark mode</string>
+    <string name="Create_account">Create account</string>
+    <string name="Look_for_vocabulary">Look for vocabulary</string>
+
+    <string-array name="programming_languages">
+        <item>Adjective</item>
+        <item>Adverb</item>
+        <item>Conjunction</item>
+        <item>Determiner</item>
+        <item>Interjection</item>
+        <item>Noun</item>
+        <item>Number</item>
+        <item>Phrasal verb</item>
+        <item>Phrase</item>
+        <item>Prefix</item>
+        <item>Preposition</item>
+        <item>Pronoun</item>
+        <item>Verb</item>
+    </string-array>
 </resources>

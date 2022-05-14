@@ -185,8 +185,8 @@ public class LearnFragment extends Fragment{
 
     public void initializeFilterPopupView() {
         filterPopupView = getLayoutInflater().inflate(R.layout.popup, null);
-        filter_known_words_cb = (CheckBox) filterPopupView.findViewById(R.id.filter_known_words_cb);
-        filter_new_words_cb = (CheckBox) filterPopupView.findViewById(R.id.filter_new_words_cb);
+        filter_known_words_cb = (CheckBox) filterPopupView.findViewById(R.id.filter_all_vocabulary_cb);
+        filter_new_words_cb = (CheckBox) filterPopupView.findViewById(R.id.filter_vocabulary_to_revise_cb);
         filter_level_A1_cb = (CheckBox) filterPopupView.findViewById(R.id.filter_level_A1_cb);
         filter_level_A2_cb = (CheckBox) filterPopupView.findViewById(R.id.filter_level_A2_cb);
         filter_level_B1_cb = (CheckBox) filterPopupView.findViewById(R.id.filter_level_B1_cb);

@@ -31,18 +31,16 @@
 
     <ImageView
         android:id="@+id/log_in_mascot_iv"
-        android:layout_width="150dp"
-        android:layout_height="150dp"
+        android:layout_width="170dp"
+        android:layout_height="170dp"
         android:layout_gravity="center"
         android:layout_marginHorizontal="20dp"
-        android:layout_marginVertical="20dp"
-        android:layout_marginTop="16dp"
+        android:layout_marginVertical="30dp"
         android:contentDescription="@string/mascot"
         android:src="@drawable/ic_mascot"
         android:transitionName="mascot_transition"
         app:layout_constraintBottom_toTopOf="@id/log_in_welcome_back_tv"
         app:layout_constraintEnd_toEndOf="@id/waiting_app_logo_tv"
-        app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="@id/waiting_app_logo_tv"
         app:layout_constraintTop_toBottomOf="@id/waiting_app_logo_tv" />
 

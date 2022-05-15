@@ -12,6 +12,7 @@ import androidx.appcompat.app.AppCompatDelegate;
 import androidx.fragment.app.Fragment;
 
 import android.preference.PreferenceManager;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -26,9 +27,11 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.Volley;
+import com.example.sanguage.utils.RequestErrorParser;
 import com.example.sanguage.utils.Utils;
 import com.google.android.material.textfield.TextInputEditText;
 
+import org.json.JSONException;
 import org.json.JSONObject;
 
 
@@ -134,10 +137,11 @@ public class ProfileFragment extends Fragment {
     public void changeDataRequest(String data, String currentPassword, RequestOption option) {
         String changeDataURL = "";
         if (option.equals(RequestOption.PASSWORD) || option.equals(RequestOption.BOTH)) {
-            changeDataURL = "https://sanguage.herokuapp.com/user/passChange?userID=" + userID + "&oldPassword=" + data;
+            changeDataURL = "https://sanguage.herokuapp.com/user/passChange?userID=" + userID + "&oldPassword=" + data+ "&password="+ currentPassword;
         } else if (option.equals(RequestOption.USERNAME)) {
-            changeDataURL = "https://sanguage.herokuapp.com/user/usernameChange?userID=" + userID + "&newUsername=" + data;
+            changeDataURL = "https://sanguage.herokuapp.com/user/usernameChange?userID=" + userID + "&newUsername=" + data+ "&password="+ currentPassword;
         }
+        System.out.println(changeDataURL);
         JsonObjectRequest jsonObjectRequest = new JsonObjectRequest(Request.Method.POST, changeDataURL, null, new Response.Listener<JSONObject>() {
             @Override
             public void onResponse(JSONObject response) {
@@ -150,8 +154,13 @@ public class ProfileFragment extends Fragment {
         }, new Response.ErrorListener() {
             @Override
             public void onErrorResponse(VolleyError error) {
-                Toast.makeText(context, "Check your internet connection", Toast.LENGTH_SHORT).show();
                 enableChangeDataActions();
+                try {
+                    String message = RequestErrorParser.parseError(error);
+                    Toast.makeText(context, message, Toast.LENGTH_SHORT).show();
+                } catch (JSONException jsonException) {
+                    jsonException.printStackTrace();
+                }
             }
         });
         requestQueue.add(jsonObjectRequest);

@@ -201,30 +201,32 @@ public class LearnFragment extends Fragment{
         filter_all_vocabulary_cb.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
-                if(!b){
+                if (!b) {
                     filter_vocabulary_to_revise_cb.setChecked(true);
-                }else{
-                filter_vocabulary_to_revise_cb.setChecked(false);
-                compoundButton.setChecked(b);
-            }}
+                } else {
+                    filter_vocabulary_to_revise_cb.setChecked(false);
+                    compoundButton.setChecked(b);
+                }
+            }
         });
         filter_vocabulary_to_revise_cb.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
-                if(!b){
+                if (!b) {
                     filter_all_vocabulary_cb.setChecked(true);
-                }else{
-                filter_all_vocabulary_cb.setChecked(false);
-                compoundButton.setChecked(b);
-            }}
+                } else {
+                    filter_all_vocabulary_cb.setChecked(false);
+                    compoundButton.setChecked(b);
+                }
+            }
         });
         SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(context);
         boolean enabled = preferences.getBoolean("enabled", false);
-        if(!enabled){
+        if (!enabled) {
             filter_all_vocabulary_cb.setEnabled(false);
             filter_vocabulary_to_revise_cb.setEnabled(false);
-           filter_all_vocabulary_cb.setAlpha(0.5f);
-           filter_vocabulary_to_revise_cb.setAlpha(0.5f);
+            filter_all_vocabulary_cb.setAlpha(0.5f);
+            filter_vocabulary_to_revise_cb.setAlpha(0.5f);
         }
         checkBoxHashSet = new HashSet<>();
         checkBoxHashSet.add(filter_level_A1_cb);
@@ -312,7 +314,7 @@ public class LearnFragment extends Fragment{
         int hashSetSize = checkedLevels.size();
         if (state.equals(FilterState.KNOWN)) {
             currentURL = "https://sanguage.herokuapp.com/dictionary/knownByLanguage";
-        } else  {
+        } else {
             currentURL = "https://sanguage.herokuapp.com/dictionary/mixedByLanguage";
         }
         if (hashSetSize == 1) {

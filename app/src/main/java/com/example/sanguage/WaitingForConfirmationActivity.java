@@ -25,7 +25,6 @@ import org.json.JSONObject;
 public class WaitingForConfirmationActivity extends AppCompatActivity {
 
     private Button openEmailApp;
-    private RelativeLayout progress_bar;
     private RequestQueue requestQueue;
     private Long userID;
     private boolean enabled;
@@ -70,7 +69,6 @@ public class WaitingForConfirmationActivity extends AppCompatActivity {
         requestQueue = Volley.newRequestQueue(WaitingForConfirmationActivity.this);
         SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(getApplicationContext());
         userID = preferences.getLong("userID", 9999999999999L);
-        progress_bar.setVisibility(View.VISIBLE);
         requestInBackground();
         openEmailApp.setOnClickListener(new View.OnClickListener() {
             @Override

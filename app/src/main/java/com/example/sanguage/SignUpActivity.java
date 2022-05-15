@@ -190,7 +190,6 @@ public class SignUpActivity extends AppCompatActivity {
                 public void onResponse(JSONObject response) {
                     try {
                         String userID = response.getString("messages");
-                        System.out.println(userID);
                         SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(SignUpActivity.this);
                         SharedPreferences.Editor editor = preferences.edit();
                         editor.putLong("userID", Long.valueOf(userID));
@@ -209,7 +208,7 @@ public class SignUpActivity extends AppCompatActivity {
                     } catch (JSONException jsonException) {
                         jsonException.printStackTrace();
                     }
-                    Log.e("knownVocabularyRequest - onErrorResponse()", String.valueOf(error));
+                    Log.e("signUpRequest - onErrorResponse()", String.valueOf(error));
                     hideProgressBar();
                     enableAllActions();
                 }

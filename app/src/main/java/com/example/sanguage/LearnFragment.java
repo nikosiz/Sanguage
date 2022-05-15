@@ -80,7 +80,10 @@ public class LearnFragment extends Fragment{
 
             @Override
             public void onLeftCardExit(Object o) {
-
+                if (userID != null) {
+                    DictionaryPojo dictionaryPojo = (DictionaryPojo) o;
+                    deleteUserKnownVocabRequest(dictionaryPojo.getVocabularyTranslated());
+                }
             }
 
             @Override
@@ -194,19 +197,26 @@ public class LearnFragment extends Fragment{
         filter_level_B2_cb = (CheckBox) filterPopupView.findViewById(R.id.filter_level_B2_cb);
         filter_level_C1_cb = (CheckBox) filterPopupView.findViewById(R.id.filter_level_C1_cb);
         filter_level_C2_cb = (CheckBox) filterPopupView.findViewById(R.id.filter_level_C2_cb);
+        filter_all_vocabulary_cb.setChecked(true);
         filter_all_vocabulary_cb.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
+                if(!b){
+                    filter_vocabulary_to_revise_cb.setChecked(true);
+                }else{
                 filter_vocabulary_to_revise_cb.setChecked(false);
                 compoundButton.setChecked(b);
-            }
+            }}
         });
         filter_vocabulary_to_revise_cb.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
+                if(!b){
+                    filter_all_vocabulary_cb.setChecked(true);
+                }else{
                 filter_all_vocabulary_cb.setChecked(false);
                 compoundButton.setChecked(b);
-            }
+            }}
         });
         SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(context);
         boolean enabled = preferences.getBoolean("enabled", false);
@@ -255,17 +265,31 @@ public class LearnFragment extends Fragment{
         filterButtonsHandle();
     }
 
+    public void deleteUserKnownVocabRequest(String vocabulary) {
+        String URL = "https://sanguage.herokuapp.com/user/deleteKnownVocab?userID=" + userID + "&vocabulary=" + vocabulary;
+        JsonObjectRequest jsonObjectRequest = new JsonObjectRequest(Request.Method.DELETE, URL, null, new Response.Listener<JSONObject>() {
+            @Override
+            public void onResponse(JSONObject response) {
+                ;
+            }
+        }, new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError error) {
+                Log.e("deleteUserKnownVocabRequest - onErrorResponse()", String.valueOf(error));
+            }
+        });
+        requestQueue.add(jsonObjectRequest);
+    }
+
     public void mapFilterToURL() {
         currentURL = "";
-        boolean knownWordsChecked = filter_all_vocabulary_cb.isChecked();
-        boolean newWordsChecked = filter_vocabulary_to_revise_cb.isChecked();
+        boolean allVocab = filter_all_vocabulary_cb.isChecked();
+        boolean VocabToRevise = filter_vocabulary_to_revise_cb.isChecked();
         FilterState state;
-        if ((knownWordsChecked && newWordsChecked) || (!knownWordsChecked && !newWordsChecked)) {
+        if (allVocab) {
             state = FilterState.MIXED;
-        } else if (knownWordsChecked) {
-            state = FilterState.KNOWN;
         } else {
-            state = FilterState.NEW;
+            state = FilterState.KNOWN;
         }
         ArrayList<String> checkedLevels = new ArrayList<>();
         for (CheckBox checkBox : checkBoxHashSet) {
@@ -288,10 +312,8 @@ public class LearnFragment extends Fragment{
         int hashSetSize = checkedLevels.size();
         if (state.equals(FilterState.KNOWN)) {
             currentURL = "https://sanguage.herokuapp.com/dictionary/knownByLanguage";
-        } else if (state.equals(FilterState.MIXED)) {
+        } else  {
             currentURL = "https://sanguage.herokuapp.com/dictionary/mixedByLanguage";
-        } else {
-            currentURL = "https://sanguage.herokuapp.com/dictionary/newByLanguage";
         }
         if (hashSetSize == 1) {
             String level = checkedLevels.get(0);

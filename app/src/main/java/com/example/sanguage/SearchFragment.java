@@ -261,10 +261,10 @@ public class SearchFragment extends Fragment {
         dictionaryListSimple.clear();
         flashcardAdapter.notifyDataSetChanged();
         switch (item.getItemId()) {
-            case R.id.context_search_show_more:
+            /*case R.id.context_search_show_more:
                 searchGivenVocabularyRequest(vocabulary);
                 toggleFlashcard(true);
-                return true;
+                return true;*/
             case R.id.context_search_add:
                 Toast.makeText(getContext(), "added", Toast.LENGTH_SHORT).show();
                 addKnownVocabulary(vocabulary);

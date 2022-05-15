@@ -32,4 +32,7 @@
     <color name="textColorHint">#666666</color>
     <color name="hintTextAndStrokeColor">@color/greyBlue</color>
     <color name="flashcardBG">@color/white</color>
+    <color name="checkBoxOff">@color/colorSecondaryVariant</color>
+    <color name="checkBoxOn">@color/colorSecondary</color>
+    <color name="checkBoxText">@color/greyBlue</color>
 </resources>

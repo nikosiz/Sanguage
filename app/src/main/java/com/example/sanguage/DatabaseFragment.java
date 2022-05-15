@@ -213,10 +213,10 @@ public class DatabaseFragment extends Fragment {
         dictionaryListSimple.clear();
         flashcardAdapter.notifyDataSetChanged();
         switch (item.getItemId()) {
-            case R.id.context_database_show_more:
-                searchGivenVocabularyRequest(vocabulary);
-                toggleFlashcard(true);
-                return true;
+            //case R.id.context_database_show_more:
+                //searchGivenVocabularyRequest(vocabulary);
+                //toggleFlashcard(true);
+                //return true;
             case R.id.context_database_delete:
                 Toast.makeText(getContext(), "deleted", Toast.LENGTH_SHORT).show();
                 deleteUserKnownVocab(vocabulary);

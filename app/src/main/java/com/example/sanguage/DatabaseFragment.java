@@ -10,6 +10,7 @@ import android.view.LayoutInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.inputmethod.InputMethodManager;
 import android.widget.AdapterView;
 import android.widget.ListView;
 import android.widget.Toast;
@@ -134,6 +135,21 @@ public class DatabaseFragment extends Fragment {
         flingContainer.setAdapter(flashcardAdapter);
         setFlingContainer();
         setDatabaseSearchListener();
+        database_lv.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+                String vocabulary = userKnownVocab.get(i);
+                if (!dictionaryListSimple.isEmpty() && dictionaryListSimple.get(0).getVocabularyTranslated().equals(vocabulary)) {
+                    return;
+                }
+                dictionaryListSimple.clear();
+                flashcardAdapter.notifyDataSetChanged();
+                searchGivenVocabularyRequest(vocabulary);
+                toggleFlashcard(true);
+                InputMethodManager imm = (InputMethodManager) getActivity().getSystemService(Context.INPUT_METHOD_SERVICE);
+                imm.hideSoftInputFromWindow(databaseSearch_et.getWindowToken(), 0);
+            }
+        });
         if (userKnownVocab.isEmpty()) {
             userKnownVocabRequest(new VolleyRequestCallback() {
                 @Override
@@ -145,6 +161,7 @@ public class DatabaseFragment extends Fragment {
         }
         return view;
     }
+
     public void setFlingContainer() {
         flingContainer.setFlingListener(new SwipeFlingAdapterView.onFlingListener() {
             @Override
@@ -180,6 +197,7 @@ public class DatabaseFragment extends Fragment {
             }
         });
     }
+
     @Override
     public void onCreateContextMenu(@NonNull ContextMenu menu, @NonNull View v, @Nullable ContextMenu.ContextMenuInfo menuInfo) {
         super.onCreateContextMenu(menu, v, menuInfo);
@@ -213,10 +231,6 @@ public class DatabaseFragment extends Fragment {
         dictionaryListSimple.clear();
         flashcardAdapter.notifyDataSetChanged();
         switch (item.getItemId()) {
-            //case R.id.context_database_show_more:
-                //searchGivenVocabularyRequest(vocabulary);
-                //toggleFlashcard(true);
-                //return true;
             case R.id.context_database_delete:
                 Toast.makeText(getContext(), "deleted", Toast.LENGTH_SHORT).show();
                 deleteUserKnownVocab(vocabulary);
@@ -236,6 +250,7 @@ public class DatabaseFragment extends Fragment {
             flingContainer.setVisibility(View.GONE);
         }
     }
+
     public void searchGivenVocabularyRequest(String vocabulary) {
         String URL = "https://sanguage.herokuapp.com/dictionary/byLanguageVocabulary?language=English&vocabulary=" + vocabulary;
         JsonObjectRequest jsonObjectRequest = new JsonObjectRequest(Request.Method.GET, URL, null, new Response.Listener<JSONObject>() {
@@ -251,6 +266,7 @@ public class DatabaseFragment extends Fragment {
         });
         requestQueue.add(jsonObjectRequest);
     }
+
     public void setFlashcard(JSONObject response) {
         dictionaryListSimple.clear();
         flashcardAdapter.notifyDataSetChanged();

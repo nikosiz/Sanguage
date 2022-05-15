@@ -11,6 +11,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.CheckBox;
+import android.widget.CompoundButton;
 import android.widget.ImageView;
 import android.widget.Toast;
 
@@ -50,7 +51,7 @@ public class LearnFragment extends Fragment{
     private Long userID;
     private AlertDialog.Builder dialogBuilder;
     private AlertDialog dialog;
-    private CheckBox filter_known_words_cb, filter_new_words_cb, filter_level_A1_cb, filter_level_A2_cb, filter_level_B1_cb, filter_level_B2_cb, filter_level_C1_cb, filter_level_C2_cb;
+    private CheckBox filter_all_vocabulary_cb, filter_vocabulary_to_revise_cb, filter_level_A1_cb, filter_level_A2_cb, filter_level_B1_cb, filter_level_B2_cb, filter_level_C1_cb, filter_level_C2_cb;
     private Button filter_apply_btn, filter_cancel_btn;
     private ImageView filter_btn;
     private HashSet<CheckBox> checkBoxHashSet;
@@ -79,7 +80,10 @@ public class LearnFragment extends Fragment{
 
             @Override
             public void onLeftCardExit(Object o) {
-
+                if (userID != null) {
+                    DictionaryPojo dictionaryPojo = (DictionaryPojo) o;
+                    deleteUserKnownVocabRequest(dictionaryPojo.getVocabularyTranslated());
+                }
             }
 
             @Override
@@ -185,21 +189,44 @@ public class LearnFragment extends Fragment{
 
     public void initializeFilterPopupView() {
         filterPopupView = getLayoutInflater().inflate(R.layout.popup, null);
-        filter_known_words_cb = (CheckBox) filterPopupView.findViewById(R.id.filter_all_vocabulary_cb);
-        filter_new_words_cb = (CheckBox) filterPopupView.findViewById(R.id.filter_vocabulary_to_revise_cb);
+        filter_all_vocabulary_cb = (CheckBox) filterPopupView.findViewById(R.id.filter_all_vocabulary_cb);
+        filter_vocabulary_to_revise_cb = (CheckBox) filterPopupView.findViewById(R.id.filter_vocabulary_to_revise_cb);
         filter_level_A1_cb = (CheckBox) filterPopupView.findViewById(R.id.filter_level_A1_cb);
         filter_level_A2_cb = (CheckBox) filterPopupView.findViewById(R.id.filter_level_A2_cb);
         filter_level_B1_cb = (CheckBox) filterPopupView.findViewById(R.id.filter_level_B1_cb);
         filter_level_B2_cb = (CheckBox) filterPopupView.findViewById(R.id.filter_level_B2_cb);
         filter_level_C1_cb = (CheckBox) filterPopupView.findViewById(R.id.filter_level_C1_cb);
         filter_level_C2_cb = (CheckBox) filterPopupView.findViewById(R.id.filter_level_C2_cb);
+        filter_all_vocabulary_cb.setChecked(true);
+        filter_all_vocabulary_cb.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
+                if (!b) {
+                    filter_vocabulary_to_revise_cb.setChecked(true);
+                } else {
+                    filter_vocabulary_to_revise_cb.setChecked(false);
+                    compoundButton.setChecked(b);
+                }
+            }
+        });
+        filter_vocabulary_to_revise_cb.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
+                if (!b) {
+                    filter_all_vocabulary_cb.setChecked(true);
+                } else {
+                    filter_all_vocabulary_cb.setChecked(false);
+                    compoundButton.setChecked(b);
+                }
+            }
+        });
         SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(context);
         boolean enabled = preferences.getBoolean("enabled", false);
-        if(!enabled){
-            filter_known_words_cb.setEnabled(false);
-            filter_new_words_cb.setEnabled(false);
-           filter_known_words_cb.setAlpha(0.5f);
-           filter_new_words_cb.setAlpha(0.5f);
+        if (!enabled) {
+            filter_all_vocabulary_cb.setEnabled(false);
+            filter_vocabulary_to_revise_cb.setEnabled(false);
+            filter_all_vocabulary_cb.setAlpha(0.5f);
+            filter_vocabulary_to_revise_cb.setAlpha(0.5f);
         }
         checkBoxHashSet = new HashSet<>();
         checkBoxHashSet.add(filter_level_A1_cb);
@@ -240,17 +267,31 @@ public class LearnFragment extends Fragment{
         filterButtonsHandle();
     }
 
+    public void deleteUserKnownVocabRequest(String vocabulary) {
+        String URL = "https://sanguage.herokuapp.com/user/deleteKnownVocab?userID=" + userID + "&vocabulary=" + vocabulary;
+        JsonObjectRequest jsonObjectRequest = new JsonObjectRequest(Request.Method.DELETE, URL, null, new Response.Listener<JSONObject>() {
+            @Override
+            public void onResponse(JSONObject response) {
+                ;
+            }
+        }, new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError error) {
+                Log.e("deleteUserKnownVocabRequest - onErrorResponse()", String.valueOf(error));
+            }
+        });
+        requestQueue.add(jsonObjectRequest);
+    }
+
     public void mapFilterToURL() {
         currentURL = "";
-        boolean knownWordsChecked = filter_known_words_cb.isChecked();
-        boolean newWordsChecked = filter_new_words_cb.isChecked();
+        boolean allVocab = filter_all_vocabulary_cb.isChecked();
+        boolean VocabToRevise = filter_vocabulary_to_revise_cb.isChecked();
         FilterState state;
-        if ((knownWordsChecked && newWordsChecked) || (!knownWordsChecked && !newWordsChecked)) {
+        if (allVocab) {
             state = FilterState.MIXED;
-        } else if (knownWordsChecked) {
-            state = FilterState.KNOWN;
         } else {
-            state = FilterState.NEW;
+            state = FilterState.KNOWN;
         }
         ArrayList<String> checkedLevels = new ArrayList<>();
         for (CheckBox checkBox : checkBoxHashSet) {
@@ -273,10 +314,8 @@ public class LearnFragment extends Fragment{
         int hashSetSize = checkedLevels.size();
         if (state.equals(FilterState.KNOWN)) {
             currentURL = "https://sanguage.herokuapp.com/dictionary/knownByLanguage";
-        } else if (state.equals(FilterState.MIXED)) {
-            currentURL = "https://sanguage.herokuapp.com/dictionary/mixedByLanguage";
         } else {
-            currentURL = "https://sanguage.herokuapp.com/dictionary/newByLanguage";
+            currentURL = "https://sanguage.herokuapp.com/dictionary/mixedByLanguage";
         }
         if (hashSetSize == 1) {
             String level = checkedLevels.get(0);

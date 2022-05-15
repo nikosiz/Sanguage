@@ -238,11 +238,14 @@ public class SearchFragment extends Fragment {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
                 String vocabulary = searchResults.get(i);
+                if (!dictionaryListSimple.isEmpty() && dictionaryListSimple.get(0).getVocabularyTranslated().equals(vocabulary)) {
+                    return;
+                }
                 dictionaryListSimple.clear();
                 flashcardAdapter.notifyDataSetChanged();
                 searchGivenVocabularyRequest(vocabulary);
                 toggleFlashcard(true);
-                InputMethodManager imm  = (InputMethodManager) getActivity().getSystemService(Context.INPUT_METHOD_SERVICE);
+                InputMethodManager imm = (InputMethodManager) getActivity().getSystemService(Context.INPUT_METHOD_SERVICE);
                 imm.hideSoftInputFromWindow(search_search_et.getWindowToken(), 0);
             }
         });

@@ -1,18 +1,10 @@
 package com.example.sanguage;
 
-import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
-
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import androidx.appcompat.app.AppCompatDelegate;
-import androidx.fragment.app.Fragment;
-
 import android.preference.PreferenceManager;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -20,6 +12,10 @@ import android.widget.Button;
 import android.widget.CompoundButton;
 import android.widget.Switch;
 import android.widget.Toast;
+
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatDelegate;
+import androidx.fragment.app.Fragment;
 
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
@@ -170,23 +166,20 @@ public class ProfileFragment extends Fragment {
         SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(context);
         SharedPreferences.Editor editor = preferences.edit();
         boolean darkMode = preferences.getBoolean("darkMode", false);
-        if(darkMode){
-            profile_dark_mode_s.setChecked(true);
-        }else{
-            profile_dark_mode_s.setChecked(false);
-        }
+        profile_dark_mode_s.setChecked(darkMode);
         profile_dark_mode_s.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
-                if (compoundButton.isChecked()) {
+                if (b) {
+                    compoundButton.setChecked(false);
                     AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES);
                     editor.putBoolean("darkMode", true);
-                    editor.apply();
                 } else {
+                    compoundButton.setChecked(true);
                     AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO);
                     editor.putBoolean("darkMode", false);
-                    editor.apply();
                 }
+                editor.apply();
                 ((AppWindowAccount) getActivity()).getNav_bar().setItemSelected(R.id.bottom_nav_learn, true);
             }
         });
@@ -201,7 +194,7 @@ public class ProfileFragment extends Fragment {
         profile_change_password_et = view.findViewById(R.id.profile_change_password_et);
         profile_change_username_et = view.findViewById(R.id.profile_change_username_et);
         profile_save_btn = view.findViewById(R.id.profile_save_btn);
-        profile_dark_mode_s = view.findViewById(R.id.create_account_dark_mode_s);
+        profile_dark_mode_s = view.findViewById(R.id.profile_dark_mode_s);
         profile_log_out_btn = view.findViewById(R.id.profile_log_out_btn);
         profile_current_password_et = view.findViewById(R.id.profile_current_password_et);
 

@@ -237,6 +237,11 @@ public class SearchFragment extends Fragment {
         search_search_lv.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+                String vocabulary = searchResults.get(i);
+                dictionaryListSimple.clear();
+                flashcardAdapter.notifyDataSetChanged();
+                searchGivenVocabularyRequest(vocabulary);
+                toggleFlashcard(true);
                 InputMethodManager imm  = (InputMethodManager) getActivity().getSystemService(Context.INPUT_METHOD_SERVICE);
                 imm.hideSoftInputFromWindow(search_search_et.getWindowToken(), 0);
             }
@@ -261,10 +266,6 @@ public class SearchFragment extends Fragment {
         dictionaryListSimple.clear();
         flashcardAdapter.notifyDataSetChanged();
         switch (item.getItemId()) {
-            case R.id.context_search_show_more:
-                searchGivenVocabularyRequest(vocabulary);
-                toggleFlashcard(true);
-                return true;
             case R.id.context_search_add:
                 Toast.makeText(getContext(), "added", Toast.LENGTH_SHORT).show();
                 addKnownVocabulary(vocabulary);

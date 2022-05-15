@@ -29,8 +29,6 @@ public class WaitingForConfirmationActivity extends AppCompatActivity {
     private Long userID;
     private boolean enabled;
 
-
-
     public void getUserEnabledRequest() {
         String URL = "https://sanguage.herokuapp.com/user/getUserEnabled?userID=" + userID;
         JsonObjectRequest jsonObjectRequest = new JsonObjectRequest(Request.Method.GET, URL, null, new Response.Listener<JSONObject>() {
@@ -46,7 +44,6 @@ public class WaitingForConfirmationActivity extends AppCompatActivity {
         }, new Response.ErrorListener() {
             @Override
             public void onErrorResponse(VolleyError error) {
-                Toast.makeText(getApplicationContext(), "Check your internet connection", Toast.LENGTH_SHORT).show();
             }
         });
         requestQueue.add(jsonObjectRequest);

@@ -60,10 +60,12 @@ public class CreateAccountFragment extends Fragment {
         create_account_dark_mode_s.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
-                if (compoundButton.isChecked()) {
+                if (b) {
+                    compoundButton.setChecked(false);
                     AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES);
                     editor.putBoolean("darkMode", true);
                 } else {
+                    compoundButton.setChecked(true);
                     AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO);
                     editor.putBoolean("darkMode", false);
                 }

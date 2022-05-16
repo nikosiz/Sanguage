@@ -125,7 +125,7 @@ public class AddNewFragment<adapter> extends Fragment {
                 return "przysłówek";
 
             case "conjunction":
-                return "przysłówek";
+                return "spójnik";
 
             case "determiner":
                 return "określnik";

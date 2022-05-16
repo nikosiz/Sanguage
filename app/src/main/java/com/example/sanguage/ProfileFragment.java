@@ -11,6 +11,7 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.CompoundButton;
 import android.widget.Switch;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
@@ -42,6 +43,8 @@ public class ProfileFragment extends Fragment {
     private Long userID;
     private RequestQueue requestQueue;
     private Switch profile_dark_mode_s;
+    private TextView profile_username_tv;
+    private TextView profile_amount_nr_tv;
 
     public enum RequestOption {USERNAME, PASSWORD, BOTH}
 
@@ -89,6 +92,22 @@ public class ProfileFragment extends Fragment {
         });
     }
 
+    public void dbSizeRequest() {
+        String URL = "https://sanguage.herokuapp.com/user/getUserKnownVocabSize?userID=" + userID;
+        JsonObjectRequest jsonObjectRequest = new JsonObjectRequest(Request.Method.POST, URL, null, new Response.Listener<JSONObject>() {
+            @Override
+            public void onResponse(JSONObject response) {
+                profile_amount_nr_tv.setText(response.toString());
+            }
+        }, new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError error) {
+                ;
+            }
+        });
+        requestQueue.add(jsonObjectRequest);
+    }
+
     public void saveButtonHandler() {
         profile_save_btn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -133,11 +152,10 @@ public class ProfileFragment extends Fragment {
     public void changeDataRequest(String data, String currentPassword, RequestOption option) {
         String changeDataURL = "";
         if (option.equals(RequestOption.PASSWORD) || option.equals(RequestOption.BOTH)) {
-            changeDataURL = "https://sanguage.herokuapp.com/user/passChange?userID=" + userID + "&oldPassword=" + data+ "&password="+ currentPassword;
+            changeDataURL = "https://sanguage.herokuapp.com/user/passChange?userID=" + userID + "&oldPassword=" + data + "&password=" + currentPassword;
         } else if (option.equals(RequestOption.USERNAME)) {
-            changeDataURL = "https://sanguage.herokuapp.com/user/usernameChange?userID=" + userID + "&newUsername=" + data+ "&password="+ currentPassword;
+            changeDataURL = "https://sanguage.herokuapp.com/user/usernameChange?userID=" + userID + "&newUsername=" + data + "&password=" + currentPassword;
         }
-        System.out.println(changeDataURL);
         JsonObjectRequest jsonObjectRequest = new JsonObjectRequest(Request.Method.POST, changeDataURL, null, new Response.Listener<JSONObject>() {
             @Override
             public void onResponse(JSONObject response) {
@@ -197,7 +215,13 @@ public class ProfileFragment extends Fragment {
         profile_dark_mode_s = view.findViewById(R.id.profile_dark_mode_s);
         profile_log_out_btn = view.findViewById(R.id.profile_log_out_btn);
         profile_current_password_et = view.findViewById(R.id.profile_current_password_et);
+        profile_username_tv = view.findViewById(R.id.profile_username_tv);
+        profile_amount_nr_tv = view.findViewById(R.id.profile_amount_nr_tv);
+        SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(context);
+        String username = preferences.getString("username", "username");
+        profile_username_tv.setText(username);
 
+        dbSizeRequest();
         darkModeHandler();
         saveButtonHandler();
         logOutButtonHandler();

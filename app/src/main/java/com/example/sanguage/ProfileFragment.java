@@ -94,15 +94,20 @@ public class ProfileFragment extends Fragment {
 
     public void dbSizeRequest() {
         String URL = "https://sanguage.herokuapp.com/user/getUserKnownVocabSize?userID=" + userID;
-        JsonObjectRequest jsonObjectRequest = new JsonObjectRequest(Request.Method.POST, URL, null, new Response.Listener<JSONObject>() {
+        JsonObjectRequest jsonObjectRequest = new JsonObjectRequest(Request.Method.GET, URL, null, new Response.Listener<JSONObject>() {
             @Override
             public void onResponse(JSONObject response) {
-                profile_amount_nr_tv.setText(response.toString());
+                try {
+                    String size = response.getString("messages");
+                    profile_amount_nr_tv.setText(size);
+                } catch (JSONException jsonException) {
+                    jsonException.printStackTrace();
+                }
             }
         }, new Response.ErrorListener() {
             @Override
             public void onErrorResponse(VolleyError error) {
-                ;
+                System.out.println(error);
             }
         });
         requestQueue.add(jsonObjectRequest);

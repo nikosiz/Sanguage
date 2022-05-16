@@ -101,13 +101,13 @@ public class SignUpActivity extends AppCompatActivity {
         sign_up_sign_up_btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                disableAllActions();
                 String username = sign_up_username_et.getText().toString();
                 String email = sign_up_email_et.getText().toString();
                 String password = sign_up_password_et.getText().toString();
                 int languageIndex = sign_up_language_rg.getCheckedRadioButtonId();
                 boolean validateAllData = validateAllData(username, email, password, languageIndex);
                 if (validateAllData) {
-                    disableAllActions();
                     showProgressBar();
                     signUpRequest(username, email, password, mapLanguageIndexToName(languageIndex), new VolleyRequestCallback() {
                         @Override
@@ -118,6 +118,8 @@ public class SignUpActivity extends AppCompatActivity {
                             finish();
                         }
                     });
+                }else{
+                    enableAllActions();
                 }
             }
         });

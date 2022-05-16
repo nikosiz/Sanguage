@@ -37,7 +37,7 @@ public class FlashcardAdapter extends ArrayAdapter<DictionaryPojo> {
         TextView gramCategory_tv = (TextView) view.findViewById(R.id.search_grammaticalCategory_tv);
         if (translated) {
             translated=false;
-            vocabulary_tv.setText(dictionaryPojo.getVocabulary());
+            vocabulary_tv.setText(dictionaryPojo.getVocabulary().replaceAll(";"," "));
             collocations_tv.setText(dictionaryPojo.getCollocations());
             definition_jtv.setText("");
             gramCategory_tv.setText(dictionaryPojo.getGrammaticalCategory());

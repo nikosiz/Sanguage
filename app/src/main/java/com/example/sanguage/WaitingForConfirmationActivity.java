@@ -25,6 +25,7 @@ import org.json.JSONObject;
 public class WaitingForConfirmationActivity extends AppCompatActivity {
 
     private Button openEmailApp;
+    private Button waiting_email_confirmed_btn;
     private RequestQueue requestQueue;
     private Long userID;
     private boolean enabled;
@@ -63,6 +64,8 @@ public class WaitingForConfirmationActivity extends AppCompatActivity {
         setContentView(R.layout.activity_waiting_for_confirmation);
 
         openEmailApp = findViewById(R.id.waiting_open_email_btn);
+        waiting_email_confirmed_btn=findViewById(R.id.waiting_email_confirmed_btn);
+
         requestQueue = Volley.newRequestQueue(WaitingForConfirmationActivity.this);
         SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(getApplicationContext());
         userID = preferences.getLong("userID", 9999999999999L);
@@ -75,6 +78,14 @@ public class WaitingForConfirmationActivity extends AppCompatActivity {
                 intent.addCategory(Intent.CATEGORY_APP_EMAIL);
                 startActivity(intent);
                 finish();
+            }
+        });
+        waiting_email_confirmed_btn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(getApplicationContext(), LogInActivity.class);
+                intent.putExtra("afterSignup",true);
+                startActivity(intent);
             }
         });
     }

@@ -177,10 +177,11 @@ public class LearnFragment extends Fragment{
                 filterDialog();
             }
         });
-
+        SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(context);
+        currentURL = preferences.getString("currentURL", "https://sanguage.herokuapp.com/dictionary/mixedByLanguage?language=English");
+        System.out.println(currentURL);
         requestQueue = Volley.newRequestQueue(context);
         flingContainer = (SwipeFlingAdapterView) view.findViewById(R.id.learn_frame_flashcard);
-        currentURL = "https://sanguage.herokuapp.com/dictionary/mixedByLanguage?language=English";
         flashcardAdapter = new FlashcardAdapter(context, R.layout.flashcard, dictionaryListSimple);
         flingContainer.setAdapter(flashcardAdapter);
         setFlingContainer();
@@ -286,7 +287,6 @@ public class LearnFragment extends Fragment{
     public void mapFilterToURL() {
         currentURL = "";
         boolean allVocab = filter_all_vocabulary_cb.isChecked();
-        boolean VocabToRevise = filter_vocabulary_to_revise_cb.isChecked();
         FilterState state;
         if (allVocab) {
             state = FilterState.MIXED;
@@ -308,6 +308,10 @@ public class LearnFragment extends Fragment{
         } else {
             mapStateLevelsToURL(checkedLevels, state);
         }
+        SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(context);
+        SharedPreferences.Editor editor = preferences.edit();
+        editor.putString("currentURL", currentURL);
+        editor.apply();
     }
 
     public void mapStateLevelsToURL(ArrayList<String> checkedLevels, FilterState state) {

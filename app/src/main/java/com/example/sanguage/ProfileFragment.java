@@ -154,19 +154,59 @@ public class ProfileFragment extends Fragment {
         });
     }
 
-    public void changeDataRequest(String data, String currentPassword, RequestOption option) {
+    public JSONObject createPassChangeJSON(String oldPassword, String newPassword) throws JSONException {
+        JSONObject jsonObject = new JSONObject();
+        jsonObject.put("userID", userID);
+        jsonObject.put("oldPassword", oldPassword);
+        jsonObject.put("newPassword", newPassword);
+        return jsonObject;
+    }
+
+    public JSONObject createUsernameChangeJSON(String newUsername, String currentPassword) throws JSONException {
+        JSONObject jsonObject = new JSONObject();
+        jsonObject.put("userID", userID);
+        jsonObject.put("newUsername", newUsername);
+        jsonObject.put("currentPassword", currentPassword);
+        return jsonObject;
+    }
+
+
+        public void changeDataRequest(String data, String currentPassword, RequestOption option) {
         String changeDataURL = "";
+        JSONObject jsonObject = null;
         if (option.equals(RequestOption.PASSWORD) || option.equals(RequestOption.BOTH)) {
-            changeDataURL = "https://sanguage.herokuapp.com/user/passChange?userID=" + userID + "&oldPassword=" + data + "&password=" + currentPassword;
+            changeDataURL=  "https://sanguage.herokuapp.com/user/passChange";
+            try {
+                jsonObject = createPassChangeJSON(currentPassword, data);
+            } catch (JSONException jsonException) {
+                jsonException.printStackTrace();
+            }
         } else if (option.equals(RequestOption.USERNAME)) {
-            changeDataURL = "https://sanguage.herokuapp.com/user/usernameChange?userID=" + userID + "&newUsername=" + data + "&password=" + currentPassword;
+            changeDataURL=  "https://sanguage.herokuapp.com/user/usernameChange";
+            try {
+                jsonObject = createUsernameChangeJSON(data, currentPassword);
+            } catch (JSONException jsonException) {
+                jsonException.printStackTrace();
+            }
         }
-        JsonObjectRequest jsonObjectRequest = new JsonObjectRequest(Request.Method.POST, changeDataURL, null, new Response.Listener<JSONObject>() {
+        JsonObjectRequest jsonObjectRequest = new JsonObjectRequest(Request.Method.POST, changeDataURL, jsonObject, new Response.Listener<JSONObject>() {
             @Override
             public void onResponse(JSONObject response) {
-                Toast.makeText(context, response.toString(), Toast.LENGTH_SHORT).show();
+                try {
+                    String messages = response.getString("messages");
+                    Toast.makeText(context, messages, Toast.LENGTH_SHORT).show();
+                } catch (JSONException jsonException) {
+                    jsonException.printStackTrace();
+                }
+                if(option.equals(RequestOption.USERNAME)){
+                    profile_username_tv.setText(data);
+                    SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(context);
+                    SharedPreferences.Editor editor = preferences.edit();
+                    editor.putString("username",data);
+                    editor.apply();
+                }
                 if (option.equals(RequestOption.BOTH)) {
-                    changeDataRequest(profile_change_username_et.getText().toString(), currentPassword, RequestOption.USERNAME);
+                    changeDataRequest(profile_change_username_et.getText().toString(), data, RequestOption.USERNAME);
                 }
                 enableChangeDataActions();
             }

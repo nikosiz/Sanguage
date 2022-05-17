@@ -45,7 +45,7 @@ public class SignUpActivity extends AppCompatActivity {
     private HashSet<Integer> languages_buttons_ids;
     private RelativeLayout sign_up_progress_bar;
     private TranslateAnimation shakeError;
-
+    private RequestQueue queue;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -66,6 +66,7 @@ public class SignUpActivity extends AppCompatActivity {
         sign_up_sign_in_btn = findViewById(R.id.sign_up_sign_in_mtn);
         sign_up_progress_bar = findViewById(R.id.sign_up_progress_bar);
         shakeError = Utils.shakeError(5, 10, 0, 0, 500, 7);
+        queue=Volley.newRequestQueue(SignUpActivity.this);
         passwordFocusChanged();
         emailFocusChanged();
         handleRegisterBtn();
@@ -183,10 +184,10 @@ public class SignUpActivity extends AppCompatActivity {
     }
 
     public void signUpRequest(String username, String email, String password, String secondLanguage, final VolleyRequestCallback callback) {
+        System.out.println("signupREquest");
         String URL = "https://sanguage.herokuapp.com/registration";
         try {
             JSONObject signUpJSON = createSignUpJSON(username, email, password, secondLanguage);
-            RequestQueue queue = Volley.newRequestQueue(SignUpActivity.this);
             JsonObjectRequest jsonObjectRequest = new JsonObjectRequest(Request.Method.POST, URL, signUpJSON, new Response.Listener<JSONObject>() {
                 @Override
                 public void onResponse(JSONObject response) {

@@ -176,7 +176,7 @@ public class AddNewFragment<adapter> extends Fragment {
     }
 
     public void addNewRequest(JSONObject jsonObject, final VolleyRequestCallback callback) {
-        String URL = "https://sanguage.herokuapp.com/addWord";
+        String URL = "https://sanguage.herokuapp.com/addWordToConfirm";
         RequestQueue queue = Volley.newRequestQueue(context);
         JsonObjectRequest jsonObjectRequest = new JsonObjectRequest(Request.Method.POST, URL, jsonObject, new Response.Listener<JSONObject>() {
             @Override

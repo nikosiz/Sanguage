@@ -37,7 +37,7 @@ public class FlashcardAdapter extends ArrayAdapter<DictionaryPojo> {
         TextView gramCategory_tv = (TextView) view.findViewById(R.id.search_grammaticalCategory_tv);
         if (translated) {
             translated=false;
-            vocabulary_tv.setText(dictionaryPojo.getVocabulary().replaceAll(";"," "));
+            vocabulary_tv.setText(dictionaryPojo.getVocabulary().replaceAll(";"," ").replaceAll(",","\n"));
             collocations_tv.setText(dictionaryPojo.getCollocations());
             definition_jtv.setText("");
             gramCategory_tv.setText(dictionaryPojo.getGrammaticalCategory());
@@ -46,7 +46,7 @@ public class FlashcardAdapter extends ArrayAdapter<DictionaryPojo> {
             vocabulary_tv.setText(dictionaryPojo.getVocabularyTranslated());
             gramCategory_tv.setText(dictionaryPojo.getGrammaticalCategoryTranslated());
             definition_jtv.setText(dictionaryPojo.getDefinitionTranslated());
-            collocations_tv.setText(dictionaryPojo.getCollocationsTranslated());
+            collocations_tv.setText(dictionaryPojo.getCollocationsTranslated().replaceAll(";", ""));
         }
     }
 
@@ -68,7 +68,7 @@ public class FlashcardAdapter extends ArrayAdapter<DictionaryPojo> {
             vocabulary_tv.setText(dictionaryPojo.getVocabularyTranslated());
             gramCategory_tv.setText(dictionaryPojo.getGrammaticalCategoryTranslated());
             definition_jtv.setText(dictionaryPojo.getDefinitionTranslated());
-            collocations_tv.setText(dictionaryPojo.getCollocationsTranslated());
+            collocations_tv.setText(dictionaryPojo.getCollocationsTranslated().replaceAll(";", ""));
             convertView.setTag(new Flashcard(mainLayout, cardView, flashcardLayout, vocabulary_tv, gramCategory_tv, definition_jtv, collocations_tv));
             return convertView;
         } else {

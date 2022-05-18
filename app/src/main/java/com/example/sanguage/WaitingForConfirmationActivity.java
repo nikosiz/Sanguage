@@ -3,12 +3,9 @@ package com.example.sanguage;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
-import android.os.Handler;
 import android.preference.PreferenceManager;
 import android.view.View;
 import android.widget.Button;
-import android.widget.RelativeLayout;
-import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -64,7 +61,7 @@ public class WaitingForConfirmationActivity extends AppCompatActivity {
         setContentView(R.layout.activity_waiting_for_confirmation);
 
         openEmailApp = findViewById(R.id.waiting_open_email_btn);
-        waiting_email_confirmed_btn=findViewById(R.id.waiting_email_confirmed_btn);
+        waiting_email_confirmed_btn = findViewById(R.id.waiting_email_confirmed_btn);
 
         requestQueue = Volley.newRequestQueue(WaitingForConfirmationActivity.this);
         SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(getApplicationContext());
@@ -77,6 +74,7 @@ public class WaitingForConfirmationActivity extends AppCompatActivity {
                 intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
                 intent.addCategory(Intent.CATEGORY_APP_EMAIL);
                 startActivity(intent);
+                overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
                 finish();
             }
         });
@@ -84,8 +82,10 @@ public class WaitingForConfirmationActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(getApplicationContext(), LogInActivity.class);
-                intent.putExtra("afterSignup",true);
+                intent.putExtra("afterSignup", true);
                 startActivity(intent);
+                overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
+                finish();
             }
         });
     }
@@ -97,7 +97,7 @@ public class WaitingForConfirmationActivity extends AppCompatActivity {
                 while (true) {
                     if (enabled) {
                         Intent intent = new Intent(getApplicationContext(), LogInActivity.class);
-                        intent.putExtra("afterSignup",true);
+                        intent.putExtra("afterSignup", true);
                         startActivity(intent);
                         break;
                     }
@@ -110,6 +110,12 @@ public class WaitingForConfirmationActivity extends AppCompatActivity {
                 }
             }
         }).start();
+    }
+
+    @Override
+    public void finish() {
+        super.finish();
+        overridePendingTransition(R.anim.slide_in_left, R.anim.slide_out_right);
     }
 
 }

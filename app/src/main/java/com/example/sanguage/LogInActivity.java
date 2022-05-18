@@ -63,8 +63,8 @@ public class LogInActivity extends AppCompatActivity {
         log_in_sign_up_btn = findViewById(R.id.log_in_sign_up_btn);
         log_in_progress_bar = findViewById(R.id.log_in_progress_bar);
         shakeError = Utils.shakeError(5, 15, 0, 0, 500, 7);
-        boolean afterSignup = getIntent().getBooleanExtra("afterSignup",false);
-        if(afterSignup){
+        boolean afterSignup = getIntent().getBooleanExtra("afterSignup", false);
+        if (afterSignup) {
             log_in_sign_up_btn.setVisibility(View.GONE);
         }
 
@@ -101,7 +101,11 @@ public class LogInActivity extends AppCompatActivity {
                 } else {
                     showProgressBar();
                     disableAllActions();
-                    logInRequest(username_email, password);
+                    try {
+                        logInRequest(username_email, password);
+                    } catch (JSONException jsonException) {
+                        jsonException.printStackTrace();
+                    }
                 }
             }
         });
@@ -128,10 +132,18 @@ public class LogInActivity extends AppCompatActivity {
 
     }
 
-    public void logInRequest(String username_email, String password) {
-        String URL = "https://sanguage.herokuapp.com/login?usernameEmail=" + username_email + "&password=" + password;
+    public JSONObject createLoginJSON(String usernameOrEmail, String password) throws JSONException {
+        JSONObject jsonObject = new JSONObject();
+        jsonObject.put("usernameOrEmail", usernameOrEmail);
+        jsonObject.put("password", password);
+        return jsonObject;
+    }
+
+    public void logInRequest(String username_email, String password) throws JSONException {
+        String URL = "https://sanguage.herokuapp.com/login";
+        JSONObject loginJSON = createLoginJSON(username_email, password);
         RequestQueue queue = Volley.newRequestQueue(LogInActivity.this);
-        JsonObjectRequest jsonObjectRequest = new JsonObjectRequest(Request.Method.POST, URL, null, new Response.Listener<JSONObject>() {
+        JsonObjectRequest jsonObjectRequest = new JsonObjectRequest(Request.Method.POST, URL, loginJSON, new Response.Listener<JSONObject>() {
             @Override
             public void onResponse(JSONObject response) {
                 Intent intent = new Intent(getApplicationContext(), AppWindowAccount.class);

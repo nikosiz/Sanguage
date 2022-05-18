@@ -184,7 +184,6 @@ public class SignUpActivity extends AppCompatActivity {
     }
 
     public void signUpRequest(String username, String email, String password, String secondLanguage, final VolleyRequestCallback callback) {
-        System.out.println("signupREquest");
         String URL = "https://sanguage.herokuapp.com/registration";
         try {
             JSONObject signUpJSON = createSignUpJSON(username, email, password, secondLanguage);

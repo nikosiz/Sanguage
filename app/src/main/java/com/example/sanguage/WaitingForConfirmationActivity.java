@@ -103,7 +103,7 @@ public class WaitingForConfirmationActivity extends AppCompatActivity {
                     }
                     getUserEnabledRequest();
                     try {
-                        Thread.sleep(2000);
+                        Thread.sleep(5000);
                     } catch (InterruptedException e) {
                         e.printStackTrace();
                     }

@@ -1,7 +1,6 @@
 package com.example.sanguage;
 
 import android.content.Context;
-import android.hardware.SensorManager;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
